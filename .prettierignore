@@ -1,0 +1,7 @@
+**/node_modules/*
+mobile/android/*
+mobile/ios/*
+!**.*json
+**/dist/
+**/.next/
+ci/k8s/*/templates/*.yaml
