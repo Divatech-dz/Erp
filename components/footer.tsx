@@ -17,7 +17,7 @@ const Footer = ({  type = 'desktop' }: FooterProps) => {
           Name
         </h1>
         <p className="text-14 truncate font-normal text-gray-600">
-          name@gmail.com
+          <span className='text-success-700'>Role</span> name
         </p>
       </div>
 

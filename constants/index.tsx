@@ -25,3 +25,62 @@ export const sidebarLinks = [
     SignIn = 'sign-in',
     SignUp = 'sign-up',
   }
+
+  export const infoCard=[
+    {
+      name:'CPU',
+      total:23455,
+    },
+    {
+      name:'MB',
+      total:23455,
+    },
+    {
+      name:'CPUC',
+      total:23455,
+    },
+    {
+      name:'SSD',
+      total:23455,
+    },
+    {
+      name:'PSU',
+      total:23455,
+    },
+    {
+      name:'PSU',
+      total:23455,
+    },
+    {
+      name:'GPU',
+      total:23455,
+    },
+    {
+      name:'CASE',
+      total:23455,
+    },
+    {
+      name:'CASEF',
+      total:23455,
+    },
+    {
+      name:'CASEF',
+      total:23455,
+    },
+    {
+      name:'Monitor',
+      total:23455,
+    },
+    {
+      name:'clavier',
+      total:23455,
+    },
+
+
+  ]
+  export enum QuantityLabels {
+    Sold = 'Quantity Sold',
+    ForSale = 'Quantity For Sale',
+    Available = 'Quantity Available'
+  }
+  

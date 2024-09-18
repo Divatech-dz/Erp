@@ -168,8 +168,31 @@
   .right-sidebar {
     @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll !important;
   }
+  .profile {
+    @apply relative flex px-6 max-xl:justify-center;
+  }
+  .profile-banner {
+    @apply h-[120px] w-full bg-gradient-mesh bg-cover bg-no-repeat;
+  }
+  .profile-img {
+    @apply flex-center absolute -top-8 size-24 rounded-full bg-gray-100 border-8 border-white p-2 shadow-profile;
+  }
 
-  
+  .profile-details {
+    @apply flex flex-col pt-24;
+  }
+
+  .profile-name {
+    @apply text-24 font-semibold text-gray-900;
+  }
+
+  .profile-role {
+    @apply text-16 font-normal flex items-center gap-1 text-gray-600 ;
+  }
+
+  .switch-side-bar{
+    @apply data-[state=checked]:bg-erp-green-gradient data-[state=unchecked]:bg-gray-300
+  }
 
 
 
@@ -178,8 +201,13 @@
     @apply flex h-16 items-center justify-between p-5 shadow-creditCard sm:p-8 md:hidden;
   }
 
-  
-
+   /* Stock Card */
+   .stock-card {
+    @apply relative flex flex-col h-[250px] w-full max-w-[500px] justify-between items-center rounded-[20px] border border-white  shadow-creditCard backdrop-blur-[6px];
+  }
+  .stock-card_content {
+    @apply relative z-10  grid grid-rows-2 grid-cols-4  size-full max-w-[300px]   rounded-[20px] bg-gray-700  px-5 pb-4 pt-5 gap-2;
+  }
 
 
 
