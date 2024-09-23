@@ -145,8 +145,11 @@ export const authFormSchema = (type: string) =>
     postalCode:
       type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
     dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3),
 
-    email: z.string().email(),
+
+    email: z.string({
+      required_error: "Name is required",
+      invalid_type_error: "Name must be a string",
+    }).email(),
     password: z.string().min(8),
   });

@@ -8,7 +8,7 @@ import { authFormSchema } from '@/lib/utils'
 import { AuthType } from '@/constants'
 
 
-const formSchema = authFormSchema(AuthType.SignUp)
+const formSchema = authFormSchema(AuthType.SignIn)
 
 interface CustomInput {
   control: Control<z.infer<typeof  formSchema>>,

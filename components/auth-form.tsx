@@ -14,10 +14,12 @@ import { authFormSchema } from '@/lib/utils';
 import CustomInput from './custom-input';
 import { Button } from './ui/button';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const AuthForm = ({ type }: { type: string }) => {
   const [isLoading, setIsLoading] = useState(false);
   const formSchema = authFormSchema(type);
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -25,9 +27,11 @@ const AuthForm = ({ type }: { type: string }) => {
       password: '',
     },
   });
+  
 
   const onSubmit = () => {
-    setIsLoading(false);
+    setIsLoading(true);
+    router.push('/')
   };
   return (
     <section className="auth-form">
