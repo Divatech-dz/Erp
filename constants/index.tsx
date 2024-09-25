@@ -6,19 +6,65 @@ export const sidebarLinks = [
     },
     {
       imgURL: '/icons/dollar-circle.svg',
-      route: '/my-banks',
-      label: 'My Accounts',
+      route: '/Enterprise',
+      label: 'Enterprise',
+    },
+    {
+      imgURL: '/icons/transaction.svg',
+      route: '/Products',
+      label: 'Products',
+    },
+    {
+      imgURL: '/icons/money-send.svg',
+      route: '/Tiers',
+      label: 'Tiers',
+    },
+    {
+      imgURL: '/icons/home.svg',
+      route: '/Comptoire',
+      label: 'Comptoire',
+    },
+    {
+      imgURL: '/icons/dollar-circle.svg',
+      route: '/Achats',
+      label: 'Achats',
+    },
+    {
+      imgURL: '/icons/transaction.svg',
+      route: '/Vente',
+      label: 'Vente',
+    },
+    {
+      imgURL: '/icons/money-send.svg',
+      route: '/Logistiques',
+      label: 'Logistiques',
+    },
+    {
+      imgURL: '/icons/transaction.svg',
+      route: '/Reglement',
+      label: 'Reglement',
+    },
+    {
+      imgURL: '/icons/money-send.svg',
+      route: '/Target',
+      label: 'Target',
+    },
+    {
+      imgURL: '/icons/money-send.svg',
+      route: '/Statistics',
+      label: 'Statistics',
     },
     {
       imgURL: '/icons/transaction.svg',
       route: '/transaction-history',
-      label: 'Transaction History',
+      label: 'Administration',
     },
     {
       imgURL: '/icons/money-send.svg',
-      route: '/payment-transfer',
-      label: 'Transfer Funds',
+      route: '/Archives',
+      label: 'Archives',
     },
+    
   ];
 
   export enum AuthType {
