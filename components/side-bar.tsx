@@ -13,7 +13,7 @@ const SideBar = () => {
    
     return (
         <section className='sidebar'>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
                 <Link href={'/'} className="cursor-pointer mb-12 items-center gap-2 flex">
                     <Image
                         src={'/icons/logo.svg'}
