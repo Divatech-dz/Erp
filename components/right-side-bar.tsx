@@ -5,7 +5,7 @@ import SwitchInfo from './switch-info';
 import { useState } from 'react';
 import { QuantityLabels } from '@/constants';
 
-const RightSideBar = () => {
+export default function RightSideBar() {
   const [checked, setChecked] = useState(false);
   const switchState = () => setChecked(!checked);
   return (
@@ -20,9 +20,7 @@ const RightSideBar = () => {
           <div className="profile-details">
             <h1 className="profile-name">Ahlem Merabtene</h1>
             <div className="profile-role">
-              <span className="text-success-600 font-semibold text-[12px] mr-1">
-                Role:
-              </span>
+              <span className="text-success-600 font-semibold mr-1">Role:</span>
               <span>Commercial</span>
 
               <Image
@@ -40,12 +38,11 @@ const RightSideBar = () => {
           <StockInfoCard
             secondCard={true}
             title={checked ? QuantityLabels.Available : QuantityLabels.ForSale}
+            color={checked ? 'bg-erp-green-gradient' : 'bg-[#8232DF]'}
           />
           <SwitchInfo checked={checked} switchState={switchState} />
         </div>
       </section>
     </aside>
   );
-};
-
-export default RightSideBar;
+}

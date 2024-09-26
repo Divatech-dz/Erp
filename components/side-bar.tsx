@@ -24,15 +24,10 @@ export default function SideBar() {
     <section className="sidebar">
       <nav className="flex flex-col gap-4">
         <Link href={'/'} className="cursor-pointer items-center gap-2 flex">
-          <Image
-            src={'/icons/logo.svg'}
-            alt={'logo'}
-            height={34}
-            width={34}
-            className="size-[24px] lg:size-14"
-          />
+          <Image src={'/icons/logo.svg'} alt={'logo'} height={25} width={25} />
           <h1 className="sidebar-logo">DIVATECH</h1>
         </Link>
+
         {sidebarLinks.map(({ imgURL, label, route }) => {
           const isActive = activeItem === label;
           return (
