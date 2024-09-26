@@ -1,5 +1,35 @@
 export const sidebarLinks = [
   {
+    imgURL: '/icons/company.svg',
+    route: [
+      {
+        name: 'Divatech',
+        link: '/divatech',
+      },
+      {
+        name: 'Mag54',
+        link: '/mag54',
+      },
+      {
+        name: 'Local 1095',
+        link: '/local1095',
+      },
+      {
+        name: 'Local 958',
+        link: '/local958',
+      },
+      {
+        name: 'Entrepôt Reghaia',
+        link: '/entrepotReghaia',
+      },
+      {
+        name: 'Gaming zone - Park mall',
+        link: '/gammingZoneParkMall',
+      },
+    ],
+    label: 'Divatech',
+  },
+  {
     imgURL: '/icons/overview.svg',
     route: [
       {
@@ -47,7 +77,7 @@ export const sidebarLinks = [
         link: '/permissions',
       },
     ],
-    label: 'Divatech',
+    label: 'Entreprise',
   },
   {
     imgURL: '/icons/products.svg',

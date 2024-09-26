@@ -31,7 +31,7 @@ export default function SideBar() {
             width={34}
             className="size-[24px] lg:size-14"
           />
-          <h1 className="sidebar-logo">DivaTech</h1>
+          <h1 className="sidebar-logo">DIVATECH</h1>
         </Link>
         {sidebarLinks.map(({ imgURL, label, route }) => {
           const isActive = activeItem === label;
