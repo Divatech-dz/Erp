@@ -30,7 +30,7 @@ const SideBar = () => {
                         <Link
                             href={route}
                             key={label}
-                            className={cn('sidebar-link', { 'bg-erp-gradient': isActive })}
+                            className={cn('sidebar-link ', { 'bg-erp-gradient': isActive })}
                         >
                             <div className="size-6 relative">
                                 <Image
