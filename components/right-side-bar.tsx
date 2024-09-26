@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import Image from 'next/image';
 import StockInfoCard from './stock-info-card';
 import SwitchInfo from './switch-info';
@@ -6,8 +6,8 @@ import { useState } from 'react';
 import { QuantityLabels } from '@/constants';
 
 const RightSideBar = () => {
-  const [checked, setChecked] = useState(false)
-    const switchState=()=>setChecked(!checked)
+  const [checked, setChecked] = useState(false);
+  const switchState = () => setChecked(!checked);
   return (
     <aside className="right-sidebar">
       <section className="flex flex-col pb-8">
@@ -35,10 +35,13 @@ const RightSideBar = () => {
             </div>
           </div>
         </div>
-        <div className="relative flex flex-1 flex-col items-center justify-center gap-5 mt-3">
-          <StockInfoCard title={QuantityLabels.Sold}/>
-          <StockInfoCard secondCard={true} title={checked?QuantityLabels.Available:QuantityLabels.ForSale} />
-          <SwitchInfo checked={checked} switchState={switchState}/>
+        <div className="relative flex flex-col items-center justify-center gap-5 mt-3">
+          <StockInfoCard title={QuantityLabels.Sold} />
+          <StockInfoCard
+            secondCard={true}
+            title={checked ? QuantityLabels.Available : QuantityLabels.ForSale}
+          />
+          <SwitchInfo checked={checked} switchState={switchState} />
         </div>
       </section>
     </aside>
