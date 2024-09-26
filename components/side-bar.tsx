@@ -15,14 +15,13 @@ import {
 
 export default function SideBar() {
   const [activeItem, setActiveItem] = useState<string | null>(null);
-
   const handleAccordionClick = (label: string) => {
     setActiveItem(prev => (prev === label ? null : label));
   };
 
   return (
     <section className="sidebar">
-      <nav className="flex flex-col gap-4">
+      <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
         <Link href={'/'} className="cursor-pointer items-center gap-2 flex">
           <Image
             src={'/icons/logo.svg'}
