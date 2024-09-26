@@ -10,24 +10,24 @@ export const sidebarLinks = [
         link: '/divatech',
       },
       {
-        name: 'Mag54',
-        link: '/mag54',
+        name: 'GZ - Mohammadia mall',
+        link: '/gamingZoneMohammadiaMall',
       },
       {
-        name: 'Local 1095',
-        link: '/local1095',
-      },
-      {
-        name: 'Local 958',
-        link: '/local958',
+        name: 'GZ - Park mall',
+        link: '/gammingZoneParkMall',
       },
       {
         name: 'Entrepôt Reghaia',
         link: '/entrepotReghaia',
       },
       {
-        name: 'Gaming zone - Park mall',
-        link: '/gammingZoneParkMall',
+        name: 'Mag 54',
+        link: '/mag54',
+      },
+      {
+        name: 'Mag 54 - Entrepôt',
+        link: '/mag54Entrepot',
       },
     ],
     label: 'Divatech',
