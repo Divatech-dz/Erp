@@ -3,7 +3,6 @@ import { LucideIcon } from "lucide-react";
 declare interface FooterProps {
   type?: 'mobile' | 'desktop';
 }
-
 declare interface HeaderBoxProps {
   type?: 'title' | 'greeting';
   title: string;
@@ -22,3 +21,4 @@ export type SalesProps = {
   email: string
   salesAmount: string
 }
+

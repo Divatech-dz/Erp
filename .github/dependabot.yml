@@ -1,19 +1,17 @@
-
-
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-      - dependency-name: "@react-native/metro-config"
-        versions: ["0.73.0"]
+      - dependency-name: '*'
+        update-types: ['version-update:semver-patch']
+      - dependency-name: '@react-native/metro-config'
+        versions: ['0.73.0']
     labels:
-      - "bot"
+      - 'bot'
     groups:
       weekly-updates:
         patterns:
-          - "*"
+          - '*'

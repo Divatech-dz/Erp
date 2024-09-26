@@ -7,7 +7,6 @@ import { cardData, userSalesData } from '@/constants';
 import React from 'react';
 
 async function Home() {
-
   return (
     <section className="home">
       <div className="home-content">

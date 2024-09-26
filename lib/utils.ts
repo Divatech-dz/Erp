@@ -103,11 +103,6 @@ export function formUrlQuery({ params, key, value }: UrlQueryParams) {
   );
 }
 
-
-
-
-
-
 export function extractCustomerIdFromUrl(url: string) {
   // Split the URL string by '/'
   const parts = url.split('/');
@@ -145,11 +140,13 @@ export const authFormSchema = (type: string) =>
     postalCode:
       type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
     dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-
-
-    email: z.string({
-      required_error: "Name is required",
-      invalid_type_error: "Name must be a string",
-    }).email(),
+    group: type === 'sign-in' ? z.string().optional() : z.string().min(3),
+    username: z.string().min(3),
+    email: z
+      .string({
+        required_error: 'email is required',
+        invalid_type_error: 'email must be a string',
+      })
+      .email(),
     password: z.string().min(8),
   });
