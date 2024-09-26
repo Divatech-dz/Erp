@@ -1,79 +1,100 @@
-'use client'
+'use client';
 
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { sidebarLinks } from "@/constants"
-import { cn } from "@/lib/utils"
-import Image from "next/image"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import Footer from "./footer"
+} from '@/components/ui/sheet';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { sidebarLinks } from '@/constants';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import Footer from './footer';
 
-const MobileNav = () => {
-    const pathname = usePathname();
-    return (
-        <section className="w-full max-w-[264px]">
-        <Sheet>
-          <SheetTrigger>
+export default function MobileNav() {
+  const [activeItem, setActiveItem] = useState<string | null>(null);
+
+  const handleAccordionClick = (label: string) => {
+    setActiveItem(prev => (prev === label ? null : label));
+  };
+  return (
+    <section className="w-full max-w-[264px]">
+      <Sheet>
+        <SheetTrigger>
+          <Image
+            src="/icons/hamburger.svg"
+            width={30}
+            height={30}
+            alt="menu"
+            className="cursor-pointer"
+          />
+        </SheetTrigger>
+        <SheetContent side="left" className="border-none bg-white ">
+          <Link
+            href="/"
+            className="cursor-pointer flex items-center gap-3 px-4"
+          >
             <Image
-              src="/icons/hamburger.svg"
-              width={30}
-              height={30}
-              alt="menu"
-              className="cursor-pointer"
+              src="/icons/logo.svg"
+              width={25}
+              height={25}
+              alt="Horizon logo"
             />
-          </SheetTrigger>
-          <SheetContent side="left" className="border-none bg-white">
-            <Link href="/" className="cursor-pointer flex items-center gap-1 px-4">
-              <Image 
-                src="/icons/logo.svg"
-                width={34}
-                height={34}
-                alt="Horizon logo"
-              />
-              <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">DivaTech</h1>
-            </Link>
-            <div className="mobilenav-sheet">
-              <SheetClose asChild>
-                <nav className="flex h-full flex-col gap-6 pt-16 text-white">
-                    {sidebarLinks.map((item) => {
-                  const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
-  
-                  return (
-                    <SheetClose asChild key={item.route}>
-                      <Link href={item.route} key={item.label}
-                        className={cn('mobilenav-sheet_close w-full', { 'bg-bank-gradient': isActive })}
+            <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
+              DIVATECH
+            </h1>
+          </Link>
+          <div className="mobilenav-sheet">
+            <nav className="flex h-full flex-col gap-3 pt-10">
+              {sidebarLinks.map(({ imgURL, label, route }) => {
+                const isActive = activeItem === label;
+                return (
+                  <Accordion type="single" collapsible key={label}>
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger
+                        className={cn('sidebar-link text-black-1 px-3 py-2', {
+                          'bg-erp-gradient text-white': isActive,
+                        })}
+                        onClick={() => handleAccordionClick(label)}
                       >
-                          <Image 
-                            src={item.imgURL}
-                            alt={item.label}
-                            width={20}
-                            height={20}
+                        <div className="size-6 relative">
+                          <Image
+                            src={imgURL}
+                            fill
+                            alt={label}
                             className={cn({
-                              'brightness-[3] invert-0': isActive
+                              'brightness-[3] invert-0': isActive,
                             })}
                           />
-                        <p className={cn("text-16 font-semibold text-black-2", { "text-white": isActive })}>
-                          {item.label}
-                        </p>
-                      </Link>
-                    </SheetClose>
-                  )
-                })}
-  
-                
-                </nav>
-              </SheetClose>
-              <Footer type="mobile"/>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </section>
-    )
+                        </div>
+                        <p>{label}</p>
+                      </AccordionTrigger>
+                      <SheetClose>
+                        <AccordionContent>
+                          {route.map(r => (
+                            <Link key={r.name} href={r.link}>
+                              {r.name}
+                            </Link>
+                          ))}
+                        </AccordionContent>{' '}
+                      </SheetClose>
+                    </AccordionItem>
+                  </Accordion>
+                );
+              })}
+              <Footer type="mobile" />
+            </nav>
+          </div>
+        </SheetContent>
+      </Sheet>
+    </section>
+  );
 }
-
-export default MobileNav

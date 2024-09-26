@@ -3,7 +3,6 @@ import RightSideBar from '@/components/right-side-bar';
 import React from 'react';
 
 async function Home() {
-  
   return (
     <section className="home">
       <div className="home-content">
@@ -16,7 +15,7 @@ async function Home() {
           />
         </header>
       </div>
-      <RightSideBar/>
+      <RightSideBar />
     </section>
   );
 }
