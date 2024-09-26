@@ -1,5 +1,4 @@
 
-
 name: CI/CD workflow for Maven Build and Sonar Code Scan
 
 on:
@@ -23,17 +22,27 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
+    # Debugging to list the directory structure
+    - name: List files for debugging
+      run: ls -R
+
+    # Maven build step
     - name: Build with Maven
       run: mvn clean install -f MyWebApp/pom.xml
 
+    # SonarQube Scan - this should run on both push and pull request
     - name: SonarQube Scan
       uses: sonarsource/sonarcloud-github-action@v1.9
       with:
         args: >
           -Dsonar.organization=divatech-dz
           -Dsonar.projectKey=Divatech-dz_Erp
+          -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
+          -Dsonar.pullrequest.branch=${{ github.head_ref }}
+          -Dsonar.pullrequest.base=${{ github.base_ref }}
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
 
 
