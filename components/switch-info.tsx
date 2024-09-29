@@ -20,7 +20,7 @@ const SwitchInfo = ({
         htmlFor="quantity-mode"
         className="text-gray-700 font-medium cursor-pointer"
       >
-        {checked ? 'See Quantity Available' : 'View Quantity For sale'}
+        {checked ? 'Quantité disponible' : 'Quantité en vente'}
       </Label>
     </div>
   );
