@@ -40,6 +40,6 @@ jobs:
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         run: |
-          npx sentry-cli releases new $GITHUB_SHA
+          npx sentry-cli releases new $GITHUB_SHA --log-level=debug
           npx sentry-cli releases set-commits $GITHUB_SHA --auto
           npx sentry-cli releases finalize $GITHUB_SHA
