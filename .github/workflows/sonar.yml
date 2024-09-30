@@ -53,6 +53,4 @@ jobs:
             -Dsonar.sources=. \
             -Dsonar.language=js
 
-      - name: Build (if applicable)
-        run: |
-          # Add your additional build commands here if needed
+     
