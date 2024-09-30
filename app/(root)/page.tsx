@@ -13,7 +13,7 @@ async function Home() {
             <h1 className="header-box-title">
               Bienvenue <span className="text-bankGradient">Mohamed Amine</span>
             </h1>
-            <p className="header-box-subtext"> Gérer votre entreprise</p>
+            <p className="header-box-subtext">Gérer votre entreprise</p>
           </div>
         </header>
         <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-4">

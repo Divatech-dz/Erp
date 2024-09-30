@@ -25,7 +25,7 @@ export default function SideBar() {
         <Image src={'/icons/logo.svg'} alt={'logo'} height={25} width={25} />
         <h1 className="sidebar-logo">DIVATECH</h1>
       </Link>
-      <nav className="flex flex-col gap-4 h-2zzzzzzzz xl:h-[600px] overflow-y-scroll no-scrollbar">
+      <nav className="flex flex-col gap-4 h-2 xl:h-[600px] overflow-y-scroll no-scrollbar">
         {sidebarLinks.map(({ imgURL, label, route }) => {
           const isActive = activeItem === label;
           return (

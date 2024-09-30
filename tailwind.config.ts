@@ -114,6 +114,8 @@ const config = {
         'gradient-mesh': "url('/icons/gradient-mesh.svg')",
         'erp-green-gradient':
           'linear-gradient(90deg, #01797A 0%, #489399 100%)',
+        'erp-purple-gradient':
+          'linear-gradient(90deg, #8232DF 0%, #C65BFF 100%)',
       },
       boxShadow: {
         form: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',

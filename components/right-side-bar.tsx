@@ -38,9 +38,13 @@ export default function RightSideBar() {
         <StockInfoCard
           secondCard={true}
           title={checked ? QuantityLabels.Available : QuantityLabels.ForSale}
-          color={checked ? 'bg-erp-green-gradient' : 'bg-[#8232DF]'}
+          color={checked ? 'bg-erp-green-gradient' : 'bg-erp-purple-gradient'}
         />
-        <SwitchInfo checked={checked} switchState={switchState} />
+        <SwitchInfo
+          checked={checked}
+          switchState={switchState}
+          id="switch-card"
+        />
       </div>
     </aside>
   );
