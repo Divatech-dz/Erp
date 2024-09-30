@@ -44,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: >
-            -Dsonar.java.jdkHome=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.24/x64
+            -Dsonar.java.jdkHome=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/22.0.2/x64
 
       - name: Deploy to Sentry
         env:
