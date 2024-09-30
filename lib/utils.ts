@@ -141,14 +141,15 @@ export const authFormSchema = (type: string) =>
       type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
     dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
     group: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    username: 'sign-in'
-      ? z
-          .string({
-            required_error: 'username is required',
-            invalid_type_error: 'username must be a string',
-          })
-          .min(3)
-      : z.string().min(3),
+    username:
+      type === 'sign-in'
+        ? z
+            .string({
+              required_error: 'username is required',
+              invalid_type_error: 'username must be a string',
+            })
+            .min(3)
+        : z.string().min(3),
     email: 'sign-in'
       ? z.string().optional()
       : z
