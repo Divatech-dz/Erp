@@ -19,9 +19,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'          # Specify the version of Java
-          java-distribution: 'temurin'  # Specify the distribution (e.g., 'adopt', 'zulu', 'temurin', etc.)
-          architecture: 'x64'         # Specify architecture if needed
+          java-version: '11'                # Specify the version of Java
+          distribution: 'temurin'           # Use 'temurin' for the latest version of OpenJDK
+          architecture: 'x64'               # Specify architecture if needed
 
       - name: Cache SonarQube scanner
         uses: actions/cache@v2
@@ -42,4 +42,6 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         run: sonar-scanner -Dsonar.projectKey=YOUR_PROJECT_KEY -Dsonar.organization=YOUR_ORGANIZATION_KEY -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN
 
-     
+      - name: Build (if applicable)
+        run: |
+          # Add your build commands here if needed
