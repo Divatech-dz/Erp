@@ -54,5 +54,5 @@ jobs:
           -Dsonar.pullrequest.base=${{ github.base_ref }}
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: 'https://sonarcloud.io'
+        SONAR_HOST_URL:${{secrets.SONAR_HOST_URL}}
         JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17/x64  # Ensuring JDK 17 path
