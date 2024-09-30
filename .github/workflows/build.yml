@@ -38,12 +38,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # Step 6: SonarQube Scan with explicit JDK 17 path and debug logging (-X)
+    # Step 6: SonarQube Scan with debug logging
     - name: SonarQube Scan
       uses: sonarsource/sonarcloud-github-action@v1.9
       with:
         args: >
-          -X  # Enable debug logging
+          -X
           -Dsonar.organization=divatech-dz
           -Dsonar.projectKey=Divatech-dz_Erp
           -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
@@ -70,4 +70,5 @@ jobs:
         key: ${{ runner.os }}-sonar-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-sonar-
+
 
