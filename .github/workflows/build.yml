@@ -34,10 +34,17 @@ jobs:
       - name: Verify Java installation
         run: java -version
 
-      - name: Debug Environment Variables
-        run: |
-          echo "SENTRY_ORG: ${{ secrets.SENTRY_ORG }}"
-          echo "SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}"
+      - name: Run SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@v1.5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_ORG: ${{ secrets.SONAR_ORG }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: >
+            -Dsonar.java.jdkHome=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.24/x64
 
       - name: Deploy to Sentry
         env:
@@ -45,6 +52,6 @@ jobs:
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         run: |
-          npx sentry-cli releases new $GITHUB_SHA --log-level=debug
+          npx sentry-cli releases new $GITHUB_SHA
           npx sentry-cli releases set-commits $GITHUB_SHA --auto
           npx sentry-cli releases finalize $GITHUB_SHA
