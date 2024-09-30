@@ -1,10 +1,10 @@
-name: CI
+name: CI/CD workflow for Next.js with SonarQube
 
 on:
   push:
     branches:
       - main
-      - '**' # This will trigger the workflow on all branches
+      - '**'
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -26,6 +26,9 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Run tests
+        run: npm test
 
       - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@v1.9
