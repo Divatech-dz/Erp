@@ -31,7 +31,13 @@ jobs:
     - name: Build Next.js
       run: npm run build
 
-    # Step 5: SonarQube Scan
+    # Step 5: Set up JDK 17
+    - name: Set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+
+    # Step 6: SonarQube Scan
     - name: SonarQube Scan
       uses: sonarsource/sonarcloud-github-action@v1.9
       with:
@@ -43,8 +49,6 @@ jobs:
           -Dsonar.pullrequest.base=${{ github.base_ref }}
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    
-        SONAR_HOST_URL: 'https://sonarcloud.io'       
 
-
-
+        SONAR_HOST_URL: 'https://sonarcloud.io'
 
