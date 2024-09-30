@@ -1,72 +1,41 @@
-name: CI/CD workflow for Next.js with SonarQube
+name: dev
 
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - main
-  pull_request:
-    types: [opened, synchronize, reopened]
-  workflow_dispatch:
+      - develop
+      - dev
 
 jobs:
-  build:
+  lint:
+    name: Run linters
     runs-on: ubuntu-latest
+
+    permissions:
+      checks: write
+      contents: write
+
     steps:
-      # Step 1: Checkout code
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Step 2: Set up Node.js for Next.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Check out Git repository
+        uses: actions/checkout@v3
         with:
-          node-version: '18'
+          fetch-depth: 0
 
-      # Step 3: Install dependencies for Next.js
-      - name: Install Next.js dependencies
+      - name: Cache dependencies
+        id: cache-nextjob
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./node_modules
+            ./backend/node_modules
+            ./frontend/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install package dependencies
+        if: steps.cache-nextjob.outputs.cache-hit != 'true'
         run: npm install
 
-      # Step 4: Build Next.js project
-      - name: Build Next.js
-        run: npm run build
-
-      # Step 5: Set up JDK 17
-      - name: Set up JDK 17
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      # Step 6: SonarQube Scan with explicit JDK 17 path and debug logging (-X)
-      - name: SonarQube Scan
-        uses: sonarsource/sonarcloud-github-action@v1.9
-        with:
-          args: >
-            -X 
-            -Dsonar.organization=divatech-dz
-            -Dsonar.projectKey=Divatech-dz_Erp
-            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
-            -Dsonar.pullrequest.branch=${{ github.head_ref }}
-            -Dsonar.pullrequest.base=${{ github.base_ref }}
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: 'https://sonarcloud.io'
-          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17/x64
-
-      # Optional: Cache dependencies (Node.js modules and SonarQube)
-      - name: Cache Node.js modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Cache SonarQube
-        uses: actions/cache@v2
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-sonar-
+      - name: Run linters
+        run: npx lint-staged --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
