@@ -1,4 +1,3 @@
-
 name: CI/CD workflow for Maven Build and Sonar Code Scan
 on:
   push:
@@ -28,7 +27,7 @@ jobs:
 
     # Maven build step
     - name: Build with Maven
-      run: mvn clean install -f MyWebApp/pom.xml
+      run: mvn clean install -f pom.xml
 
     # SonarQube Scan - this should run on both push and pull request
     - name: SonarQube Scan
@@ -43,8 +42,3 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
-
-
-
-
