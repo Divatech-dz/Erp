@@ -2,25 +2,25 @@
 
 A brief description of the changes made in this pull request.
 
-> *here*
+> _here_
 
 ## Breaking Changes
 
 Any changes that could cause compatibility issues with existing code or functionality.
 
-- *here*
+- _here_
 
 ## Big Changes
 
 A list of any significant changes made to the codebase.
 
-- *here*
+- _here_
 
 ## Related Issues
 
 Any related GitHub issues that are being addressed in this pull request.
 
-- *here*
+- _here_
 
 ## Checklist
 

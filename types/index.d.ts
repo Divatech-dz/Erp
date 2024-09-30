@@ -1,5 +1,7 @@
 import { LucideIcon } from "lucide-react";
 
+import { LucideIcon } from "lucide-react";
+
 declare interface FooterProps {
   type?: 'mobile' | 'desktop';
 }

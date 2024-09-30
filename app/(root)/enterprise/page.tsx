@@ -1,4 +1,3 @@
-'use client';
 import Tabs from '@/components/tabs';
 import { TabsKey, TabsName } from '@/constants';
 import { getSubLevelKeys } from '@/lib/utils';

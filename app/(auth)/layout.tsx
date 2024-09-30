@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Image from 'next/image';
+import divatech from '../../public/icons/erp-01.jpg';
 
 export default function RootLayout({
   children,
@@ -9,15 +10,13 @@ export default function RootLayout({
     <main className="flex min-h-screen w-full justify-between font-inter">
       {children}
       <div className="auth-asset">
-        <div>
-          <Image 
-            src="/icons/auth-image.svg"
-            alt="Auth image"
-            width={500}
-            height={500}
-            className="rounded-l-xl object-contain"
-          />
-        </div>
+        <Image
+          src={divatech}
+          alt="Auth image"
+          width={800}
+          height={800}
+          className=" object-contain mx-auto"
+        />
       </div>
     </main>
   );

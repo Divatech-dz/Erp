@@ -1,7 +1,6 @@
 import BarChart from '@/components/bar-chart';
 import DashboardCard, { CardContent } from '@/components/dashboard-card';
 import HeaderBox from '@/components/header-box';
-
 import SalesCard from '@/components/sales-card';
 import { cardData, userSalesData } from '@/constants';
 import React from 'react';
