@@ -32,6 +32,9 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
+      - name: Verify Java installation
+        run: java -version
+
       - name: Run SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1.5
         env:
