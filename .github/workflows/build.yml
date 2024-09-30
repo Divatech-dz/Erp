@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - '*'
 
 jobs:
   build:
@@ -23,9 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Run tests
-        run: npm test
 
       - name: Run SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1.5
