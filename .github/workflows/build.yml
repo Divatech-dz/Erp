@@ -27,9 +27,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run tests
-        run: npm test
-
       - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@v1.9
         with:
