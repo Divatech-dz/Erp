@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'          # Specify the version of Java
-          java-distribution: 'adopt'  # Specify the distribution (e.g., 'adopt', 'zulu', 'temurin', etc.)
+          java-distribution: 'zulu'  # Specify the distribution (e.g., 'adopt', 'zulu', 'temurin', etc.)
           architecture: 'x64'         # Specify architecture if needed
 
       - name: Cache SonarQube scanner
