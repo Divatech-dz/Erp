@@ -36,18 +36,37 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '17'
-        distribution: 'temurin'  # Specify the distribution
+        distribution: 'temurin'
 
-    # Step 6: SonarQube Scan
+    # Step 6: SonarQube Scan with explicit JDK 17 path and debug logging (-X)
     - name: SonarQube Scan
       uses: sonarsource/sonarcloud-github-action@v1.9
       with:
         args: >
+          -X  # Enable debug logging
           -Dsonar.organization=divatech-dz
           -Dsonar.projectKey=Divatech-dz_Erp
           -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
           -Dsonar.pullrequest.branch=${{ github.head_ref }}
           -Dsonar.pullrequest.base=${{ github.base_ref }}
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: 'https://sonarcloud.io'
+        JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17/x64  # Explicitly set JDK 17 path
+
+    # Optional: Cache dependencies (Node.js modules and SonarQube)
+    - name: Cache Node.js modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Cache SonarQube
+      uses: actions/cache@v2
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-sonar-
