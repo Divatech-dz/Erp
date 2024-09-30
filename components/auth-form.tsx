@@ -15,6 +15,7 @@ import CustomInput from './custom-input';
 import { Button } from './ui/button';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
 const AuthForm = ({ type }: { type: string }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,11 +28,10 @@ const AuthForm = ({ type }: { type: string }) => {
       password: '',
     },
   });
-  
 
   const onSubmit = () => {
     setIsLoading(true);
-    router.push('/')
+    router.push('/');
   };
   return (
     <section className="auth-form">

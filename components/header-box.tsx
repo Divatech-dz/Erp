@@ -1,3 +1,4 @@
+import { HeaderBoxProps } from '@/types';
 import React from 'react';
 
 function HeaderBox({ type = 'title', title, subtext, user }: HeaderBoxProps) {
@@ -9,10 +10,9 @@ function HeaderBox({ type = 'title', title, subtext, user }: HeaderBoxProps) {
           <span className="text-bankGradient">&nbsp;{user}</span>
         )}
       </h1>
-      <p className='header-box-subtext'>{subtext}</p>
+      <p className="header-box-subtext">{subtext}</p>
     </div>
   );
 }
 
 export default HeaderBox;
-

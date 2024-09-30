@@ -22,3 +22,12 @@ export type SalesProps = {
   email: string
   salesAmount: string
 }
+export type TabsProps={
+  tabName:string;
+  itemName:string[]
+}
+interface TabsNameInterface {
+  [key: string]: {
+    [section: string]: string[];
+  };
+}

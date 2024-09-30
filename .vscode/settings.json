@@ -1,5 +1,192 @@
 {
-    "cSpell.words": [
-        "Merabtene"
-    ]
-}
+    //------------------- * Editor * -------------------
+    //
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.rulers": [
+      80
+    ],
+    "workbench.editor.pinnedTabSizing": "compact",
+    "gitlens.hovers.currentLine.over": "line",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.bracketPairColorization.enabled": true,
+    "auto-close-tag.activationOnLanguage": [
+      "xml",
+      "javascriptreact",
+      "typescriptreact",
+      "HTML (Eex)"
+    ],
+ 
+    "cSpell.ignorePaths": [
+      "package-lock.json",
+      "node_modules",
+      "vscode-extension",
+      ".git/objects",
+      ".vscode-insiders"
+    ],
+    "cSpell.enabled": true,
+    //
+    //------------------- * Formatter * -------------------
+    //
+    "editor.formatOnSave": true,
+    "eslint.enable": true,
+    "eslint.format.enable": true,
+    "eslint.run": "onType",
+    "eslint.quiet": false, // ignore warnings
+    "eslint.debug": false,
+    "eslint.codeActionsOnSave.mode": "all",
+    "eslint.workingDirectories": [
+      "."
+    ],
+    "[json, jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[markdown]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": true,
+      "editor.defaultFormatter": "bierner.markdown-mermaid"
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.sortJSON": "explicit",
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.markdownlint": "explicit"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    //
+    //------------------- * Jest * -------------------
+    //
+  
+    "jest.coverageColors": {
+      "uncovered": false, //"rgba(180,77,77, 0.1)",
+      "partially-covered": false // "rgba(77,180,77, 0.2)"
+    },
+    "jest.jestCommandLine": "pnpm jest --maxWorkers 50% --testTimeout 5000 --forceExit", //--detectLeaks
+    "jest.nodeEnv": {
+      "FIREBASE_AUTH_EMULATOR_HOST": "localhost:9099"
+    },
+    "jest.monitorLongRun": 120000,
+    "jestrunner.codeLensSelector": "**/*.{spec,e2e-spec}.{js,jsx,ts,tsx}",
+    "jestrunner.jestCommand": "pnpm jest --testTimeout 500000 --detectOpenHandles", //--detectLeaks --logHeapUsage
+    //
+    //------------------- * UX * -------------------
+    //
+    "workbench.iconTheme": "material-icon-theme",
+    "files.exclude": {
+      "**/.firebase": true,
+      "**/.fttemplates": true,
+      "**/.gitsecret": true,
+      "**/.cspell": true,
+      "**/.scannerwork": true,
+      "**/.husky": true,
+      "**/coverage": true,
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/.env*.previous": true
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true,
+      "**/dist/*/**": true,
+      "node_modules/*/**": true
+    },
+    
+    //
+    //------------------- TODO TREE -----------------
+    //
+    "todo-tree.general.tags": [
+      "BUG",
+      "HACK",
+      "FIXME",
+      "FIXIT",
+      "FIX",
+      "TODO",
+      "NOTE",
+      "READIT",
+      "DOCUMENTATION",
+      "PIN",
+      "PINNED"
+    ],
+    "todo-tree.general.tagGroups": {
+      "FIXME": [
+        "FIXME",
+        "FIXIT",
+        "FIX"
+      ],
+      "NOTE": [
+        "NOTE",
+        "DOCUMENTATION",
+        "READIT"
+      ],
+      "PIN": [
+        "PIN",
+        "PINNED"
+      ]
+    },
+    "todo-tree.highlights.customHighlight": {
+      "TODO": {
+        "icon": "check",
+        "type": "tag",
+        "background": "#ffffff",
+        "foreground": "#000",
+        "iconColour": "#fff",
+        "gutterIcon": true
+      },
+      "FIXME": {
+        "foreground": "#ffffff",
+        "background": "#d90000",
+        "iconColour": "#d90000",
+        "type": "line",
+        "gutterIcon": true
+      },
+      "NOTE": {
+        "icon": "log",
+        "type": "line",
+        "foreground": "#fff",
+        "background": "#335233",  "jest.showCoverageOnLoad": true,
+        "jest.autoRun": {
+          "watch": false,
+          "onStartup": false,
+          "onSave": "test-file"
+        },
+        "iconColour": "#fff",
+        "borderRadius": "8",
+        "gutterIcon": true
+      },
+      "HACK": {
+        "icon": "number",
+        "type": "line",
+        "foreground": "#fff",
+        "background": "#18a19a",
+        "iconColour": "#18a19a",
+        "gutterIcon": true
+      },
+      "BUG": {
+        "icon": "bug",
+        "type": "line",
+        "background": "#b7167f",
+        "foreground": "#ffffff",
+        "iconColour": "#ffffff",
+        "gutterIcon": true
+      },
+      "PIN": {
+        "icon": "pin",
+        "type": "line",
+        "background": "#cccc1d",
+        "foreground": "#000000",
+        "iconColour": "#ffffff",
+        "gutterIcon": true
+      }
+    }
+    //
+    //------------------- *  * -------------------
+    //
+  }
