@@ -38,6 +38,7 @@ export const RightSideBar = () => {
           <StockInfoCard
             secondCard={true}
             title={checked ? QuantityLabels.Available : QuantityLabels.ForSale}
+            color={checked ? 'bg-erp-green-gradient' : 'bg-[#8232DF]'}
           />
           <SwitchInfo checked={checked} switchState={switchState} />
         </div>
