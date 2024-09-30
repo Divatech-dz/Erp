@@ -1,4 +1,4 @@
-name: CI/CD workflow for Maven Build and Sonar Code Scan
+name: CI/CD workflow for Next.js with TypeScript and Sonar Code Scan
 on:
   push:
     branches:
@@ -14,19 +14,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          distribution: 'adopt'
-          java-version: '11'
+          node-version: '16'
 
-      # Debugging to list the directory structure
-      - name: List files for debugging
-        run: ls -R
+      - name: Install dependencies
+        run: npm install
 
-      # Maven build step
-      - name: Build with Maven
-        run: mvn clean install -f pom.xml
+      - name: Build project
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
 
       # SonarQube Scan - this should run on both push and pull request
       - name: SonarQube Scan
