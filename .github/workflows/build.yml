@@ -42,7 +42,7 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v1.9
         with:
           args: >
-            -X  # Enable debug logging
+            -X 
             -Dsonar.organization=divatech-dz
             -Dsonar.projectKey=Divatech-dz_Erp
             -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
