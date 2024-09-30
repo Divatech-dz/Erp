@@ -36,6 +36,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '17'
+        distribution: 'temurin'  # Specify the distribution
 
     # Step 6: SonarQube Scan
     - name: SonarQube Scan
