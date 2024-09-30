@@ -25,6 +25,7 @@ jobs:
         run: npm install
 
       - name: Set up Java 17
+        id: setup-java
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
@@ -33,6 +34,7 @@ jobs:
       - name: Run SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1.5
         env:
+          JAVA_HOME: ${{ steps.setup-java.outputs.java-home }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
