@@ -70,3 +70,4 @@ jobs:
         key: ${{ runner.os }}-sonar-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-sonar-
+
