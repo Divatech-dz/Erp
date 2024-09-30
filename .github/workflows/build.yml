@@ -13,25 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    # Checkout code
+    # Step 1: Checkout code
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Set up Node.js for Next.js
+    # Step 2: Set up Node.js for Next.js
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
-    # Install dependencies for Next.js
+    # Step 3: Install dependencies for Next.js
     - name: Install Next.js dependencies
       run: npm install
 
-    # Build Next.js project
+    # Step 4: Build Next.js project
     - name: Build Next.js
       run: npm run build
 
-    # SonarQube Scan
+    # Step 5: SonarQube Scan
     - name: SonarQube Scan
       uses: sonarsource/sonarcloud-github-action@v1.9
       with:
@@ -42,6 +42,8 @@ jobs:
           -Dsonar.pullrequest.branch=${{ github.head_ref }}
           -Dsonar.pullrequest.base=${{ github.base_ref }}
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    
+        SONAR_HOST_URL: 'https://sonarcloud.io'       
+
+
 
