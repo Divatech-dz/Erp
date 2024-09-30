@@ -42,7 +42,6 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v1.9
         with:
           args: >
-            -X  # Enable debug logging
             -Dsonar.organization=divatech-dz
             -Dsonar.projectKey=Divatech-dz_Erp
             -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
@@ -51,7 +50,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: 'https://sonarcloud.io'
-          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17/x64 # Explicitly set JDK 17 path
+          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17/x64
 
       # Optional: Cache dependencies (Node.js modules and SonarQube)
       - name: Cache Node.js modules
