@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI
 
 on:
   push:
@@ -26,7 +26,6 @@ jobs:
 
       - name: Set up Java 11
         id: setup-java
-
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -43,7 +42,9 @@ jobs:
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
           SONAR_ORG: ${{ secrets.SONAR_ORG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.24/x64
+        with:
+          args: >
+            -Dsonar.java.jdkHome=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.24/x64
 
       - name: Deploy to Sentry
         env:
