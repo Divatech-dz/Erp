@@ -41,7 +41,7 @@ jobs:
         run: npm install -g sonarqube-scanner
 
       - name: Run SonarQube Scanner
+        uses: sonarsource/sonarqube-scan-action@v1.0.0
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: sonarqube-scanner
