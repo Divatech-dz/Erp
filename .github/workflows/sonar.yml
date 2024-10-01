@@ -37,7 +37,7 @@ jobs:
       - name: Install SonarScanner
         uses: sonarsource/sonar-scanner-cli@master
         with:
-          args: --java-home /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+          args: --java-home /usr/lib/jvm/java-17-openjdk-amd64/bin/java
 
       - name: SonarQube Scan
         env:
@@ -51,3 +51,4 @@ jobs:
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.sources=. \
             -Dsonar.language=js
+
