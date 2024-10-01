@@ -5,44 +5,51 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 jobs:
   sonar:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Jest
-        run: npm install --save-dev jest @types/jest ts-jest
-
-      - name: Run Jest Tests
-        run: npm test
-
-      - name: SonarQube Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          projectBaseDir: .
-          extraProperties: |
-            sonar.projectKey=Divatech-dz_Erp
-            sonar.projectName=Erp
-            sonar.projectVersion=1.0
-            sonar.sources=.
-            sonar.sourceEncoding=UTF-8
-            sonar.exclusions=**/__tests__/**/*, **/*.test.js
-            sonar.tests=__tests__
-            sonar.javascript.file.suffixes=.js,.jsx,.ts,.tsx
-            sonar.typescript.lcov.reportPaths=coverage/lcov-report/lcov.info
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build Next.js project
+      run: npm run build
+      
+    - name: Cache SonarQube scanner
+      uses: actions/cache@v2
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar-${{ hashFiles('**/sonar-project.properties') }}
+      
+    - name: Install SonarScanner
+      run: |
+        curl -L -o sonarscanner.zip "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip"
+        unzip sonarscanner.zip
+        mv sonar-scanner-4.6.2.2472-linux sonar-scanner
+        echo "${{ github.workspace }}/sonar-scanner/bin" >> $GITHUB_PATH
+      
+    - name: SonarQube Scan
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      run: |
+        sonar-scanner \
+          -Dsonar.projectKey=Divatech-dz_Erp
+          -Dsonar.organization=divatech-dz
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.sources=.
+          -Dsonar.language=js
