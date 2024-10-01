@@ -37,6 +37,12 @@ jobs:
       - name: Run linters
         run: npx lint-staged --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
       - name: Install SonarQube Scanner
         run: npm install -g sonarqube-scanner
 
