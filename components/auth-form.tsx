@@ -33,6 +33,7 @@ export default function AuthForm({ type }: { type: string }) {
     setIsLoading(true);
     router.push('/');
   };
+
   return (
     <section className="auth-form">
       <header className="flex flex-col gap-5 md:gap-8">
@@ -66,7 +67,7 @@ export default function AuthForm({ type }: { type: string }) {
               type="button"
               title="Unlock"
               onClick={() => setShow(!show)}
-              className="absolute left-96 -top-1 -bottom-7"
+              className="absolute left-96 -top-2 -bottom-8"
             >
               <Image src={unlock} alt="unlock" className="size-6" />
             </button>

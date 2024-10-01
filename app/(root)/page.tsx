@@ -1,6 +1,6 @@
 import BarChart from '@/components/bar-chart';
 import DashboardCard, { CardContent } from '@/components/dashboard-card';
-import HeaderBox from '@/components/header-box';
+
 import SalesCard from '@/components/sales-card';
 import { cardData, userSalesData } from '@/constants';
 import React from 'react';
@@ -10,12 +10,12 @@ async function Home() {
     <section className="home">
       <div className="home-content">
         <header className="home-header">
-          <HeaderBox
-            type={'greeting'}
-            title="Welcome"
-            user={'ahlem'}
-            subtext={'Access and manage your account efficiently'}
-          />
+          <div className="header-box">
+            <h1 className="header-box-title">
+              Bienvenue <span className="text-bankGradient">Mohamed Amine</span>
+            </h1>
+            <p className="header-box-subtext">Gérer votre entreprise</p>
+          </div>
         </header>
         <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-4">
           {cardData.map((data, index) => (
