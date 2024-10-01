@@ -11,52 +11,56 @@ on:
 jobs:
   sonar:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-      
-    - name: Set up Node.js
+
+    - name: Check Java Version
+      run: |
+        java -version
+        if [[ $(java -version 2>&1 | head -n 1 | cut -d ' ' -f 2) == 1. ]] || [[ $(java -version 2>&1 | head -n 1 | cut -d ' ' -f 2) == 8 ]]; then
+          echo "Java version is compatible with sonar-scanner-cli-4.6.2.2472-linux.zip"
+        else
+          echo "Java version might be incompatible. Consider upgrading or using a compatible sonar-scanner version."
+        fi
+
+    - name: Set up Node.js (if applicable)
       uses: actions/setup-node@v2
       with:
         node-version: '18'
-        
-    - name: Install dependencies
+
+    - name: Install dependencies (if applicable)
       run: npm ci
-      
-    - name: Build Next.js project
+
+    - name: Build Next.js project (if applicable)
       run: npm run build
-      
-    - name: Cache SonarQube scanner
+
+    - name: Cache SonarQube scanner (optional)
       uses: actions/cache@v2
       with:
         path: ~/.sonar/cache
-        key: ${{ runner.os }}-sonar-${{ hashFiles('**/sonar-project.properties') }}
-      
-    - name: Install SonarScanner
+        key: <span class="math-inline">\{\{ runner\.os \}\}\-sonar\-</span>{{ hashFiles('**/sonar-project.properties') }}
+
+    - name: Install SonarScanner (adjust version if needed)
       run: |
-        curl -L -o sonarscanner.zip "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip"
+        curl -L -o sonarscanner.zip "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip"  # Adjust version if necessary
         unzip sonarscanner.zip
         mv sonar-scanner-4.6.2.2472-linux sonar-scanner
         echo "${{ github.workspace }}/sonar-scanner/bin" >> $GITHUB_PATH
-      
-    - name: Set up Java
+
+    - name: Set up Java (adjust version if needed)
       uses: actions/setup-java@v2
       with:
-        java-version: '11'
+        java-version: '11'  # Adjust version if necessary
         distribution: 'adopt'
         architecture: 'x64'
-      
+
     - name: SonarQube Scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       run: |
         sonar-scanner \
-          -Dsonar.projectKey=Divatech-dz_Erp
-          -Dsonar.organization=divatech-dz
-          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.sources=.
-          -Dsonar.language=js
+          -Dsonar.projectKey=Divatech-dz
