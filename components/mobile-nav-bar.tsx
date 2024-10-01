@@ -79,7 +79,7 @@ export default function MobileNav() {
                       </AccordionTrigger>
                       <SheetClose>
                         <AccordionContent>
-                          {route.map(r => (
+                          {route?.map(r => (
                             <Link key={r.name} href={r.link}>
                               {r.name}
                             </Link>

@@ -1,5 +1,4 @@
 import { FooterProps } from '@/types';
-
 import Image from 'next/image';
 import React from 'react';
 
@@ -17,9 +16,9 @@ const Footer = ({ type = 'desktop' }: FooterProps) => {
           <span className="text-success-700">Role</span> name
         </p>
       </div>
-      <div className="footer_image">
-        <Image src="icons/logout.svg" fill alt="logout" />
 
+      <div className="footer_image">
+        <Image src="/icons/logout.svg" fill alt="logout" />
       </div>
     </footer>
   );

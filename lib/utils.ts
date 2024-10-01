@@ -1,4 +1,5 @@
 /* eslint-disable no-prototype-builtins */
+import { TabsNameInterface } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
 import qs from 'query-string';
 import { twMerge } from 'tailwind-merge';
@@ -150,3 +151,7 @@ export const authFormSchema = (type: string) =>
       .email(),
     password: z.string().min(8),
   });
+
+  export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {
+    return data[topKey] ? Object.keys(data[topKey]) : undefined;
+  };

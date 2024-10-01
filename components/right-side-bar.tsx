@@ -5,12 +5,12 @@ import SwitchInfo from './switch-info';
 import { useState } from 'react';
 import { QuantityLabels } from '@/constants';
 
-export default function RightSideBar() {
+export const RightSideBar = () => {
   const [checked, setChecked] = useState(false);
   const switchState = () => setChecked(!checked);
   return (
     <aside className="right-sidebar">
-      <section className="flex flex-col pb-8">
+      <section className="flex flex-col pb-8 ">
         <div className="profile-banner" />
         <div className="profile">
           <div className="profile-img">
@@ -33,7 +33,7 @@ export default function RightSideBar() {
             </div>
           </div>
         </div>
-        <div className="relative flex flex-col items-center justify-center gap-5 mt-3">
+        <div className="relative flex flex-1 flex-col items-center justify-center gap-5 mt-3">
           <StockInfoCard title={QuantityLabels.Sold} />
           <StockInfoCard
             secondCard={true}
@@ -45,4 +45,4 @@ export default function RightSideBar() {
       </section>
     </aside>
   );
-}
+};

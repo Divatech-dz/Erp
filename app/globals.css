@@ -41,6 +41,9 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #7878a3;
 }
+.custom-placeholder::placeholder {
+  color: red; /* Example color */
+}
 
 @layer utilities {
   .input-class {
@@ -161,7 +164,7 @@
 
   /* Right sidebar */
   .right-sidebar {
-    @apply hidden flex-col border-l border-gray-200 xl:flex w-[355px];
+    @apply no-scrollbar hidden h-screen max-h-screen flex-col  border-l border-gray-200 xl:flex w-[500px]   no-scrollbar  max-xl:max-h-screen max-xl:overflow-y-scroll xl:overflow-y-scroll !important;
   }
   .profile {
     @apply relative flex px-6 max-xl:justify-center;
