@@ -1,5 +1,4 @@
 import { FooterProps } from '@/types';
-
 import Image from 'next/image';
 import React from 'react';
 
@@ -21,7 +20,7 @@ const Footer = ({ type = 'desktop' }: FooterProps) => {
         </p>
       </div>
       <div className="footer_image">
-        <Image src="icons/logout.svg" fill alt="logout" />
+        <Image src="/icons/logout.svg" fill alt="logout" />
       </div>
     </footer>
   );

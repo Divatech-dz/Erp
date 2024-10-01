@@ -1,8 +1,11 @@
 import { LucideIcon } from "lucide-react";
 
+import { LucideIcon } from "lucide-react";
+
 declare interface FooterProps {
   type?: 'mobile' | 'desktop';
 }
+
 declare interface HeaderBoxProps {
   type?: 'title' | 'greeting';
   title: string;
@@ -21,4 +24,12 @@ export type SalesProps = {
   email: string
   salesAmount: string
 }
-
+export type TabsProps={
+  tabName:string;
+  itemName:string[]
+}
+interface TabsNameInterface {
+  [key: string]: {
+    [section: string]: string[];
+  };
+}

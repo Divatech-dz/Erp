@@ -5,7 +5,7 @@ import SwitchInfo from './switch-info';
 import { useState } from 'react';
 import { QuantityLabels } from '@/constants';
 
-export default function RightSideBar() {
+export const RightSideBar = () => {
   const [checked, setChecked] = useState(false);
   const switchState = () => setChecked(!checked);
   const fName = 'Mohamed Amine';
@@ -48,4 +48,4 @@ export default function RightSideBar() {
       </div>
     </aside>
   );
-}
+};

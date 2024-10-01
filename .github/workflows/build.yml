@@ -1,57 +1,29 @@
-name: dev
+name: Build
 
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - main
-      - '**'
-
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-  lint:
-    name: Run linters
+  sonarcloud:
+    name: SonarCloud
     runs-on: ubuntu-latest
-
-    permissions:
-      checks: write
-      contents: write
-
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Cache dependencies
-        id: cache-nextjob
-        uses: actions/cache@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          path: |
-            ./node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Install package dependencies
-        if: steps.cache-nextjob.outputs.cache-hit != 'true'
-        run: npm install
-
-      - name: Run linters
-        run: npx lint-staged --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
-
-      - name: Set up JDK 17
-        id: setup-java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '17'
-
-      - name: Set JAVA_HOME
-        run: echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
-
-      - name: Run SonarQube Scanner
-        uses: sonarsource/sonarqube-scan-action@v1.0.0
-        with:
-          args: -X
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          JAVA_HOME: ${{ steps.setup-java.outputs.java-home }}
+
