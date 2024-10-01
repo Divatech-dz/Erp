@@ -53,7 +53,7 @@ jobs:
     - name: Set up Java (adjust version if needed)
       uses: actions/setup-java@v2
       with:
-        java-version: '11'  # Adjust version if necessary
+        java-version: '17'  # Adjust version if necessary
         distribution: 'adopt'
         architecture: 'x64'
 
