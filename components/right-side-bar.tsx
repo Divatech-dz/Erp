@@ -11,17 +11,11 @@ export const RightSideBar = () => {
   const fName = 'Mohamed Amine';
   return (
     <aside className="right-sidebar">
-      <div className="profile-banner" />
-      <div className="profile">
-        <div className="profile-img">
-          <span className="text-5xl font-bold text-blue-500">{fName[0]}</span>
-        </div>
-
+      <div className="profile-banner ">
         <div className="profile-details">
           <h1 className="profile-name">{fName}</h1>
           <div className="profile-role">
-            <span className="text-success-600 font-semibold mr-1">Role:</span>
-            <span>Commercial</span>
+            <p className=" font-semibold">Role: Commercial</p>
 
             <Image
               src="/icons/check.svg"
