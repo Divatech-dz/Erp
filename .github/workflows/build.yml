@@ -49,6 +49,8 @@ jobs:
 
       - name: Run SonarQube Scanner
         uses: sonarsource/sonarqube-scan-action@v1.0.0
+        with:
+          args: -X
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
