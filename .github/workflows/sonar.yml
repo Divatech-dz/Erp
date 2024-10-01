@@ -46,10 +46,10 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
           sonar-scanner \
-            -Dsonar.projectKey=YOUR_PROJECT_KEY \
-            -Dsonar.organization=YOUR_ORGANIZATION_KEY \ # Remove this line if you're using a self-hosted SonarQube
-            -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.projectKey=Divatech-dz_Erp
+            -Dsonar.organization=divatech-dz
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.sources=. \
             -Dsonar.language=js
 
