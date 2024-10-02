@@ -11,11 +11,10 @@ import { useForm } from 'react-hook-form';
 import { authFormSchema } from '@/lib/utils';
 import CustomInput from './custom-input';
 import { Button } from './ui/button';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function AuthForm({ type }: { type: string }) {
+export default function AuthForm({ type }: Readonly<{ type: string }>) {
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(false);
 
