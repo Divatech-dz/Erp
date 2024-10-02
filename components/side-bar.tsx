@@ -10,7 +10,7 @@ import AccordionSideBar from './accordion-side-bar';
 import { Accordion } from './ui/accordion';
 
 export default function SideBar() {
-  const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [activeItem, setActiveItem] = useState<string | null>('');
   const handleAccordionClick = (label: string) => {
     setActiveItem(label);
   };
