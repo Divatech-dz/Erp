@@ -1,8 +1,9 @@
-import { CardProps, SalesProps } from '@/types';
+import { CardProps, SalesProps, SidebarLink } from '@/types';
 import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
 
-export const sidebarLinks = [
+export const sidebarLinks: SidebarLink[] = [
   {
+    id: '1',
     imgURL: '/icons/products.svg',
     route: [
       {
@@ -17,6 +18,7 @@ export const sidebarLinks = [
     label: 'Produits',
   },
   {
+    id: '2',
     imgURL: '/icons/client.svg',
     route: [
       {
@@ -31,6 +33,7 @@ export const sidebarLinks = [
     label: 'Clients',
   },
   {
+    id: '3',
     imgURL: '/icons/stock.svg',
     route: [
       {
@@ -51,40 +54,7 @@ export const sidebarLinks = [
     label: 'Stock',
   },
   {
-<<<<<<< HEAD
-    imgURL: '/icons/stop-desk.svg',
-    route: [
-      {
-        name: 'Comptoires',
-        link: '/comptoires',
-      },
-      {
-        name: 'Clôture',
-        link: '/cloture',
-      },
-      {
-        name: 'Règlements de comptoire',
-        link: '/reglementsComptoire',
-      },
-      {
-        name: 'Fidélité clients',
-        link: '/feideliteClients',
-      },
-      {
-        name: 'Points de ventes',
-        link: '/pointsVentes',
-      },
-      {
-        name: 'Caisse/utilisateurs',
-        link: '/caisseUtilisateurs',
-      },
-      {
-        name: 'Fidèlité',
-        link: '/fidelite',
-      },
-    ],
-    label: 'Comptoire',
-=======
+    id: '4',
     imgURL: '/icons/sell.svg',
     route: [
       {
@@ -136,6 +106,7 @@ export const sidebarLinks = [
   },
 
   {
+    id: '5',
     imgURL: '/icons/goal.svg',
     route: [
       {
@@ -158,6 +129,7 @@ export const sidebarLinks = [
     label: 'Objectif',
   },
   {
+    id: '6',
     imgURL: '/icons/statistic.svg',
     route: [
       {
@@ -171,7 +143,6 @@ export const sidebarLinks = [
       },
     ],
     label: 'Statistique',
->>>>>>> origin
   },
 ];
 

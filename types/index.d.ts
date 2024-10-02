@@ -33,3 +33,20 @@ interface TabsNameInterface {
     [section: string]: string[];
   };
 }
+export type Route = {
+  name: string;
+  link: string;
+};
+
+export type SidebarLink = {
+  id: string;
+  imgURL: string;
+  route: Route[];
+  label: string;
+};
+
+export type AccordionType=SidebarLink &{
+  isActive: boolean;
+  handleAccordionClick: (label: string) => void;
+
+}

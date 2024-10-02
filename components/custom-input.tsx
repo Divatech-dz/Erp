@@ -23,7 +23,7 @@ export default function CustomInput({
   label,
   placeholder,
   type = 'text',
-}: CustomInput) {
+}: Readonly<CustomInput>) {
   return (
     <FormField
       control={control}
