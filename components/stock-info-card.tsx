@@ -6,11 +6,11 @@ export default function StockInfoCard({
   secondCard = false,
   title,
   color,
-}: {
+}: Readonly<{
   secondCard?: boolean;
   title: string;
   color?: string;
-}) {
+}>) {
   return (
     <div className="relative z-10">
       <div className="flex flex-col">

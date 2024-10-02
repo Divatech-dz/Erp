@@ -3,13 +3,13 @@ import Image from 'next/image';
 
 import React from 'react';
 
-function SalesCard({ name, email, salesAmount }: SalesProps) {
+function SalesCard({ name, email, salesAmount }: Readonly<SalesProps>) {
   return (
     <div className="flex flex-wrap justify-between gap-3">
       <section className="flex justify-between gap-3">
         <div className="h-12 w-12 rounded-full bg-gray-100 p-1">
           <Image
-            src={`https://api.dicebear.com/7.x/notionists/svg?seed=${name}`}
+            src={'/icons/personne-femme.gif'}
             alt="avatar"
             width={200}
             height={200}
