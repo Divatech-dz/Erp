@@ -21,12 +21,11 @@ export default function SideBar() {
 
   return (
     <section className="sidebar">
-      <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
-        <Link href={'/'} className="cursor-pointer items-center gap-2 flex">
-          <Image src={'/icons/logo.svg'} alt={'logo'} height={25} width={25} />
-          <h1 className="sidebar-logo">DIVATECH</h1>
-        </Link>
-
+      <Link href={'/'} className="cursor-pointer items-center flex gap-2">
+        <Image src={'/icons/logo.svg'} alt={'logo'} height={25} width={25} />
+        <h1 className="sidebar-logo">DIVATECH</h1>
+      </Link>
+      <nav className="flex flex-col gap-4  xl:h-[500px] overflow-y-scroll no-scrollbar w-full">
         {sidebarLinks.map(({ imgURL, label, route }) => {
           const isActive = activeItem === label;
           return (
@@ -46,11 +45,17 @@ export default function SideBar() {
                       className={cn({ 'brightness-[3] invert-0': isActive })}
                     />
                   </div>
-                  <p>{label}</p>
+                  <p className="text-left w-32">{label}</p>
                 </AccordionTrigger>
                 <AccordionContent>
                   {route.map(r => (
-                    <Link key={r.name} href={r.link}>
+                    <Link
+                      key={r.name}
+                      href={r.link}
+                      className={cn(' text-black-1 ', {
+                        'text-blue-1000': isActive,
+                      })}
+                    >
                       {r.name}
                     </Link>
                   ))}

@@ -142,14 +142,33 @@ export const authFormSchema = (type: string) =>
       type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
     dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
     group: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    username: z.string().min(3),
-    email: z
-      .string({
-        required_error: 'email is required',
-        invalid_type_error: 'email must be a string',
-      })
-      .email(),
-    password: z.string().min(8),
+    username:
+      type === 'sign-in'
+        ? z
+            .string({
+              required_error: 'username is required',
+              invalid_type_error: 'username must be a string',
+            })
+            .min(3)
+        : z.string().min(3),
+    email:
+      type === 'sign-in'
+        ? z.string().optional()
+        : z
+            .string({
+              required_error: 'email is required',
+              invalid_type_error: 'email must be a string',
+            })
+            .email(),
+    password:
+      type === 'sign-in'
+        ? z
+            .string({
+              required_error: 'password is required',
+              invalid_type_error: 'password must be a string',
+            })
+            .min(8)
+        : z.string().min(8),
   });
 
   export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {

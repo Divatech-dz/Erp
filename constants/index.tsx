@@ -1,94 +1,10 @@
-import { CardProps, SalesProps, TabsNameInterface } from '@/types';
+import { CardProps, SalesProps } from '@/types';
 import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
 
 export const sidebarLinks = [
   {
-    imgURL: '/icons/company.svg',
-    route: [
-      {
-        name: 'Divatech',
-        link: '/divatech',
-      },
-      {
-        name: 'GZ - Mohammadia mall',
-        link: '/gamingZoneMohammadiaMall',
-      },
-      {
-        name: 'GZ - Park mall',
-        link: '/gammingZoneParkMall',
-      },
-      {
-        name: 'Entrepôt Reghaia',
-        link: '/entrepotReghaia',
-      },
-      {
-        name: 'Mag 54',
-        link: '/mag54',
-      },
-      {
-        name: 'Mag 54 - Entrepôt',
-        link: '/mag54Entrepot',
-      },
-    ],
-    label: 'Divatech',
-  },
-  {
-    imgURL: '/icons/overview.svg',
-    route: [
-      {
-        name: 'identification',
-        link: '/identification',
-      },
-      {
-        name: 'Comptes Trésorerie',
-        link: '/comptesTresorerie',
-      },
-      {
-        name: 'Type de Clients',
-        link: '/typeClients',
-      },
-      {
-        name: 'Devises',
-        link: '/devises',
-      },
-      {
-        name: 'Taxes Douanières',
-        link: '/taxesDouanieres',
-      },
-      {
-        name: 'TVA',
-        link: '/TVA',
-      },
-      {
-        name: 'Unités de mesures',
-        link: '/unitMesures',
-      },
-      {
-        name: 'Valeures Du Devise',
-        link: '/valeursDevise',
-      },
-      {
-        name: 'Liste des utilisateurs',
-        link: '/utilisateurs',
-      },
-      {
-        name: 'Groupe des utilisateurs',
-        link: '/groupesUtilisateurs',
-      },
-      {
-        name: 'Permissions',
-        link: '/permissions',
-      },
-    ],
-    label: 'Entreprise',
-  },
-  {
     imgURL: '/icons/products.svg',
     route: [
-      {
-        name: 'Catégories',
-        link: '/categories',
-      },
       {
         name: 'Produits',
         link: '/produits',
@@ -96,22 +12,6 @@ export const sidebarLinks = [
       {
         name: 'Liste des prix',
         link: '/listePrix',
-      },
-      {
-        name: 'Produits / Entrepots',
-        link: '/produitsEntrepots',
-      },
-      {
-        name: 'Archives de vérifications',
-        link: '/archivesVerifications',
-      },
-      {
-        name: 'Etat du stock',
-        link: '/etatStock',
-      },
-      {
-        name: 'Vérification du stock',
-        link: '/verificationStock',
       },
     ],
     label: 'Produits',
@@ -127,22 +27,6 @@ export const sidebarLinks = [
         name: 'Prospection des clients',
         link: '/prospectionClients',
       },
-      {
-        name: 'Fournisseurs',
-        link: '/fournisseurs',
-      },
-      {
-        name: 'Banques',
-        link: '/banques',
-      },
-      {
-        name: 'Agences bancaires',
-        link: '/agencesBancaires',
-      },
-      {
-        name: 'Compte bancaire',
-        link: '/compteBancaire',
-      },
     ],
     label: 'Clients',
   },
@@ -150,89 +34,24 @@ export const sidebarLinks = [
     imgURL: '/icons/stock.svg',
     route: [
       {
-        name: 'Entrepôts',
-        link: '/entrepots',
-      },
-      {
-        name: 'Répartition des produits',
-        link: '/ repartitionProduits',
-      },
-      {
-        name: 'Bons d' + "'" + 'entrée',
-        link: '/bonsEntree',
-      },
-      {
         name: 'Bons de transfert',
         link: '/bonsTransfert',
       },
-      {
-        name: 'Bons de transfert magasins',
-        link: '/bonTransfertMagasin',
-      },
+
       {
         name: 'Bons de sortie',
         link: '/bonsSortie',
       },
-      {
-        name: 'Bons de réintégration',
-        link: '/bonsReintegration',
-      },
-      {
-        name: 'Bon d' + "'" + 'échange',
-        link: '/bonEchange',
-      },
-      {
-        name: 'Bons de maintenance',
-        link: '/bonsMaintenance',
-      },
+
       {
         name: 'Bons de retour',
         link: '/bonsRetour',
-      },
-      {
-        name: 'Bons de réforme',
-        link: '/bonsReforme',
-      },
-      {
-        name: 'Etat d' + "'" + 'entrée',
-        link: '/etatEntree',
-      },
-      {
-        name: 'Etat de sortie',
-        link: '/etatSortie',
-      },
-      {
-        name: 'Etat de retour',
-        link: '/etatRetour',
-      },
-      {
-        name: 'Etat de maintenance',
-        link: '/etatMaintenance',
-      },
-      {
-        name: 'Etat d' + "'" + 'échange',
-        link: '/etatEchange',
-      },
-      {
-        name: 'Etat de réintégration',
-        link: '/etatReintegration',
-      },
-      {
-        name: 'Etat de stock réforeme',
-        link: '/etatStockReforme',
-      },
-      {
-        name: 'Inventaire initial',
-        link: '/inventaireInitial',
-      },
-      {
-        name: 'Inverataire annuel',
-        link: '/inventaireAnnuel',
       },
     ],
     label: 'Stock',
   },
   {
+<<<<<<< HEAD
     imgURL: '/icons/stop-desk.svg',
     route: [
       {
@@ -265,6 +84,94 @@ export const sidebarLinks = [
       },
     ],
     label: 'Comptoire',
+=======
+    imgURL: '/icons/sell.svg',
+    route: [
+      {
+        name: 'Bons de devis',
+        link: '/bonsDevis',
+      },
+      {
+        name: 'Bons de commande',
+        link: '/bonsCommandeVente',
+      },
+      {
+        name: 'Bons de commande kit',
+        link: '/bonsCommandeKit',
+      },
+      {
+        name: 'Bons de commande carton',
+        link: '/bonsCommandeCarton',
+      },
+      {
+        name: 'Bons de commande PC',
+        link: '/bonCommandePC',
+      },
+      {
+        name: 'Bons de commande modifiés',
+        link: '/bonsCommandeModifies',
+      },
+      {
+        name: 'Bons de comptoire',
+        link: '/bonsComptoireVente',
+      },
+      {
+        name: 'Bons de Comptoire modifiés',
+        link: '/bonsComptoireModifies',
+      },
+      {
+        name: 'Bons de garantie',
+        link: '/bonsGarantie',
+      },
+      {
+        name: 'Produits non livrés',
+        link: '/produitsNonLivre',
+      },
+      {
+        name: 'Bons de retour',
+        link: '/bonsRetourVente',
+      },
+    ],
+    label: 'Vente',
+  },
+
+  {
+    imgURL: '/icons/goal.svg',
+    route: [
+      {
+        name: 'Equipes',
+        link: '/equipes',
+      },
+      {
+        name: 'Etat des objectifs',
+        link: '/etatObjectifs',
+      },
+      {
+        name: 'Prévision globale',
+        link: '/previsionGlobale',
+      },
+      {
+        name: 'Prévisions',
+        link: '/previsions',
+      },
+    ],
+    label: 'Objectif',
+  },
+  {
+    imgURL: '/icons/statistic.svg',
+    route: [
+      {
+        name: 'Clients / Produits',
+        link: '/cleintsProduits',
+      },
+
+      {
+        name: 'Fournisseurs',
+        link: '/fourisseursStatistiques',
+      },
+    ],
+    label: 'Statistique',
+>>>>>>> origin
   },
 ];
 
@@ -272,46 +179,26 @@ export enum AuthType {
   SignIn = 'sign-in',
   SignUp = 'sign-up',
 }
-export enum TabsKey {
-  Enterprise = 'enterprise',
-}
-export const TabsName: TabsNameInterface = {
-  enterprise: {
-    'Paramètres client': ['Identification', 'Comptes Tresorerie'],
-    'Tables de Bases': [
-      'Types Client',
-      'Devises',
-      'Taxes Dounaiéres',
-      'TVA',
-      'Unités de Mesure ',
-      'Valeurs de Devises',
-    ],
-    'Gestion des utilisateurs': [
-      'Liste des utilisateurs',
-      'Groupes des utilisateurs',
-      'Permissions',
-    ],
-  },
-};
+
 export const infoCard = [
   {
     name: 'CPU',
     total: 23455,
   },
   {
-    name: 'MB',
+    name: 'MOBO',
     total: 23455,
   },
   {
-    name: 'CPUC',
+    name: 'RAM',
+    total: 23455,
+  },
+  {
+    name: 'COOLER',
     total: 23455,
   },
   {
     name: 'SSD',
-    total: 23455,
-  },
-  {
-    name: 'PSU',
     total: 23455,
   },
   {
@@ -327,27 +214,41 @@ export const infoCard = [
     total: 23455,
   },
   {
-    name: 'CASEF',
+    name: 'FAN',
     total: 23455,
   },
   {
-    name: 'CASEF',
+    name: 'ÉCRAN',
     total: 23455,
   },
   {
-    name: 'Monitor',
+    name: 'SOURIS',
     total: 23455,
   },
   {
-    name: 'clavier',
+    name: 'CLAVIER',
+    total: 23455,
+  },
+  {
+    name: 'CASQUE',
+    total: 23455,
+  },
+  {
+    name: 'TAPIS',
+    total: 23455,
+  },
+  {
+    name: 'CABLES',
     total: 23455,
   },
 ];
+
 export enum QuantityLabels {
-  Sold = 'Quantity Sold',
-  ForSale = 'Quantity For Sale',
-  Available = 'Quantity Available',
+  Sold = 'Quantité vendue',
+  ForSale = 'Quantité en vente',
+  Available = 'Quantité disponible',
 }
+
 export const cardData: CardProps[] = [
   {
     label: 'Total Bon de Vente',
@@ -378,6 +279,7 @@ export const cardData: CardProps[] = [
     color: 'text-red-600',
   },
 ];
+
 export const userSalesData: SalesProps[] = [
   {
     name: 'Olivia Martin',
