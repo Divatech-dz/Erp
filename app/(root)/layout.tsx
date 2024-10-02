@@ -10,7 +10,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex h-screen w-full font-inter no-scrollbar">
+    <main className="flex w-full font-inter no-scrollbar">
       <SideBar />
       <div className="flex size-full flex-col">
         <div className="root-layout">
