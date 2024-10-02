@@ -1,8 +1,9 @@
-import { CardProps, SalesProps } from '@/types';
+import { CardProps, SalesProps, SidebarLink } from '@/types';
 import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
 
-export const sidebarLinks = [
+export const sidebarLinks: SidebarLink[] = [
   {
+    id: '1',
     imgURL: '/icons/products.svg',
     route: [
       {
@@ -17,6 +18,7 @@ export const sidebarLinks = [
     label: 'Produits',
   },
   {
+    id: '2',
     imgURL: '/icons/client.svg',
     route: [
       {
@@ -31,6 +33,7 @@ export const sidebarLinks = [
     label: 'Clients',
   },
   {
+    id: '3',
     imgURL: '/icons/stock.svg',
     route: [
       {
@@ -51,6 +54,7 @@ export const sidebarLinks = [
     label: 'Stock',
   },
   {
+    id: '4',
     imgURL: '/icons/sell.svg',
     route: [
       {
@@ -102,6 +106,7 @@ export const sidebarLinks = [
   },
 
   {
+    id: '5',
     imgURL: '/icons/goal.svg',
     route: [
       {
@@ -124,6 +129,7 @@ export const sidebarLinks = [
     label: 'Objectif',
   },
   {
+    id: '6',
     imgURL: '/icons/statistic.svg',
     route: [
       {
