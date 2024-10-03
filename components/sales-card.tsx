@@ -1,19 +1,19 @@
+import { icons } from '@/constants/icons';
 import { SalesProps } from '@/types';
 import Image from 'next/image';
 
 import React from 'react';
 
-function SalesCard({ name, email, salesAmount }: Readonly<SalesProps>) {
+export const SalesCard = ({
+  name,
+  email,
+  salesAmount,
+}: Readonly<SalesProps>) => {
   return (
     <div className="flex flex-wrap justify-between gap-3">
       <section className="flex justify-between gap-3">
         <div className="h-12 w-12 rounded-full bg-gray-100 p-1">
-          <Image
-            src={'/icons/personne-femme.gif'}
-            alt="avatar"
-            width={200}
-            height={200}
-          />
+          <Image src={icons.client} alt="avatar" width={200} height={200} />
         </div>
         <div className="text-sm">
           <p>{name}</p>
@@ -25,6 +25,6 @@ function SalesCard({ name, email, salesAmount }: Readonly<SalesProps>) {
       <p>{salesAmount}</p>
     </div>
   );
-}
+};
 
 export default SalesCard;

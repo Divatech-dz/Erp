@@ -13,14 +13,14 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-function AccordionSideBar({
+export const AccordionSideBar = ({
   label,
   imgURL,
   id,
   isActive,
   route,
   handleAccordionClick,
-}: AccordionType) {
+}: AccordionType) => {
   const pathName = usePathname();
   return (
     <AccordionItem value={id} key={id} className="py-2">
@@ -61,6 +61,6 @@ function AccordionSideBar({
       </AccordionContent>
     </AccordionItem>
   );
-}
+};
 
 export default AccordionSideBar;

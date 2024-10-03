@@ -1,4 +1,4 @@
-import AuthForm from '@/components/auth-form';
+import { AuthForm } from '@/components/auth-form';
 import { AuthType } from '@/constants';
 import React from 'react';
 

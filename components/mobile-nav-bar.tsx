@@ -17,9 +17,11 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import Footer from './footer';
 
-export default function MobileNav() {
+import { icons } from '@/constants/icons';
+import { Footer } from './footer';
+
+export const MobileNav = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
   const handleAccordionClick = (label: string) => {
@@ -43,7 +45,7 @@ export default function MobileNav() {
             className="cursor-pointer flex items-center gap-3 px-4"
           >
             <Image
-              src="/icons/logo.svg"
+              src={icons.logout}
               width={25}
               height={25}
               alt="Horizon logo"
@@ -97,4 +99,4 @@ export default function MobileNav() {
       </Sheet>
     </section>
   );
-}
+};

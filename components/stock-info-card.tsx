@@ -2,7 +2,7 @@ import { infoCard } from '@/constants';
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-export default function StockInfoCard({
+export const StockInfoCard = ({
   secondCard = false,
   title,
   color,
@@ -10,7 +10,7 @@ export default function StockInfoCard({
   secondCard?: boolean;
   title: string;
   color?: string;
-}>) {
+}>) => {
   return (
     <div className="relative z-10">
       <div className="flex flex-col">
@@ -42,4 +42,4 @@ export default function StockInfoCard({
       </div>
     </div>
   );
-}
+};

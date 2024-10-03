@@ -4,12 +4,12 @@ import { sidebarLinks } from '@/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import Footer from './footer';
-
-import AccordionSideBar from './accordion-side-bar';
 import { Accordion } from './ui/accordion';
+import { AccordionSideBar } from './accordion-side-bar';
+import { Footer } from './footer';
+// import { Footer, AccordionSideBar } from '@/components';
 
-export default function SideBar() {
+export const SideBar = () => {
   const [activeItem, setActiveItem] = useState<string | null>('');
   const handleAccordionClick = (label: string) => {
     setActiveItem(label);
@@ -46,4 +46,4 @@ export default function SideBar() {
       <Footer />
     </section>
   );
-}
+};
