@@ -13,9 +13,10 @@ const config: Config = {
   },
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
+    '^(\\.{1,2}/.*)\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/',"/node_modules/(?!query-string)"],
+  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
 };
 
 export default config;
