@@ -1,9 +1,10 @@
 'use client';
 import Image from 'next/image';
-import StockInfoCard from './stock-info-card';
+import { StockInfoCard } from './stock-info-card';
 import SwitchInfo from './switch-info';
 import { useState } from 'react';
 import { QuantityLabels } from '@/constants';
+import { icons } from '@/constants/icons';
 
 export const RightSideBar = () => {
   const [checked, setChecked] = useState(false);
@@ -24,7 +25,7 @@ export const RightSideBar = () => {
               <p className="text-16 font-ibm-plex-serif">Role: Commercial</p>
 
               <Image
-                src="/icons/check.svg"
+                src={icons.Check}
                 width={20}
                 height={20}
                 alt="accept"

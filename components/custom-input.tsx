@@ -17,13 +17,13 @@ interface CustomInput {
   type?: string;
 }
 
-export default function CustomInput({
+export const CustomInput = ({
   control,
   name,
   label,
   placeholder,
   type = 'text',
-}: Readonly<CustomInput>) {
+}: Readonly<CustomInput>) => {
   return (
     <FormField
       control={control}
@@ -45,4 +45,4 @@ export default function CustomInput({
       )}
     />
   );
-}
+};

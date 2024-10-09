@@ -1,7 +1,6 @@
-import MobileNav from '@/components/mobile-nav-bar';
+import { MobileNav } from '@/components/mobile-nav-bar';
 import { RightSideBar } from '@/components/right-side-bar';
-import SideBar from '@/components/side-bar';
-
+import { SideBar } from '@/components/side-bar';
 import Image from 'next/image';
 
 export default async function RootLayout({

@@ -1,7 +1,12 @@
 'use client';
 import React from 'react';
-import { Bar, ResponsiveContainer } from 'recharts';
-import { BarChart as BarGraph, XAxis, YAxis } from 'recharts';
+import {
+  BarChart as BarGraph,
+  XAxis,
+  YAxis,
+  Bar,
+  ResponsiveContainer,
+} from 'recharts';
 import { CardDescription, CardHeader, CardTitle } from './ui/card';
 import { cn } from '@/lib/utils';
 

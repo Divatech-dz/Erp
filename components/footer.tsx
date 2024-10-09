@@ -2,7 +2,7 @@ import { FooterProps } from '@/types';
 import Image from 'next/image';
 import React from 'react';
 
-const Footer = ({ type = 'desktop' }: FooterProps) => {
+export const Footer = ({ type = 'desktop' }: FooterProps) => {
   const fName = 'Mohamed Amine';
   return (
     <footer className="footer">
@@ -25,5 +25,3 @@ const Footer = ({ type = 'desktop' }: FooterProps) => {
     </footer>
   );
 };
-
-export default Footer;
