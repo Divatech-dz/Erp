@@ -223,6 +223,7 @@ export enum QuantityLabels {
 
 export const cardData: CardProps[] = [
   {
+    key: 1,
     label: 'Total Bon de Vente',
     amount: '45,231.89',
     description: '+20.1% from last month',
@@ -230,6 +231,7 @@ export const cardData: CardProps[] = [
     color: 'text-success-600',
   },
   {
+    key: 2,
     label: 'Total Bon de Livraison',
     amount: '+2350',
     description: '+180.1% from last month',
@@ -237,6 +239,7 @@ export const cardData: CardProps[] = [
     color: 'text-orange-600',
   },
   {
+    key: 3,
     label: 'Total Bon de Retour',
     amount: '+12,234',
     description: '+19% from last month',
@@ -244,6 +247,7 @@ export const cardData: CardProps[] = [
     color: 'text-blue-600',
   },
   {
+    key: 4,
     label: 'Base Clientèle',
     amount: '+573',
     description: '+201 from last month',
@@ -254,26 +258,31 @@ export const cardData: CardProps[] = [
 
 export const userSalesData: SalesProps[] = [
   {
+    key: 1,
     name: 'Olivia Martin',
     email: 'olivia.martin@email.com',
     salesAmount: '+$1,999.00',
   },
   {
+    key: 2,
     name: 'Jackson Lee',
     email: 'isabella.nguyen@email.com',
     salesAmount: '+$1,999.00',
   },
   {
+    key: 3,
     name: 'Isabella Nguyen',
     email: 'isabella.nguyen@email.com',
     salesAmount: '+$39.00',
   },
   {
+    key: 4,
     name: 'William Kim',
     email: 'will@email.com',
     salesAmount: '+$299.00',
   },
   {
+    key: 5,
     name: 'Sofia Davis',
     email: 'sofia.davis@email.com',
     salesAmount: '+$39.00',

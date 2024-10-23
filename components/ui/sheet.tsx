@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { cva, type VariantProps } from 'class-variance-authority';
@@ -125,6 +126,18 @@ const SheetDescription = React.forwardRef<
   />
 ));
 SheetDescription.displayName = SheetPrimitive.Description.displayName;
+
+SheetOverlay.propTypes = {
+  className: PropTypes.string,
+};
+
+SheetDescription.propTypes = {
+  className: PropTypes.string,
+};
+
+SheetTitle.propTypes = {
+  className: PropTypes.string,
+};
 
 export {
   Sheet,

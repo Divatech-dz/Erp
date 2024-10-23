@@ -20,11 +20,10 @@ const config = {
     },
     extend: {
       colors: {
-       
         fill: {
           '1': 'rgba(255, 255, 255, 0.10)',
         },
-         
+
         bankGradient: '#0179FE',
         indigo: {
           '500': '#6172F3',
@@ -53,7 +52,7 @@ const config = {
           '600': '#1570EF',
           '700': '#175CD3',
           '900': '#194185',
-          '1000': '#358CFE'
+          '1000': '#358CFE',
         },
         sky: {
           '1': '#F3F9FF',
@@ -162,7 +161,6 @@ const config = {
     },
   },
   plugins: [require('tailwindcss-animate')],
-    
 } satisfies Config;
 
 export default config;

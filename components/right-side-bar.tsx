@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import Image from 'next/image';
 import { StockInfoCard } from './stock-info-card';
 import SwitchInfo from './switch-info';
@@ -9,6 +10,7 @@ import { icons } from '@/constants/icons';
 export const RightSideBar = () => {
   const [checked, setChecked] = useState(false);
   const switchState = () => setChecked(!checked);
+  const fullName = 'Ahlem Merabtene';
 
   return (
     <aside className="right-sidebar">
@@ -16,11 +18,13 @@ export const RightSideBar = () => {
         <div className="profile-banner" />
         <div className="profile">
           <div className="profile-img">
-            <span className="text-5xl font-bold text-blue-500">A</span>
+            <span className="text-5xl font-bold text-blue-500">
+              {fullName[0]}
+            </span>
           </div>
 
           <div className="profile-details">
-            <h1 className="profile-name">Ahlem Merabtene</h1>
+            <h1 className="profile-name">{fullName}</h1>
             <div className="profile-role">
               <p className="text-16 font-ibm-plex-serif">Role: Commercial</p>
 

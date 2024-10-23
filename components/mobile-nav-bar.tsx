@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import {
   Sheet,
   SheetClose,
@@ -19,7 +20,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import { icons } from '@/constants/icons';
-import { Footer } from './footer';
+import Footer from './footer';
 
 export const MobileNav = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);

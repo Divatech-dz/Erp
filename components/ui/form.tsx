@@ -14,6 +14,7 @@ import {
 
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
+import PropTypes from 'prop-types';
 
 const Form = FormProvider;
 
@@ -166,6 +167,10 @@ const FormMessage = React.forwardRef<
   );
 });
 FormMessage.displayName = 'FormMessage';
+
+FormLabel.propTypes = {
+  className: PropTypes.string,
+};
 
 export {
   useFormField,

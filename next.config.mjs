@@ -1,10 +1,9 @@
 import { withSentryConfig } from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['api.dicebear.com'],
-       
-      },
+  images: {
+    domains: ['backendgz.gamingzone.dz'],
+  },
 };
 
 export default withSentryConfig(nextConfig, {
@@ -14,7 +13,7 @@ export default withSentryConfig(nextConfig, {
   org: 'divatech',
   project: 'javascript-nextjs',
   sentryUrl: 'https://sentry.io/',
-
+  swcMinify: true,
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
 
