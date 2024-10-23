@@ -1,5 +1,5 @@
 'use client';
-import unlock from '../public/icons/unlock.svg';
+
 import Image from 'next/image';
 import { Loader2 } from 'lucide-react';
 import { Form } from '@/components/ui/form';
@@ -9,14 +9,17 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { authFormSchema } from '@/lib/utils';
-import CustomInput from './custom-input';
+
 import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { icons } from '@/constants/icons';
+import { CustomInput } from './custom-input';
 
-export default function AuthForm({ type }: Readonly<{ type: string }>) {
+export const AuthForm = ({ type }: Readonly<{ type: string }>) => {
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(false);
+  const showPassword = show ? icons.openedEye : icons.closedEye;
 
   const formSchema = authFormSchema(type);
   const router = useRouter();
@@ -52,14 +55,14 @@ export default function AuthForm({ type }: Readonly<{ type: string }>) {
             control={form.control}
             name="username"
             label="Nom d'utilisateur"
-            placeholder="Veulliez entrer votre nom d'utilisateur"
+            placeholder="Veuillez entrer votre nom d'utilisateur"
           />
           <div className="relative">
             <CustomInput
               control={form.control}
               name="password"
               label="Mot de passe"
-              placeholder="Veulliez entrer votre mot de passe"
+              placeholder="Veuillez entrer votre mot de passe"
               type={show ? 'text' : 'password'}
             />
             <button
@@ -68,7 +71,7 @@ export default function AuthForm({ type }: Readonly<{ type: string }>) {
               onClick={() => setShow(!show)}
               className="absolute left-96 -top-2 -bottom-8"
             >
-              <Image src={unlock} alt="unlock" className="size-6" />
+              <Image src={showPassword} alt="unlock" width={24} height={24} />
             </button>
           </div>
           <div className="flex gap-1 flex-col">
@@ -87,4 +90,4 @@ export default function AuthForm({ type }: Readonly<{ type: string }>) {
       </Form>
     </section>
   );
-}
+};

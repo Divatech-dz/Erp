@@ -11,15 +11,17 @@ import {
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-function AccordionSideBar({
+export const AccordionSideBar = ({
   label,
   imgURL,
   id,
   isActive,
   route,
   handleAccordionClick,
-}: AccordionType) {
+}: AccordionType) => {
+  const pathName = usePathname();
   return (
     <AccordionItem value={id} key={id} className="py-2">
       <AccordionTrigger
@@ -39,20 +41,26 @@ function AccordionSideBar({
         <p className="text-left w-32">{label}</p>
       </AccordionTrigger>
       <AccordionContent>
-        {route.map(r => (
-          <Link
-            key={r.name}
-            href={r.link}
-            className={cn(' text-black-1 ', {
-              'text-blue-1000': isActive,
-            })}
-          >
-            {r.name}
-          </Link>
-        ))}
+        {route.map(r => {
+          const fullRoute = `/${label}${r.link}`;
+          const isActiveRoute =
+            pathName === fullRoute || pathName.startsWith(fullRoute);
+
+          return (
+            <Link
+              key={r.name}
+              href={`/${label}/${r.link}`}
+              className={cn(' text-black-1 hover:text-blue-1000 ', {
+                'text-blue-1000': isActiveRoute,
+              })}
+            >
+              {r.name}
+            </Link>
+          );
+        })}
       </AccordionContent>
     </AccordionItem>
   );
-}
+};
 
 export default AccordionSideBar;
