@@ -1,8 +1,11 @@
 import { FooterProps } from '@/types';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
 import React from 'react';
 
 const Footer = ({ type = 'desktop' }: FooterProps) => {
+  const router = useRouter();
   const fName = 'Mohamed Amine';
   return (
     <footer className="footer">
@@ -19,9 +22,14 @@ const Footer = ({ type = 'desktop' }: FooterProps) => {
           <span className="text-success-700">Role</span> Commercial
         </p>
       </div>
-      <div className="footer_image">
+      <button
+        type="button"
+        title="logout"
+        className="footer_image"
+        onClick={() => router.push('/sign-in')}
+      >
         <Image src="/icons/logout.svg" fill alt="logout" />
-      </div>
+      </button>
     </footer>
   );
 };

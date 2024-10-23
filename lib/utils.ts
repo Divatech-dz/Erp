@@ -1,4 +1,6 @@
 /* eslint-disable no-prototype-builtins */
+'use cleint';
+
 import { TabsNameInterface } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
 import qs from 'query-string';
@@ -171,6 +173,9 @@ export const authFormSchema = (type: string) =>
         : z.string().min(8),
   });
 
-  export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {
-    return data[topKey] ? Object.keys(data[topKey]) : undefined;
-  };
+export const getSubLevelKeys = (
+  data: TabsNameInterface,
+  topKey: string,
+): string[] | undefined => {
+  return data[topKey] ? Object.keys(data[topKey]) : undefined;
+};
