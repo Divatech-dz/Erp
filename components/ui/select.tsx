@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {
   CaretSortIcon,
   CheckIcon,
@@ -149,6 +150,37 @@ const SelectSeparator = React.forwardRef<
   />
 ));
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
+
+SelectTrigger.propTypes = {
+  className: PropTypes.string,
+};
+
+SelectContent.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  position: PropTypes.oneOf(['item-aligned', 'popper']),
+};
+
+SelectLabel.propTypes = {
+  className: PropTypes.string,
+};
+
+SelectItem.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+SelectSeparator.propTypes = {
+  className: PropTypes.string,
+};
+
+SelectScrollUpButton.propTypes = {
+  className: PropTypes.string,
+};
+
+SelectScrollDownButton.propTypes = {
+  className: PropTypes.string,
+};
 
 export {
   Select,

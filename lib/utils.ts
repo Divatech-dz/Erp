@@ -1,5 +1,4 @@
-/* eslint-disable no-prototype-builtins */
-'use cleint';
+'use client';
 
 import { TabsNameInterface } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
