@@ -290,4 +290,8 @@
   .sidebar-label {
     @apply text-16 font-semibold text-black-2 max-xl:hidden;
   }
+  /* Page design */
+  .page-deign {
+    @apply no-scrollbar flex flex-col overflow-y-scroll  p-8 md:max-h-screen xl:py-12;
+  }
 }

@@ -15,7 +15,11 @@ import Goal from '@/public/icons/goal.svg'
 import Statistic from '@/public/icons/statistic.svg'
 import Check from '@/public/icons/check.svg'
 import DivaTech from '@/public/icons/erp-01.jpg';
-
+import Trier from '@/public/icons/trier.png'
+import  Visible  from '@/public/icons/visible.png'
+import Search  from '@/public/icons/search.svg';
+import ArrowDown from '@/public/icons/arrow-down.svg'
+import  ThreeDots from '@/public/icons/three-dots.png'
 
 export const icons = {
   administration,
@@ -33,9 +37,13 @@ export const icons = {
   Sell,
   Goal, 
   Statistic,
-  Check
+  Check,
+  Trier,
+  Visible,
+  Search,
+  ArrowDown,
+  ThreeDots
 };
 export const images={
   DivaTech
-
 }

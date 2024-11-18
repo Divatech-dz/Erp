@@ -1,4 +1,4 @@
-import { CardProps, SalesProps, SidebarLink } from '@/types';
+import { CardProps, Column, rowsType, SalesProps, SidebarLink } from '@/types';
 import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
 import { icons } from './icons';
 
@@ -279,3 +279,112 @@ export const userSalesData: SalesProps[] = [
     salesAmount: '+$39.00',
   },
 ];
+
+
+export const rowTable: rowsType[] = [
+
+  {
+    id: '1',
+    name: 'Référence',
+    sort: false
+  },
+  {
+    id: '2',
+    name: 'Désignation',
+    sort: false
+  },
+  {
+    id: '3',
+    name: 'Quantité-Diva',
+    sort: false
+  },
+  {
+    id: '4',
+    name: 'Quantité',
+    sort: true
+  },
+  {
+    id: '5',
+    name: 'PV TTC -P-',
+    sort: true
+  },
+  {
+    id: '6',
+    name: 'PV TTC - R -',
+    sort: false
+  },
+]
+
+export const invoices = [
+  {
+     Référence: "INV001",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': "7",
+    'PV TTC -P-': '1',
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV002",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': "7",
+    'PV TTC -P-': '1',
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV003",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': "7",
+    'PV TTC -P-': '1',
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV004",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': "7",
+    'PV TTC -P-': '1',
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV005",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': "7",
+    'PV TTC -P-': '1',
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV006",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': "7",
+    'PV TTC -P-': '1',
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV007",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': "7",
+    'PV TTC -P-': '1',
+    'PV TTC - R -': '2',
+  },
+]
+
+export const actions: Column[] = [{
+  id: '1',
+  name: 'Edit',
+  opensModal: true
+}, {
+  id: '2',
+  name: 'View',
+  opensModal: true
+},
+{
+  id: '3',
+  name: 'Delete',
+  opensModal: true
+}]
