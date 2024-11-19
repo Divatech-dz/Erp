@@ -1,10 +1,9 @@
-import { LucideIcon } from 'lucide-react';
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 
 export type CardProps = {
   label: string;
-  icon: LucideIcon;
   amount: string;
   description: string;
   color: string;
@@ -17,8 +16,6 @@ export default function DashboardCard(props: Readonly<CardProps>) {
         <p className={cn('text-lg  font-semibold', props.color)}>
           {props.label}
         </p>
-
-        <props.icon className={cn('h-6 w-6 ', props.color)} />
       </section>
       <section className="flex flex-col gap-1">
         <h2 className="text-2xl font-semibold">{props.amount}</h2>

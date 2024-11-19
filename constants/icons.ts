@@ -9,13 +9,12 @@ import loader from '@/public/icons/loader.svg';
 import openedEye from '@/public/icons/openedEye.svg';
 import closedEye from '@/public/icons/closed-eye.svg';
 import Products from '@/public/icons/products.svg';
-import Stock from '@/public/icons/stock.svg'
-import Sell from '@/public/icons/sell.svg'
-import Goal from '@/public/icons/goal.svg'
-import Statistic from '@/public/icons/statistic.svg'
-import Check from '@/public/icons/check.svg'
+import Stock from '@/public/icons/stock.svg';
+import Sell from '@/public/icons/sell.svg';
+import Goal from '@/public/icons/goal.svg';
+import Statistic from '@/public/icons/statistic.svg';
+import Check from '@/public/icons/check.svg';
 import DivaTech from '@/public/icons/erp-01.jpg';
-
 
 export const icons = {
   administration,
@@ -31,11 +30,10 @@ export const icons = {
   Products,
   Stock,
   Sell,
-  Goal, 
+  Goal,
   Statistic,
-  Check
+  Check,
 };
-export const images={
-  DivaTech
-
-}
+export const images = {
+  DivaTech,
+};

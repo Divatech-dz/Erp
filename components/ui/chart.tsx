@@ -1,11 +1,11 @@
 'use client';
 
-import * as React from 'react';
+import React from 'react';
 import * as RechartsPrimitive from 'recharts';
-
+import PropTypes from 'prop-types';
 import { cn } from '@/lib/utils';
 
-// Format: { THEME_NAME: CSS_SELECTOR }
+// Format: {THEME_NAME: CSS_SELECTOR}
 const THEMES = { light: '', dark: '.dark' } as const;
 
 export type ChartConfig = {
@@ -69,7 +69,6 @@ ChartContainer.displayName = 'Chart';
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ([_, config]) => config.theme || config.color,
   );
 
@@ -317,7 +316,7 @@ const ChartLegendContent = React.forwardRef<
 );
 ChartLegendContent.displayName = 'ChartLegend';
 
-// Helper to extract item config from a payload.
+// Helper to extract an item config from a payload.
 function getPayloadConfigFromPayload(
   config: ChartConfig,
   payload: unknown,
@@ -355,6 +354,22 @@ function getPayloadConfigFromPayload(
     ? config[configLabelKey]
     : config[key as keyof typeof config];
 }
+
+ChartContainer.propTypes = {
+  id: PropTypes.string,
+  className: PropTypes.string,
+};
+
+ChartTooltipContent.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+  label: PropTypes.string,
+  labelFormatter: PropTypes.func,
+  labelClassName: PropTypes.string,
+  className: PropTypes.string,
+  formatter: PropTypes.func,
+  color: PropTypes.string,
+};
 
 export {
   ChartContainer,

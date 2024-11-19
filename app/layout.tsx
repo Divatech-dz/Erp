@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Metadata } from 'next';
 import { Inter, IBM_Plex_Serif } from 'next/font/google';
 import './globals.css';
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable}${IMBPlexSerif.variable}`}>
+      <body className={`${inter.variable} ${IMBPlexSerif.variable}`}>
         {children}
       </body>
     </html>
