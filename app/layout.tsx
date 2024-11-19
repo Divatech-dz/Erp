@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable}${IMBPlexSerif.variable}`}>
+      <body className={`${inter.variable} ${IMBPlexSerif.variable}`}>
         {children}
       </body>
     </html>

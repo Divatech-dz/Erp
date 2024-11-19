@@ -2,7 +2,6 @@
   "name": "erp",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "host": "next dev --hostname 192.168.1.16",

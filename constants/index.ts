@@ -1,5 +1,4 @@
 import { CardProps, SalesProps, SidebarLink } from '@/types';
-import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
 import { icons } from './icons';
 
 export const sidebarLinks: SidebarLink[] = [
@@ -227,7 +226,6 @@ export const cardData: CardProps[] = [
     label: 'Total Bon de Vente',
     amount: '45,231.89',
     description: '+20.1% from last month',
-    icon: BadgePercent,
     color: 'text-success-600',
   },
   {
@@ -235,7 +233,6 @@ export const cardData: CardProps[] = [
     label: 'Total Bon de Livraison',
     amount: '+2350',
     description: '+180.1% from last month',
-    icon: Truck,
     color: 'text-orange-600',
   },
   {
@@ -243,7 +240,6 @@ export const cardData: CardProps[] = [
     label: 'Total Bon de Retour',
     amount: '+12,234',
     description: '+19% from last month',
-    icon: SquareArrowLeft,
     color: 'text-blue-600',
   },
   {
@@ -251,7 +247,6 @@ export const cardData: CardProps[] = [
     label: 'Base Clientèle',
     amount: '+573',
     description: '+201 from last month',
-    icon: Users,
     color: 'text-red-600',
   },
 ];

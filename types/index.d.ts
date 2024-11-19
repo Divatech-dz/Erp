@@ -1,5 +1,3 @@
-import { LucideIcon } from 'lucide-react';
-
 declare interface FooterProps {
   type?: 'mobile' | 'desktop';
 }
@@ -14,7 +12,6 @@ declare interface HeaderBoxProps {
 declare interface CardProps {
   key: number;
   label: string;
-  icon: LucideIcon;
   amount: string;
   description: string;
   color: string;

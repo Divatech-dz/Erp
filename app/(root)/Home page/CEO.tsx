@@ -20,7 +20,6 @@ function Ceo() {
             label="DIVATECH"
             amount={`Nombre d'employés: ${cardData[0].amount}`}
             description={cardData[0].description}
-            icon={cardData[0].icon}
             color={cardData[0].color}
           />
         </div>

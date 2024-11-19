@@ -23,7 +23,6 @@ async function Commercial() {
               key={data.key}
               amount={data.amount}
               description={data.description}
-              icon={data.icon}
               label={data.label}
               color={data.color}
             />
