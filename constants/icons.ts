@@ -16,13 +16,17 @@ import Statistic from '@/public/icons/statistic.svg'
 import Check from '@/public/icons/check.svg'
 import DivaTech from '@/public/icons/erp-01.jpg';
 import Trier from '@/public/icons/trier.png'
-import  Visible  from '@/public/icons/visible.png'
+import  Visible  from '@/public/icons/visible.svg'
+import  Trash  from '@/public/icons/trash.svg'
+import Edit from '@/public/icons/edit.svg'
 import Search  from '@/public/icons/search.svg';
 import ArrowDown from '@/public/icons/arrow-down.svg'
 import  ThreeDots from '@/public/icons/three-dots.png'
+import Filter from '@/public/icons/filtre.svg'
 
 export const icons = {
   administration,
+  Filter,
   archives,
   client,
   company,
@@ -35,6 +39,7 @@ export const icons = {
   Products,
   Stock,
   Sell,
+  Trash,
   Goal, 
   Statistic,
   Check,
@@ -42,7 +47,8 @@ export const icons = {
   Visible,
   Search,
   ArrowDown,
-  ThreeDots
+  ThreeDots,
+  Edit
 };
 export const images={
   DivaTech

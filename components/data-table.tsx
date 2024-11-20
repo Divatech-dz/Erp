@@ -6,80 +6,57 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { SheetDialog } from "./table-components";
+import { SheetDialog, TopContent } from "./table-components";
 import { icons } from "@/constants/icons";
-import { actions } from "@/constants";
 import { TableProps } from "@/types";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+import { Checkbox } from "./ui/checkbox";
+
+
+const reRenderCell = (row: Record<string, any>, colId: string) => row[colId] || "N/A";
 
 export const DataTable = ({ columnNames, columnData }: TableProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [visibleColumns, setVisibleColumns] = useState(
     new Set<string>(columnNames.map((col) => col.id))
   );
-  const [isOpen, setIsOpen] = useState(false);
 
-  const handleColumnVisibilityChange = (columnKey: string) => {
-    setVisibleColumns((prev) => {
-      const newSet = new Set(prev);
-      newSet.has(columnKey) ? newSet.delete(columnKey) : newSet.add(columnKey);
-      return newSet;
-    });
+  const toggleRowSelection = (rowId: string) => {
+    setSelectedRows((prev) =>
+      prev.includes(rowId) ? prev.filter((id) => id !== rowId) : [...prev, rowId]
+    );
   };
 
+
   const headerColumns = useMemo(() => {
-    return visibleColumns.size === columnNames.length
-      ? columnNames
-      : columnNames.filter((column) => visibleColumns.has(column.id));
+    return columnNames.filter((column) => visibleColumns.has(column.id));
   }, [columnNames, visibleColumns]);
 
- 
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
-  const openModal = () => {setIsOpen(!isOpen);};
-  const closeModal = () => {setIsOpen(!isOpen);console.log('hello')};
-  console.log(isOpen)
   return (
     <>
-      <div className="w-full flex items-center justify-between mb-4">
-        {/* Search Input */}
-        <div className="relative flex items-center">
-          <div className="absolute left-3">
-            <Image src={icons.Search} alt="Search" width={16} height={16} />
-          </div>
-          <Input
-            type="search"
-            placeholder="Search ..."
-            className="pl-10 rounded-xl max-w-80 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+     
+      <TopContent
+        columnNames={columnNames}
+        setVisibleColumns={setVisibleColumns}
+        visibleColumns={visibleColumns}
+      />
 
-        {/* Column Visibility Dropdown */}
-        {/* Uncomment below code if needed for column visibility */}
-        {/* <Dropdown
-          label="Columns"
-          icon={icons.ArrowDown}
-          columns={columnNames}
-          handleColumnVisibilityChange={handleColumnVisibilityChange}
-          visibleColumns={visibleColumns}
-        /> */}
-      </div>
-
-      {/* Table */}
+     
       <Table>
         <TableHeader>
           <TableRow>
-            {headerColumns?.map(({ id, name, sort }) => (
+            <TableHead className="text-center">
+              
+            </TableHead>
+            {headerColumns.map(({ id, name, sort }) => (
               <TableHead className="text-center gap-2" key={id}>
                 {sort ? (
                   <Button variant="ghost">
@@ -91,44 +68,40 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
                 )}
               </TableHead>
             ))}
+            <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
           {columnData.map((row) => (
-            <TableRow key={row["Référence"]}>
+            <TableRow key={row["Référence"]} className="hover:bg-gray-50">
+              
+              <TableCell className="text-center">
+                <Checkbox
+                  checked={selectedRows.includes(row["Référence"])}
+                  onCheckedChange={() => toggleRowSelection(row["Référence"])}
+                />
+              </TableCell>
+
+             
               {headerColumns.map((col) => (
                 <TableCell key={`${row["Référence"]}-${col.id}`} className="text-center">
-                  {row[col.name]}
+                  {reRenderCell(row, col.name)}
                 </TableCell>
               ))}
-              <TableCell className="text-center">
-                {/* Dropdown Menu for Actions */}
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="cursor-pointer text-blue-500">
-                    Actions
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    {actions.map(({ id, name }) => (
-                      <DropdownMenuItem key={id} onClick={()=>openModal()}>
-                        {name}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+
+            
+              <TableCell className="text-center flex items-center gap-1">
+                <Image src={icons.Visible} alt="Visible" height={20} width={20} onClick={openModal} />
+                <Image src={icons.Edit} alt="Edit" height={20} width={20} />
+                <Image src={icons.Trash} alt="Trash" height={20} width={20} />
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableCell colSpan={3}>Total</TableCell>
-            <TableCell className="text-right">$2,500.00</TableCell>
-          </TableRow>
-        </TableFooter>
       </Table>
 
-      {/* Modal */}
-      
+    
       <SheetDialog OpenModal={isOpen} closeModal={closeModal} />
     </>
   );

@@ -62,7 +62,7 @@ export function SheetDialog({OpenModal,closeModal}:Readonly<{
 
 }>) {
   return (
-    <Sheet open={OpenModal} onOpenChange={closeModal?.()}>
+    <Sheet open={OpenModal} onOpenChange={()=>closeModal?.()} >
       <SheetContent className="bg-gray-25 min-w-[600px]">
         <SheetHeader>
           <SheetTitle>Details</SheetTitle>
