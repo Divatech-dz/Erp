@@ -11,12 +11,14 @@ interface TopContentProps {
   setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>;
   visibleColumns: Set<string>;
   columnNames: rowsType[]; 
+  openModal:(name:string)=>void
 }
 
 export const TopContent: React.FC<TopContentProps> = ({
   setVisibleColumns,
   columnNames,
   visibleColumns,
+  openModal
 }) => {
  
   const handleColumnVisibilityChange = (columnKey: string) => {
@@ -57,10 +59,11 @@ export const TopContent: React.FC<TopContentProps> = ({
           columns={columnNames}
           handleColumnVisibilityChange={handleColumnVisibilityChange}
           visibleColumns={visibleColumns}
+          classNameTrigger=" px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
         />
 
         
-        <Button className="flex-center rounded-xl px-4 py-2 text-16 w-32 border border-bankGradient bg-erp-gradient font-semibold text-white shadow-form hover:bg-gray-200 active:bg-gray-300 outline-none transition-all">
+        <Button className="filter-button" onClick={()=>openModal('filter')}>
           <Image src={icons.Filter} width={20} height={20} alt="Filter" /> Filter
         </Button>
       </div>

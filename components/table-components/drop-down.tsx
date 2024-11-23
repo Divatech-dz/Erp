@@ -14,22 +14,26 @@ import Image, { StaticImageData } from 'next/image';
 
 
 
-export const Dropdown = ({ columns, handleColumnVisibilityChange, visibleColumns,label,icon }: {
+export const Dropdown = ({ columns, handleColumnVisibilityChange, visibleColumns,label,icon,classNameTrigger,classNameContent }: {
   label?: string;
   icon?: string | StaticImageData;
   columns: Column[],
   handleColumnVisibilityChange?: (columnKey: string) => void,
   visibleColumns?: Set<string>,
+  classNameTrigger?:string,
+  classNameContent?:string
 }) => {
+  
   
   return (
    
     <DropdownMenu >
       <DropdownMenuTrigger 
-      className='flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-black-2 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none  shadow-md transition-all'>
+     className={`flex items-center justify-between gap-2 rounded-xl ${classNameTrigger}`}
+>
         {label} {icon && <Image src={icon} alt="Arrow-Down" height={12} width={12}/>}
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className={classNameContent}>
         {columns.map((column) => (
           <DropdownMenuCheckboxItem
             key={column?.id}
