@@ -9,8 +9,9 @@ export const BottomContent = () => {
             <TableCell colSpan={3}>Total</TableCell>
             <TableCell className="text-right">$2,500.00</TableCell>
           </TableRow>
-
-          <Pagination>
+          <TableRow>
+            <TableCell>
+            <Pagination>
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious href="#" />
@@ -26,6 +27,10 @@ export const BottomContent = () => {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
+               
+            </TableCell>
+          </TableRow>
+          
 
         </TableFooter>
   )

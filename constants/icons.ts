@@ -23,8 +23,11 @@ import Search  from '@/public/icons/search.svg';
 import ArrowDown from '@/public/icons/arrow-down.svg'
 import  ThreeDots from '@/public/icons/three-dots.png'
 import Filter from '@/public/icons/filtre.svg'
+import Admin  from '@/public/icons/admin.svg'
+import Plus   from '@/public/icons/plus.svg'
 
 export const icons = {
+  Admin,
   administration,
   Filter,
   archives,
@@ -48,7 +51,8 @@ export const icons = {
   Search,
   ArrowDown,
   ThreeDots,
-  Edit
+  Edit,
+  Plus
 };
 export const images={
   DivaTech

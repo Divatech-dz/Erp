@@ -47,5 +47,3 @@ export const Dropdown = ({ columns, handleColumnVisibilityChange, visibleColumns
     </DropdownMenu>
   );
 }
-
-

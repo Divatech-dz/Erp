@@ -145,6 +145,19 @@ export const sidebarLinks: SidebarLink[] = [
     ],
     label: 'Statistique',
   },
+  {
+    id: '7',
+    imgURL: icons.Admin,
+    route: [
+      {
+        name: 'Gestion des utilisateurs',
+        link: '/utilisateurs',
+      },
+
+     
+    ],
+    label: 'Admin',
+  },
 ];
 
 export enum AuthType {
@@ -313,6 +326,25 @@ export const rowTable: rowsType[] = [
     name: 'PV TTC - R -',
     sort: false
   },
+]
+
+export const userRowsTable: rowsType[] = [
+
+  {
+    id: '1',
+    name: 'Nom',
+    sort: false
+  },
+  {
+    id: '2',
+    name: 'Prénom',
+    sort: false
+  },
+  {
+    id: '3',
+    name: 'Rôle',
+    sort: false
+  }
 ]
 
 export const invoices = [

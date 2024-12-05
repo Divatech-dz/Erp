@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { Accordion } from './ui/accordion';
 import { AccordionSideBar } from './accordion-side-bar';
 import { Footer } from './footer';
-// import { Footer, AccordionSideBar } from '@/components';
+
 
 export const SideBar = () => {
   const [activeItem, setActiveItem] = useState<string | null>('');
