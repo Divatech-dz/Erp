@@ -22,10 +22,11 @@ import Edit from '@/public/icons/edit.svg'
 import Search  from '@/public/icons/search.svg';
 import ArrowDown from '@/public/icons/arrow-down.svg'
 import  ThreeDots from '@/public/icons/three-dots.png'
-import Filter from '@/public/icons/filtre.svg'
+import Filter from '@/public/icons/filter.svg'
 import Admin  from '@/public/icons/admin.svg'
 import Plus   from '@/public/icons/plus.svg'
-
+import ClosedCircle  from '@/public/icons/closed-circle.svg'
+import Excel  from '@/public/icons/excel.svg'
 export const icons = {
   Admin,
   administration,
@@ -52,7 +53,9 @@ export const icons = {
   ArrowDown,
   ThreeDots,
   Edit,
-  Plus
+  Plus,
+  ClosedCircle,
+  Excel
 };
 export const images={
   DivaTech

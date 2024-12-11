@@ -7,7 +7,7 @@ import {
   Bar,
   ResponsiveContainer,
 } from 'recharts';
-import { CardDescription, CardHeader, CardTitle } from './ui/card';
+import { CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { cn } from '@/lib/utils';
 
 const data = [
@@ -61,7 +61,7 @@ const data = [
   },
 ];
 
-export default function BarChart() {
+export const BarChart=()=> {
   return (
     <>
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">

@@ -7,7 +7,11 @@ import { Dropdown } from './drop-down';
 import { icons } from '@/constants/icons';
 import { Button } from '@/components/ui/button';
 import { rowsType } from '@/types';
-import { usePathname } from 'next/navigation';
+import { usePathname,useRouter } from 'next/navigation';
+
+
+
+
 
 
 interface TopContentProps {
@@ -23,7 +27,8 @@ export const TopContent: React.FC<TopContentProps> = ({
   visibleColumns,
   openModal
 }) => {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleColumnVisibilityChange = (columnKey: string) => {
     setVisibleColumns((prev) => {
@@ -44,9 +49,17 @@ export const TopContent: React.FC<TopContentProps> = ({
     switch (pathname) {
       case '/Admin/utilisateurs':
         return (
-          <Button className="filter-button w-52 bg-black-1  gap-3 hover:bg-black-2 active:bg-gray-300 ">
-            <Image src={icons.Plus} width={20} height={20} alt="Filter" /> Ajouter utilisateurs
-          </Button>
+          <Button 
+          className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white transition-all 
+                     w-52 bg-gray-800 border border-gray-600 shadow-md hover:bg-gray-700 hover:shadow-lg active:bg-gray-600 
+                     focus:outline-none "
+                     onClick={()=>router.push('/Admin/add-user')}
+                     
+        >
+          <Image src={icons.Plus} width={20} height={20} alt="Add User" />
+          Ajouter utilisateurs
+        </Button>
+        
         );
 
       case '/Produits/produits':
@@ -73,7 +86,7 @@ export const TopContent: React.FC<TopContentProps> = ({
 
   return (
     <div className="w-full flex items-center justify-between mb-4">
-      <div className="relative flex items-center">
+      <div className="relative flex items-center gap-2">
         <div className="absolute left-3">
           <Image src={icons.Search} alt="Search" width={16} height={16} />
         </div>
@@ -82,6 +95,7 @@ export const TopContent: React.FC<TopContentProps> = ({
           placeholder="Search ..."
           className="pl-10 rounded-xl max-w-80 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        <Image src={icons.Excel} height={25} width={25} alt='Excel' />
       </div>
 
       <div className="flex items-center gap-3">{rerenderButtons()}</div>

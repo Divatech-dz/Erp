@@ -17,9 +17,9 @@ interface CustomInput {
   control: Control<z.infer<typeof formSchema>>;
   name: FieldPath<z.infer<typeof formSchema>>;
   label: string;
-  placeholder: string;
+  placeholder?: string;
   type?: string;
-  date1?:boolean
+  isTextInput?:boolean
 }
 
 export const CustomInput = ({
@@ -28,9 +28,10 @@ export const CustomInput = ({
   label,
   placeholder,
   type = 'text',
-  date1
+  isTextInput
 }: Readonly<CustomInput>) => {
   const [date, setDate] = React.useState<Date>()
+  
   return (
     <FormField
       control={control}
@@ -38,13 +39,30 @@ export const CustomInput = ({
       render={({ field }) => (
         <div className="form-item">
           <FormLabel className="form-label">{label}</FormLabel>
-
+          
           <FormControl>
-            { date1?<Input
+            { isTextInput?
+            <Input
               placeholder={placeholder}
               className="input-class"
               type={type}
+             
               {...field}
+              value={field.value ?? ''}
+              onChange={(e) => {
+                let value;
+              
+                if (type === 'number') {
+                  value = Number(e.target.value);
+                } else if (type === 'date') {
+                  value = e.target.value ? new Date(e.target.value) : null; 
+                } else {
+                  value = e.target.value; 
+                }
+              
+                field.onChange(value);
+              }}
+              
             />: <Popover>
             <PopoverTrigger asChild>
 
@@ -56,7 +74,7 @@ export const CustomInput = ({
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
+                {date ? format(date, "yyyy-MM-dd") : <span>choisir une date</span>}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">

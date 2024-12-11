@@ -420,3 +420,5 @@ export const actions: Column[] = [{
   name: 'Delete',
   opensModal: true
 }]
+
+export const status:Column[]=[{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]

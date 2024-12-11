@@ -1,7 +1,7 @@
-import { Switch } from './ui/switch';
-import { Label } from './ui/label';
+import { Switch } from '../ui/switch';
+import { Label } from '../ui/label';
 
-const SwitchInfo = ({
+export const ToggleInfo = ({
   checked,
   switchState,
   id,
@@ -20,4 +20,4 @@ const SwitchInfo = ({
   );
 };
 
-export default SwitchInfo;
+

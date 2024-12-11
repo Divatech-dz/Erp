@@ -1,10 +1,8 @@
-import BarChart from '@/components/bar-chart';
-import DashboardCard, { CardContent } from '@/components/dashboard-card';
 
-import { SalesCard } from '@/components/sales-card';
+import { BarChart, DashboardCard, SalesCard } from '@/components/dashboard-components';
+import { CardContent } from '@/components/dashboard-components/dashboard-card';
 import { cardData, userSalesData } from '@/constants';
 import React from 'react';
-
 async function Home() {
   return (
     <section className="home">

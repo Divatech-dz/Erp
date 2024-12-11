@@ -10,7 +10,7 @@ export type CardProps = {
   color: string;
 };
 
-export default function DashboardCard(props: Readonly<CardProps>) {
+export const DashboardCard=(props: Readonly<CardProps>)=> {
   return (
     <CardContent>
       <section className="flex justify-between gap-2">
