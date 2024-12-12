@@ -15,7 +15,7 @@ import Goal from '@/public/icons/goal.svg'
 import Statistic from '@/public/icons/statistic.svg'
 import Check from '@/public/icons/check.svg'
 import DivaTech from '@/public/icons/erp-01.jpg';
-import Trier from '@/public/icons/trier.png'
+import Trier from '@/public/icons/trier.svg'
 import  Visible  from '@/public/icons/visible.svg'
 import  Trash  from '@/public/icons/trash.svg'
 import Edit from '@/public/icons/edit.svg'
