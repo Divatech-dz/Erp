@@ -1,4 +1,4 @@
-import { CardProps, SalesProps, SidebarLink } from '@/types';
+import { CardProps, Column, rowsType, SalesProps, SidebarLink } from '@/types';
 import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
 import { icons } from './icons';
 
@@ -145,6 +145,19 @@ export const sidebarLinks: SidebarLink[] = [
     ],
     label: 'Statistique',
   },
+  {
+    id: '7',
+    imgURL: icons.Admin,
+    route: [
+      {
+        name: 'Gestion des utilisateurs',
+        link: '/utilisateurs',
+      },
+
+     
+    ],
+    label: 'Admin',
+  },
 ];
 
 export enum AuthType {
@@ -279,3 +292,133 @@ export const userSalesData: SalesProps[] = [
     salesAmount: '+$39.00',
   },
 ];
+
+
+export const rowTable: rowsType[] = [
+
+  {
+    id: '1',
+    name: 'Référence',
+    sort: false
+  },
+  {
+    id: '2',
+    name: 'Désignation',
+    sort: false
+  },
+  {
+    id: '3',
+    name: 'Quantité-Diva',
+    sort: false
+  },
+  {
+    id: '4',
+    name: 'Quantité',
+    sort: true
+  },
+  {
+    id: '5',
+    name: 'PV TTC -P-',
+    sort: true
+  },
+  {
+    id: '6',
+    name: 'PV TTC - R -',
+    sort: false
+  },
+]
+
+export const userRowsTable: rowsType[] = [
+
+  {
+    id: '1',
+    name: 'Nom',
+    sort: false
+  },
+  {
+    id: '2',
+    name: 'Prénom',
+    sort: false
+  },
+  {
+    id: '3',
+    name: 'Rôle',
+    sort: false
+  }
+]
+
+export const invoices = [
+  {
+     Référence: "INV001",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': 1,
+    'PV TTC -P-': 1,
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV002",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': 6,
+    'PV TTC -P-': 2,
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV003",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': 3,
+    'PV TTC -P-': 3,
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV004",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': 0,
+    'PV TTC -P-': 4,
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV005",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': 9,
+    'PV TTC -P-': 5,
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV006",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': 4,
+    'PV TTC -P-': 6,
+    'PV TTC - R -': '2',
+  },
+  {
+     Référence: "INV007",
+    'Désignation': "Paid",
+    'Quantité-Diva': "$250.00",
+    'Quantité': 0,
+    'PV TTC -P-': 7,
+    'PV TTC - R -': '2',
+  },
+]
+
+export const actions: Column[] = [{
+  id: '1',
+  name: 'Edit',
+  opensModal: true
+}, {
+  id: '2',
+  name: 'View',
+  opensModal: true
+},
+{
+  id: '3',
+  name: 'Delete',
+  opensModal: true
+}]
+
+export const status:Column[]=[{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]

@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 
+
 const config = {
   darkMode: ['class'],
   content: [
@@ -61,6 +62,9 @@ const config = {
         black: {
           '1': '#00214F',
           '2': '#344054',
+          '3':'rgba(0, 0, 0, 0.3)',
+          '4':'rgba(0, 0, 0, 0.6)'
+
         },
         gray: {
           '25': '#FCFCFD',

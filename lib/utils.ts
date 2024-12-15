@@ -1,4 +1,5 @@
 /* eslint-disable no-prototype-builtins */
+import { AuthType } from '@/constants';
 import { TabsNameInterface } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
 import qs from 'query-string';
@@ -130,46 +131,50 @@ export const getTransactionStatus = (date: Date) => {
   return date > twoDaysAgo ? 'Processing' : 'Success';
 };
 
-export const authFormSchema = (type: string) =>
-  z.object({
-    firstName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    lastName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    address1: type === 'sign-in' ? z.string().optional() : z.string().max(50),
-    city: type === 'sign-in' ? z.string().optional() : z.string().max(50),
-    state:
-      type === 'sign-in' ? z.string().optional() : z.string().min(2).max(2),
-    postalCode:
-      type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
-    dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    group: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    username:
-      type === 'sign-in'
-        ? z
-            .string({
-              required_error: 'username is required',
-              invalid_type_error: 'username must be a string',
-            })
-            .min(3)
-        : z.string().min(3),
-    email:
-      type === 'sign-in'
-        ? z.string().optional()
-        : z
-            .string({
-              required_error: 'email is required',
-              invalid_type_error: 'email must be a string',
-            })
-            .email(),
-    password:
-      type === 'sign-in'
-        ? z
-            .string({
-              required_error: 'password is required',
-              invalid_type_error: 'password must be a string',
-            })
-            .min(8)
-        : z.string().min(8),
+export const authFormSchema = (type: string) => {
+  const isSignIn = type === AuthType.SignIn;
+  const isSignUp = type === AuthType.SignUp;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const conditionalField = (condition: boolean, schema: any) => (condition ? schema : z.undefined());
+
+  return z.object({
+    firstName: conditionalField(!isSignIn, z.string().min(3)),
+    firstNameArabic: conditionalField(isSignUp, z.string().optional()),
+    Function: conditionalField(isSignUp, z.string().optional()),
+    FunctionArabic: conditionalField(isSignUp, z.string().optional()),
+    MatriculeDeclaration:conditionalField(isSignUp,z.string().optional()),
+    startDate: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
+    placeOfBirth: conditionalField(isSignUp, z.string().optional()),
+    placeOfBirthArabic: conditionalField(isSignUp, z.string().optional()),
+    HourlyCost: conditionalField(isSignUp, z.number().optional()),
+    DateOfBirth: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
+    endDate: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
+    Salary: conditionalField(isSignUp, z.number().optional()),
+    PrimePanierTransport: conditionalField(isSignUp, z.number().optional()),
+    Echelon: conditionalField(isSignUp, z.number().optional()),
+    CountNumber:conditionalField(isSignUp,z.number().optional()),
+    SocialInsuranceNumber:conditionalField(isSignUp,z.number().optional()),
+   
+
+    username:conditionalField(isSignUp, z
+      .string({
+        required_error: 'username is required',
+        invalid_type_error: 'username must be a string',
+      })
+      .min(3)),
+
+   
+
+    password:conditionalField(isSignUp, z
+      .string({
+        required_error: 'password is required',
+        invalid_type_error: 'password must be a string',
+      })
+      .min(8)),
   });
+};
+
 
   export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {
     return data[topKey] ? Object.keys(data[topKey]) : undefined;

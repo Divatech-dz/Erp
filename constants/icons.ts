@@ -15,10 +15,22 @@ import Goal from '@/public/icons/goal.svg'
 import Statistic from '@/public/icons/statistic.svg'
 import Check from '@/public/icons/check.svg'
 import DivaTech from '@/public/icons/erp-01.jpg';
-
-
+import Trier from '@/public/icons/trier.svg'
+import  Visible  from '@/public/icons/visible.svg'
+import  Trash  from '@/public/icons/trash.svg'
+import Edit from '@/public/icons/edit.svg'
+import Search  from '@/public/icons/search.svg';
+import ArrowDown from '@/public/icons/arrow-down.svg'
+import  ThreeDots from '@/public/icons/three-dots.png'
+import Filter from '@/public/icons/filter.svg'
+import Admin  from '@/public/icons/admin.svg'
+import Plus   from '@/public/icons/plus.svg'
+import ClosedCircle  from '@/public/icons/closed-circle.svg'
+import Excel  from '@/public/icons/excel.svg'
 export const icons = {
+  Admin,
   administration,
+  Filter,
   archives,
   client,
   company,
@@ -31,11 +43,20 @@ export const icons = {
   Products,
   Stock,
   Sell,
+  Trash,
   Goal, 
   Statistic,
-  Check
+  Check,
+  Trier,
+  Visible,
+  Search,
+  ArrowDown,
+  ThreeDots,
+  Edit,
+  Plus,
+  ClosedCircle,
+  Excel
 };
 export const images={
   DivaTech
-
 }

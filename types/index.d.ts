@@ -1,7 +1,7 @@
 import { LucideIcon } from "lucide-react";
 
 import { LucideIcon } from "lucide-react";
-
+// interface
 declare interface FooterProps {
   type?: 'mobile' | 'desktop';
 }
@@ -19,6 +19,13 @@ declare interface CardProps {
   description: string;
   color:string
 };
+
+declare interface TableProps{
+  columnNames:rowsType[],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columnData: Array<Record<string,any>>;
+}
+//types
 export type SalesProps = {
   name: string
   email: string
@@ -50,3 +57,12 @@ export type AccordionType=SidebarLink &{
   handleAccordionClick: (label: string) => void;
 
 }
+
+export type rowsType={
+  id:string;
+  name:string;
+  sort?:boolean
+}
+export type Column = rowsType & {
+  opensModal?: boolean;
+};

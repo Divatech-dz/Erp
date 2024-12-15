@@ -1,12 +1,12 @@
 import { HeaderBoxProps } from '@/types';
 import React from 'react';
 
-function HeaderBox({
+export const HeaderBox =({
   type = 'title',
   title,
   subtext,
   user,
-}: Readonly<HeaderBoxProps>) {
+}: Readonly<HeaderBoxProps>)=> {
   return (
     <div className="header-box">
       <h1 className="header-box-title">
@@ -20,4 +20,4 @@ function HeaderBox({
   );
 }
 
-export default HeaderBox;
+
