@@ -47,7 +47,7 @@ export const TopContent: React.FC<TopContentProps> = ({
 
   const rerenderButtons = () => {
     switch (pathname) {
-      case '/Admin/utilisateurs':
+      case '/navbar-Links/Admin/utilisateurs':
         return (
           <Button 
           className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white transition-all 
@@ -62,7 +62,7 @@ export const TopContent: React.FC<TopContentProps> = ({
         
         );
 
-      case '/Produits/produits':
+      case '/navbar-Links/Produits/produits':
         return (
           <>
             <Dropdown

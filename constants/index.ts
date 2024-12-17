@@ -163,6 +163,7 @@ export const sidebarLinks: SidebarLink[] = [
 export enum AuthType {
   SignIn = 'sign-in',
   SignUp = 'sign-up',
+  Bill='bill'
 }
 
 export const infoCard = [
@@ -406,6 +407,14 @@ export const invoices = [
   },
 ]
 
+export const bill={
+  orderNumber:0,
+  orderDate:new Date(),
+  AssociatedPurchaseOrder:'',
+  warehouse:'',
+  Note:'',
+}
+
 export const actions: Column[] = [{
   id: '1',
   name: 'Edit',
@@ -422,3 +431,4 @@ export const actions: Column[] = [{
 }]
 
 export const status:Column[]=[{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]
+

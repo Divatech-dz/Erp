@@ -134,8 +134,6 @@ export const getTransactionStatus = (date: Date) => {
 export const authFormSchema = (type: string) => {
   const isSignIn = type === AuthType.SignIn;
   const isSignUp = type === AuthType.SignUp;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const conditionalField = (condition: boolean, schema: any) => (condition ? schema : z.undefined());
 
   return z.object({
@@ -155,16 +153,12 @@ export const authFormSchema = (type: string) => {
     Echelon: conditionalField(isSignUp, z.number().optional()),
     CountNumber:conditionalField(isSignUp,z.number().optional()),
     SocialInsuranceNumber:conditionalField(isSignUp,z.number().optional()),
-   
-
     username:conditionalField(isSignUp, z
       .string({
         required_error: 'username is required',
         invalid_type_error: 'username must be a string',
       })
       .min(3)),
-
-   
 
     password:conditionalField(isSignUp, z
       .string({
@@ -174,6 +168,16 @@ export const authFormSchema = (type: string) => {
       .min(8)),
   });
 };
+
+export const  billFormSchema=()=>{
+  return z.object({
+    orderNumber:z.number(),
+    orderDate:z.date(),
+    AssociatedPurchaseOrder:z.string(),
+    warehouse:z.string(),
+    Note:z.string(),
+
+})}
 
 
   export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {
