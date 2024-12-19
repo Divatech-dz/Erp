@@ -1,5 +1,5 @@
 "use client";
-
+import {useState } from 'react';
 import { Column } from '@/types';
 import {
   DropdownMenu,
@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image, { StaticImageData } from 'next/image';
-import { useState } from 'react';
+
 
 interface DropdownProps {
   label?: string;
@@ -19,6 +19,7 @@ interface DropdownProps {
   classNameTrigger?: string;
   classNameContent?: string;
   showLabel?: boolean;
+  filterOptions?:Set<string>;
 }
 
 export const Dropdown = ({
@@ -30,16 +31,18 @@ export const Dropdown = ({
   classNameTrigger = '',
   classNameContent = '',
   showLabel = false,
+  filterOptions
 }: DropdownProps) => {
+  
   const [selectedName, setSelectedName] = useState('');
   const [isNameVisible, setIsNameVisible] = useState(false);
-
   const handleColumnToggle = (column: Column) => {
-    handleColumnVisibilityChange?.(column.id);
+    handleColumnVisibilityChange?.(filterOptions?column?.name:column?.id);
     setSelectedName(column.name);
     setIsNameVisible(showLabel);
   };
-
+ 
+ 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -52,7 +55,9 @@ export const Dropdown = ({
         {columns.map((column) => (
           <DropdownMenuCheckboxItem
             key={column.id}
-            checked={visibleColumns?.has(column.id)}
+            checked={
+              (visibleColumns?.has(column.id) || filterOptions?.has(column.name)) ?? false
+            }
             onCheckedChange={() => handleColumnToggle(column)}
           >
             {column.name}

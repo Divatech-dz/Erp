@@ -1,17 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input } from '../ui/input';
 import { Dropdown } from './drop-down';
 import { icons } from '@/constants/icons';
 import { Button } from '@/components/ui/button';
 import { rowsType } from '@/types';
 import { usePathname,useRouter } from 'next/navigation';
-
-
-
-
+import {  invoices, StatusOptions } from '@/constants';
 
 
 interface TopContentProps {
@@ -19,16 +16,27 @@ interface TopContentProps {
   visibleColumns: Set<string>;
   columnNames: rowsType[];
   openModal: (name: string) => void;
+  setTableData?: React.Dispatch<React.SetStateAction<Record<string, any>[]>>;
+  tableData?: Record<string, any>[]
 }
 
 export const TopContent: React.FC<TopContentProps> = ({
   setVisibleColumns,
   columnNames,
   visibleColumns,
-  openModal
+  openModal,
+  setTableData,
+  tableData
 }) => {
+  const [visibleFilter, setVisibleFilter] = useState(
+    new Set<string>(StatusOptions.map((col) => col.name))
+  );
+  
   const pathname = usePathname();
   const router = useRouter();
+  
+  
+  
 
   const handleColumnVisibilityChange = (columnKey: string) => {
     setVisibleColumns((prev) => {
@@ -37,7 +45,8 @@ export const TopContent: React.FC<TopContentProps> = ({
         return newSet;
       }
       if (newSet.has(columnKey)) {
-        newSet.delete(columnKey);
+        newSet.delete(columnKey)
+
       } else {
         newSet.add(columnKey);
       }
@@ -45,6 +54,30 @@ export const TopContent: React.FC<TopContentProps> = ({
     });
   };
 
+  const filteredItems = (columnKey: string) => {
+    setVisibleFilter((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(columnKey)) {
+        newSet.delete(columnKey);
+        
+      } else {
+        newSet.add(columnKey); 
+      }
+
+      return new Set(newSet);
+    });
+  };
+ 
+  
+  
+  useEffect(() => {
+    setTableData?.((prev) => {
+      const filtered = prev?.filter((value) => visibleFilter.has(value.status)) || [];
+      return filtered;
+    });
+   
+  }, [visibleFilter, setTableData]);
+  
   const rerenderButtons = () => {
     switch (pathname) {
       case '/navbar-Links/Admin/utilisateurs':
@@ -70,12 +103,22 @@ export const TopContent: React.FC<TopContentProps> = ({
               icon={icons.ArrowDown}
               columns={columnNames}
               handleColumnVisibilityChange={handleColumnVisibilityChange}
+             
               visibleColumns={visibleColumns}
+              classNameTrigger="px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
+            />
+              <Dropdown
+              label="Status"
+              icon={icons.ArrowDown}
+              columns={StatusOptions}
+              handleColumnVisibilityChange={filteredItems}
+              filterOptions={visibleFilter}
               classNameTrigger="px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
             />
             <Button className="filter-button border-bankGradient bg-erp-gradient hover:bg-gray-200 active:bg-gray-300" onClick={() => openModal('filter')}>
               <Image src={icons.Filter} width={20} height={20} alt="Filter" /> Filter
             </Button>
+          
           </>
         );
 
@@ -97,11 +140,7 @@ export const TopContent: React.FC<TopContentProps> = ({
         />
         <Image src={icons.Excel} height={25} width={25} alt='Excel' />
       </div>
-
-      <div className="flex items-center gap-3">{rerenderButtons()}</div>
-     
-      
-    
+      <div className="flex items-center gap-3  ">{rerenderButtons()}</div>
     </div>
   );
 };

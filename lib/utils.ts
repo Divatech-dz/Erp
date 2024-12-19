@@ -5,6 +5,7 @@ import { type ClassValue, clsx } from 'clsx';
 import qs from 'query-string';
 import { twMerge } from 'tailwind-merge';
 import { z } from 'zod';
+import * as XLSX from 'xlsx';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -182,4 +183,38 @@ export const  billFormSchema=()=>{
 
   export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {
     return data[topKey] ? Object.keys(data[topKey]) : undefined;
+  };
+
+
+ export const handleExportExcel = (data:[]) => {
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    XLSX.writeFile(workbook, 'exported_data.xlsx');
+  };
+
+  export const parseExcelFile = (file: File, onSuccess: (jsonData: any[]) => void, onError: (error: Error) => void) => {
+    const reader = new FileReader();
+  
+    reader.onload = (e) => {
+      try {
+        const data = new Uint8Array(e.target?.result as ArrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+
+        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+        onSuccess(jsonData);
+      } catch (error: unknown) {
+      if (error instanceof Error) {
+        onError(error);  
+      } else {
+       
+        onError(new Error('An unknown error occurred'));
+      }
+      }
+    };
+  
+    reader.readAsArrayBuffer(file);
   };
