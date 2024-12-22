@@ -10,7 +10,7 @@ export type CardProps = {
   color: string;
 };
 
-export const DashboardCard=(props: Readonly<CardProps>)=> {
+export const DashboardCard = (props: Readonly<CardProps>) => {
   return (
     <CardContent>
       <section className="flex justify-between gap-2">
@@ -26,7 +26,7 @@ export const DashboardCard=(props: Readonly<CardProps>)=> {
       </section>
     </CardContent>
   );
-}
+};
 
 export function CardContent(
   props: Readonly<React.HTMLAttributes<HTMLDivElement>>,

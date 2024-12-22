@@ -1,6 +1,5 @@
-
-import { Sheet,  SheetContent,  SheetHeader, SheetTitle } from "../ui/sheet";
-import { FilterContent } from "./sheet-content";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../ui/sheet';
+import { FilterContent } from './sheet-content';
 
 interface ReusableSheetProps {
   open: boolean;
@@ -8,17 +7,22 @@ interface ReusableSheetProps {
   title?: string;
   contentType: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contentProps?: Record<string, any>; 
+  contentProps?: Record<string, any>;
 }
 
-export const ReusableSheet: React.FC<ReusableSheetProps> = ({ open, onClose, title,contentType }) => {
+export const ReusableSheet: React.FC<ReusableSheetProps> = ({
+  open,
+  onClose,
+  title,
+  contentType,
+}) => {
   const renderContent = () => {
     switch (contentType) {
-      case "table":
+      case 'table':
         return <div>Table</div>;
-      case "filter":
-        return <FilterContent/>;
-      
+      case 'filter':
+        return <FilterContent />;
+
       default:
         return <div>No content available</div>;
     }
@@ -37,4 +41,3 @@ export const ReusableSheet: React.FC<ReusableSheetProps> = ({ open, onClose, tit
     </Sheet>
   );
 };
-

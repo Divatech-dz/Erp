@@ -1,20 +1,18 @@
-import { BillFooter, BillForm, BillTabs } from '@/components/bill-component'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { bill } from '@/constants'
-import React from 'react'
+import { BillFooter, BillForm, BillTabs } from '@/components/bill-component';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { bill } from '@/constants';
+import React from 'react';
 
 function Bill() {
-
   const tabs = [
     {
       value: 'Information Client',
       label: 'Information Client',
       content: (
         <Card>
-          
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="name">Name</Label>
@@ -36,7 +34,6 @@ function Bill() {
       label: 'Bone de Livraison',
       content: (
         <Card>
-        
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="current">Current password</Label>
@@ -59,7 +56,6 @@ function Bill() {
       content: (
         <Card>
           <CardContent className="space-y-2">
-            
             <Label htmlFor="mode">Mode</Label>
             <Input id="mode" defaultValue="Standard" />
           </CardContent>
@@ -86,17 +82,14 @@ function Bill() {
     },
   ];
   return (
-    <div className='page-deign '>
+    <div className="page-deign ">
       <section className="size-full pt-5">
         <BillForm defaultValues={bill} />
-        <BillTabs defaultValue='Information Client' tabs={tabs} />
+        <BillTabs defaultValue="Information Client" tabs={tabs} />
         <BillFooter />
-
       </section>
-
-
     </div>
-  )
+  );
 }
 
-export default Bill
+export default Bill;

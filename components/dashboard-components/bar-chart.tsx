@@ -61,7 +61,7 @@ const data = [
   },
 ];
 
-export const BarChart=()=> {
+export const BarChart = () => {
   return (
     <>
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
@@ -114,4 +114,4 @@ export const BarChart=()=> {
       </ResponsiveContainer>
     </>
   );
-}
+};

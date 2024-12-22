@@ -19,5 +19,3 @@ export const ToggleInfo = ({
     </div>
   );
 };
-
-

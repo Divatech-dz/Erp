@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+'use client';
 
-import React, { useMemo, useState } from "react";
-import Image from "next/image";
+import React, { useMemo, useState } from 'react';
+import Image from 'next/image';
 import {
   Table,
   TableBody,
@@ -10,45 +10,45 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Button } from "./ui/button";
-import { PaginationTable, ReusableSheet, TopContent } from "./table-components";
-import { icons } from "@/constants/icons";
-import { TableProps } from "@/types";
-import { statusColors} from "@/constants";
-
+} from '@/components/ui/table';
+import { Button } from './ui/button';
+import { PaginationTable, ReusableSheet, TopContent } from './table-components';
+import { icons } from '@/constants/icons';
+import { TableProps } from '@/types';
+import { statusColors, StatusOptions, invoices } from '@/constants';
 
 const getCellContent = (row: Record<string, any>, colId: string) =>
-  row[colId] !== "" ? row[colId] : "N/A";
+  row[colId] !== '' ? row[colId] : 'N/A';
 
 export const DataTable = ({ columnNames, columnData }: TableProps) => {
   const [visibleColumns, setVisibleColumns] = useState(
-    new Set<string>(columnNames.map((col) => col.id))
+    new Set<string>(columnNames.map(col => col.id)),
   );
 
   const [tableData, setTableData] = useState(columnData);
   const [openModal, setOpenModal] = React.useState(false);
-  const [contentType, setContentType] = React.useState<string>("table");
+  const [contentType, setContentType] = React.useState<string>('table');
   const [sortedButton, setSortedButton] = useState<{
     column: string;
     ascending: boolean;
   }>({
-    column: "",
+    column: '',
     ascending: true,
   });
 
-
   const [currentPage, setCurrentPage] = useState(1);
+  const [visibleFilter, setVisibleFilter] = useState(
+    new Set<string>(StatusOptions.map(col => col.name)),
+  );
   const pageSize = 5;
   const totalPages = Math.ceil(tableData.length / pageSize);
 
-
   const handleSort = (columnKey: string) => {
-
-    const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
+    const ascending =
+      sortedButton.column === columnKey ? !sortedButton.ascending : true;
     setSortedButton({ column: columnKey, ascending });
 
-    setTableData((prevData) =>
+    setTableData(prevData =>
       [...prevData].sort((a, b) => {
         const firstValue = a[columnKey];
         const secondValue = b[columnKey];
@@ -59,7 +59,7 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
         else comparisonResult = 0;
 
         return ascending ? comparisonResult : -comparisonResult;
-      })
+      }),
     );
     setCurrentPage(1);
   };
@@ -76,17 +76,34 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
   };
 
   const headerColumns = useMemo(() => {
-    return columnNames.filter((column) => visibleColumns.has(column.id));
+    return columnNames.filter(column => visibleColumns.has(column.id));
   }, [columnNames, visibleColumns]);
-  
 
- 
-  const invoices = [
+  const filteredItems = (columnKey: string) => {
+    setVisibleFilter(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(columnKey)) {
+        newSet.delete(columnKey);
+      } else {
+        newSet.add(columnKey);
+      }
+      setTableData?.(() => {
+        if (newSet.size === 0) {
+          return invoices;
+        }
+        return invoices.filter(invoice => newSet.has(invoice.status));
+      });
+
+      return newSet;
+    });
+  };
+
+  const invoice = [
     {
-      invoice: "INV001",
-      paymentStatus: "Paid",
-      paymentMethod: "Credit Card",
-      totalAmount: "$100.00",
+      invoice: 'INV001',
+      paymentStatus: 'Paid',
+      paymentMethod: 'Credit Card',
+      totalAmount: '$100.00',
     },
   ];
 
@@ -97,9 +114,8 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
         setVisibleColumns={setVisibleColumns}
         visibleColumns={visibleColumns}
         openModal={openModalWithContent}
-        setTableData={setTableData}
-        tableData={tableData}
-        
+        visibleFilter={visibleFilter}
+        onFilter={filteredItems}
       />
 
       <Table>
@@ -110,7 +126,12 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
                 {sort ? (
                   <Button variant="ghost" onClick={() => handleSort(name)}>
                     {name}
-                    <Image src={icons.Trier} alt="Trier" width={20} height={20} />
+                    <Image
+                      src={icons.Trier}
+                      alt="Trier"
+                      width={20}
+                      height={20}
+                    />
                   </Button>
                 ) : (
                   name
@@ -122,30 +143,34 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
         </TableHeader>
 
         <TableBody>
-          {currentData.map((row) => (
-            <TableRow key={row["Référence"]} className="hover:bg-gray-50">
+          {currentData.map(row => (
+            <TableRow key={row['Référence']} className="hover:bg-gray-50">
               {headerColumns.map((col: { id: string; name: string }) => {
-                const statusKey = row["status"] as keyof typeof statusColors;
-                const statusClass = statusColors[statusKey] || "bg-gray-500";
-
+                const statusKey = row['status'] as keyof typeof statusColors;
+                const statusClass = statusColors[statusKey] || 'bg-gray-500';
 
                 let cellContent;
-                if (col.name === "status" && row["status"]) {
+                if (col.name === 'status' && row['status']) {
                   cellContent = (
                     <p
                       className={`px-2 py-1 text-white font-semibold rounded-full shadow-sm text-center capitalize ${statusClass}`}
                     >
-                      {row["status"]}
+                      {row['status']}
                     </p>
                   );
-                } else if (col.name === "Quantité" && row["Quantité"] <= 0) {
-                  cellContent = <p className="text-red-400">{row["Quantité"]}</p>;
+                } else if (col.name === 'Quantité' && row['Quantité'] <= 0) {
+                  cellContent = (
+                    <p className="text-red-400">{row['Quantité']}</p>
+                  );
                 } else {
                   cellContent = getCellContent(row, col.name);
                 }
 
                 return (
-                  <TableCell key={`${row["Référence"]}-${col.id}`} className="text-center">
+                  <TableCell
+                    key={`${row['Référence']}-${col.id}`}
+                    className="text-center"
+                  >
                     {cellContent}
                   </TableCell>
                 );
@@ -156,14 +181,13 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
                   alt="Visible"
                   height={20}
                   width={20}
-                  onClick={() => openModalWithContent("table")}
+                  onClick={() => openModalWithContent('table')}
                 />
                 <Image src={icons.Edit} alt="Edit" height={20} width={20} />
                 <Image src={icons.Trash} alt="Trash" height={20} width={20} />
               </TableCell>
             </TableRow>
           ))}
-
         </TableBody>
       </Table>
 
@@ -176,9 +200,9 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
       <ReusableSheet
         open={openModal}
         onClose={() => setOpenModal(false)}
-        title={contentType === "table" ? "Invoice Details" : ""}
+        title={contentType === 'table' ? 'Invoice Details' : ''}
         contentType={contentType}
-        contentProps={contentType === "table" ? { invoices } : {}}
+        contentProps={contentType === 'table' ? { invoice } : {}}
       />
     </>
   );

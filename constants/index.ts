@@ -153,8 +153,6 @@ export const sidebarLinks: SidebarLink[] = [
         name: 'Gestion des utilisateurs',
         link: '/utilisateurs',
       },
-
-     
     ],
     label: 'Admin',
   },
@@ -163,7 +161,7 @@ export const sidebarLinks: SidebarLink[] = [
 export enum AuthType {
   SignIn = 'sign-in',
   SignUp = 'sign-up',
-  Bill='bill'
+  Bill = 'bill',
 }
 
 export const infoCard = [
@@ -294,169 +292,173 @@ export const userSalesData: SalesProps[] = [
   },
 ];
 
-
 export const rowTable: rowsType[] = [
-
   {
     id: '1',
     name: 'Référence',
-    sort: false
+    sort: false,
   },
   {
     id: '2',
     name: 'Désignation',
-    sort: false
+    sort: false,
   },
   {
     id: '3',
     name: 'Quantité-Diva',
-    sort: false
+    sort: false,
   },
   {
     id: '4',
     name: 'Quantité',
-    sort: true
+    sort: true,
   },
   {
     id: '7',
     name: 'status',
-    sort: false
+    sort: false,
   },
   {
     id: '5',
     name: 'PV TTC -P-',
-    sort: true
+    sort: true,
   },
   {
     id: '6',
     name: 'PV TTC - R -',
-    sort: false
+    sort: false,
   },
-]
-export const StatusOptions: rowsType[]=[  {
-  id: '1',
-  name: 'Active',
-},
-{
-  id: '2',
-  name: 'Pending',
-},
-{
-  id: '3',
-  name: 'Paused',
-},]
+];
+export const StatusOptions: rowsType[] = [
+  {
+    id: '1',
+    name: 'Active',
+  },
+  {
+    id: '2',
+    name: 'Pending',
+  },
+  {
+    id: '3',
+    name: 'Paused',
+  },
+];
 
 export const userRowsTable: rowsType[] = [
-
   {
     id: '1',
     name: 'Nom',
-    sort: false
+    sort: false,
   },
   {
     id: '2',
     name: 'Prénom',
-    sort: false
+    sort: false,
   },
   {
     id: '3',
     name: 'Rôle',
-    sort: false
-  }
-]
+    sort: false,
+  },
+];
 
 export const invoices = [
   {
-     Référence: "INV001",
-    'Désignation': "Paid",
-    'Quantité-Diva': "$250.00",
-    'Quantité': 1,
-    'status':'Active',
+    Référence: 'INV001',
+    Désignation: 'Paid',
+    'Quantité-Diva': '$250.00',
+    Quantité: 1,
+    status: 'Active',
     'PV TTC -P-': 1,
     'PV TTC - R -': '2',
   },
   {
-     Référence: "INV002",
-    'Désignation': "Paid",
-    'Quantité-Diva': "$250.00",
-    'Quantité': 6,
-    'status':'Pending',
+    Référence: 'INV002',
+    Désignation: 'Paid',
+    'Quantité-Diva': '$250.00',
+    Quantité: 6,
+    status: 'Pending',
     'PV TTC -P-': 2,
     'PV TTC - R -': '2',
   },
   {
-     Référence: "INV003",
-    'Désignation': "Paid",
-    'Quantité-Diva': "$250.00",
-    'status':'Paused',
-    'Quantité': 3,
+    Référence: 'INV003',
+    Désignation: 'Paid',
+    'Quantité-Diva': '$250.00',
+    status: 'Paused',
+    Quantité: 3,
     'PV TTC -P-': 3,
     'PV TTC - R -': '2',
   },
   {
-     Référence: "INV004",
-    'Désignation': "Paid",
-    'Quantité-Diva': "$250.00",
-    'status':'Paused',
-    'Quantité': 0,
+    Référence: 'INV004',
+    Désignation: 'Paid',
+    'Quantité-Diva': '$250.00',
+    status: 'Paused',
+    Quantité: 0,
     'PV TTC -P-': 4,
     'PV TTC - R -': '2',
   },
   {
-     Référence: "INV005",
-    'Désignation': "Paid",
-    'Quantité-Diva': "$250.00",
-    'status':'Active',
-    'Quantité': 9,
+    Référence: 'INV005',
+    Désignation: 'Paid',
+    'Quantité-Diva': '$250.00',
+    status: 'Active',
+    Quantité: 9,
     'PV TTC -P-': 5,
     'PV TTC - R -': '2',
   },
   {
-     Référence: "INV006",
-    'Désignation': "Paid",
-    'Quantité-Diva': "$250.00",
-    'status':'Pending',
-    'Quantité': 4,
+    Référence: 'INV006',
+    Désignation: 'Paid',
+    'Quantité-Diva': '$250.00',
+    status: 'Pending',
+    Quantité: 4,
     'PV TTC -P-': 6,
     'PV TTC - R -': '2',
   },
   {
-     Référence: "INV007",
-    'Désignation': "Paid",
-    'Quantité-Diva': "$250.00",
-    'status':'Active',
-    'Quantité': 0,
+    Référence: 'INV007',
+    Désignation: 'Paid',
+    'Quantité-Diva': '$250.00',
+    status: 'Active',
+    Quantité: 0,
     'PV TTC -P-': 7,
     'PV TTC - R -': '2',
   },
-]
-export const statusColors: Record<"Active" | "Pending" | "Paused", string> = {
-  Active: "bg-green-500",
-  Pending: "bg-yellow-500",
-  Paused: "bg-red-500",
+];
+export const statusColors: Record<'Active' | 'Pending' | 'Paused', string> = {
+  Active: 'bg-green-500',
+  Pending: 'bg-yellow-500',
+  Paused: 'bg-red-500',
 };
-export const bill={
-  orderNumber:0,
-  orderDate:new Date(),
-  AssociatedPurchaseOrder:'',
-  warehouse:'',
-  Note:'',
-}
+export const bill = {
+  orderNumber: 0,
+  orderDate: new Date(),
+  AssociatedPurchaseOrder: '',
+  warehouse: '',
+  Note: '',
+};
 
-export const actions: Column[] = [{
-  id: '1',
-  name: 'Edit',
-  opensModal: true
-}, {
-  id: '2',
-  name: 'View',
-  opensModal: true
-},
-{
-  id: '3',
-  name: 'Delete',
-  opensModal: true
-}]
+export const actions: Column[] = [
+  {
+    id: '1',
+    name: 'Edit',
+    opensModal: true,
+  },
+  {
+    id: '2',
+    name: 'View',
+    opensModal: true,
+  },
+  {
+    id: '3',
+    name: 'Delete',
+    opensModal: true,
+  },
+];
 
-export const status:Column[]=[{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]
-
+export const status: Column[] = [
+  { id: '1', name: 'banque' },
+  { id: '2', name: 'CPP' },
+];

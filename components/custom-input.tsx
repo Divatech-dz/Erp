@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, FormField, FormLabel, FormMessage } from './ui/form';
 import { Input } from './ui/input';
-import { format } from "date-fns"
+import { format } from 'date-fns';
 import { Control, FieldPath } from 'react-hook-form';
 import { z } from 'zod';
 import { authFormSchema, cn } from '@/lib/utils';
@@ -9,14 +9,14 @@ import { AuthType } from '@/constants';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { CalendarIcon } from 'lucide-react';
 import { Button } from './ui/button';
-import { Calendar } from "@/components/ui/calendar"
+import { Calendar } from '@/components/ui/calendar';
 import { Textarea } from './ui/textarea';
 
 const formSchema = authFormSchema(AuthType.SignIn);
 
 interface CustomInput<TSchema extends z.ZodType<any, any>> {
-  control: Control<z.infer<TSchema>>; 
-  name: FieldPath<z.infer<TSchema>>; 
+  control: Control<z.infer<TSchema>>;
+  name: FieldPath<z.infer<TSchema>>;
   label: string;
   placeholder?: string;
   type?: string;
@@ -29,14 +29,13 @@ export const CustomInput = <TSchema extends z.ZodType<any, any>>({
   name,
   label,
   placeholder,
-  type = "text",
+  type = 'text',
   isTextInput,
   isTextArea,
-}:CustomInput<TSchema>) => {
-  const [date, setDate] = React.useState<Date>()
+}: CustomInput<TSchema>) => {
+  const [date, setDate] = React.useState<Date>();
 
-
-  const renderInputField = (field:any) => {
+  const renderInputField = (field: any) => {
     if (isTextInput) {
       return (
         <Input
@@ -44,12 +43,12 @@ export const CustomInput = <TSchema extends z.ZodType<any, any>>({
           className="input-class"
           type={type}
           {...field}
-          value={field.value ?? ""}
-          onChange={(e) => {
+          value={field.value ?? ''}
+          onChange={e => {
             let value;
-            if (type === "number") {
+            if (type === 'number') {
               value = Number(e.target.value);
-            } else if (type === "date") {
+            } else if (type === 'date') {
               value = e.target.value ? new Date(e.target.value) : null;
             } else {
               value = e.target.value;
@@ -59,28 +58,23 @@ export const CustomInput = <TSchema extends z.ZodType<any, any>>({
         />
       );
     }
-  
+
     if (isTextArea) {
-      return (
-        <Textarea
-          placeholder={placeholder}
-          className="input-class"
-        />
-      );
+      return <Textarea placeholder={placeholder} className="input-class" />;
     }
-  
+
     return (
       <Popover>
         <PopoverTrigger asChild>
           <Button
-            variant={"outline"}
+            variant={'outline'}
             className={cn(
-              "w-[280px] justify-start text-left font-normal",
-              !date && "text-muted-foreground"
+              'w-[280px] justify-start text-left font-normal',
+              !date && 'text-muted-foreground',
             )}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
-            {date ? format(date, "yyyy-MM-dd") : <span>choisir une date</span>}
+            {date ? format(date, 'yyyy-MM-dd') : <span>choisir une date</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
@@ -95,7 +89,6 @@ export const CustomInput = <TSchema extends z.ZodType<any, any>>({
     );
   };
 
-
   return (
     <FormField
       control={control}
@@ -104,9 +97,7 @@ export const CustomInput = <TSchema extends z.ZodType<any, any>>({
         <div className="form-item">
           <FormLabel className="form-label">{label}</FormLabel>
 
-          <FormControl>
-            {renderInputField(field)}
-          </FormControl>
+          <FormControl>{renderInputField(field)}</FormControl>
           <FormMessage className="form-message mt-2" />
         </div>
       )}

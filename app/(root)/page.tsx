@@ -1,5 +1,8 @@
-
-import { BarChart, DashboardCard, SalesCard } from '@/components/dashboard-components';
+import {
+  BarChart,
+  DashboardCard,
+  SalesCard,
+} from '@/components/dashboard-components';
 import { CardContent } from '@/components/dashboard-components/dashboard-card';
 import { cardData, userSalesData } from '@/constants';
 import React from 'react';
