@@ -55,7 +55,7 @@ export const AuthForm = ({ type, style }: Readonly<{ type: string; style?: strin
   };
 
   const renderCustomInput = (name: FieldPath<z.infer<typeof formSchema>>, label: string, placeholder?: string, isTextInput = true, type = 'text') => (
-    <CustomInput
+    <CustomInput<typeof formSchema>
       control={form.control}
       name={name}
       label={label}

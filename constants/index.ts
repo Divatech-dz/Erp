@@ -163,6 +163,7 @@ export const sidebarLinks: SidebarLink[] = [
 export enum AuthType {
   SignIn = 'sign-in',
   SignUp = 'sign-up',
+  Bill='bill'
 }
 
 export const infoCard = [
@@ -317,6 +318,11 @@ export const rowTable: rowsType[] = [
     sort: true
   },
   {
+    id: '7',
+    name: 'status',
+    sort: false
+  },
+  {
     id: '5',
     name: 'PV TTC -P-',
     sort: true
@@ -327,6 +333,18 @@ export const rowTable: rowsType[] = [
     sort: false
   },
 ]
+export const StatusOptions: rowsType[]=[  {
+  id: '1',
+  name: 'Active',
+},
+{
+  id: '2',
+  name: 'Pending',
+},
+{
+  id: '3',
+  name: 'Paused',
+},]
 
 export const userRowsTable: rowsType[] = [
 
@@ -353,6 +371,7 @@ export const invoices = [
     'Désignation': "Paid",
     'Quantité-Diva': "$250.00",
     'Quantité': 1,
+    'status':'Active',
     'PV TTC -P-': 1,
     'PV TTC - R -': '2',
   },
@@ -361,6 +380,7 @@ export const invoices = [
     'Désignation': "Paid",
     'Quantité-Diva': "$250.00",
     'Quantité': 6,
+    'status':'Pending',
     'PV TTC -P-': 2,
     'PV TTC - R -': '2',
   },
@@ -368,6 +388,7 @@ export const invoices = [
      Référence: "INV003",
     'Désignation': "Paid",
     'Quantité-Diva': "$250.00",
+    'status':'Paused',
     'Quantité': 3,
     'PV TTC -P-': 3,
     'PV TTC - R -': '2',
@@ -376,6 +397,7 @@ export const invoices = [
      Référence: "INV004",
     'Désignation': "Paid",
     'Quantité-Diva': "$250.00",
+    'status':'Paused',
     'Quantité': 0,
     'PV TTC -P-': 4,
     'PV TTC - R -': '2',
@@ -384,6 +406,7 @@ export const invoices = [
      Référence: "INV005",
     'Désignation': "Paid",
     'Quantité-Diva': "$250.00",
+    'status':'Active',
     'Quantité': 9,
     'PV TTC -P-': 5,
     'PV TTC - R -': '2',
@@ -392,6 +415,7 @@ export const invoices = [
      Référence: "INV006",
     'Désignation': "Paid",
     'Quantité-Diva': "$250.00",
+    'status':'Pending',
     'Quantité': 4,
     'PV TTC -P-': 6,
     'PV TTC - R -': '2',
@@ -400,11 +424,24 @@ export const invoices = [
      Référence: "INV007",
     'Désignation': "Paid",
     'Quantité-Diva': "$250.00",
+    'status':'Active',
     'Quantité': 0,
     'PV TTC -P-': 7,
     'PV TTC - R -': '2',
   },
 ]
+export const statusColors: Record<"Active" | "Pending" | "Paused", string> = {
+  Active: "bg-green-500",
+  Pending: "bg-yellow-500",
+  Paused: "bg-red-500",
+};
+export const bill={
+  orderNumber:0,
+  orderDate:new Date(),
+  AssociatedPurchaseOrder:'',
+  warehouse:'',
+  Note:'',
+}
 
 export const actions: Column[] = [{
   id: '1',
@@ -422,3 +459,4 @@ export const actions: Column[] = [{
 }]
 
 export const status:Column[]=[{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]
+

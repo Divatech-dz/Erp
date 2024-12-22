@@ -5,6 +5,7 @@ import { type ClassValue, clsx } from 'clsx';
 import qs from 'query-string';
 import { twMerge } from 'tailwind-merge';
 import { z } from 'zod';
+import * as XLSX from 'xlsx';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -134,8 +135,6 @@ export const getTransactionStatus = (date: Date) => {
 export const authFormSchema = (type: string) => {
   const isSignIn = type === AuthType.SignIn;
   const isSignUp = type === AuthType.SignUp;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const conditionalField = (condition: boolean, schema: any) => (condition ? schema : z.undefined());
 
   return z.object({
@@ -155,16 +154,12 @@ export const authFormSchema = (type: string) => {
     Echelon: conditionalField(isSignUp, z.number().optional()),
     CountNumber:conditionalField(isSignUp,z.number().optional()),
     SocialInsuranceNumber:conditionalField(isSignUp,z.number().optional()),
-   
-
     username:conditionalField(isSignUp, z
       .string({
         required_error: 'username is required',
         invalid_type_error: 'username must be a string',
       })
       .min(3)),
-
-   
 
     password:conditionalField(isSignUp, z
       .string({
@@ -175,7 +170,51 @@ export const authFormSchema = (type: string) => {
   });
 };
 
+export const  billFormSchema=()=>{
+  return z.object({
+    orderNumber:z.number(),
+    orderDate:z.date(),
+    AssociatedPurchaseOrder:z.string(),
+    warehouse:z.string(),
+    Note:z.string(),
+
+})}
+
 
   export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {
     return data[topKey] ? Object.keys(data[topKey]) : undefined;
+  };
+
+
+ export const handleExportExcel = (data:[]) => {
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    XLSX.writeFile(workbook, 'exported_data.xlsx');
+  };
+
+  export const parseExcelFile = (file: File, onSuccess: (jsonData: any[]) => void, onError: (error: Error) => void) => {
+    const reader = new FileReader();
+  
+    reader.onload = (e) => {
+      try {
+        const data = new Uint8Array(e.target?.result as ArrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+
+        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+        onSuccess(jsonData);
+      } catch (error: unknown) {
+      if (error instanceof Error) {
+        onError(error);  
+      } else {
+       
+        onError(new Error('An unknown error occurred'));
+      }
+      }
+    };
+  
+    reader.readAsArrayBuffer(file);
   };

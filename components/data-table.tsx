@@ -15,15 +15,17 @@ import { Button } from "./ui/button";
 import { PaginationTable, ReusableSheet, TopContent } from "./table-components";
 import { icons } from "@/constants/icons";
 import { TableProps } from "@/types";
+import { statusColors} from "@/constants";
 
 
-const reRenderCell = (row: Record<string, any>, colId: string) =>
+const getCellContent = (row: Record<string, any>, colId: string) =>
   row[colId] !== "" ? row[colId] : "N/A";
 
 export const DataTable = ({ columnNames, columnData }: TableProps) => {
   const [visibleColumns, setVisibleColumns] = useState(
     new Set<string>(columnNames.map((col) => col.id))
   );
+
   const [tableData, setTableData] = useState(columnData);
   const [openModal, setOpenModal] = React.useState(false);
   const [contentType, setContentType] = React.useState<string>("table");
@@ -34,32 +36,34 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
     column: "",
     ascending: true,
   });
-  
-  
+
+
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 5; 
+  const pageSize = 5;
   const totalPages = Math.ceil(tableData.length / pageSize);
 
-  const handleSort = (name: string) => {
-    setSortedButton({ ascending: !sortedButton.ascending, column: name });
+
+  const handleSort = (columnKey: string) => {
+
+    const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
+    setSortedButton({ column: columnKey, ascending });
+
     setTableData((prevData) =>
       [...prevData].sort((a, b) => {
-        const first = a[sortedButton.column];
-        const second = b[sortedButton.column];
-        let cmp: number;
-        if (first < second) {
-          cmp = -1;
-        } else if (first > second) {
-          cmp = 1;
-        } else {
-          cmp = 0;
-        }
-        return sortedButton.ascending ? cmp : -cmp;
+        const firstValue = a[columnKey];
+        const secondValue = b[columnKey];
+
+        let comparisonResult: number;
+        if (firstValue < secondValue) comparisonResult = -1;
+        else if (firstValue > secondValue) comparisonResult = 1;
+        else comparisonResult = 0;
+
+        return ascending ? comparisonResult : -comparisonResult;
       })
     );
+    setCurrentPage(1);
   };
 
-  
   const currentData = useMemo(() => {
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -74,9 +78,16 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
   const headerColumns = useMemo(() => {
     return columnNames.filter((column) => visibleColumns.has(column.id));
   }, [columnNames, visibleColumns]);
+  
 
+ 
   const invoices = [
-    { invoice: "INV001", paymentStatus: "Paid", paymentMethod: "Credit Card", totalAmount: "$100.00" },
+    {
+      invoice: "INV001",
+      paymentStatus: "Paid",
+      paymentMethod: "Credit Card",
+      totalAmount: "$100.00",
+    },
   ];
 
   return (
@@ -86,6 +97,9 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
         setVisibleColumns={setVisibleColumns}
         visibleColumns={visibleColumns}
         openModal={openModalWithContent}
+        setTableData={setTableData}
+        tableData={tableData}
+        
       />
 
       <Table>
@@ -109,16 +123,33 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
 
         <TableBody>
           {currentData.map((row) => (
-            <TableRow
-              key={row["Référence"]}
-              className={`hover:bg-gray-50 ${row["Quantité"] <= 0 ? "bg-red-400" : ""}`}
-            >
-              {headerColumns.map((col: { id: string; name: string }) => (
-                <TableCell key={`${row["Référence"]}-${col.id}`} className="text-center">
-                  {reRenderCell(row, col.name)}
-                </TableCell>
-              ))}
+            <TableRow key={row["Référence"]} className="hover:bg-gray-50">
+              {headerColumns.map((col: { id: string; name: string }) => {
+                const statusKey = row["status"] as keyof typeof statusColors;
+                const statusClass = statusColors[statusKey] || "bg-gray-500";
 
+
+                let cellContent;
+                if (col.name === "status" && row["status"]) {
+                  cellContent = (
+                    <p
+                      className={`px-2 py-1 text-white font-semibold rounded-full shadow-sm text-center capitalize ${statusClass}`}
+                    >
+                      {row["status"]}
+                    </p>
+                  );
+                } else if (col.name === "Quantité" && row["Quantité"] <= 0) {
+                  cellContent = <p className="text-red-400">{row["Quantité"]}</p>;
+                } else {
+                  cellContent = getCellContent(row, col.name);
+                }
+
+                return (
+                  <TableCell key={`${row["Référence"]}-${col.id}`} className="text-center">
+                    {cellContent}
+                  </TableCell>
+                );
+              })}
               <TableCell className="text-center flex items-center gap-1">
                 <Image
                   src={icons.Visible}
@@ -132,10 +163,15 @@ export const DataTable = ({ columnNames, columnData }: TableProps) => {
               </TableCell>
             </TableRow>
           ))}
+
         </TableBody>
       </Table>
 
-      <PaginationTable totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+      <PaginationTable
+        totalPages={totalPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
 
       <ReusableSheet
         open={openModal}
