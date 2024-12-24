@@ -440,6 +440,8 @@ export const bill = {
   Note: '',
 };
 
+export const Brands=["Asus","Mars gaming","AOC","MSI","Lexar","Patriot","COURGIS","ADAT","Cooler Master","Thermal grizzly"]
+
 export const actions: Column[] = [
   {
     id: '1',

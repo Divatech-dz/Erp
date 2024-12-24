@@ -1,19 +1,28 @@
-import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
 import { Dropdown } from '../drop-down';
 import { icons } from '@/constants/icons';
 import { Slider } from '@/components/ui/slider';
+import { Brands } from '@/constants';
 
+const MAX_VISIBLE_BRANDS = 10;
 export const FilterContent = () => {
   const [value, setValue] = useState([0]);
+  const [showAll, setShowAll] = useState(false);
+  const [activeButton, setActiveButton] = useState<number | null>(null);
+
+  const toggleShowAll = () => setShowAll(prev => !prev);
+
+  const visibleBrands = showAll ? Brands : Brands.slice(0, MAX_VISIBLE_BRANDS);
 
   const handleChange = (newValue: number[]) => {
     setValue(newValue);
   };
+  const handleButtonClick = (index: number) => {
+    setActiveButton(prev => (prev === index ? null : index)); // Toggle active button
+  };
 
   return (
     <div className="filter">
-      {/* Header Section */}
       <div className="text-center">
         <h1 className="text-3xl font-semibold text-gray-900">Filter Options</h1>
         <p className="text-gray-600 mt-2">
@@ -21,13 +30,33 @@ export const FilterContent = () => {
         </p>
       </div>
 
-      {/* Brands Section */}
       <div className="w-full">
         <h2 className="font-semibold text-2xl text-gray-800 mb-4">Brands</h2>
-        <div className="flex justify-start space-x-4">
-          <Button className="bg-gray-100 text-gray-800 hover:bg-blue-600 hover:text-white rounded-full px-6 py-2 transition-all shadow-sm">
-            Sort Bubble
-          </Button>
+        <div className="space-y-4">
+          <div className="flex justify-start flex-wrap gap-2">
+            {visibleBrands.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => handleButtonClick(index)}
+                className={`rounded-full px-6 py-2 transition-all shadow-sm ${
+                  activeButton === index
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-100 text-gray-800 hover:bg-blue-600 hover:text-white'
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+
+          {Brands.length > MAX_VISIBLE_BRANDS && (
+            <button
+              onClick={toggleShowAll}
+              className=" text-black-1 hover:text-blue-700  transition-all "
+            >
+              {showAll ? 'Show Less' : 'Show More'}
+            </button>
+          )}
         </div>
       </div>
 

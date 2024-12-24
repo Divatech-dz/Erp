@@ -1,4 +1,4 @@
-/* eslint-disable no-prototype-builtins */
+ 
 import { AuthType } from '@/constants';
 import { TabsNameInterface } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
@@ -135,6 +135,7 @@ export const getTransactionStatus = (date: Date) => {
 export const authFormSchema = (type: string) => {
   const isSignIn = type === AuthType.SignIn;
   const isSignUp = type === AuthType.SignUp;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const conditionalField = (condition: boolean, schema: any) =>
     condition ? schema : z.undefined();
 
@@ -221,6 +222,7 @@ export const handleExportExcel = (data: []) => {
 
 export const parseExcelFile = (
   file: File,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSuccess: (jsonData: any[]) => void,
   onError: (error: Error) => void,
 ) => {
