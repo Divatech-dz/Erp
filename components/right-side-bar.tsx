@@ -5,7 +5,6 @@ import { QuantityLabels } from '@/constants';
 import { icons } from '@/constants/icons';
 import { StockInfoCard, ToggleInfo } from './right-side-bar-components';
 
-
 export const RightSideBar = () => {
   const [checked, setChecked] = useState(false);
   const switchState = () => setChecked(!checked);

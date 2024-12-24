@@ -1,1 +1,1 @@
-export {FilterContent} from './filter-content'
+export { FilterContent } from './filter-content';

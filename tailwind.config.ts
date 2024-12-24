@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss';
 
-
 const config = {
   darkMode: ['class'],
   content: [
@@ -21,11 +20,10 @@ const config = {
     },
     extend: {
       colors: {
-       
         fill: {
           '1': 'rgba(255, 255, 255, 0.10)',
         },
-         
+
         bankGradient: '#0179FE',
         indigo: {
           '500': '#6172F3',
@@ -54,7 +52,7 @@ const config = {
           '600': '#1570EF',
           '700': '#175CD3',
           '900': '#194185',
-          '1000': '#358CFE'
+          '1000': '#358CFE',
         },
         sky: {
           '1': '#F3F9FF',
@@ -62,9 +60,8 @@ const config = {
         black: {
           '1': '#00214F',
           '2': '#344054',
-          '3':'rgba(0, 0, 0, 0.3)',
-          '4':'rgba(0, 0, 0, 0.6)'
-
+          '3': 'rgba(0, 0, 0, 0.3)',
+          '4': 'rgba(0, 0, 0, 0.6)',
         },
         gray: {
           '25': '#FCFCFD',
@@ -166,7 +163,6 @@ const config = {
     },
   },
   plugins: [require('tailwindcss-animate')],
-    
 } satisfies Config;
 
 export default config;

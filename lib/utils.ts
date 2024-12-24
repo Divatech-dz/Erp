@@ -1,4 +1,4 @@
-/* eslint-disable no-prototype-builtins */
+ 
 import { AuthType } from '@/constants';
 import { TabsNameInterface } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
@@ -135,86 +135,117 @@ export const getTransactionStatus = (date: Date) => {
 export const authFormSchema = (type: string) => {
   const isSignIn = type === AuthType.SignIn;
   const isSignUp = type === AuthType.SignUp;
-  const conditionalField = (condition: boolean, schema: any) => (condition ? schema : z.undefined());
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const conditionalField = (condition: boolean, schema: any) =>
+    condition ? schema : z.undefined();
 
   return z.object({
     firstName: conditionalField(!isSignIn, z.string().min(3)),
     firstNameArabic: conditionalField(isSignUp, z.string().optional()),
     Function: conditionalField(isSignUp, z.string().optional()),
     FunctionArabic: conditionalField(isSignUp, z.string().optional()),
-    MatriculeDeclaration:conditionalField(isSignUp,z.string().optional()),
-    startDate: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
+    MatriculeDeclaration: conditionalField(isSignUp, z.string().optional()),
+    startDate: conditionalField(
+      isSignUp,
+      z
+        .string()
+        .transform(val => new Date(val))
+        .optional(),
+    ),
     placeOfBirth: conditionalField(isSignUp, z.string().optional()),
     placeOfBirthArabic: conditionalField(isSignUp, z.string().optional()),
     HourlyCost: conditionalField(isSignUp, z.number().optional()),
-    DateOfBirth: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
-    endDate: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
+    DateOfBirth: conditionalField(
+      isSignUp,
+      z
+        .string()
+        .transform(val => new Date(val))
+        .optional(),
+    ),
+    endDate: conditionalField(
+      isSignUp,
+      z
+        .string()
+        .transform(val => new Date(val))
+        .optional(),
+    ),
     Salary: conditionalField(isSignUp, z.number().optional()),
     PrimePanierTransport: conditionalField(isSignUp, z.number().optional()),
     Echelon: conditionalField(isSignUp, z.number().optional()),
-    CountNumber:conditionalField(isSignUp,z.number().optional()),
-    SocialInsuranceNumber:conditionalField(isSignUp,z.number().optional()),
-    username:conditionalField(isSignUp, z
-      .string({
-        required_error: 'username is required',
-        invalid_type_error: 'username must be a string',
-      })
-      .min(3)),
+    CountNumber: conditionalField(isSignUp, z.number().optional()),
+    SocialInsuranceNumber: conditionalField(isSignUp, z.number().optional()),
+    username: conditionalField(
+      isSignUp,
+      z
+        .string({
+          required_error: 'username is required',
+          invalid_type_error: 'username must be a string',
+        })
+        .min(3),
+    ),
 
-    password:conditionalField(isSignUp, z
-      .string({
-        required_error: 'password is required',
-        invalid_type_error: 'password must be a string',
-      })
-      .min(8)),
+    password: conditionalField(
+      isSignUp,
+      z
+        .string({
+          required_error: 'password is required',
+          invalid_type_error: 'password must be a string',
+        })
+        .min(8),
+    ),
   });
 };
 
-export const  billFormSchema=()=>{
+export const billFormSchema = () => {
   return z.object({
-    orderNumber:z.number(),
-    orderDate:z.date(),
-    AssociatedPurchaseOrder:z.string(),
-    warehouse:z.string(),
-    Note:z.string(),
+    orderNumber: z.number(),
+    orderDate: z.date(),
+    AssociatedPurchaseOrder: z.string(),
+    warehouse: z.string(),
+    Note: z.string(),
+  });
+};
 
-})}
+export const getSubLevelKeys = (
+  data: TabsNameInterface,
+  topKey: string,
+): string[] | undefined => {
+  return data[topKey] ? Object.keys(data[topKey]) : undefined;
+};
 
+export const handleExportExcel = (data: []) => {
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+  XLSX.writeFile(workbook, 'exported_data.xlsx');
+};
 
-  export const getSubLevelKeys = (data: TabsNameInterface, topKey: string): string[] | undefined => {
-    return data[topKey] ? Object.keys(data[topKey]) : undefined;
-  };
+export const parseExcelFile = (
+  file: File,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onSuccess: (jsonData: any[]) => void,
+  onError: (error: Error) => void,
+) => {
+  const reader = new FileReader();
 
+  reader.onload = e => {
+    try {
+      const data = new Uint8Array(e.target?.result as ArrayBuffer);
+      const workbook = XLSX.read(data, { type: 'array' });
 
- export const handleExportExcel = (data:[]) => {
-    const worksheet = XLSX.utils.json_to_sheet(data);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-    XLSX.writeFile(workbook, 'exported_data.xlsx');
-  };
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
 
-  export const parseExcelFile = (file: File, onSuccess: (jsonData: any[]) => void, onError: (error: Error) => void) => {
-    const reader = new FileReader();
-  
-    reader.onload = (e) => {
-      try {
-        const data = new Uint8Array(e.target?.result as ArrayBuffer);
-        const workbook = XLSX.read(data, { type: 'array' });
-
-        const sheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[sheetName];
-
-        const jsonData = XLSX.utils.sheet_to_json(worksheet);
-        onSuccess(jsonData);
-      } catch (error: unknown) {
+      const jsonData = XLSX.utils.sheet_to_json(worksheet);
+      onSuccess(jsonData);
+    } catch (error: unknown) {
       if (error instanceof Error) {
-        onError(error);  
+        onError(error);
       } else {
-       
         onError(new Error('An unknown error occurred'));
       }
-      }
-    };
-  
-    reader.readAsArrayBuffer(file);
+    }
   };
+
+  reader.readAsArrayBuffer(file);
+};

@@ -1,4 +1,3 @@
-
 import { RightSideBar } from '@/components/right-side-bar';
 import { MobileNav, SideBar } from '@/components/side-bar';
 import Image from 'next/image';
