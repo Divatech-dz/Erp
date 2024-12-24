@@ -41,12 +41,11 @@ export const Dropdown = ({
     setSelectedName(column.name);
     setIsNameVisible(showLabel);
   };
- 
- 
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className={`flex items-center justify-between gap-2 rounded-xl ${classNameTrigger}`}
+        className={`flex items-center justify-between gap-2 ${classNameTrigger}`}
       >
         {isNameVisible ? selectedName : label} 
         {icon && <Image src={icon} alt="Arrow-Down" height={12} width={12} />}

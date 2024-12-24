@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -75,11 +74,8 @@ export const AuthForm = ({ type, style }: Readonly<{ type: string; style?: strin
     return type === AuthType.SignUp ? 'Next' : 'Se connecter';
   }
 
-
-
-
   return (
-    <section className={`auth-form ${style}`}>
+    <section className={`py-1 auth-form ${style}`}>
       <header className="flex flex-col gap-5 md:gap-8">
         <div className="flex flex-col gap-1 md:gap-3">
           <h1 className="text-24 lg:text-36 font-semibold text-gray-900">
@@ -132,24 +128,24 @@ export const AuthForm = ({ type, style }: Readonly<{ type: string; style?: strin
 
               {renderCustomInput('Echelon', 'Echellon', 'Echellon',true,'number')}
 
-              <div className="flex gap-4">
-                <Dropdown
-                  label="Status"
-                  icon={icons.ArrowDown}
-                  columns={status}
-                  showLabel={true}
-                  classNameTrigger="px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
-                />
-                {renderCustomInput('CountNumber', 'Numéro de Compte', 'Numéro de Compte',true,'number')}
+              <div className="flex items-end gap-4">
+                  <Dropdown
+                      label="Status"
+                      icon={icons.ArrowDown}
+                      columns={status}
+                      showLabel={true}
+                      classNameTrigger="mb-1 px-4 h-8 md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
+                  />
+                {renderCustomInput('CountNumber', 'Numéro de Compte', 'Numéro de Compte', true, 'number')}
               </div>
 
-              {renderCustomInput('SocialInsuranceNumber', 'Numéro d\'assurance Sociale', 'Numéro d\'assurance Sociale',true,'number')}
+              {renderCustomInput('SocialInsuranceNumber', 'Numéro d\'assurance Sociale', 'Numéro d\'assurance Sociale', true, 'number')}
             </>
           )}
 
           {type === AuthType.SignIn && (
-            <>
-              {renderCustomInput('username', "Nom d'utilisateur", "Veuillez entrer votre nom d'utilisateur")}
+              <>
+                {renderCustomInput('username', "Nom d'utilisateur", "Veuillez entrer votre nom d'utilisateur")}
               <div className="relative">
                 {renderCustomInput('password', 'Mot de passe', 'Veuillez entrer votre mot de passe', true, show ? 'text' : 'password')}
                 <button

@@ -1,185 +1,142 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, {useMemo, useState} from "react";
 import Image from "next/image";
+import {Button} from "./ui/button";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
 } from "@/components/ui/table";
-import { Button } from "./ui/button";
-import { PaginationTable, ReusableSheet, TopContent } from "./table-components";
-import { icons } from "@/constants/icons";
-import { TableProps } from "@/types";
-import { statusColors} from "@/constants";
+import {PaginationTable, ReusableSheet, TopContent} from "./table-components";
+import {icons} from "@/constants/icons";
+import {TableProps} from "@/types";
 
-
-const getCellContent = (row: Record<string, any>, colId: string) =>
-  row[colId] !== "" ? row[colId] : "N/A";
-
-export const DataTable = ({ columnNames, columnData }: TableProps) => {
-  const [visibleColumns, setVisibleColumns] = useState(
-    new Set<string>(columnNames.map((col) => col.id))
-  );
-
-  const [tableData, setTableData] = useState(columnData);
-  const [openModal, setOpenModal] = React.useState(false);
-  const [contentType, setContentType] = React.useState<string>("table");
-  const [sortedButton, setSortedButton] = useState<{
-    column: string;
-    ascending: boolean;
-  }>({
-    column: "",
-    ascending: true,
-  });
-
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 5;
-  const totalPages = Math.ceil(tableData.length / pageSize);
-
-
-  const handleSort = (columnKey: string) => {
-
-    const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
-    setSortedButton({ column: columnKey, ascending });
-
-    setTableData((prevData) =>
-      [...prevData].sort((a, b) => {
-        const firstValue = a[columnKey];
-        const secondValue = b[columnKey];
-
-        let comparisonResult: number;
-        if (firstValue < secondValue) comparisonResult = -1;
-        else if (firstValue > secondValue) comparisonResult = 1;
-        else comparisonResult = 0;
-
-        return ascending ? comparisonResult : -comparisonResult;
-      })
+export const DataTable = ({columnNames, columnData, currentPage, setCurrentPage, totalPages}: TableProps) => {
+    const [visibleColumns, setVisibleColumns] = useState(
+        new Set<string>(columnNames.map((col) => col.id))
     );
-    setCurrentPage(1);
-  };
 
-  const currentData = useMemo(() => {
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    return tableData.slice(startIndex, endIndex);
-  }, [currentPage, tableData]);
+    const [tableData, setTableData] = useState(columnData);
+    const [openModal, setOpenModal] = React.useState(false);
+    const [contentType, setContentType] = React.useState<string>("table");
+    const [sortedButton, setSortedButton] = useState<{
+        column: string;
+        ascending: boolean;
+    }>({
+        column: "",
+        ascending: true,
+    });
 
-  const openModalWithContent = (type: string) => {
-    setContentType(type);
-    setOpenModal(true);
-  };
+    const headerColumns = useMemo(() => {
+        return columnNames.filter((column) => visibleColumns.has(column.id));
+    }, [columnNames, visibleColumns]);
 
-  const headerColumns = useMemo(() => {
-    return columnNames.filter((column) => visibleColumns.has(column.id));
-  }, [columnNames, visibleColumns]);
-  
+    const handleSort = (columnKey: string) => {
 
- 
-  const invoices = [
-    {
-      invoice: "INV001",
-      paymentStatus: "Paid",
-      paymentMethod: "Credit Card",
-      totalAmount: "$100.00",
-    },
-  ];
+        const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
+        setSortedButton({column: columnKey, ascending});
 
-  return (
-    <>
-      <TopContent
-        columnNames={columnNames}
-        setVisibleColumns={setVisibleColumns}
-        visibleColumns={visibleColumns}
-        openModal={openModalWithContent}
-        setTableData={setTableData}
-        tableData={tableData}
-        
-      />
+        setTableData((prevData) =>
+            [...prevData].sort((a, b) => {
+                const firstValue = a[columnKey];
+                const secondValue = b[columnKey];
 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            {headerColumns.map(({ id, name, sort }) => (
-              <TableHead className="text-center gap-2" key={id}>
-                {sort ? (
-                  <Button variant="ghost" onClick={() => handleSort(name)}>
-                    {name}
-                    <Image src={icons.Trier} alt="Trier" width={20} height={20} />
-                  </Button>
-                ) : (
-                  name
-                )}
-              </TableHead>
-            ))}
-            <TableHead>Actions</TableHead>
-          </TableRow>
-        </TableHeader>
+                let comparisonResult: number;
+                if (firstValue < secondValue) comparisonResult = -1;
+                else if (firstValue > secondValue) comparisonResult = 1;
+                else comparisonResult = 0;
 
-        <TableBody>
-          {currentData.map((row) => (
-            <TableRow key={row["Référence"]} className="hover:bg-gray-50">
-              {headerColumns.map((col: { id: string; name: string }) => {
-                const statusKey = row["status"] as keyof typeof statusColors;
-                const statusClass = statusColors[statusKey] || "bg-gray-500";
+                return ascending ? comparisonResult : -comparisonResult;
+            })
+        );
+        if (setCurrentPage) {
+            setCurrentPage(1);
+        }
+    };
 
+    const openModalWithContent = (type: string) => {
+        setContentType(type);
+        setOpenModal(true);
+    };
+    return (
+        <>
+            <TopContent
+                columnNames={columnNames}
+                setVisibleColumns={setVisibleColumns}
+                visibleColumns={visibleColumns}
+                openModal={openModalWithContent}
+                setTableData={setTableData}
+                tableData={tableData}
+            />
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        {headerColumns.map(({id, name, sort}) => (
+                            <TableHead className="text-center gap-2" key={id}>
+                                {sort ? (
+                                    <Button variant="ghost" onClick={() => handleSort(name)}>
+                                        {name}
+                                        <Image src={icons.Trier} alt="Trier" width={20} height={20}/>
+                                    </Button>
+                                ) : (
+                                    name
+                                )}
+                            </TableHead>
+                        ))}
+                        <TableHead>Actions</TableHead>
+                    </TableRow>
+                </TableHeader>
 
-                let cellContent;
-                if (col.name === "status" && row["status"]) {
-                  cellContent = (
-                    <p
-                      className={`px-2 py-1 text-white font-semibold rounded-full shadow-sm text-center capitalize ${statusClass}`}
-                    >
-                      {row["status"]}
-                    </p>
-                  );
-                } else if (col.name === "Quantité" && row["Quantité"] <= 0) {
-                  cellContent = <p className="text-red-400">{row["Quantité"]}</p>;
-                } else {
-                  cellContent = getCellContent(row, col.name);
-                }
+                <TableBody>
+                    {columnData?.map((product: any) => (
+                        <TableRow key={product.id} className="hover:bg-gray-50">
+                            <TableCell>
+                                {product.reference}
+                            </TableCell>
+                            <TableCell>
+                                {product.name}
+                            </TableCell>
+                            <TableCell>
+                                {product.stock[0].quantity}
+                            </TableCell>
+                            <TableCell>
+                                {product.prix_vente} dzd
+                            </TableCell>
+                            <TableCell className="text-center flex items-center gap-1">
+                                <Image
+                                    src={icons.Visible}
+                                    alt="Visible"
+                                    height={20}
+                                    width={20}
+                                    onClick={() => openModalWithContent("table")}
+                                />
+                                <Image src={icons.Edit} alt="Edit" height={20} width={20}/>
+                                <Image src={icons.Trash} alt="Trash" height={20} width={20}/>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
 
-                return (
-                  <TableCell key={`${row["Référence"]}-${col.id}`} className="text-center">
-                    {cellContent}
-                  </TableCell>
-                );
-              })}
-              <TableCell className="text-center flex items-center gap-1">
-                <Image
-                  src={icons.Visible}
-                  alt="Visible"
-                  height={20}
-                  width={20}
-                  onClick={() => openModalWithContent("table")}
-                />
-                <Image src={icons.Edit} alt="Edit" height={20} width={20} />
-                <Image src={icons.Trash} alt="Trash" height={20} width={20} />
-              </TableCell>
-            </TableRow>
-          ))}
+            <PaginationTable
+                totalPages={totalPages ?? 0}
+                currentPage={currentPage ?? 1}
+                setCurrentPage={setCurrentPage ?? (() => {
+                })}
+            />
 
-        </TableBody>
-      </Table>
-
-      <PaginationTable
-        totalPages={totalPages}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-
-      <ReusableSheet
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-        title={contentType === "table" ? "Invoice Details" : ""}
-        contentType={contentType}
-        contentProps={contentType === "table" ? { invoices } : {}}
-      />
-    </>
-  );
+            <ReusableSheet
+                open={openModal}
+                onClose={() => setOpenModal(false)}
+                title={contentType === "table" ? "Invoice Details" : ""}
+                contentType={contentType}
+                contentProps={contentType === "table" ? {tableData} : {}}
+            />
+        </>
+    );
 };
