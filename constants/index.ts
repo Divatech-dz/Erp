@@ -390,3 +390,8 @@ export const actions: Column[] = [{
 
 export const status:Column[]=[{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]
 
+export const defaultValuesSignIn: Record<string, any> = {
+  username: "",
+  password: "",
+};
+

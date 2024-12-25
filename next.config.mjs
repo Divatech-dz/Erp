@@ -3,7 +3,6 @@ import { withSentryConfig } from '@sentry/nextjs';
 const nextConfig = {
     images: {
         domains: ['api.dicebear.com'],
-       
       },
 };
 

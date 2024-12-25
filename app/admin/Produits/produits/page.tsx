@@ -7,15 +7,14 @@ import { rowTable } from "@/constants";
 import { getProducts } from "@/service/productService";
 import { useQuery } from '@tanstack/react-query';
 
+
+
 export default function Products() {
     const [page, setPage] = useState(1);
-    const { data, isLoading, error } = useQuery({
+    const { data} = useQuery({
         queryKey: [page],
         queryFn: getProducts
     });
-
-    console.log(data)
-
     const results = data?.results;
     const totalPages = data?.total_pages;
 

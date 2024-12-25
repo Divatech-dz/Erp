@@ -4,15 +4,14 @@ import { Input } from './ui/input';
 import { format } from "date-fns"
 import { Control, FieldPath } from 'react-hook-form';
 import { z } from 'zod';
-import { authFormSchema, cn } from '@/lib/utils';
-import { AuthType } from '@/constants';
+import { cn } from '@/lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { CalendarIcon } from 'lucide-react';
 import { Button } from './ui/button';
 import { Calendar } from "@/components/ui/calendar"
 import { Textarea } from './ui/textarea';
 
-const formSchema = authFormSchema(AuthType.SignIn);
+
 
 interface CustomInput<TSchema extends z.ZodType<any, any>> {
   control: Control<z.infer<TSchema>>; 
@@ -45,6 +44,7 @@ export const CustomInput = <TSchema extends z.ZodType<any, any>>({
           type={type}
           {...field}
           value={field.value ?? ""}
+          autoComplete="current-password"
           onChange={(e) => {
             let value;
             if (type === "number") {

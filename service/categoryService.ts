@@ -1,8 +1,8 @@
-import { categoryAPI } from "@/lib/axios"
+import  axiosInstance from "@/lib/axios"
 
 export const getCategory = async () => {
     try {
-        const { data } = await categoryAPI.get("",{
+        const { data } = await  axiosInstance.get("/Category",{
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
