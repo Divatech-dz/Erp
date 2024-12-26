@@ -3,9 +3,10 @@ import { FooterProps } from '@/types';
 import Image from 'next/image';
 import React from 'react';
 
+
 export const Footer = ({ type = 'desktop' }: FooterProps) => {
   const { data: user} = useGetUser();
- 
+
   return (
     <footer className="footer">
       <div className={type === 'mobile' ? 'footer_name-mobile' : 'footer_name'}>
@@ -21,7 +22,7 @@ export const Footer = ({ type = 'desktop' }: FooterProps) => {
           <span className="text-success-700">Role</span> Commercial
         </p>
       </div>
-      <div className="footer_image">
+      <div className="footer_image" >
         <Image src="/icons/logout.svg" fill alt="logout" />
       </div>
     </footer>

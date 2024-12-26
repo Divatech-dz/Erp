@@ -150,6 +150,32 @@ export const authFormSchemaSignIn = () => {
   });
 };
 
+export const authFormSchemaSignUp = () =>{
+  return z.object({
+    firstName: z.string().min(3),
+    firstNameArabic:  z.string().optional(),
+    Function:z.string().optional(),
+    FunctionArabic:  z.string().optional(),
+    MatriculeDeclaration:z.string().optional(),
+    startDate:  z.string().transform((val) => new Date(val)).optional(),
+    placeOfBirth:  z.string().optional(),
+    placeOfBirthArabic:  z.string().optional(),
+    HourlyCost:  z.number().optional(),
+    DateOfBirth:  z.string().transform((val) => new Date(val)).optional(),
+    endDate:  z.string().transform((val) => new Date(val)).optional(),
+    Salary:  z.number().optional(),
+    PrimePanierTransport:  z.number().optional(),
+    Echelon:  z.number().optional(),
+    CountNumber:z.number().optional(),
+    SocialInsuranceNumber:z.number().optional(),
+   
+
+   
+  });
+}
+
+
+
 
 export const  billFormSchema=()=>{
   return z.object({

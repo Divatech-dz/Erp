@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useActionState, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FieldPath, useForm } from 'react-hook-form';
@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
 
-import { authFormSchemaSignIn } from '@/lib/utils';
+import { authFormSchemaSignIn, authFormSchemaSignUp } from '@/lib/utils';
 import { Form } from '@/components/ui/form';
 import { Button } from './ui/button';
 import { CustomInput } from './custom-input';
@@ -21,16 +21,18 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
   const [show, setShow] = useState(false);
   const router = useRouter();
   const loginMutation = useLogin();
-  const formSchema = authFormSchemaSignIn();
+  const formSchema = type === AuthType.SignIn?authFormSchemaSignIn():authFormSchemaSignUp();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues:defaultValues});
 
   const togglePasswordVisibility = () => setShow((prev) => !prev);
 
-  const onSubmit = async(data:LoginPayload) => {
+  const onSubmit = async(data:LoginPayload|any) => {
+  console.log("🚀 ~ onSubmit ~ data:", data)
 
     try {
+      console.log(data)
     await loginMutation.mutateAsync({ username:data.username,password:data.password });
     setIsLoading(true);
     router.push(type === AuthType.SignUp ? 'permission-user' : '/');
@@ -41,6 +43,7 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
    
    
   };
+ 
 
   const renderCustomInput = (name: FieldPath<z.infer<typeof formSchema>>, label: string, placeholder?: string, isTextInput = true, type = 'text') => (
     <CustomInput<typeof formSchema>
@@ -83,7 +86,7 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8"
         >
-          {/* {type === AuthType.SignUp && (
+          {type === AuthType.SignUp && (
             <>
               <div className="flex gap-4">
                 {renderCustomInput('firstName', 'Nom Complet', 'Enter Nom et Prenom')}
@@ -130,7 +133,7 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
 
               {renderCustomInput('SocialInsuranceNumber', 'Numéro d\'assurance Sociale', 'Numéro d\'assurance Sociale', true, 'number')}
             </>
-          )} */}
+          )}
 
           {type === AuthType.SignIn && (
               <>
