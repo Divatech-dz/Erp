@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { QuantityLabels } from '@/constants';
 import { icons } from '@/constants/icons';
 import { StockInfoCard, ToggleInfo } from './right-side-bar-components';
+import { useGetUser } from '@/service/userService';
 
 
 export const RightSideBar = () => {
   const [checked, setChecked] = useState(false);
   const switchState = () => setChecked(!checked);
+  const { data: user} = useGetUser();
 
   return (
     <aside className="right-sidebar">
@@ -20,7 +22,7 @@ export const RightSideBar = () => {
           </div>
 
           <div className="profile-details">
-            <h1 className="profile-name">Ahlem Merabtene</h1>
+            <h1 className="profile-name">{user?.first_name!} {user?.last_name}</h1>
             <div className="profile-role">
               <p className="text-16 font-ibm-plex-serif">Role: Commercial</p>
 

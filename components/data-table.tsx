@@ -16,6 +16,7 @@ import {PaginationTable, ReusableSheet, TopContent} from "./table-components";
 import {icons} from "@/constants/icons";
 import {TableProps} from "@/types";
 
+
 export const DataTable = ({columnNames, columnData, currentPage, setCurrentPage, totalPages}: TableProps) => {
     const [visibleColumns, setVisibleColumns] = useState(
         new Set<string>(columnNames.map((col) => col.id))

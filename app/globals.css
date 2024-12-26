@@ -149,7 +149,7 @@
   }
 
   .profile-name {
-    @apply text-24 font-semibold text-gray-900;
+    @apply text-24 font-semibold text-gray-900 capitalize;
   }
   .profile-role {
     @apply text-16 font-normal flex items-center gap-1 text-gray-600;
