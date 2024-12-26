@@ -28,7 +28,10 @@ declare interface TableProps {
     currentPage?: number,
     setCurrentPage?: (value: (((prevState: number) => number) | number)) => void,
     productData?: T | any[] | undefined,
-    totalPages?: number
+    totalPages?: number,
+    setCategory?: (value: (((prevState: number) => number) | number)) => void,
+    setSearch?: (value: (((prevState: string) => string) | string)) => void,
+    categories?: Record<string, any>[],
 }
 
 //types
@@ -69,7 +72,8 @@ export type AccordionType = SidebarLink & {
 export type rowsType = {
     id: string;
     name: string;
-    sort?: boolean
+    sort?: boolean;
+    sortBy?: string;
 }
 export type Column = rowsType & {
     opensModal?: boolean;

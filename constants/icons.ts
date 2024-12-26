@@ -27,6 +27,7 @@ import Admin  from '@/public/icons/admin.svg'
 import Plus   from '@/public/icons/plus.svg'
 import ClosedCircle  from '@/public/icons/closed-circle.svg'
 import Excel  from '@/public/icons/excel.svg'
+import remove from '@/public/icons/remove.svg'
 export const icons = {
   Admin,
   administration,
@@ -55,7 +56,8 @@ export const icons = {
   Edit,
   Plus,
   ClosedCircle,
-  Excel
+  Excel,
+  remove
 };
 export const images={
   DivaTech

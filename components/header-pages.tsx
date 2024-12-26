@@ -33,9 +33,7 @@ export const HeaderPages=() =>{
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-    
 
-    
   </div>
 </header>
   )

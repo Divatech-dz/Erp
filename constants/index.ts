@@ -294,9 +294,7 @@ export const userSalesData: SalesProps[] = [
   },
 ];
 
-
 export const rowTable: rowsType[] = [
-
   {
     id: '1',
     name: 'Référence',
@@ -309,25 +307,23 @@ export const rowTable: rowsType[] = [
   },
   {
     id: '3',
-    name: 'Quantité-Diva',
-    sort: false
+    name: 'Quantité',
+    sort: true,
+    sortBy: 'quantity_globale'
   },
   {
     id: '4',
-    name: 'Quantité',
-    sort: true
+    name: 'PV TTC -P-',
+    sort: true,
+    sortBy: 'prix_vente'
   },
   {
     id: '5',
-    name: 'PV TTC -P-',
-    sort: true
-  },
-  {
-    id: '6',
     name: 'PV TTC - R -',
     sort: false
   },
 ]
+
 export const StatusOptions: rowsType[]=[  {
   id: '1',
   name: 'Active',
@@ -342,7 +338,6 @@ export const StatusOptions: rowsType[]=[  {
 },]
 
 export const userRowsTable: rowsType[] = [
-
   {
     id: '1',
     name: 'Nom',

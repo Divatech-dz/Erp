@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ReactQueryProvider from "@/utils/ReactQueryProvider";
 import { Inter, IBM_Plex_Serif } from 'next/font/google';
 import './globals.css';
 
@@ -22,10 +23,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
-      <body className={`${inter.variable}${IMBPlexSerif.variable}`}>
-        {children}
+      <body className={`${inter.variable} ${IMBPlexSerif.variable}`}>
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );
