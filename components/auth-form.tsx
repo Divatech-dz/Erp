@@ -29,7 +29,7 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
   const togglePasswordVisibility = () => setShow((prev) => !prev);
 
   const onSubmit = async(data:LoginPayload|any) => {
-  console.log("🚀 ~ onSubmit ~ data:", data)
+  
 
     try {
       console.log(data)

@@ -4,6 +4,9 @@ const nextConfig = {
     images: {
         domains: ['api.dicebear.com'],
       },
+      experimental: {
+        optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+      },
 };
 
 export default withSentryConfig(nextConfig, {
