@@ -31,9 +31,11 @@ interface TopContentProps {
     setCurrentPage?: React.Dispatch<React.SetStateAction<number>>,
     setSearch?: ((value: (((prevState: string) => string) | string)) => void) | undefined,
     startDate?: string,
-    setStartDate?: string,
+    setStartDate?: React.Dispatch<React.SetStateAction<string>>,
     endDate?: string,
-    setEndDate?: string,
+    setEndDate?: React.Dispatch<React.SetStateAction<string>>,
+    setUserId?: React.Dispatch<React.SetStateAction<number>>,
+    salesUsers?: any[]
 }
 
 export const TopContent: React.FC<TopContentProps> = ({
@@ -47,7 +49,9 @@ export const TopContent: React.FC<TopContentProps> = ({
                                                           startDate,
                                                           setStartDate,
                                                           endDate,
-                                                          setEndDate
+                                                          setEndDate,
+                                                          setUserId,
+                                                          salesUsers
                                                       }) => {
 
         const [value, setValue] = useState('');
@@ -193,13 +197,34 @@ export const TopContent: React.FC<TopContentProps> = ({
                                     <Image src={icons.remove} alt="remove" width={16} height={16}/>
                                 </button>
                             </div>
+                            <Select onValueChange={(value) => {
+                                setUserId?.(Number(value));
+                                setCurrentPage?.(1)
+                            }}>
+                                <SelectTrigger className="w-[100px] h-10">
+                                    <SelectValue placeholder="Filtrer par utilisateur"/>
+                                </SelectTrigger>
+                                <SelectContent className="bg-white">
+                                    <SelectGroup>
+                                        <SelectLabel>Utilisateurs</SelectLabel>
+                                        <SelectItem value=" ">
+                                            TOUS
+                                        </SelectItem>
+                                        {salesUsers?.map((user) =>
+                                            <SelectItem key={user?.id} value={user?.id}>
+                                                {user?.username?.toUpperCase()}
+                                            </SelectItem>
+                                        )}
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
                             <Dropdown
                                 label="Columns"
                                 icon={icons.ArrowDown}
                                 columns={columnNames}
                                 handleColumnVisibilityChange={handleColumnVisibilityChange}
                                 visibleColumns={visibleColumns}
-                                classNameTrigger='flex h-10 w-full items-center  justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1'
+                                classNameTrigger='flex h-10 items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1'
                             />
 
                         </>

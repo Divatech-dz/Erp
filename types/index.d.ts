@@ -32,10 +32,12 @@ declare interface TableProps {
     setCategory?: (value: (((prevState: number) => number) | number)) => void,
     setSearch?: (value: (((prevState: string) => string) | string)) => void,
     categories?: { id: string; category: string; }[],
-    startDate?: string
+    startDate?: string,
     setStartDate?: sting,
     endDate?: sting,
     setEndDate?: sting,
+    setUserId?: (value: (((prevState: number) => number) | number)) => void,
+    salesUsers?: any[],
 }
 
 //types

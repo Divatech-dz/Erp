@@ -28,7 +28,9 @@ export const DataTable = ({
                               startDate,
                               setStartDate,
                               endDate,
-                              setEndDate
+                              setEndDate,
+                              setUserId,
+                              salesUsers,
                           }: TableProps) => {
     const [visibleColumns, setVisibleColumns] = useState(
         new Set<string>(columnNames?.map((col) => col.id))
@@ -94,6 +96,8 @@ export const DataTable = ({
                 setEndDate={setEndDate}
                 startDate={startDate}
                 endDate={endDate}
+                setUserId={setUserId}
+                salesUsers={salesUsers}
             />
             <Table>
                 <TableHeader>
