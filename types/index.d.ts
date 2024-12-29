@@ -23,15 +23,19 @@ declare interface CardProps {
 };
 
 declare interface TableProps {
-    columnNames: rowsType[],
-    columnData: Array<Record<string, any>>,
+    columnNames?: rowsType[],
+    columnData?: Array<Record<string, any>>,
     currentPage?: number,
     setCurrentPage?: (value: (((prevState: number) => number) | number)) => void,
     productData?: T | any[] | undefined,
     totalPages?: number,
     setCategory?: (value: (((prevState: number) => number) | number)) => void,
     setSearch?: (value: (((prevState: string) => string) | string)) => void,
-    categories?: Record<string, any>[],
+    categories?: { id: string; category: string; }[],
+    startDate?: string
+    setStartDate?: sting,
+    endDate?: sting,
+    setEndDate?: sting,
 }
 
 //types

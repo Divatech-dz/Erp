@@ -23,7 +23,7 @@ export default function Products() {
         queryFn: getCategory
    })
 
-    const results = productsData?.results;
+    const resultsProducts = productsData?.results;
     const totalPages = productsData?.total_pages;
     const categories = categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
 
@@ -31,7 +31,7 @@ export default function Products() {
         <section className="page-deign py-0">
             <h1 className="text-4xl font-bold p-2">Liste des produits</h1>
             <HeaderPages />
-            <DataTable columnNames={rowTable} setSearch={setSearch} setCategory={setCategory} columnData={results} currentPage={page} setCurrentPage={setPage} totalPages={totalPages} categories={categories} />
+            <DataTable columnNames={rowTable} setSearch={setSearch} setCategory={setCategory} columnData={resultsProducts} currentPage={page} setCurrentPage={setPage} totalPages={totalPages} categories={categories} />
         </section>
     );
 }

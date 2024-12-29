@@ -13,7 +13,7 @@ import Image, { StaticImageData } from 'next/image';
 interface DropdownProps {
   label?: string;
   icon?: string | StaticImageData;
-  columns: Column[];
+  columns?: Column[];
   handleColumnVisibilityChange?: (columnKey: string) => void;
   visibleColumns?: Set<string>;
   classNameTrigger?: string;
@@ -51,7 +51,7 @@ export const Dropdown = ({
         {icon && <Image src={icon} alt="Arrow-Down" height={12} width={12} />}
       </DropdownMenuTrigger>
       <DropdownMenuContent className={classNameContent}>
-        {columns.map((column) => (
+        {columns?.map((column) => (
           <DropdownMenuCheckboxItem
             key={column.id}
             checked={

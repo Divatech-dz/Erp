@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import {Button} from "./ui/button";
 import {
     Table,
     TableBody,
@@ -9,9 +9,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { PaginationTable, ReusableSheet, TopContent } from "./table-components";
-import { icons } from "@/constants/icons";
-import { TableProps } from "@/types";
+import {PaginationTable, ReusableSheet, TopContent} from "./table-components";
+import {icons} from "@/constants/icons";
+import {TableProps} from "@/types";
 
 const getCellContent = (row: Record<string, any>, colId: string) =>
     row[colId] !== "" ? row[colId] : "N/A";
@@ -24,10 +24,14 @@ export const DataTable = ({
                               totalPages,
                               setCategory,
                               setSearch,
-                              categories
+                              categories,
+                              startDate,
+                              setStartDate,
+                              endDate,
+                              setEndDate
                           }: TableProps) => {
     const [visibleColumns, setVisibleColumns] = useState(
-        new Set<string>(columnNames.map((col) => col.id))
+        new Set<string>(columnNames?.map((col) => col.id))
     );
     const [tableData, setTableData] = useState(columnData);
     const [initialData, setInitialData] = useState(columnData);
@@ -47,15 +51,15 @@ export const DataTable = ({
     }, [columnData]);
 
     const headerColumns = useMemo(() => {
-        return columnNames.filter((column) => visibleColumns.has(column.id));
+        return columnNames?.filter((column) => visibleColumns.has(column.id));
     }, [columnNames, visibleColumns]);
 
     const handleSort = (columnKey: string) => {
         const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
-        setSortedButton({ column: columnKey, ascending });
+        setSortedButton({column: columnKey, ascending});
 
         setTableData((prevData) =>
-            [...prevData].sort((a, b) => {
+            [...prevData]?.sort((a, b) => {
                 const firstValue = a[columnKey];
                 const secondValue = b[columnKey];
 
@@ -80,23 +84,26 @@ export const DataTable = ({
                 columnNames={columnNames}
                 setVisibleColumns={setVisibleColumns}
                 visibleColumns={visibleColumns}
-                openModal={openModalWithContent}
                 setTableData={setTableData}
                 tableData={initialData}
                 setSearch={setSearch}
                 setCategory={setCategory}
                 categories={categories}
                 setCurrentPage={setCurrentPage}
+                setStartDate={setStartDate}
+                setEndDate={setEndDate}
+                startDate={startDate}
+                endDate={endDate}
             />
             <Table>
                 <TableHeader>
                     <TableRow>
-                        {headerColumns.map(({ id, name, sort }) => (
+                        {headerColumns?.map(({id, name, sort}) => (
                             <TableHead key={id}>
                                 {sort ? (
                                     <Button variant="ghost" onClick={() => handleSort(id.toString())}>
                                         {name}
-                                        <Image src={icons.Trier} alt="Trier" width={20} height={20} />
+                                        <Image src={icons.Trier} alt="Trier" width={20} height={20}/>
                                     </Button>
                                 ) : (
                                     name
@@ -110,30 +117,52 @@ export const DataTable = ({
                 <TableBody>
                     {tableData?.map((row) => (
                         <TableRow key={row.id} className="hover:bg-gray-50">
-                            {headerColumns.map((col: { id: string; name: string }) => {
+                            {headerColumns?.map((col: { id: string; name: string }) => {
                                 let cellContent;
-                                switch (col.name) {
+                                switch (col?.name) {
                                     case "Référence":
-                                        cellContent = <p>{row.reference}</p>;
+                                        cellContent = <p>{row?.reference}</p>;
                                         break;
                                     case "Désignation":
-                                        cellContent = <p>{row.name}</p>;
+                                        cellContent = <p>{row?.name}</p>;
                                         break;
                                     case "Quantité":
-                                        cellContent = <p className={`${row.quantity_globale === 0 && "text-red-600"}`}>{row.quantity_globale}</p>;
+                                        cellContent =
+                                            <p className={`${row?.quantity_globale === 0 && "text-red-600"}`}>{row.quantity_globale}</p>;
                                         break;
                                     case "PV TTC -P-":
-                                        cellContent = <p>{row.prix_vente} dzd</p>;
+                                        cellContent = <p>{row?.prix_vente} dzd</p>;
                                         break;
                                     case "PV TTC - R -":
-                                        cellContent = <p>{row.prix_vente} dzd</p>;
+                                        cellContent = <p>{row?.prix_vente} dzd</p>;
+                                        break;
+                                    case "N° bon":
+                                        cellContent = <p>{row?.idBon}</p>;
+                                        break;
+                                    case "Date bon":
+                                        cellContent = <p>{row?.dateBon}</p>;
+                                        break;
+                                    case "Entrepot bon":
+                                        cellContent = <p>{row?.entrepot.name}</p>;
+                                        break;
+                                    case "Client":
+                                        cellContent = <p>{row?.client.name}</p>;
+                                        break;
+                                    case "Livraison":
+                                        cellContent = <p>{row?.agenceLivraison ? row?.agenceLivraison : "Interne"}</p>;
+                                        break;
+                                    case "Commercial":
+                                        cellContent = <p>{row?.user.username}</p>;
+                                        break;
+                                    case "Validation":
+                                        cellContent = <p>{row?.confirmed ? "Validé" : "En attente"}</p>;
                                         break;
                                     default:
-                                        cellContent = <p>{getCellContent(row, col.id)}</p>;
+                                        cellContent = <p>{getCellContent(row, col?.id)}</p>;
                                         break;
                                 }
                                 return (
-                                    <TableCell key={`${row.id}-${col.id}`}>
+                                    <TableCell key={`${row?.id}-${col?.id}`}>
                                         {cellContent}
                                     </TableCell>
                                 );
@@ -146,8 +175,8 @@ export const DataTable = ({
                                     width={20}
                                     onClick={() => openModalWithContent("table")}
                                 />
-                                <Image src={icons.Edit} alt="Edit" height={20} width={20} />
-                                <Image src={icons.Trash} alt="Trash" height={20} width={20} />
+                                <Image src={icons.Edit} alt="Edit" height={20} width={20}/>
+                                <Image src={icons.Trash} alt="Trash" height={20} width={20}/>
                             </TableCell>
                         </TableRow>
                     ))}
@@ -157,7 +186,8 @@ export const DataTable = ({
             <PaginationTable
                 totalPages={totalPages ?? 0}
                 currentPage={currentPage ?? 1}
-                setCurrentPage={setCurrentPage ?? (() => { })}
+                setCurrentPage={setCurrentPage ?? (() => {
+                })}
             />
 
             <ReusableSheet
@@ -165,7 +195,7 @@ export const DataTable = ({
                 onClose={() => setOpenModal(false)}
                 title={contentType === "table" ? "Invoice Details" : ""}
                 contentType={contentType}
-                contentProps={contentType === "table" ? { tableData } : {}}
+                contentProps={contentType === "table" ? {tableData} : {}}
             />
         </>
     );

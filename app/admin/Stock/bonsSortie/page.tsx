@@ -1,47 +1,31 @@
-import React from 'react';
+'use client'
+
+import React, {useState} from 'react';
+import { useQuery } from "@tanstack/react-query";
+import {getDeliveryNotes} from "@/service/ordersNoteService";
+import { DataTable } from "@/components/data-table";
+import { NotesColumn } from "@/constants"
 
 function Page() {
+    const [page, setPage] = useState(1);
+    const [search, setSearch] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    const {data: notesData} = useQuery({
+        queryKey: [page, search, startDate, endDate],
+        queryFn: getDeliveryNotes
+    });
+
+    console.log(notesData);
+
+    const notesResults = notesData?.results;
+    const totalPages = notesData?.total_pages;
+
     return (
         <section>
             <h1 className="text-4xl font-bold p-2">Bons de sortie</h1>
-            <div className="flex justify-between px-4">
-                <div>
-                    <input type="text" placeholder="Chercher bon de sortie"/>
-                    <input type="date"/>
-                </div>
-                <button>
-                    Ajouter un bon de sortie
-                </button>
-            </div>
-            <table className="w-full">
-                <thead>
-                <tr>
-                    <th>Numéro</th>
-                    <th>Date</th>
-                    <th>Client</th>
-                    <th>Produits</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th>Prix total</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>12/12/2021</td>
-                    <td>BS-001</td>
-                    <td>Client 1</td>
-                    <td>Produit 1</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td>100</td>
-                    <td className="flex justify-evenly ">
-                        <button>Modifier</button>
-                        <button>Supprimer</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <DataTable columnNames={NotesColumn} columnData={notesResults} setSearch={setSearch} currentPage={page} setCurrentPage={setPage} totalPages={totalPages} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate}/>
         </section>
     );
 }

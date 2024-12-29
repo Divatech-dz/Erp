@@ -324,6 +324,37 @@ export const rowTable: rowsType[] = [
   },
 ]
 
+export const NotesColumn : rowsType[]= [
+  {
+    id:'1',
+    name:"N° bon"
+  },
+    {
+    id:'2',
+    name:"Date bon"
+  },
+    {
+    id:'3',
+    name:"Entrepot bon"
+  },
+    {
+    id:'4',
+    name:"Client"
+  },
+    {
+    id:'5',
+    name:"Livraison"
+  },
+    {
+    id:'6',
+    name:"Commercial"
+  },
+    {
+    id:'7',
+    name:"Validation"
+  }
+]
+
 export const StatusOptions: rowsType[]=[  {
   id: '1',
   name: 'Active',
