@@ -3,7 +3,9 @@ import { withSentryConfig } from '@sentry/nextjs';
 const nextConfig = {
     images: {
         domains: ['api.dicebear.com'],
-       
+      },
+      experimental: {
+        optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
       },
 };
 

@@ -8,7 +8,7 @@ import { icons } from '@/constants/icons';
 import { Button } from '@/components/ui/button';
 import { rowsType } from '@/types';
 import { usePathname,useRouter } from 'next/navigation';
-import {  invoices, StatusOptions } from '@/constants';
+import {  StatusOptions } from '@/constants';
 
 
 interface TopContentProps {
@@ -25,8 +25,7 @@ export const TopContent: React.FC<TopContentProps> = ({
   columnNames,
   visibleColumns,
   openModal,
-  setTableData,
-  tableData
+  setTableData
 }) => {
   const [visibleFilter, setVisibleFilter] = useState(
     new Set<string>(StatusOptions.map((col) => col.name))
@@ -34,9 +33,6 @@ export const TopContent: React.FC<TopContentProps> = ({
   
   const pathname = usePathname();
   const router = useRouter();
-  
-  
-  
 
   const handleColumnVisibilityChange = (columnKey: string) => {
     setVisibleColumns((prev) => {
@@ -46,7 +42,6 @@ export const TopContent: React.FC<TopContentProps> = ({
       }
       if (newSet.has(columnKey)) {
         newSet.delete(columnKey)
-
       } else {
         newSet.add(columnKey);
       }
@@ -59,17 +54,13 @@ export const TopContent: React.FC<TopContentProps> = ({
       const newSet = new Set(prev);
       if (newSet.has(columnKey)) {
         newSet.delete(columnKey);
-        
       } else {
         newSet.add(columnKey); 
       }
-
       return new Set(newSet);
     });
   };
- 
-  
-  
+
   useEffect(() => {
     setTableData?.((prev) => {
       const filtered = prev?.filter((value) => visibleFilter.has(value.status)) || [];
@@ -86,16 +77,14 @@ export const TopContent: React.FC<TopContentProps> = ({
           className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white transition-all 
                      w-52 bg-gray-800 border border-gray-600 shadow-md hover:bg-gray-700 hover:shadow-lg active:bg-gray-600 
                      focus:outline-none "
-                     onClick={()=>router.push('/Admin/add-user')}
-                     
+                     onClick={()=>router.push('/navbar-Links/Admin/add-user')}
         >
           <Image src={icons.Plus} width={20} height={20} alt="Add User" />
           Ajouter utilisateurs
         </Button>
-        
         );
 
-      case '/navbar-Links/Produits/produits':
+      case '/navbar-Links/Produits/Produits':
         return (
           <>
             <Dropdown
@@ -105,7 +94,7 @@ export const TopContent: React.FC<TopContentProps> = ({
               handleColumnVisibilityChange={handleColumnVisibilityChange}
              
               visibleColumns={visibleColumns}
-              classNameTrigger="px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
+              classNameTrigger="flex items-center justify-between gap-2  px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
             />
               <Dropdown
               label="Status"
@@ -113,7 +102,7 @@ export const TopContent: React.FC<TopContentProps> = ({
               columns={StatusOptions}
               handleColumnVisibilityChange={filteredItems}
               filterOptions={visibleFilter}
-              classNameTrigger="px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
+              classNameTrigger="flex items-center justify-between gap-2  px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
             />
             <Button className="filter-button border-bankGradient bg-erp-gradient hover:bg-gray-200 active:bg-gray-300" onClick={() => openModal('filter')}>
               <Image src={icons.Filter} width={20} height={20} alt="Filter" /> Filter

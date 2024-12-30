@@ -7,7 +7,6 @@
   padding: 0;
 }
 
-
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -15,7 +14,6 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
 
 .glassmorphism {
   background: rgba(255, 255, 255, 0.25);
@@ -151,7 +149,7 @@
   }
 
   .profile-name {
-    @apply text-24 font-semibold text-gray-900;
+    @apply text-24 font-semibold text-gray-900 capitalize;
   }
   .profile-role {
     @apply text-16 font-normal flex items-center gap-1 text-gray-600;
@@ -192,7 +190,7 @@
 
   /* Auth Form */
   .auth-form {
-    @apply flex  w-full  flex-col justify-center gap-5 py-10 md:gap-8;
+    @apply flex  w-full  flex-col justify-center gap-5 md:gap-8;
   }
 
   .form-item {
@@ -262,8 +260,7 @@
   }
   /* Page design */
   .page-deign {
-    @apply no-scrollbar flex flex-col overflow-y-scroll  p-8 md:max-h-screen xl:py-12;
-
+    @apply no-scrollbar flex flex-col pb-10;
   }
   /*Filter*/
   .filter {

@@ -4,12 +4,12 @@ import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, Pagi
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const PaginationTable = ({currentPage,setCurrentPage,totalPages}:{
-  
+
   totalPages:number,currentPage:number,setCurrentPage: React.Dispatch<React.SetStateAction<number>>}) => {
 
-  
+
   return (
-    <Pagination className="mt-4 flex justify-end items-center space-x-2">
+    <Pagination className="mt-5 flex justify-end items-center space-x-2">
         <PaginationContent className="flex items-center space-x-1">
           <PaginationItem>
             <PaginationPrevious
@@ -35,6 +35,18 @@ export const PaginationTable = ({currentPage,setCurrentPage,totalPages}:{
               />
             </PaginationItem>
           )}
+
+            {currentPage < totalPages && (
+                <PaginationItem>
+                <PaginationLink
+                    href="#"
+                    className="px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-200 transition"
+                    onClick={() => setCurrentPage(totalPages)}
+                >
+                    {totalPages}
+                </PaginationLink>
+                </PaginationItem>
+            )}
 
           <PaginationItem>
             <PaginationNext
