@@ -20,6 +20,10 @@ export const BonRetourAPI = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BR_API_URL,
 });
 
+export const ClientAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_CLIENT_API_URL,
+});
+
 export const UserAPI = axios.create({
     baseURL: process.env.NEXT_PUBLIC_USER_API_URL,
 })

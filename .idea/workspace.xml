@@ -6,20 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.sample" beforeDir="false" afterPath="$PROJECT_DIR$/.env.sample" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5046150c-b21a-4d89-9caa-feb9771223df.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5046150c-b21a-4d89-9caa-feb9771223df/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/Stock/bonsSortie/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/Stock/bonsSortie/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/table-components/top-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/top-content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/icons.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/axios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/ordersNoteService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/ordersNoteService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +124,7 @@
       <workItem from="1735460737948" duration="55000" />
       <workItem from="1735463192764" duration="13587000" />
       <workItem from="1735479258387" duration="9805000" />
-      <workItem from="1735545956463" duration="9853000" />
+      <workItem from="1735545956463" duration="11640000" />
     </task>
     <servers />
   </component>
