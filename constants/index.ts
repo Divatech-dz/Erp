@@ -63,7 +63,7 @@ export const sidebarLinks: SidebarLink[] = [
         link: '/bonsDevis',
       },
       {
-        name: 'Bons de commande',
+        name: 'Bons de commande vente',
         link: '/bonsCommandeVente',
       },
       {
@@ -81,6 +81,10 @@ export const sidebarLinks: SidebarLink[] = [
       {
         name: 'Bons de commande modifiés',
         link: '/bonsCommandeModifies',
+      },
+        {
+        name: 'Factures',
+        link: '/Facture',
       },
       {
         name: 'Bons de comptoire',
@@ -294,9 +298,7 @@ export const userSalesData: SalesProps[] = [
   },
 ];
 
-
 export const rowTable: rowsType[] = [
-
   {
     id: '1',
     name: 'Référence',
@@ -309,25 +311,78 @@ export const rowTable: rowsType[] = [
   },
   {
     id: '3',
-    name: 'Quantité-Diva',
-    sort: false
+    name: 'Quantité',
+    sort: true,
+    sortBy: 'quantity_globale'
   },
   {
     id: '4',
-    name: 'Quantité',
-    sort: true
+    name: 'PV TTC -P-',
+    sort: true,
+    sortBy: 'prix_vente'
   },
   {
     id: '5',
-    name: 'PV TTC -P-',
-    sort: true
-  },
-  {
-    id: '6',
     name: 'PV TTC - R -',
     sort: false
   },
 ]
+
+export const NotesColumn : rowsType[]= [
+  {
+    id:'1',
+    name:"N° bon"
+  },
+    {
+    id:'2',
+    name:"Date bon"
+  },
+    {
+    id:'3',
+    name:"Entrepot bon"
+  },
+    {
+    id:'4',
+    name:"Client"
+  },
+    {
+    id:'5',
+    name:"Livraison"
+  },
+    {
+    id:'6',
+    name:"Commercial"
+  },
+    {
+    id:'7',
+    name:"Validation"
+  }
+]
+
+export const factureColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'N° facture'
+  },
+      {
+    id:'2',
+    name:'Date facture'
+  },
+      {
+    id:'3',
+    name:'Client'
+  },
+      {
+    id:'4',
+    name:'Bon de livraison associé'
+  },
+      {
+    id:'5',
+    name:'Etat de règlement'
+  },
+
+]
+
 export const StatusOptions: rowsType[]=[  {
   id: '1',
   name: 'Active',
@@ -342,7 +397,6 @@ export const StatusOptions: rowsType[]=[  {
 },]
 
 export const userRowsTable: rowsType[] = [
-
   {
     id: '1',
     name: 'Nom',

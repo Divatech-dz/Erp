@@ -14,7 +14,6 @@ export const login = async (data: LoginPayload) => {
     const response = await axiosInstance.post('/api/token/', data);
     return response.data;
   } catch (error) {
-   
     throw new Error('Unable to log in. Please check your credentials.');
   }
 };

@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
+
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
@@ -9,7 +10,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-   
+
     const accessToken = Cookies.get('token');
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
@@ -17,7 +18,6 @@ axiosInstance.interceptors.request.use(
     return config;
   },
   (error) => {
-   
     return Promise.reject(new Error('Failed to set authorization headers.'));
   }
 );
@@ -34,3 +34,32 @@ axiosInstance.interceptors.response.use(
 );
 
 export default axiosInstance;
+
+
+export const productsAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_PRODUCT_API_URL,
+});
+
+export const categoryAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_CATEGORY_API_URL,
+});
+
+export const bonsSortieAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_BS_API_URL,
+});
+
+export const factureAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_FACTURE_API_URL,
+});
+
+export const BonRetourAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_BR_API_URL,
+});
+
+export const ClientAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_CLIENT_API_URL,
+});
+
+export const UserAPI = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_USER_API_URL,
+})

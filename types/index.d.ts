@@ -23,12 +23,21 @@ declare interface CardProps {
 };
 
 declare interface TableProps {
-    columnNames: rowsType[],
-    columnData: Array<Record<string, any>>,
+    columnNames?: rowsType[],
+    columnData?: Record<string, any>[],
     currentPage?: number,
     setCurrentPage?: (value: (((prevState: number) => number) | number)) => void,
     productData?: T | any[] | undefined,
-    totalPages?: number
+    totalPages?: number,
+    setCategory?: (value: (((prevState: number) => number) | number)) => void,
+    setSearch?: (value: (((prevState: string) => string) | string)) => void,
+    categories?: { id: string; category: string; }[],
+    startDate?: string,
+    setStartDate?: sting,
+    endDate?: sting,
+    setEndDate?: sting,
+    setUserId?: (value: (((prevState: number) => number) | number)) => void,
+    salesUsers?: any[],
 }
 
 //types
@@ -69,7 +78,8 @@ export type AccordionType = SidebarLink & {
 export type rowsType = {
     id: string ;
     name: string;
-    sort?: boolean
+    sort?: boolean;
+    sortBy?: string;
 }
 export type Column = rowsType & {
     opensModal?: boolean;

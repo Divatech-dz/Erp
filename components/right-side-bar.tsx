@@ -17,7 +17,7 @@ export const RightSideBar = () => {
 
   return (
     <aside className="right-sidebar">
-      <section className="flex flex-col pb-4">
+      <section className="flex flex-col">
         <div className="profile-banner" />
         <div className="profile">
           <div className="profile-img">

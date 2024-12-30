@@ -1,135 +1,240 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import { Input } from '../ui/input';
-import { Dropdown } from './drop-down';
-import { icons } from '@/constants/icons';
-import { Button } from '@/components/ui/button';
-import { rowsType } from '@/types';
-import { usePathname,useRouter } from 'next/navigation';
-import {  StatusOptions } from '@/constants';
+import React, {useState} from 'react';
+import {Input} from '../ui/input';
+import {Dropdown} from './drop-down';
+import {icons} from '@/constants/icons';
+import {Button} from '@/components/ui/button';
+import {rowsType} from '@/types';
+import {usePathname, useRouter} from 'next/navigation';
+
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue
+} from "@/components/ui/select";
 
 
 interface TopContentProps {
-  setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>;
-  visibleColumns: Set<string>;
-  columnNames: rowsType[];
-  openModal: (name: string) => void;
-  setTableData?: React.Dispatch<React.SetStateAction<Record<string, any>[]>>;
-  tableData?: Record<string, any>[]
+    setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>,
+    visibleColumns: Set<string>,
+    columnNames?: rowsType[],
+    tableData?: Record<string, any>[],
+    setCategory?: React.Dispatch<React.SetStateAction<number>>,
+    categories?: Array<{ id: string; category: string }>,
+    setCurrentPage?: React.Dispatch<React.SetStateAction<number>>,
+    setSearch?: ((value: (((prevState: string) => string) | string)) => void) | undefined,
+    startDate?: string,
+    setStartDate?: React.Dispatch<React.SetStateAction<string>>,
+    endDate?: string,
+    setEndDate?: React.Dispatch<React.SetStateAction<string>>,
+    setUserId?: React.Dispatch<React.SetStateAction<number>>,
+    salesUsers?: any[]
 }
 
 export const TopContent: React.FC<TopContentProps> = ({
-  setVisibleColumns,
-  columnNames,
-  visibleColumns,
-  openModal,
-  setTableData
-}) => {
-  const [visibleFilter, setVisibleFilter] = useState(
-    new Set<string>(StatusOptions.map((col) => col.name))
-  );
-  
-  const pathname = usePathname();
-  const router = useRouter();
+                                                          setVisibleColumns,
+                                                          columnNames,
+                                                          visibleColumns,
+                                                          setCurrentPage,
+                                                          setCategory,
+                                                          categories,
+                                                          setSearch,
+                                                          startDate,
+                                                          setStartDate,
+                                                          endDate,
+                                                          setEndDate,
+                                                          setUserId,
+                                                          salesUsers
+                                                      }) => {
 
-  const handleColumnVisibilityChange = (columnKey: string) => {
-    setVisibleColumns((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.size === 1 && newSet.has(columnKey)) {
-        return newSet;
-      }
-      if (newSet.has(columnKey)) {
-        newSet.delete(columnKey)
-      } else {
-        newSet.add(columnKey);
-      }
-      return newSet;
-    });
-  };
+        const [value, setValue] = useState('');
+        const pathname = usePathname();
+        const router = useRouter();
 
-  const filteredItems = (columnKey: string) => {
-    setVisibleFilter((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(columnKey)) {
-        newSet.delete(columnKey);
-      } else {
-        newSet.add(columnKey); 
-      }
-      return new Set(newSet);
-    });
-  };
+        const handleColumnVisibilityChange = (columnKey: string) => {
+            setVisibleColumns((prev) => {
+                const newSet = new Set(prev);
+                if (newSet.size === 1 && newSet.has(columnKey)) {
+                    return newSet;
+                }
+                if (newSet.has(columnKey)) {
+                    newSet.delete(columnKey)
+                } else {
+                    newSet.add(columnKey);
+                }
+                return newSet;
+            });
+        };
 
-  useEffect(() => {
-    setTableData?.((prev) => {
-      const filtered = prev?.filter((value) => visibleFilter.has(value.status)) || [];
-      return filtered;
-    });
-   
-  }, [visibleFilter, setTableData]);
-  
-  const rerenderButtons = () => {
-    switch (pathname) {
-      case '/navbar-Links/Admin/utilisateurs':
-        return (
-          <Button 
-          className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white transition-all 
+        const handleSearch = (value: string) => {
+            if (value !== '') {
+                setSearch?.(value);
+                setCurrentPage?.(1)
+            }
+        }
+
+
+        const handleClear = () => {
+            if (value !== '') {
+                if (setSearch) {
+                    setSearch('');
+                    setValue('')
+                }
+                if (setCurrentPage) {
+                    setCurrentPage(1)
+                }
+            }
+        };
+
+        const rerenderButtons = () => {
+            switch (pathname) {
+                case '/navbar-Links/Admin/utilisateurs':
+                    return (
+                        <>
+                            <Button
+                                className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white transition-all
                      w-52 bg-gray-800 border border-gray-600 shadow-md hover:bg-gray-700 hover:shadow-lg active:bg-gray-600 
                      focus:outline-none "
-                     onClick={()=>router.push('/navbar-Links/Admin/add-user')}
-        >
-          <Image src={icons.Plus} width={20} height={20} alt="Add User" />
-          Ajouter utilisateurs
-        </Button>
-        );
+                                onClick={() => router.push('/navbar-Links/Admin/add-user')}
+                            >
+                                <Image src={icons.Plus} width={20} height={20} alt="Add User"/>
+                                Ajouter utilisateurs
+                            </Button>
+                        </>
+                    );
 
-      case '/navbar-Links/Produits/Produits':
+                case '/admin/Produits/produits':
+                    return (
+                        <>
+                            <Dropdown
+                                label="Columns"
+                                icon={icons.ArrowDown}
+                                columns={columnNames}
+                                handleColumnVisibilityChange={handleColumnVisibilityChange}
+                                visibleColumns={visibleColumns}
+                                classNameTrigger='flex h-10 w-full items-center  justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1'
+                            />
+                            <Select onValueChange={(value) => {
+                                setCategory?.(Number(value));
+                                setCurrentPage?.(1)
+                            }}>
+                                <SelectTrigger className="w-[180px] h-10">
+                                    <SelectValue placeholder="Filtrer par catégorie"/>
+                                </SelectTrigger>
+                                <SelectContent className="bg-white">
+                                    <SelectGroup>
+                                        <SelectLabel>Catégories</SelectLabel>
+                                        <SelectItem value=" ">
+                                            TOUTES
+                                        </SelectItem>
+                                        {categories?.map((category) =>
+                                            <SelectItem key={category.id} value={category.id}>
+                                                {category.category.toUpperCase()}
+                                            </SelectItem>
+                                        )}
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                        </>
+                    );
+
+                case '/admin/Vente/bonsCommandeVente' :
+                case '/admin/Vente/Facture':
+                    return (
+                        <>
+                            <div className="mb-6 relative">
+                                <label>Date de début:</label>
+                                <Input
+                                    type="date"
+                                    value={startDate}
+                                    className="rounded-md w-40 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    onChange={(e) => {
+                                        setStartDate?.(e.target.value);
+                                        setCurrentPage?.(1)
+                                    }}/>
+                                <button className="absolute right-0.5 top-9" onClick={() => setStartDate?.("")}>
+                                    <Image src={icons.remove} alt="remove" width={16} height={16}/>
+                                </button>
+                            </div>
+                            <div className="mb-6 relative">
+                                <label>Date de fin:</label>
+                                <Input
+                                    type="date"
+                                    value={endDate}
+                                    className="rounded-md w-40 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    onChange={(e) => {
+                                        setEndDate?.(e.target.value);
+                                        setCurrentPage?.(1)
+                                    }}
+                                />
+                                <button className="absolute right-0.5 top-9" onClick={() => setEndDate?.("")}>
+                                    <Image src={icons.remove} alt="remove" width={16} height={16}/>
+                                </button>
+                            </div>
+                            <Select onValueChange={(value) => {
+                                setUserId?.(Number(value));
+                                setCurrentPage?.(1)
+                            }}>
+                                <SelectTrigger className="w-[100px] h-10">
+                                    <SelectValue placeholder="Filtrer par utilisateur"/>
+                                </SelectTrigger>
+                                <SelectContent className="bg-white">
+                                    <SelectGroup>
+                                        <SelectLabel>Utilisateurs</SelectLabel>
+                                        <SelectItem value=" ">
+                                            TOUS
+                                        </SelectItem>
+                                        {salesUsers?.map((user) =>
+                                            <SelectItem key={user?.id} value={user?.id}>
+                                                {user?.username?.toUpperCase()}
+                                            </SelectItem>
+                                        )}
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                            <Dropdown
+                                label="Columns"
+                                icon={icons.ArrowDown}
+                                columns={columnNames}
+                                handleColumnVisibilityChange={handleColumnVisibilityChange}
+                                visibleColumns={visibleColumns}
+                                classNameTrigger='flex h-10 items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1'
+                            />
+
+                        </>
+                    );
+
+                default:
+                    return null;
+            }
+        };
+
         return (
-          <>
-            <Dropdown
-              label="Columns"
-              icon={icons.ArrowDown}
-              columns={columnNames}
-              handleColumnVisibilityChange={handleColumnVisibilityChange}
-             
-              visibleColumns={visibleColumns}
-              classNameTrigger="flex items-center justify-between gap-2  px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
-            />
-              <Dropdown
-              label="Status"
-              icon={icons.ArrowDown}
-              columns={StatusOptions}
-              handleColumnVisibilityChange={filteredItems}
-              filterOptions={visibleFilter}
-              classNameTrigger="flex items-center justify-between gap-2  px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
-            />
-            <Button className="filter-button border-bankGradient bg-erp-gradient hover:bg-gray-200 active:bg-gray-300" onClick={() => openModal('filter')}>
-              <Image src={icons.Filter} width={20} height={20} alt="Filter" /> Filter
-            </Button>
-          
-          </>
+            <div className="w-full flex items-center gap-8 my-2">
+                <div className="relative flex items-center gap-2 mx-2">
+                    <button className="absolute -right-6" onClick={() => handleSearch(value)}>
+                        <Image src={icons.Search} alt="Search" width={20} height={20}/>
+                    </button>
+                    <Input
+                        type="text"
+                        placeholder="Rechercher"
+                        value={value}
+                        className="rounded-md w-60 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={(e) => setValue(e.target.value)}
+                    />
+                    <button className="absolute right-3" onClick={handleClear}>
+                        <Image src={icons.remove} alt="remove" width={16} height={16}/>
+                    </button>
+                </div>
+                <div className="flex items-center gap-3 ">{rerenderButtons()}</div>
+                <Image src={icons.Excel} height={25} width={25} alt='Excel'/>
+            </div>
         );
-
-      default:
-        return null;
     }
-  };
-
-  return (
-    <div className="w-full flex items-center justify-between mb-4">
-      <div className="relative flex items-center gap-2">
-        <div className="absolute left-3">
-          <Image src={icons.Search} alt="Search" width={16} height={16} />
-        </div>
-        <Input
-          type="search"
-          placeholder="Search ..."
-          className="pl-10 rounded-xl max-w-80 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <Image src={icons.Excel} height={25} width={25} alt='Excel' />
-      </div>
-      <div className="flex items-center gap-3  ">{rerenderButtons()}</div>
-    </div>
-  );
-};
+;

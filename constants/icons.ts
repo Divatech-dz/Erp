@@ -21,14 +21,18 @@ import  Trash  from '@/public/icons/trash.svg'
 import Edit from '@/public/icons/edit.svg'
 import Search  from '@/public/icons/search.svg';
 import ArrowDown from '@/public/icons/arrow-down.svg'
+import ArrowUp from '@/public/icons/arrow-up.svg'
 import  ThreeDots from '@/public/icons/three-dots.png'
 import Filter from '@/public/icons/filter.svg'
 import Admin  from '@/public/icons/admin.svg'
 import Plus   from '@/public/icons/plus.svg'
 import ClosedCircle  from '@/public/icons/closed-circle.svg'
 import Excel  from '@/public/icons/excel.svg'
+import remove from '@/public/icons/remove.svg'
+import close from '@/public/icons/close.svg'
 export const icons = {
   Admin,
+  close,
   administration,
   Filter,
   archives,
@@ -51,11 +55,13 @@ export const icons = {
   Visible,
   Search,
   ArrowDown,
+  ArrowUp,
   ThreeDots,
   Edit,
   Plus,
   ClosedCircle,
-  Excel
+  Excel,
+  remove
 };
 export const images={
   DivaTech

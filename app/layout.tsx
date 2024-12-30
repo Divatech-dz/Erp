@@ -1,12 +1,9 @@
-
 import type { Metadata } from 'next';
+import ReactQueryProvider from "@/utils/ReactQueryProvider";
 import { Inter, IBM_Plex_Serif } from 'next/font/google';
-import './globals.css';
 import Providers from '../components/providers';
 import { StoreProvider } from '@/lib/context/store';
-
-
-
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const IMBPlexSerif = IBM_Plex_Serif({
@@ -28,15 +25,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
- 
+
   return (
- 
-       <html lang="en">
-      <body className={`${inter.variable}${IMBPlexSerif.variable}`}>
-      <Providers> <StoreProvider>{children}</StoreProvider></Providers>
+    <html lang="en">
+      <body className={`${inter.variable} ${IMBPlexSerif.variable}`}>
+        <ReactQueryProvider>
+          <Providers> <StoreProvider>{children}</StoreProvider></Providers>
+        </ReactQueryProvider>
       </body>
     </html>
-    
-   
   );
 }

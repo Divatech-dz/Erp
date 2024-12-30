@@ -14,7 +14,7 @@ import { useStoreContext } from '@/lib/context/store';
 interface DropdownProps {
   label?: string;
   icon?: string | StaticImageData;
-  columns: Column[];
+  columns?: Column[];
   handleColumnVisibilityChange?: (columnKey: string) => void;
   visibleColumns?: Set<string>;
   classNameTrigger?: string;
