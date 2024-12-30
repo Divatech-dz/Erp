@@ -32,7 +32,6 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
   
 
     try {
-      console.log(data)
     await loginMutation.mutateAsync({ username:data.username,password:data.password });
     setIsLoading(true);
     router.push(type === AuthType.SignUp ? 'permission-user' : '/');
@@ -40,8 +39,6 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
       console.error('Login failed:', error);
       alert('Invalid credentials');
     }
-   
-   
   };
  
 

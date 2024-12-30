@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter, IBM_Plex_Serif } from 'next/font/google';
 import './globals.css';
 import Providers from '../components/providers';
+import { StoreProvider } from '@/lib/context/store';
 
 
 
@@ -32,7 +33,7 @@ export default function RootLayout({
  
        <html lang="en">
       <body className={`${inter.variable}${IMBPlexSerif.variable}`}>
-      <Providers> {children}</Providers>
+      <Providers> <StoreProvider>{children}</StoreProvider></Providers>
       </body>
     </html>
     

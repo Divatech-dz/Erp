@@ -8,7 +8,7 @@ import { icons } from '@/constants/icons';
 import { Button } from '@/components/ui/button';
 import { rowsType } from '@/types';
 import { usePathname,useRouter } from 'next/navigation';
-import {  invoices, StatusOptions } from '@/constants';
+import {  StatusOptions } from '@/constants';
 
 
 interface TopContentProps {
@@ -94,7 +94,7 @@ export const TopContent: React.FC<TopContentProps> = ({
               handleColumnVisibilityChange={handleColumnVisibilityChange}
              
               visibleColumns={visibleColumns}
-              classNameTrigger="px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
+              classNameTrigger="flex items-center justify-between gap-2  px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
             />
               <Dropdown
               label="Status"
@@ -102,7 +102,7 @@ export const TopContent: React.FC<TopContentProps> = ({
               columns={StatusOptions}
               handleColumnVisibilityChange={filteredItems}
               filterOptions={visibleFilter}
-              classNameTrigger="px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
+              classNameTrigger="flex items-center justify-between gap-2  px-4 py-2 w-full md:w-1/2 text-gray-700 font-medium bg-gray-50 hover:bg-gray-200 active:bg-gray-300 outline-none shadow-md transition-all"
             />
             <Button className="filter-button border-bankGradient bg-erp-gradient hover:bg-gray-200 active:bg-gray-300" onClick={() => openModal('filter')}>
               <Image src={icons.Filter} width={20} height={20} alt="Filter" /> Filter

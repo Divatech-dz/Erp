@@ -1,4 +1,5 @@
 
+import FloatingIcon from '@/components/dashboard-components/floating-icon';
 import { RightSideBar } from '@/components/right-side-bar';
 import { MobileNav, SideBar } from '@/components/side-bar';
 import Image from 'next/image';
@@ -21,6 +22,7 @@ export default async function RootLayout({
         {children}
       </div>
       <RightSideBar />
+      <FloatingIcon />
     </main>
   );
 }

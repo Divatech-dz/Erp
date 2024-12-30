@@ -7,38 +7,39 @@ import React, { useState } from 'react';
 import { Accordion } from '../ui/accordion';
 import { AccordionSideBar, Footer } from '.';
 import { cn } from '@/lib/utils';
+import { useStoreContext } from '@/lib/context/store';
 
 export const SideBar = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
-  const role = "manager"; // Consider fetching role dynamically if needed
+  const role = "manager"; 
 
   const handleAccordionClick = (label: string) => {
     setActiveItem(label);
   };
-
+  
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
-        {/* Logo */}
+      
         <Link href="/" className="cursor-pointer items-center flex gap-2">
           <Image src="/icons/logo.svg" alt="logo" height={25} width={25} />
           <h1 className="sidebar-logo">DIVATECH</h1>
         </Link>
 
-        {/* Accordion for sidebar links */}
         <Accordion type="single" collapsible className="mt-4 flex flex-col gap-2 w-full">
           {sidebarLinks.map(({ imgURL, label, route, id }) => {
             const isActive = activeItem === label;
-
-            // Render sidebar link based on user role
-            if (role === "manager") {
+  
+            if (role !== "manager") {
               return (
                 <Link
                   href={'/'}
                   key={label}
-                  className={cn('sidebar-link', { 'bg-bank-gradient': isActive })}
+                  onClick={() => handleAccordionClick(label)}
+                  className={cn('sidebar-link', { 'bg-erp-gradient': isActive })}
+                 
                 >
-                  <div className="relative size-6">
+                  <div className={'relative size-6'}>
                     <Image
                       src={imgURL}
                       alt={label}
@@ -64,11 +65,13 @@ export const SideBar = () => {
                 handleAccordionClick={handleAccordionClick}
               />
             );
-          })}
+          })
+          }
+          
         </Accordion>
       </nav>
 
-      {/* Footer */}
+
       <Footer />
     </section>
   );

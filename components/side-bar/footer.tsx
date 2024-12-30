@@ -6,6 +6,7 @@ import React from 'react';
 
 export const Footer = ({ type = 'desktop' }: FooterProps) => {
   const { data: user} = useGetUser();
+  
 
   return (
     <footer className="footer">

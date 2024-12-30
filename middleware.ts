@@ -3,8 +3,6 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
-  console.log('Middleware - Token:', token);
-  console.log(request.nextUrl.pathname )
   if (!token && request.nextUrl.pathname !== '/sign-in') {
     console.log('Redirecting to /sign-in from middleware...');
     return NextResponse.redirect(new URL('/sign-in', request.url));

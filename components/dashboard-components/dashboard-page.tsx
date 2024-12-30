@@ -9,6 +9,7 @@ import { useGetUser } from '@/service/userService'
 
 
 
+
 export const DashboardPage = () => {
   const { data: user, isLoading, isError } = useGetUser();
   if (isLoading) return <p>Loading...</p>;
@@ -57,6 +58,7 @@ export const DashboardPage = () => {
             />
           ))}
         </CardContent>
+        
       </section>
     </div>)
 }
