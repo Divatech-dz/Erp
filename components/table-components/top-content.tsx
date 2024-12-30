@@ -24,7 +24,6 @@ interface TopContentProps {
     setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>,
     visibleColumns: Set<string>,
     columnNames?: rowsType[],
-    setTableData?: React.Dispatch<React.SetStateAction<Record<string, unknown>[]>>,
     tableData?: Record<string, any>[],
     setCategory?: React.Dispatch<React.SetStateAction<number>>,
     categories?: Array<{ id: string; category: string }>,
@@ -74,30 +73,12 @@ export const TopContent: React.FC<TopContentProps> = ({
         };
 
         const handleSearch = (value: string) => {
-            switch (pathname) {
-                case '/navbar-Links/Admin/utilisateurs':
-                    if (value !== '') {
-                        setSearch?.(value);
-                        setCurrentPage?.(1)
-                    }
-                    break;
-                case '/admin/Produits/produits':
-                    if (value !== '') {
-                        setSearch?.(value);
-                        setCurrentPage?.(1)
-                    }
-                    break;
-                case '/admin/Stock/bonsSortie':
-                    if (value !== '') {
-                        setSearch?.(value);
-                        setCurrentPage?.(1)
-                    }
-
-                    break;
-                default:
-                    break;
+            if (value !== '') {
+                setSearch?.(value);
+                setCurrentPage?.(1)
             }
-        };
+        }
+
 
         const handleClear = () => {
             if (value !== '') {
@@ -163,14 +144,14 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/admin/Stock/bonsSortie' :
+                case '/admin/Vente/bonsCommandeVente' :
+                case '/admin/Vente/Facture':
                     return (
                         <>
                             <div className="mb-6 relative">
                                 <label>Date de début:</label>
                                 <Input
                                     type="date"
-                                    placeholder="Nom ou référence du produit"
                                     value={startDate}
                                     className="rounded-md w-40 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     onChange={(e) => {
@@ -185,7 +166,6 @@ export const TopContent: React.FC<TopContentProps> = ({
                                 <label>Date de fin:</label>
                                 <Input
                                     type="date"
-                                    placeholder="Nom ou référence du produit"
                                     value={endDate}
                                     className="rounded-md w-40 bg-gray-100 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     onChange={(e) => {

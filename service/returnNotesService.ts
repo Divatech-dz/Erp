@@ -1,6 +1,6 @@
-import {bonsSortieAPI} from "@/lib/axios"
+import {BonRetourAPI} from "@/lib/axios";
 
-export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, string, string, number] }) => {
+export const getReturnNotes = async ({queryKey}: { queryKey: [number, string, string, string, number] }) => {
     const page = queryKey[0];
     const search = queryKey[1];
     const startDate = queryKey[2];
@@ -8,7 +8,7 @@ export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, 
     const userId = queryKey[4];
 
     try {
-        const {data} = await bonsSortieAPI.get("", {
+        const {data} = await BonRetourAPI.get("", {
             params: {
                 page: page,
                 search: search,
@@ -26,4 +26,4 @@ export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, 
         console.error(error);
         return [];
     }
-};
+}

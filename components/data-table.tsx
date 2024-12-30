@@ -35,7 +35,7 @@ export const DataTable = ({
     const [visibleColumns, setVisibleColumns] = useState(
         new Set<string>(columnNames?.map((col) => col.id))
     );
-    const [tableData, setTableData] = useState(columnData);
+    const [tableData, setTableData] = useState<Record<string, any>[]>(columnData ?? []);
     const [initialData, setInitialData] = useState(columnData);
     const [openModal, setOpenModal] = React.useState(false);
     const [contentType, setContentType] = React.useState<string>("table");
@@ -48,7 +48,7 @@ export const DataTable = ({
     });
 
     useEffect(() => {
-        setTableData(columnData);
+        setTableData(columnData ?? []);
         setInitialData(columnData);
     }, [columnData]);
 
@@ -60,7 +60,7 @@ export const DataTable = ({
         const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
         setSortedButton({column: columnKey, ascending});
 
-        setTableData((prevData) =>
+       setTableData((prevData) =>
             [...prevData]?.sort((a, b) => {
                 const firstValue = a[columnKey];
                 const secondValue = b[columnKey];
@@ -86,7 +86,6 @@ export const DataTable = ({
                 columnNames={columnNames}
                 setVisibleColumns={setVisibleColumns}
                 visibleColumns={visibleColumns}
-                setTableData={setTableData}
                 tableData={initialData}
                 setSearch={setSearch}
                 setCategory={setCategory}
@@ -124,6 +123,7 @@ export const DataTable = ({
                             {headerColumns?.map((col: { id: string; name: string }) => {
                                 let cellContent;
                                 switch (col?.name) {
+                                    /* Products page*/
                                     case "Référence":
                                         cellContent = <p>{row?.reference}</p>;
                                         break;
@@ -140,6 +140,7 @@ export const DataTable = ({
                                     case "PV TTC - R -":
                                         cellContent = <p>{row?.prix_vente} dzd</p>;
                                         break;
+                                    /* Commands notes page*/
                                     case "N° bon":
                                         cellContent = <p>{row?.idBon}</p>;
                                         break;
@@ -150,7 +151,7 @@ export const DataTable = ({
                                         cellContent = <p>{row?.entrepot.name}</p>;
                                         break;
                                     case "Client":
-                                        cellContent = <p>{row?.client.name}</p>;
+                                        cellContent = <p>{row?.client.name}</p>; /* Commands notes and bills page*/
                                         break;
                                     case "Livraison":
                                         cellContent = <p>{row?.agenceLivraison ? row?.agenceLivraison : "Interne"}</p>;
@@ -159,7 +160,20 @@ export const DataTable = ({
                                         cellContent = <p>{row?.user.username}</p>;
                                         break;
                                     case "Validation":
-                                        cellContent = <p>{row?.confirmed ? "Validé" : "En attente"}</p>;
+                                        cellContent = <p className={`text-center border rounded ${row?.confirmed ? "border-emerald-900 bg-emerald-400" : "border-red-900 bg-red-500"}`}>{row?.confirmed ? "Validé" : "En attente"}</p>;
+                                        break;
+                                        /* Bills page*/
+                                    case "N° facture":
+                                        cellContent = <p>{row?.codeFacture}</p>;
+                                        break;
+                                    case "Date facture":
+                                        cellContent = <p>{row?.date_facture}</p>;
+                                        break;
+                                    case "Bon de livraison associé":
+                                        cellContent = <p>{row?.BonS?.idBon}</p>;
+                                        break;
+                                    case "Etat de règlement":
+                                        cellContent = <p>{row?.etat_reglement}</p>;
                                         break;
                                     default:
                                         cellContent = <p>{getCellContent(row, col?.id)}</p>;
@@ -173,7 +187,7 @@ export const DataTable = ({
                             })}
                             <TableCell className="text-center flex items-center gap-1">
                                 <Image
-                                    src={icons.Visible}
+                                    src={icons.ArrowDown}
                                     alt="Visible"
                                     height={20}
                                     width={20}

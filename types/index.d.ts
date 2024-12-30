@@ -24,7 +24,7 @@ declare interface CardProps {
 
 declare interface TableProps {
     columnNames?: rowsType[],
-    columnData?: Array<Record<string, any>>,
+    columnData?: Record<string, any>[],
     currentPage?: number,
     setCurrentPage?: (value: (((prevState: number) => number) | number)) => void,
     productData?: T | any[] | undefined,

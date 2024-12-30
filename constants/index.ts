@@ -63,7 +63,7 @@ export const sidebarLinks: SidebarLink[] = [
         link: '/bonsDevis',
       },
       {
-        name: 'Bons de commande',
+        name: 'Bons de commande vente',
         link: '/bonsCommandeVente',
       },
       {
@@ -81,6 +81,10 @@ export const sidebarLinks: SidebarLink[] = [
       {
         name: 'Bons de commande modifiés',
         link: '/bonsCommandeModifies',
+      },
+        {
+        name: 'Factures',
+        link: '/Facture',
       },
       {
         name: 'Bons de comptoire',
@@ -353,6 +357,30 @@ export const NotesColumn : rowsType[]= [
     id:'7',
     name:"Validation"
   }
+]
+
+export const factureColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'N° facture'
+  },
+      {
+    id:'2',
+    name:'Date facture'
+  },
+      {
+    id:'3',
+    name:'Client'
+  },
+      {
+    id:'4',
+    name:'Bon de livraison associé'
+  },
+      {
+    id:'5',
+    name:'Etat de règlement'
+  },
+
 ]
 
 export const StatusOptions: rowsType[]=[  {
