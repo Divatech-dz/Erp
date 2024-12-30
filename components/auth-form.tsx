@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useActionState, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FieldPath, useForm } from 'react-hook-form';
@@ -7,51 +7,40 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
 
-import { authFormSchema } from '@/lib/utils';
+import { authFormSchemaSignIn, authFormSchemaSignUp } from '@/lib/utils';
 import { Form } from '@/components/ui/form';
 import { Button } from './ui/button';
 import { CustomInput } from './custom-input';
 import { Dropdown } from './table-components/drop-down';
 import { AuthType, status } from '@/constants';
 import { icons } from '@/constants/icons';
+import { LoginPayload, useLogin,  } from '@/service/userService';
 
-export const AuthForm = ({ type, style }: Readonly<{ type: string; style?: string }>) => {
+export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string; style?: string,defaultValues: Record<string, any> }>) => {
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(false);
   const router = useRouter();
-
-  const formSchema = authFormSchema(type);
+  const loginMutation = useLogin();
+  const formSchema = type === AuthType.SignIn?authFormSchemaSignIn():authFormSchemaSignUp();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: '',
-      password: '',
-      firstName: '',
-      firstNameArabic: '',
-      Function: '',
-      FunctionArabic: '',
-      MatriculeDeclaration: '',
-      startDate: '',
-      placeOfBirth: "",
-      placeOfBirthArabic: '',
-      HourlyCost: 0,
-      DateOfBirth: '',
-      endDate: '',
-      Salary: 0,
-      PrimePanierTransport: 0,
-      Echelon: 0,
-      CountNumber: 0,
-      SocialInsuranceNumber: 0
-    },
-  });
+    defaultValues:defaultValues});
 
   const togglePasswordVisibility = () => setShow((prev) => !prev);
 
-  const onSubmit = () => {
-   
+  const onSubmit = async(data:LoginPayload|any) => {
+  
+
+    try {
+    await loginMutation.mutateAsync({ username:data.username,password:data.password });
     setIsLoading(true);
     router.push(type === AuthType.SignUp ? 'permission-user' : '/');
+    } catch (error) {
+      console.error('Login failed:', error);
+      alert('Invalid credentials');
+    }
   };
+ 
 
   const renderCustomInput = (name: FieldPath<z.infer<typeof formSchema>>, label: string, placeholder?: string, isTextInput = true, type = 'text') => (
     <CustomInput<typeof formSchema>

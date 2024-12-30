@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import ReactQueryProvider from "@/utils/ReactQueryProvider";
 import { Inter, IBM_Plex_Serif } from 'next/font/google';
+import Providers from '../components/providers';
+import { StoreProvider } from '@/lib/context/store';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -28,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${IMBPlexSerif.variable}`}>
         <ReactQueryProvider>
-          {children}
+          <Providers> <StoreProvider>{children}</StoreProvider></Providers>
         </ReactQueryProvider>
       </body>
     </html>

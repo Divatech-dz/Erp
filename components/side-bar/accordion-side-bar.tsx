@@ -42,14 +42,14 @@ export const AccordionSideBar = ({
       </AccordionTrigger>
       <AccordionContent>
         {route.map(r => {
-          const fullRoute = `/admin/${label}${r.link}`;
+          const fullRoute = `${label}${r.link}`;
           const isActiveRoute =
             pathName === fullRoute || pathName.startsWith(fullRoute);
 
           return (
             <Link
               key={r.name}
-              href={`/admin/${label}/${r.link}`}
+              href={`${label}/${r.link}`}
               className={cn(' text-black-1 hover:text-blue-1000 ', {
                 'text-blue-1000': isActiveRoute,
               })}

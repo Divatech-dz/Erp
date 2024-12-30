@@ -5,8 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard-components/dashboard-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashboard-components/floating-icon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/providers.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/context/store.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/storeService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Produits/produits/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/Produits/produits/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/Produits/produits/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/add-user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/admin/add-user/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/permission-user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/admin/permission-user/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/utilisateurs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/admin/utilisateurs/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/global-error.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/global-error.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/auth-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/custom-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/custom-input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard-components/dashboard-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard-components/dashboard-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard-components/sales-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard-components/sales-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/right-side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/right-side-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/side-bar/accordion-side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/accordion-side-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/side-bar/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/side-bar/side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/side-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/table-components/drop-down.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/drop-down.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/table-components/top-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/top-content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/accordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/accordion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/categoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/categoryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/productService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/productService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/userService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +93,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
-    "git-widget-placeholder": "API-branch",
+    "git-widget-placeholder": "Merging API-branch",
     "last_opened_file_path": "D:/Erp/app/admin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -124,7 +168,7 @@
       <workItem from="1735460737948" duration="55000" />
       <workItem from="1735463192764" duration="13587000" />
       <workItem from="1735479258387" duration="9805000" />
-      <workItem from="1735545956463" duration="11640000" />
+      <workItem from="1735545956463" duration="13302000" />
     </task>
     <servers />
   </component>

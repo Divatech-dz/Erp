@@ -132,43 +132,50 @@ export const getTransactionStatus = (date: Date) => {
   return date > twoDaysAgo ? 'Processing' : 'Success';
 };
 
-export const authFormSchema = (type: string) => {
-  const isSignIn = type === AuthType.SignIn;
-  const isSignUp = type === AuthType.SignUp;
-  const conditionalField = (condition: boolean, schema: any) => (condition ? schema : z.undefined());
-
+export const authFormSchemaSignIn = () => {
   return z.object({
-    firstName: conditionalField(!isSignIn, z.string().min(3)),
-    firstNameArabic: conditionalField(isSignUp, z.string().optional()),
-    Function: conditionalField(isSignUp, z.string().optional()),
-    FunctionArabic: conditionalField(isSignUp, z.string().optional()),
-    MatriculeDeclaration:conditionalField(isSignUp,z.string().optional()),
-    startDate: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
-    placeOfBirth: conditionalField(isSignUp, z.string().optional()),
-    placeOfBirthArabic: conditionalField(isSignUp, z.string().optional()),
-    HourlyCost: conditionalField(isSignUp, z.number().optional()),
-    DateOfBirth: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
-    endDate: conditionalField(isSignUp, z.string().transform((val) => new Date(val)).optional()),
-    Salary: conditionalField(isSignUp, z.number().optional()),
-    PrimePanierTransport: conditionalField(isSignUp, z.number().optional()),
-    Echelon: conditionalField(isSignUp, z.number().optional()),
-    CountNumber:conditionalField(isSignUp,z.number().optional()),
-    SocialInsuranceNumber:conditionalField(isSignUp,z.number().optional()),
-    username:conditionalField(isSignUp, z
+    username: z
       .string({
         required_error: 'username is required',
         invalid_type_error: 'username must be a string',
       })
-      .min(3)),
-
-    password:conditionalField(isSignUp, z
+      .min(3, 'Username must be at least 3 characters long'),
+      
+    password: z
       .string({
         required_error: 'password is required',
         invalid_type_error: 'password must be a string',
       })
-      .min(8)),
+      .min(8, 'Password must be at least 8 characters long'),
   });
 };
+
+export const authFormSchemaSignUp = () =>{
+  return z.object({
+    firstName: z.string().min(3),
+    firstNameArabic:  z.string().optional(),
+    Function:z.string().optional(),
+    FunctionArabic:  z.string().optional(),
+    MatriculeDeclaration:z.string().optional(),
+    startDate:  z.string().transform((val) => new Date(val)).optional(),
+    placeOfBirth:  z.string().optional(),
+    placeOfBirthArabic:  z.string().optional(),
+    HourlyCost:  z.number().optional(),
+    DateOfBirth:  z.string().transform((val) => new Date(val)).optional(),
+    endDate:  z.string().transform((val) => new Date(val)).optional(),
+    Salary:  z.number().optional(),
+    PrimePanierTransport:  z.number().optional(),
+    Echelon:  z.number().optional(),
+    CountNumber:z.number().optional(),
+    SocialInsuranceNumber:z.number().optional(),
+   
+
+   
+  });
+}
+
+
+
 
 export const  billFormSchema=()=>{
   return z.object({

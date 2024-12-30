@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image, { StaticImageData } from 'next/image';
+import { useStoreContext } from '@/lib/context/store';
 
 
 interface DropdownProps {
@@ -20,6 +21,7 @@ interface DropdownProps {
   classNameContent?: string;
   showLabel?: boolean;
   filterOptions?:Set<string>;
+  enableRetrieveStore?:boolean
 }
 
 export const Dropdown = ({
@@ -31,21 +33,27 @@ export const Dropdown = ({
   classNameTrigger = '',
   classNameContent = '',
   showLabel = false,
-  filterOptions
+  filterOptions,
+  enableRetrieveStore = false,
 }: DropdownProps) => {
   
   const [selectedName, setSelectedName] = useState('');
   const [isNameVisible, setIsNameVisible] = useState(false);
+  const {retrieveStore} = useStoreContext();
   const handleColumnToggle = (column: Column) => {
     handleColumnVisibilityChange?.(filterOptions?column?.name:column?.id);
     setSelectedName(column.name);
     setIsNameVisible(showLabel);
   };
-
+  const handleRetrieveStore = (columnId: number,name:string) => {
+    if (enableRetrieveStore && typeof window !== "undefined") {
+      retrieveStore(columnId,name);
+    }
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className={`flex items-center justify-between gap-2 ${classNameTrigger}`}
+        className={classNameTrigger}
       >
         {isNameVisible ? selectedName : label} 
         {icon && <Image src={icon} alt="Arrow-Down" height={12} width={12} />}
@@ -58,6 +66,7 @@ export const Dropdown = ({
               (visibleColumns?.has(column.id) || filterOptions?.has(column.name)) ?? false
             }
             onCheckedChange={() => handleColumnToggle(column)}
+            onClick={()=>handleRetrieveStore(Number(column.id),column.name)}
           >
             {column.name}
           </DropdownMenuCheckboxItem>

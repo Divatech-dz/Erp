@@ -1,3 +1,4 @@
+
 import { icons } from '@/constants/icons';
 import { SalesProps } from '@/types';
 import Image from 'next/image';
@@ -9,6 +10,7 @@ export const SalesCard = ({
   email,
   salesAmount,
 }: Readonly<SalesProps>) => {
+  
   return (
     <div className="flex flex-wrap justify-between gap-3">
       <section className="flex justify-between gap-3">
