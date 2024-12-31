@@ -6,14 +6,30 @@ import { DashboardCard, CardContent } from './dashboard-card'
 import SalesCard from './sales-card'
 import { BarChart } from './bar-chart'
 import { useGetUser } from '@/service/userService'
+import { useGetAllProduits, useGetStoreById } from '@/service/storeService'
 
 
 
 
 export const DashboardPage = () => {
   const { data: user, isLoading, isError } = useGetUser();
+  const store = useGetStoreById();
+  const {data,refetch}=useGetAllProduits()
+
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error loading user data</p>;
+  const test = () => {
+    store.mutateAsync({ store_id: 2 })
+        .then((data1) => {
+            console.log('Store data:', data1);
+            refetch();
+            
+        })
+        .catch((error) => {
+            console.error('Error fetching store:', error);
+        });
+};
+console.log(data);
 
   return (
     <div className="home-content">
@@ -23,6 +39,7 @@ export const DashboardPage = () => {
             Bienvenue <span className="text-bankGradient capitalize">{user?.first_name!} {user?.last_name}</span>
           </h1>
           <p className="header-box-subtext">Gérer votre entreprise</p>
+          <button onClick={test}>click me !</button>
         </div>
       </header>
       <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-4">

@@ -1,6 +1,6 @@
 "use client";
 import { useGetStoreById } from '@/service/storeService';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface SelectedStore {
   id: number;
@@ -8,9 +8,6 @@ interface SelectedStore {
 }
 
 interface StoreContextType {
-  storeData: any;
-  isLoading: boolean;
-  error: Error | null;
   retrieveStore: (storeId: number, name: string) => void;
   selectedStoreName: string;
 }
@@ -18,27 +15,35 @@ interface StoreContextType {
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const store = useGetStoreById();
   const [selectedStore, setSelectedStore] = useState<SelectedStore>({
     id: 0,
     name: '',
   });
 
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
-  const { data: storeData, isLoading, error } = useGetStoreById(
-    selectedStore.id ? { store_id: selectedStore.id } : undefined
-  ); 
- 
+  useEffect(() => {
+    if (isFirstRender && selectedStore.id > 0) {
+
+      store.mutateAsync({ store_id: selectedStore.id })
+        .then((data) => {
+          console.log('Store data:', data);
+          setIsFirstRender(false); 
+        })
+        .catch((error) => {
+          console.error('Error fetching store:', error);
+        });
+    }
+  }, [selectedStore.id, isFirstRender]); 
 
   const retrieveStore = (storeId: number, name: string) => {
-    setSelectedStore({ id: storeId, name:name });
+    setSelectedStore({ id: storeId, name: name });
   };
 
   return (
     <StoreContext.Provider
       value={{
-        storeData,
-        isLoading,
-        error,
         retrieveStore,
         selectedStoreName: selectedStore.name,
       }}

@@ -1,4 +1,4 @@
-import { ClientAPI } from "@/lib/axios";
+import axiosInstance from "@/lib/axios";
 
 export const getClients = async ({ queryKey }: { queryKey: [number, string, string, string, number] }) => {
     const page = queryKey[0];
@@ -8,7 +8,7 @@ export const getClients = async ({ queryKey }: { queryKey: [number, string, stri
     const userId = queryKey[4];
 
     try {
-        const { data } = await ClientAPI.get("", {
+        const { data } = await axiosInstance.get("/tiers/Client/", {
             params: {
                 page: page,
                 search: search,

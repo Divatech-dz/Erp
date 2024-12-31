@@ -1,4 +1,5 @@
-import { factureAPI } from "@/lib/axios";
+import axiosInstance from "@/lib/axios";
+
 
 export const getBills = async ({ queryKey }: { queryKey: [number, string, string, string, number] }) => {
     const page = queryKey[0];
@@ -8,7 +9,7 @@ export const getBills = async ({ queryKey }: { queryKey: [number, string, string
     const userId = queryKey[4];
 
     try {
-        const { data } = await factureAPI.get("", {
+        const { data } = await axiosInstance.get("/ventes/Facture/", {
             params: {
                 page: page,
                 search: search,
