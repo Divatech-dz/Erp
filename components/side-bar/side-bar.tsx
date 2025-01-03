@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { Accordion } from '../ui/accordion';
 import { AccordionSideBar, Footer } from '.';
 import { cn } from '@/lib/utils';
-import { useStoreContext } from '@/lib/context/store';
+import { icons } from '@/constants/icons';
 
 export const SideBar = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
@@ -15,6 +15,7 @@ export const SideBar = () => {
 
   const handleAccordionClick = (label: string) => {
     setActiveItem(label);
+    localStorage.setItem('test',label)
   };
   
   return (
@@ -22,18 +23,18 @@ export const SideBar = () => {
       <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
       
         <Link href="/" className="cursor-pointer items-center flex gap-2">
-          <Image src="/icons/logo.svg" alt="logo" height={25} width={25} />
+          <Image src={icons.logo} alt="logo" height={25} width={25} />
           <h1 className="sidebar-logo">DIVATECH</h1>
         </Link>
 
         <Accordion type="single" collapsible className="mt-4 flex flex-col gap-2 w-full">
           {sidebarLinks.map(({ imgURL, label, route, id }) => {
+           
             const isActive = activeItem === label;
-  
-            if (role !== "manager") {
+            if (role === "manager") {
               return (
                 <Link
-                  href={'/'}
+                  href={`${label}/${route[0].link}`}
                   key={label}
                   onClick={() => handleAccordionClick(label)}
                   className={cn('sidebar-link', { 'bg-erp-gradient': isActive })}
@@ -66,6 +67,8 @@ export const SideBar = () => {
               />
             );
           })
+         
+            
           }
           
         </Accordion>

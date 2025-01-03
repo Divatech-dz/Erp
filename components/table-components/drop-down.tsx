@@ -11,6 +11,7 @@ import Image, { StaticImageData } from 'next/image';
 import { useStoreContext } from '@/lib/context/store';
 
 
+
 interface DropdownProps {
   label?: string;
   icon?: string | StaticImageData;
@@ -45,11 +46,13 @@ export const Dropdown = ({
     setSelectedName(column.name);
     setIsNameVisible(showLabel);
   };
-  const handleRetrieveStore = (columnId: number,name:string) => {
+  const handleRetrieveStore = (columnId: number, name: string) => {
     if (enableRetrieveStore && typeof window !== "undefined") {
-      retrieveStore(columnId,name);
+      retrieveStore(columnId, name);
+
     }
   };
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger

@@ -1,6 +1,6 @@
-"use client";
+'use client'
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useGetStoreById } from '@/service/storeService';
-import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface SelectedStore {
   id: number;
@@ -8,39 +8,52 @@ interface SelectedStore {
 }
 
 interface StoreContextType {
-  storeData: any;
-  isLoading: boolean;
-  error: Error | null;
-  retrieveStore: (storeId: number, name: string) => void;
+  retrieveStore: (storeId: number, name: string) => Promise<void>;
   selectedStoreName: string;
+  isLoading: boolean;
 }
 
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const store = useGetStoreById();
   const [selectedStore, setSelectedStore] = useState<SelectedStore>({
     id: 0,
-    name: '',
+    name: '', 
   });
+  const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedName = localStorage.getItem('selectedStoreName');
+      if (storedName) {
+        setSelectedStore({ id: 0, name: storedName }); 
+      }
+    }
+  }, []);
 
-  const { data: storeData, isLoading, error } = useGetStoreById(
-    selectedStore.id ? { store_id: selectedStore.id } : undefined
-  ); 
- 
-
-  const retrieveStore = (storeId: number, name: string) => {
-    setSelectedStore({ id: storeId, name:name });
+  const retrieveStore = async (storeId: number, name: string): Promise<void> => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedStoreName', name); 
+    }
+    setIsLoading(true);
+    try {
+      setSelectedStore({ id: storeId, name }); 
+      await store.mutateAsync({ store_id: storeId });
+      location.reload(); 
+    } catch (error) {
+      console.error('Error fetching store:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <StoreContext.Provider
       value={{
-        storeData,
-        isLoading,
-        error,
         retrieveStore,
         selectedStoreName: selectedStore.name,
+        isLoading,
       }}
     >
       {children}

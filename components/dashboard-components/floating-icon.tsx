@@ -17,9 +17,9 @@ import { useGetAllStore } from '@/service/storeService';
 export default function FloatingIcon() {
   const {data:store}= useGetAllStore()
   const storeTable=()=>{
-    return store?.results?.map((store: { id: number, capitaleSocial: string }) => ({
+    return store?.results?.map((store: { id: number, name: string }) => ({
       id: store.id,
-      name: store.capitaleSocial,
+      name: store.name,
     }));
   }
   return (

@@ -1,4 +1,4 @@
-import {bonsSortieAPI} from "@/lib/axios"
+import axiosInstance from "@/lib/axios"
 
 export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, string, string, number] }) => {
     const page = queryKey[0];
@@ -8,7 +8,7 @@ export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, 
     const userId = queryKey[4];
 
     try {
-        const {data} = await bonsSortieAPI.get("", {
+        const {data} = await axiosInstance.get("/ventes/BonSortie/", {
             params: {
                 page: page,
                 search: search,

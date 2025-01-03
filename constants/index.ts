@@ -164,6 +164,26 @@ export const sidebarLinks: SidebarLink[] = [
   },
 ];
 
+export const sidebarLinksManager=[
+  {
+    name:'Produits',
+    router:[
+      {
+        label:'Produits',
+        router:['Families','Produits','Quantite a facteur','List de Produits']
+      },
+      {
+        label:'Laison',
+        router:['Produits /Entrops']
+      },
+      {
+        label:'Etat de Stock',
+        router:['Archive de verification','Etat Stock','verifcation stock']
+      }
+    ]
+  }
+]
+
 export enum AuthType {
   SignIn = 'sign-in',
   SignUp = 'sign-up',
