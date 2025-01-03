@@ -1,6 +1,6 @@
-"use client";
-import { useGetStoreById } from '@/service/storeService';
+'use client'
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useGetStoreById } from '@/service/storeService';
 
 interface SelectedStore {
   id: number;
@@ -8,8 +8,9 @@ interface SelectedStore {
 }
 
 interface StoreContextType {
-  retrieveStore: (storeId: number, name: string) => void;
+  retrieveStore: (storeId: number, name: string) => Promise<void>;
   selectedStoreName: string;
+  isLoading: boolean;
 }
 
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
@@ -18,27 +19,33 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const store = useGetStoreById();
   const [selectedStore, setSelectedStore] = useState<SelectedStore>({
     id: 0,
-    name: '',
+    name: '', 
   });
-
-  const [isFirstRender, setIsFirstRender] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (isFirstRender && selectedStore.id > 0) {
-
-      store.mutateAsync({ store_id: selectedStore.id })
-        .then((data) => {
-          console.log('Store data:', data);
-          setIsFirstRender(false); 
-        })
-        .catch((error) => {
-          console.error('Error fetching store:', error);
-        });
+    if (typeof window !== 'undefined') {
+      const storedName = localStorage.getItem('selectedStoreName');
+      if (storedName) {
+        setSelectedStore({ id: 0, name: storedName }); 
+      }
     }
-  }, [selectedStore.id, isFirstRender]); 
+  }, []);
 
-  const retrieveStore = (storeId: number, name: string) => {
-    setSelectedStore({ id: storeId, name: name });
+  const retrieveStore = async (storeId: number, name: string): Promise<void> => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedStoreName', name); 
+    }
+    setIsLoading(true);
+    try {
+      setSelectedStore({ id: storeId, name }); 
+      await store.mutateAsync({ store_id: storeId });
+      location.reload(); 
+    } catch (error) {
+      console.error('Error fetching store:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -46,6 +53,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       value={{
         retrieveStore,
         selectedStoreName: selectedStore.name,
+        isLoading,
       }}
     >
       {children}

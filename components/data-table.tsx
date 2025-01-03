@@ -86,7 +86,6 @@ export const DataTable = ({
                 columnNames={columnNames}
                 setVisibleColumns={setVisibleColumns}
                 visibleColumns={visibleColumns}
-                tableData={initialData}
                 setSearch={setSearch}
                 setCategory={setCategory}
                 categories={categories}
