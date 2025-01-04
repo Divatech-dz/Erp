@@ -46,6 +46,7 @@ export const DataTable = ({
         column: "",
         ascending: true,
     });
+    const [invoiceDetails, setInvoiceDetails] = useState<Record<string, any>>({});
 
     useEffect(() => {
         setTableData(columnData ?? []);
@@ -148,19 +149,19 @@ export const DataTable = ({
                                         cellContent = <p>{row?.dateBon}</p>;
                                         break;
                                     case "Entrepot bon":
-                                        cellContent = <p>{row?.entrepot.name}</p>;
+                                        cellContent = <p>{row?.entrepot?.name}</p>;
                                         break;
                                     case "Client":
-                                        cellContent = <p>{row?.client.name}</p>; /* Commands notes and bills page*/
+                                        cellContent = <p>{row?.client?.name}</p>; /* Commands notes and bills page*/
                                         break;
                                     case "Livraison":
                                         cellContent = <p>{row?.agenceLivraison ? row?.agenceLivraison : "Interne"}</p>;
                                         break;
                                     case "Commercial":
-                                        cellContent = <p>{row?.user.username}</p>;
+                                        cellContent = <p>{row?.user?.username}</p>;
                                         break;
                                     case "Validation":
-                                        cellContent = <p className={`text-center border rounded ${row?.confirmed ? "border-emerald-900 bg-emerald-400" : "border-red-900 bg-red-500"}`}>{row?.confirmed ? "Validé" : "En attente"}</p>;
+                                        cellContent = <p className={`text-center border rounded ${row?.confirmed ? "border-emerald-900 bg-emerald-200 text-emerald-900" : "border-red-900 bg-red-200 text-red-900"}`}>{row?.confirmed ? "Validé" : "En attente"}</p>;
                                         break;
                                         /* Bills page*/
                                     case "N° facture":
@@ -174,6 +175,25 @@ export const DataTable = ({
                                         break;
                                     case "Etat de règlement":
                                         cellContent = <p>{row?.etat_reglement}</p>;
+                                        break;
+                                        /* Return notes page */
+                                    case "Entrepot":
+                                        cellContent = <p>{row?.bonL?.entrepot?.name}</p>;
+                                        break;
+                                    case "Bon de vente associé":
+                                        cellContent = <p>{row?.bonL?.idBon}</p>;
+                                        break;
+                                    case "Etat d'acceptation":
+                                        cellContent = <p className={`text-center border rounded ${row?.reception_valide  ? "border-emerald-900 bg-emerald-200 text-emerald-900" : "border-red-900 bg-red-200 text-red-900"}`}>{row?.reception_valide ? "Accepté" : "Non-accepté"}</p>;
+                                        break;
+                                    case "Etat bon":
+                                        cellContent = <p className={`text-center border rounded ${row?.valide  ? "border-emerald-900 bg-emerald-200 text-emerald-900" : "border-red-900 bg-red-200 text-red-900"}`}>{row?.valide ? "Validé" : "En attente"}</p>;
+                                        break;
+                                    case "Etat de règlement bon":
+                                        cellContent = <p className={`text-center border rounded ${row?.regler_valide ? "border-emerald-900 bg-emerald-200 text-emerald-900" : row?.reintegrated ? "border-blue-900 bg-blue-200 text-blue-900" : "border-red-900 bg-red-200 text-red-900" }`}>{row?.regler_valide ? "Reglé" : row?.reintegrated ? "New" : "Non-reglé"}</p>;
+                                        break;
+                                        case "Utilisateur":
+                                        cellContent = <p>{row?.user?.username}</p>;
                                         break;
                                     default:
                                         cellContent = <p>{getCellContent(row, col?.id)}</p>;
@@ -191,7 +211,10 @@ export const DataTable = ({
                                     alt="Visible"
                                     height={20}
                                     width={20}
-                                    onClick={() => openModalWithContent("table")}
+                                    onClick={() => {
+                                        openModalWithContent("table");
+                                        setInvoiceDetails(row);
+                                    }}
                                 />
                                 <Image src={icons.Edit} alt="Edit" height={20} width={20}/>
                                 <Image src={icons.Trash} alt="Trash" height={20} width={20}/>
@@ -214,6 +237,7 @@ export const DataTable = ({
                 title={contentType === "table" ? "Invoice Details" : ""}
                 contentType={contentType}
                 contentProps={contentType === "table" ? {tableData} : {}}
+                invoiceDetails={invoiceDetails}
             />
         </>
     );

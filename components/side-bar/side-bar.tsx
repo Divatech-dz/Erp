@@ -7,7 +7,6 @@ import React, { useState } from 'react';
 import { Accordion } from '../ui/accordion';
 import { AccordionSideBar, Footer } from '.';
 import { cn } from '@/lib/utils';
-import { useStoreContext } from '@/lib/context/store';
 
 export const SideBar = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
@@ -18,7 +17,7 @@ export const SideBar = () => {
   };
   
   return (
-    <section className="sidebar">
+    <section className="sidebar">s
       <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
       
         <Link href="/" className="cursor-pointer items-center flex gap-2">
@@ -37,7 +36,6 @@ export const SideBar = () => {
                   key={label}
                   onClick={() => handleAccordionClick(label)}
                   className={cn('sidebar-link', { 'bg-erp-gradient': isActive })}
-                 
                 >
                   <div className={'relative size-6'}>
                     <Image

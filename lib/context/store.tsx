@@ -1,6 +1,6 @@
 "use client";
 import { useGetStoreById } from '@/service/storeService';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 interface SelectedStore {
   id: number;
@@ -23,11 +23,9 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     name: '',
   });
 
-
   const { data: storeData, isLoading, error } = useGetStoreById(
     selectedStore.id ? { store_id: selectedStore.id } : undefined
-  ); 
- 
+  );
 
   const retrieveStore = (storeId: number, name: string) => {
     setSelectedStore({ id: storeId, name:name });

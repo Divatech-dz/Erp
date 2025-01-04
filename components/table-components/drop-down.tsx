@@ -36,7 +36,7 @@ export const Dropdown = ({
   filterOptions,
   enableRetrieveStore = false,
 }: DropdownProps) => {
-  
+
   const [selectedName, setSelectedName] = useState('');
   const [isNameVisible, setIsNameVisible] = useState(false);
   const {retrieveStore} = useStoreContext();
@@ -55,7 +55,7 @@ export const Dropdown = ({
       <DropdownMenuTrigger
         className={classNameTrigger}
       >
-        {isNameVisible ? selectedName : label} 
+        {isNameVisible ? selectedName : label}
         {icon && <Image src={icon} alt="Arrow-Down" height={12} width={12} />}
       </DropdownMenuTrigger>
       <DropdownMenuContent className={classNameContent}>

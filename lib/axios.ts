@@ -60,6 +60,6 @@ export const ClientAPI = axios.create({
     baseURL: process.env.NEXT_PUBLIC_CLIENT_API_URL,
 });
 
-export const UserAPI = axios.create({
+export const UserListAPI = axios.create({
     baseURL: process.env.NEXT_PUBLIC_USER_API_URL,
 })

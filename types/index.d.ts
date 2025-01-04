@@ -1,7 +1,5 @@
 import {LucideIcon} from "lucide-react";
 
-import {LucideIcon} from "lucide-react";
-
 // interface
 declare interface FooterProps {
     type?: 'mobile' | 'desktop';
@@ -20,7 +18,7 @@ declare interface CardProps {
     amount: string;
     description: string;
     color: string
-};
+}
 
 declare interface TableProps {
     columnNames?: rowsType[],

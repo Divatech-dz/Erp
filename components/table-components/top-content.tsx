@@ -94,7 +94,7 @@ export const TopContent: React.FC<TopContentProps> = ({
 
         const rerenderButtons = () => {
             switch (pathname) {
-                case '/navbar-Links/Admin/utilisateurs':
+                case '/navbar-Links/utilisateurs':
                     return (
                         <>
                             <Button
@@ -109,7 +109,7 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/admin/Produits/produits':
+                case '/Produits/produits':
                     return (
                         <>
                             <Dropdown
@@ -144,8 +144,9 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/admin/Vente/bonsCommandeVente' :
-                case '/admin/Vente/Facture':
+                case '/Vente/bonsCommandeVente' :
+                case '/Vente/Facture':
+                case '/Vente/bonsRetourVente':
                     return (
                         <>
                             <div className="mb-6 relative">

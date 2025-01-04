@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 // Interfaces
 export interface StorePayload {
-  store_id: Number;
+  store_id: number;
 }
 
 // Utility Function for Fetching with Auth
@@ -32,7 +32,8 @@ const fetchWithAuth = async (url: string, method: 'GET' | 'POST' = 'GET', data?:
 // API Functions
 export const getAllStore = () => fetchWithAuth('/clientInfo/store');
 
-export const getStoreById = (data: StorePayload = { store_id: 1 }) =>
+export const getStoreById = (data: StorePayload
+) =>
   fetchWithAuth('/clientInfo/selectstore/', 'POST', data);
 
 // Hooks

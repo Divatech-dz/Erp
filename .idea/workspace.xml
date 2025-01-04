@@ -4,53 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/dashboard-components/dashboard-page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashboard-components/floating-icon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/providers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/context/store.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/storeService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.sample" beforeDir="false" afterPath="$PROJECT_DIR$/.env.sample" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3b13d00c-788f-46e2-a4e9-788315e995ef.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3b13d00c-788f-46e2-a4e9-788315e995ef/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/720d21b9-fb49-4e7c-8cef-2312e7818bf6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/720d21b9-fb49-4e7c-8cef-2312e7818bf6/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Produits/produits/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/Produits/produits/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/Produits/produits/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/add-user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/admin/add-user/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/permission-user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/admin/permission-user/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/utilisateurs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/admin/utilisateurs/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/global-error.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/global-error.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/Stock/bonsRetour/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/Stock/bonsSortie/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/Vente/Facture/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/Vente/Facture/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/Vente/bonsCommandeVente/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/Vente/bonsCommandeVente/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/layout.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/auth-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/custom-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/custom-input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/dashboard-components/dashboard-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard-components/dashboard-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/dashboard-components/sales-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard-components/sales-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard-components/floating-icon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard-components/floating-icon.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/right-side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/right-side-bar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/side-bar/accordion-side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/accordion-side-bar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/side-bar/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/side-bar/side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/side-bar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/table-components/drop-down.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/drop-down.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/table-components/top-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/top-content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/accordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/accordion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/dialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/context/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/context/store.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/categoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/categoryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/clientService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/clientService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/facturesService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/facturesService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/ordersNoteService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/ordersNoteService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/productService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/productService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/returnNotesService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/returnNotesService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/storeService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/storeService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/userService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/ReactQueryProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ReactQueryProvider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +52,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -88,39 +80,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
-    "git-widget-placeholder": "Merging API-branch",
-    "last_opened_file_path": "D:/Erp/app/admin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "D:\\Erp\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
-    "ts.external.directory.path": "D:\\Erp\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;API-branch&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Erp/app/(root)/(links)&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Erp\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Erp\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Erp\app\(root)\(links)" />
       <recent name="D:\Erp\app\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Erp\app\(root)\(links)" />
       <recent name="D:\Erp\public\icons" />
       <recent name="D:\Erp\app\(root)\navbar-Links\Produits\produits" />
       <recent name="D:\Erp\app\(root)\navbar-Links\Produits" />
@@ -168,8 +162,21 @@
       <workItem from="1735460737948" duration="55000" />
       <workItem from="1735463192764" duration="13587000" />
       <workItem from="1735479258387" duration="9805000" />
-      <workItem from="1735545956463" duration="13302000" />
+      <workItem from="1735545956463" duration="29127000" />
+      <workItem from="1735634592510" duration="11412000" />
+      <workItem from="1735656221075" duration="4000000" />
+      <workItem from="1735978865026" duration="1085000" />
+      <workItem from="1735992490194" duration="135000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed conflicts">
+      <option name="closed" value="true" />
+      <created>1735562160524</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1735562160524</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +192,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed conflicts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed conflicts" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

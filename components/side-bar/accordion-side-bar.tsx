@@ -49,7 +49,7 @@ export const AccordionSideBar = ({
           return (
             <Link
               key={r.name}
-              href={`${label}/${r.link}`}
+              href={`/${label}${r.link}`}
               className={cn(' text-black-1 hover:text-blue-1000 ', {
                 'text-blue-1000': isActiveRoute,
               })}
