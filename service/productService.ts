@@ -23,3 +23,4 @@ export const getProducts = async ({ queryKey }: { queryKey: [number, string, num
         return [];
     }
 };
+
