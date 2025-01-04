@@ -12,8 +12,11 @@ import { useGetUser } from '@/service/userService'
 
 export const DashboardPage = () => {
   const { data: user, isLoading, isError } = useGetUser();
+ 
+
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error loading user data</p>;
+ 
 
   return (
     <div className="home-content">
@@ -22,7 +25,6 @@ export const DashboardPage = () => {
           <h1 className="header-box-title">
             Bienvenue <span className="text-bankGradient capitalize">{user?.first_name!} {user?.last_name}</span>
           </h1>
-          <p className="header-box-subtext">Gérer votre entreprise</p>
         </div>
       </header>
       <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-4">

@@ -1,5 +1,4 @@
-import {BonRetourAPI} from "@/lib/axios";
-import Cookies from "js-cookie";
+import axiosInstance from "@/lib/axios";
 
 export const getReturnNotes = async ({queryKey}: { queryKey: [number, string, string, string, number] }) => {
     const page = queryKey[0];
@@ -9,7 +8,7 @@ export const getReturnNotes = async ({queryKey}: { queryKey: [number, string, st
     const userId = queryKey[4];
 
     try {
-        const {data} = await BonRetourAPI.get("", {
+        const {data} = await axiosInstance.get("/inventory/BonRetour/", {
             params: {
                 page: page,
                 search: search,
@@ -19,7 +18,7 @@ export const getReturnNotes = async ({queryKey}: { queryKey: [number, string, st
             },
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${Cookies.get('token')}`
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
             }
         });
         return data;

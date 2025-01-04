@@ -1,18 +1,15 @@
-import {categoryAPI} from "@/lib/axios";
-import Cookies from "js-cookie";
+import  axiosInstance from "@/lib/axios"
 
 export const getCategory = async () => {
-
     try {
-        const {data} = await categoryAPI.get("", {
+        const { data } = await  axiosInstance.get("/produits/Category",{
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${Cookies.get('token')}`
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
             }
         });
         return data;
     } catch (error) {
         console.error(error);
-        return [];
     }
 };
