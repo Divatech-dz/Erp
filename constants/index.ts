@@ -170,7 +170,7 @@ export const sidebarLinksManager=[
     router:[
       {
         label:'Produits',
-        router:['Families','Produits','Quantite a facteur','List de Produits']
+        router:['families','produits','quantite a facteur','list de Produits']
       },
       {
         label:'Laison',
@@ -178,7 +178,7 @@ export const sidebarLinksManager=[
       },
       {
         label:'Etat de Stock',
-        router:['Archive de verification','Etat Stock','verifcation stock']
+        router:['archive de verification','etat Stock','verifcation stock']
       }
     ]
   }

@@ -71,7 +71,6 @@ export type SidebarLink = {
 
 export type AccordionType = SidebarLink & {
     isActive: boolean;
-    handleAccordionClick: (label: string) => void;
 
 }
 
