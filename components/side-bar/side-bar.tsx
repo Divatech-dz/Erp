@@ -3,60 +3,41 @@
 import { sidebarLinks } from '@/constants';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+
 import { Accordion } from '../ui/accordion';
 import { AccordionSideBar, Footer } from '.';
 import { cn } from '@/lib/utils';
 import { icons } from '@/constants/icons';
+import { usePathname } from 'next/navigation';
 
 export const SideBar = () => {
-  const [activeItem, setActiveItem] = useState<string | null>(null);
-  
+  const pathname = usePathname();
   const role = 'manager';
-
-  useEffect(() => {
-    const storedActiveItem = localStorage.getItem('test');
-    if (storedActiveItem) {
-      setActiveItem(storedActiveItem);
-    }
-  }, []); 
-
-  const handleAccordionClick = (label: string) => {
-
-    setActiveItem(label);
-    localStorage.setItem('test', label); 
-  };
+  
 
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
-        <Link href="/" className="cursor-pointer items-center flex gap-2" onClick={()=>{
-          localStorage.removeItem('test')
-          setActiveItem(null)
-        }}>
+        <Link href="/" className="cursor-pointer items-center flex gap-2">
           <Image src={icons.logo} alt="logo" height={25} width={25} />
           <h1 className="sidebar-logo">DIVATECH</h1>
         </Link>
 
         <Accordion type="single" collapsible className="mt-4 flex flex-col gap-2 w-full">
           {sidebarLinks.map(({ imgURL, label, route, id }) => {
-            const isActive = activeItem === label;
-
+            const isActive = route.some((route) =>
+              pathname === route.link || pathname.startsWith(`${route.link}/`)
+            );
+          
             if (role === 'manager') {
               return (
                 <Link
-                  href={`${label}/${route[0].link}`}
+                  href={route[0].link}
                   key={label}
-                  onClick={(e) => {
-                    if (isActive) {
-                      e.preventDefault();
-                    } else {
-                      handleAccordionClick(label);
-                    }
-                  }}
+                 
                   className={cn('sidebar-link', { 'bg-erp-gradient': isActive })}
                 >
-                  <div className={'relative size-6'}>
+                  <div className="relative size-6">
                     <Image
                       src={imgURL}
                       alt={label}
@@ -76,10 +57,9 @@ export const SideBar = () => {
                 key={id}
                 id={id}
                 imgURL={imgURL}
-                isActive={isActive} 
+                isActive={isActive}
                 route={route}
                 label={label}
-                handleAccordionClick={handleAccordionClick}
               />
             );
           })}

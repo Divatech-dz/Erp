@@ -36,7 +36,7 @@ export const DataTable = ({
                               setUserId,
                               salesUsers,
                               isLoading,
-                              setClientType
+                              setClientType,
                           }: TableProps) => {
     const [visibleColumns, setVisibleColumns] = useState(
         new Set<string>(columnNames?.map((col) => col.id))
@@ -134,11 +134,11 @@ export const DataTable = ({
                                     <TableHead key={id}>
                                         {sort ? (
                                             <Button variant="ghost" onClick={() => handleSort(id.toString())}>
-                                                {name}
+                                                {name as React.ReactNode}
                                                 <Image src={icons.Trier} alt="Trier" width={20} height={20}/>
                                             </Button>
                                         ) : (
-                                            name
+                                            name as React.ReactNode
                                         )}
                                     </TableHead>
                                 ))}
@@ -150,7 +150,7 @@ export const DataTable = ({
                             {tableData?.map((row) => (
                                 <TableRow key={row.id} className="hover:bg-gray-50">
                                     {headerColumns?.map((col) => {
-                                        const renderCell = columnRenderers[col.name] || ((row: any) =>
+                                        const renderCell = columnRenderers[col.id] || ((row: Record<string, unknown>) =>
                                             <p>{getCellContent(row, col.id)}</p>);
                                         return (
                                             <TableCell key={`${row?.id}-${col?.id}`}>

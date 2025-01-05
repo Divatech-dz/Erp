@@ -18,7 +18,7 @@ declare interface CardProps {
     amount: string;
     description: string;
     color: string
-}
+};
 
 declare interface TableProps {
     columnNames?: rowsType[],
@@ -36,9 +36,8 @@ declare interface TableProps {
     setEndDate?: sting,
     setUserId?: (value: (((prevState: number) => number) | number)) => void,
     salesUsers?: any[],
-    isLoading?: boolean,
-    clientType?: string,
-    setClientType?: (value: (string | ((prevState: string) => string))) => void
+    setClientType?: (value: (string | ((prevState: string) => string))) => void,
+    isLoading?: false | true | boolean
 }
 
 //types
@@ -72,16 +71,19 @@ export type SidebarLink = {
 
 export type AccordionType = SidebarLink & {
     isActive: boolean;
-    handleAccordionClick: (label: string) => void;
 
 }
 
 export type rowsType = {
     id: string;
-    name: string;
+    name: { [key: string]: string } | string;
     sort?: boolean;
     sortBy?: string;
-}
-export type Column = rowsType & {
-    opensModal?: boolean;
 };
+
+export type Column = rowsType & {
+    id: string;
+    opensModal?: boolean;
+
+};
+
