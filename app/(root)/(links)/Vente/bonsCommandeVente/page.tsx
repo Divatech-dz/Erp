@@ -1,30 +1,32 @@
 'use client'
 
-import React, {useState} from 'react';
+import React from 'react';
 import {useQuery} from "@tanstack/react-query";
+import {useFiltersContext} from "@/lib/context/Filters";
 import {getDeliveryNotes} from "@/service/ordersNoteService";
-import {getUser} from "@/service/userService";
 import {DataTable} from "@/components/data-table";
 import {NotesColumn} from "@/constants"
 
-function Page() {
-    const [page, setPage] = useState(1);
-    const [search, setSearch] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
-    const [userId, setUserId] = useState (0);
 
-    const {data: notesData} = useQuery({
+function Page() {
+    const {
+        salesUsers,
+        page,
+        setPage,
+        search,
+        setSearch,
+        startDate,
+        setStartDate,
+        endDate,
+        setEndDate,
+        userId,
+        setUserId
+    } = useFiltersContext();
+
+    const {isLoading, error, data: notesData} = useQuery({
         queryKey: [page, search, startDate, endDate, userId],
         queryFn: getDeliveryNotes
     });
-
-    const {data: userData} = useQuery({
-        queryKey: ['user'],
-        queryFn: getUser
-    })
-
-    const salesUsers = userData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
 
     const notesResults = notesData?.results;
     const totalPages = notesData?.total_pages;
@@ -35,7 +37,7 @@ function Page() {
             <DataTable columnNames={NotesColumn} columnData={notesResults} setSearch={setSearch} currentPage={page}
                        setCurrentPage={setPage} totalPages={totalPages} startDate={startDate}
                        setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} setUserId={setUserId}
-                       salesUsers={salesUsers}/>
+                       salesUsers={salesUsers} isLoading={isLoading}/>
         </section>
     );
 }

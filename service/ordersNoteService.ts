@@ -1,4 +1,5 @@
-import {bonsSortieAPI} from "@/lib/axios"
+import axiosInstance from "@/lib/axios"
+import Cookies from "js-cookie";
 
 export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, string, string, number] }) => {
     const page = queryKey[0];
@@ -8,7 +9,7 @@ export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, 
     const userId = queryKey[4];
 
     try {
-        const {data} = await bonsSortieAPI.get("", {
+        const {data} = await axiosInstance.get("/ventes/BonSortie/", {
             params: {
                 page: page,
                 search: search,
@@ -18,7 +19,7 @@ export const getDeliveryNotes = async ({queryKey}: { queryKey: [number, string, 
             },
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
+                'Authorization': `Bearer ${Cookies.get('token')}`
             }
         });
         return data;

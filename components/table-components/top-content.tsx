@@ -33,6 +33,8 @@ interface TopContentProps {
     setStartDate?: React.Dispatch<React.SetStateAction<string>>,
     endDate?: string,
     setEndDate?: React.Dispatch<React.SetStateAction<string>>,
+    clientType?: string,
+    setClientType?: React.Dispatch<React.SetStateAction<string>>,
     setUserId?: React.Dispatch<React.SetStateAction<number>>,
     salesUsers?: any[]
 }
@@ -49,6 +51,7 @@ export const TopContent: React.FC<TopContentProps> = ({
                                                           setStartDate,
                                                           endDate,
                                                           setEndDate,
+                                                          setClientType,
                                                           setUserId,
                                                           salesUsers
                                                       }) => {
@@ -77,8 +80,13 @@ export const TopContent: React.FC<TopContentProps> = ({
                 setSearch?.(value);
                 setCurrentPage?.(1)
             }
-        }
+        };
 
+        const pressKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === 'Enter') {
+                handleSearch(value);
+            }
+        }
 
         const handleClear = () => {
             if (value !== '') {
@@ -94,7 +102,7 @@ export const TopContent: React.FC<TopContentProps> = ({
 
         const rerenderButtons = () => {
             switch (pathname) {
-                case '/navbar-Links/Admin/utilisateurs':
+                case '/navbar-Links/utilisateurs':
                     return (
                         <>
                             <Button
@@ -109,7 +117,7 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/admin/Produits/produits':
+                case '/Produits/produits':
                     return (
                         <>
                             <Dropdown
@@ -144,8 +152,9 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/admin/Vente/bonsCommandeVente' :
-                case '/admin/Vente/Facture':
+                case '/Vente/bonsCommandeVente' :
+                case '/Vente/Facture':
+                case '/Vente/bonsRetourVente':
                     return (
                         <>
                             <div className="mb-6 relative">
@@ -206,10 +215,59 @@ export const TopContent: React.FC<TopContentProps> = ({
                                 visibleColumns={visibleColumns}
                                 classNameTrigger='flex h-10 items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1'
                             />
-
                         </>
                     );
 
+                case '/Clients/listeClients':
+                    return (
+                        <>
+                            <Select onValueChange={(value) => {
+                                setClientType?.(value);
+                                setCurrentPage?.(1)
+                            }}>
+                                <SelectTrigger className="w-[100px] h-10">
+                                    <SelectValue placeholder="Filtrer par Type"/>
+                                </SelectTrigger>
+                                <SelectContent className="bg-white">
+                                    <SelectGroup>
+                                        <SelectLabel>Clients</SelectLabel>
+                                        <SelectItem value=" ">
+                                            TOUS
+                                        </SelectItem>
+                                        <SelectItem value="Revendeur">
+                                            Revendeur
+                                        </SelectItem>
+                                        <SelectItem value="Client Final">
+                                            Client Final
+                                        </SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+
+                            <Select onValueChange={(value) => {
+                                setUserId?.(Number(value));
+                                setCurrentPage?.(1)
+                            }}>
+                                <SelectTrigger className="w-[100px] h-10">
+                                    <SelectValue placeholder="Filtrer par utilisateur"/>
+                                </SelectTrigger>
+                                <SelectContent className="bg-white">
+                                    <SelectGroup>
+                                        <SelectLabel>Utilisateurs</SelectLabel>
+                                        <SelectItem value=" ">
+                                            TOUS
+                                        </SelectItem>
+                                        {salesUsers?.map((user) =>
+                                            <SelectItem key={user?.id} value={user?.id}>
+                                                {user?.username?.toUpperCase()}
+                                            </SelectItem>
+                                        )}
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+
+                        </>
+                    )
                 default:
                     return null;
             }
@@ -217,7 +275,7 @@ export const TopContent: React.FC<TopContentProps> = ({
 
         return (
             <div className="w-full flex items-center gap-8 my-2">
-                <div className="relative flex items-center gap-2 mx-2">
+                <div className="relative flex items-center gap-2 mx-2" onKeyDown={pressKey}>
                     <button className="absolute -right-6" onClick={() => handleSearch(value)}>
                         <Image src={icons.Search} alt="Search" width={20} height={20}/>
                     </button>

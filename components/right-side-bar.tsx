@@ -29,7 +29,7 @@ export const RightSideBar = () => {
             <div className="profile-role">
               <p className="flex items-center gap-2 text-lg font-ibm-plex-serif text-gray-800">
                 <Store className="h-5 w-5 text-blue-600" />
-                {selectedStoreName?selectedStoreName:'DivaTech'}
+                {selectedStoreName??'DivaTech'}
               </p>
 
 

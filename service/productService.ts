@@ -1,12 +1,12 @@
 import  axiosInstance from "@/lib/axios";
-
+import Cookies from 'js-cookie';
 export const getProducts = async ({ queryKey }: { queryKey: [number, string, number ] }) => {
     const page = queryKey[0];
     const search  = queryKey[1];
     const category = queryKey[2];
 
     try {
-        const { data } = await  axiosInstance.get("/Product/?page=", {
+        const { data } = await  axiosInstance.get("/produits/Product/", {
             params: {
                 page: page,
                 search: search,
@@ -14,7 +14,7 @@ export const getProducts = async ({ queryKey }: { queryKey: [number, string, num
             },
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
+                'Authorization': `Bearer ${Cookies.get('token')}`
             }
         });
         return data;
@@ -23,3 +23,4 @@ export const getProducts = async ({ queryKey }: { queryKey: [number, string, num
         return [];
     }
 };
+

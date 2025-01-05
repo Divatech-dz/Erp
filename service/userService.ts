@@ -17,11 +17,11 @@ export const login = async (data: LoginPayload) => {
     throw new Error('Unable to log in. Please check your credentials.');
   }
 };
-export const getUser = async () => {
 
-  const token = Cookies.get('token'); 
+export const getUser = async () => {
+  const token = Cookies.get('token');
   if (!token) {
-    console.log('No token found');
+    window.location.href = '/sign-in';
     throw new Error('No token found');
   }
   const response = await axiosInstance.get('/user/UserActuel', {
@@ -39,7 +39,6 @@ export const useLogin = () =>
         expires: 7, 
         sameSite: 'Lax',
       });
-      console.log('Login successful. Token saved.');
     },
     onError: (error) => {
       console.error('Login failed:', error);

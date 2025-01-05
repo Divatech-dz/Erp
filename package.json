@@ -45,6 +45,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.0",
+    "react-loader-spinner": "^6.1.6",
     "react-query": "^3.39.3",
     "react-to-print": "^3.0.2",
     "recharts": "^2.14.1",

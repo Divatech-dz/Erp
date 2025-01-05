@@ -1,7 +1,5 @@
 import {LucideIcon} from "lucide-react";
 
-import {LucideIcon} from "lucide-react";
-
 // interface
 declare interface FooterProps {
     type?: 'mobile' | 'desktop';
@@ -20,7 +18,7 @@ declare interface CardProps {
     amount: string;
     description: string;
     color: string
-};
+}
 
 declare interface TableProps {
     columnNames?: rowsType[],
@@ -38,6 +36,9 @@ declare interface TableProps {
     setEndDate?: sting,
     setUserId?: (value: (((prevState: number) => number) | number)) => void,
     salesUsers?: any[],
+    isLoading?: boolean,
+    clientType?: string,
+    setClientType?: (value: (string | ((prevState: string) => string))) => void
 }
 
 //types
@@ -76,7 +77,7 @@ export type AccordionType = SidebarLink & {
 }
 
 export type rowsType = {
-    id: string ;
+    id: string;
     name: string;
     sort?: boolean;
     sortBy?: string;
