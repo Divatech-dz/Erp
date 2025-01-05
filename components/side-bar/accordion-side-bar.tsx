@@ -19,7 +19,6 @@ export const AccordionSideBar = ({
   id,
   isActive,
   route,
-  handleAccordionClick,
 }: AccordionType) => {
   const pathName = usePathname();
   return (
@@ -28,7 +27,7 @@ export const AccordionSideBar = ({
         className={cn('sidebar-link text-black-1 md:px-3 md:py-2', {
           'bg-erp-gradient text-white md:p-3': isActive,
         })}
-        onClick={() => handleAccordionClick(label)}
+        
       >
         <div className="size-6 relative">
           <Image
@@ -42,14 +41,14 @@ export const AccordionSideBar = ({
       </AccordionTrigger>
       <AccordionContent>
         {route.map(r => {
-          const fullRoute = `${label}${r.link}`;
+          const fullRoute = r.link;
           const isActiveRoute =
             pathName === fullRoute || pathName.startsWith(fullRoute);
 
           return (
             <Link
               key={r.name}
-              href={`/${label}${r.link}`}
+              href={fullRoute}
               className={cn(' text-black-1 hover:text-blue-1000 ', {
                 'text-blue-1000': isActiveRoute,
               })}
