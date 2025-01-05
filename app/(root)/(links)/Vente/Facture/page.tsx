@@ -1,30 +1,33 @@
 'use client'
 
-import React, {useState} from 'react';
+import React from 'react';
+import {useFiltersContext} from "@/lib/context/Filters";
 import {useQuery} from "@tanstack/react-query";
 import {getBills} from "@/service/facturesService";
-import {getUsersList} from "@/service/userListService";
 import {DataTable} from "@/components/data-table";
 import {factureColumn} from "@/constants"
 
 function Page() {
-    const [page, setPage] = useState(1);
-    const [search, setSearch] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
-    const [userId, setUserId] = useState(0);
 
-    const {data: facturesData} = useQuery({
+    const {
+        salesUsers,
+        page,
+        setPage,
+        search,
+        setSearch,
+        startDate,
+        setStartDate,
+        endDate,
+        setEndDate,
+        userId,
+        setUserId
+    } = useFiltersContext();
+
+    const {isLoading, data: facturesData} = useQuery({
         queryKey: [page, search, startDate, endDate, userId],
         queryFn: getBills
     });
 
-    const {data: userListData} = useQuery({
-        queryKey: ['userList'],
-        queryFn: getUsersList
-    })
-
-    const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
     const factureResults = facturesData?.results;
     const totalPages = facturesData?.total_pages;
 
@@ -34,7 +37,7 @@ function Page() {
             <DataTable columnNames={factureColumn} columnData={factureResults} setSearch={setSearch} currentPage={page}
                        setCurrentPage={setPage} totalPages={totalPages} startDate={startDate}
                        setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} setUserId={setUserId}
-                       salesUsers={salesUsers}/>
+                       salesUsers={salesUsers} isLoading={isLoading}/>
         </section>
     );
 }

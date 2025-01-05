@@ -2,7 +2,7 @@ import axiosInstance from "@/lib/axios";
 import Cookies from "js-cookie";
 
 
-export const getBills = async ({ queryKey }: { queryKey: [number, string, string, string, number] }) => {
+export const getEmployee = async ({ queryKey }: { queryKey: [number, string, string, string, number] }) => {
     const page = queryKey[0];
     const search = queryKey[1];
     const startDate = queryKey[2];
@@ -10,7 +10,7 @@ export const getBills = async ({ queryKey }: { queryKey: [number, string, string
     const userId = queryKey[4];
 
     try {
-        const { data } = await axiosInstance.get("/ventes/Facture/", {
+        const { data } = await axiosInstance.get("/gestionRH/Salarie/", {
             params: {
                 page: page,
                 search: search,

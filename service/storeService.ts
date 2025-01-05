@@ -31,7 +31,7 @@ const fetchWithAuth = async (url: string, method: 'GET' | 'POST' = 'GET', data?:
 
 
 // API Functions
-export const getAllStore = () => fetchWithAuth('/clientInfo/store');
+export const getAllStore = () => fetchWithAuth('/clientInfo/store/');
 
 export const getStoreById = async(data: StorePayload = { store_id: 1 }) =>{
   const token = Cookies.get('token');

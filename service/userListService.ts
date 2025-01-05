@@ -1,15 +1,14 @@
-import { UserListAPI } from "@/lib/axios";
+import axiosInstance from "@/lib/axios";
 import Cookies from "js-cookie";
 
 export const getUsersList = async () => {
     try {
-        const { data } = await UserListAPI.get("", {
+        const response = await axiosInstance.get('/user/costumeruser', {
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${Cookies.get('token')}`
-            }
+                Authorization: `Bearer ${Cookies.get('token')}`
+            },
         });
-        return data;
+        return response.data;
     } catch (error) {
         console.error(error);
         return [];

@@ -441,6 +441,37 @@ export const returnColumn: rowsType[] = [
   },
 ]
 
+export const clientColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Client'
+  },
+      {
+    id:'2',
+    name:'Type de client'
+  },
+      {
+    id:'3',
+    name:'Chiffre d\'affaire'
+  },
+      {
+    id:'4',
+    name:'Solde'
+  },
+      {
+    id:'5',
+    name:'Etat de validation'
+  },
+      {
+    id:'6',
+    name:'Documents associés'
+  },
+    {
+    id:'7',
+    name:'Utilisateur'
+  }
+]
+
 export const StatusOptions: rowsType[]=[  {
   id: '1',
   name: 'Active',
