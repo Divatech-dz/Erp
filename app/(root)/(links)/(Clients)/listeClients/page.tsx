@@ -27,7 +27,6 @@ function Page() {
 
     const clientsResults = ClientsData?.results;
     const totalPages = ClientsData?.total_pages;
-    console.log(clientsResults)
 
     return (
         <section>

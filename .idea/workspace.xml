@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Clients/listeClients/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Produits/produits/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/produits/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Stock/bonsRetour/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Stock)/bonsRetour/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Stock/bonsSortie/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Stock)/bonsSortie/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Vente/Facture/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/Facture/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Vente/bonsCommandeVente/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bonsCommandeVente/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/Vente/bonsRetourVente/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bonsRetourVente/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/admin/add-user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(admin)/add-user/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/admin/permission-user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(admin)/permission-user/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/admin/utilisateurs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(admin)/utilisateurs/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/table-components/top-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/top-content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
