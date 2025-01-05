@@ -11,7 +11,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-
     const accessToken = Cookies.get('token');
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
@@ -27,8 +26,11 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      Cookies.remove('token');
-      window.location.href = '/sign-in';
+     if (Cookies.get('token')) {
+        alert('Session expired. Please login again.');
+        Cookies.remove('token');
+        window.location.href = '/sign-in';
+     }
     }
     return Promise.reject(new Error('Failed to handle API response.'));
   }

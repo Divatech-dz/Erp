@@ -401,7 +401,76 @@ export const factureColumn: rowsType[] = [
     id:'5',
     name:'Etat de règlement'
   },
+]
 
+export const returnColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'N° bon'
+  },
+      {
+    id:'2',
+    name:'Date bon'
+  },
+      {
+    id:'3',
+    name:'Entrepot'
+  },
+      {
+    id:'4',
+    name:'Client'
+  },
+      {
+    id:'5',
+    name:'Bon de vente associé'
+  },
+      {
+    id:'6',
+    name:'Etat d\'acceptation'
+  },
+    {
+    id:'7',
+    name:'Etat bon'
+  },
+    {
+    id:'8',
+    name:'Etat de règlement bon'
+  },
+    {
+    id:'9',
+    name:'Utilisateur'
+  },
+]
+
+export const clientColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Client'
+  },
+      {
+    id:'2',
+    name:'Type de client'
+  },
+      {
+    id:'3',
+    name:'Chiffre d\'affaire'
+  },
+      {
+    id:'4',
+    name:'Solde'
+  },
+      {
+    id:'5',
+    name:'Etat de validation'
+  },
+      {
+    id:'6',
+    name:'Documents associés'
+  },
+    {
+    id:'7',
+    name:'Utilisateur'
+  }
 ]
 
 export const StatusOptions: rowsType[]=[  {

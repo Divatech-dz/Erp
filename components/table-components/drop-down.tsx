@@ -35,7 +35,7 @@ export const Dropdown = ({
   filterOptions,
   enableRetrieveStore = false,
 }: DropdownProps) => {
-  
+
   const [selectedName, setSelectedName] = useState('');
   const [isNameVisible, setIsNameVisible] = useState(false);
   const { retrieveStore } = useStoreContext();
