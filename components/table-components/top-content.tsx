@@ -102,7 +102,7 @@ export const TopContent: React.FC<TopContentProps> = ({
 
         const rerenderButtons = () => {
             switch (pathname) {
-                case '/navbar-Links/utilisateurs':
+                case '/utilisateurs':
                     return (
                         <>
                             <Button
@@ -117,7 +117,7 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/Produits/produits':
+                case '/produits':
                     return (
                         <>
                             <Dropdown
@@ -152,9 +152,9 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/Vente/bonsCommandeVente' :
-                case '/Vente/Facture':
-                case '/Vente/bonsRetourVente':
+                case '/bonsCommandeVente' :
+                case '/Facture':
+                case '/bonsRetourVente':
                     return (
                         <>
                             <div className="mb-6 relative">
@@ -218,7 +218,7 @@ export const TopContent: React.FC<TopContentProps> = ({
                         </>
                     );
 
-                case '/Clients/listeClients':
+                case '/listeClients':
                     return (
                         <>
                             <Select onValueChange={(value) => {

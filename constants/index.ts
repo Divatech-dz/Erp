@@ -343,7 +343,7 @@ export const rowTable: rowsType[] = [
   },
   {
     id: '5',
-    name: 'PV TTC - R -',
+    name: 'PV TTC -R-',
     sort: false
   },
 ]
