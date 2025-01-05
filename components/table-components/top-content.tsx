@@ -28,7 +28,7 @@ interface TopContentProps {
   setCategory?: React.Dispatch<React.SetStateAction<number>>,
   categories?: Array<{ id: string; category: string }>,
   setCurrentPage?: React.Dispatch<React.SetStateAction<number>>,
-  setSearch?: ((value: (((prevState: string) => string) | string)) => void) | undefined,
+  setSearch?: ((value: (((prevState: string) => string) | string)) => void),
   startDate?: string,
   setStartDate?: React.Dispatch<React.SetStateAction<string>>,
   endDate?: string,

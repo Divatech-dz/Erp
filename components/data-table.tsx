@@ -38,7 +38,6 @@ export const DataTable = ({
     new Set<string>(columnNames?.map((col) => col.id))
   );
   const [tableData, setTableData] = useState<Record<string, any>[]>(columnData ?? []);
-  const [initialData, setInitialData] = useState(columnData);
   const [openModal, setOpenModal] = React.useState(false);
   const [contentType, setContentType] = React.useState<string>("table");
   const [sortedButton, setSortedButton] = useState<{
@@ -51,13 +50,12 @@ export const DataTable = ({
 
   useEffect(() => {
     setTableData(columnData ?? []);
-    setInitialData(columnData);
   }, [columnData]);
 
   const headerColumns = useMemo(() => {
+
     return columnNames?.filter((column) => visibleColumns.has(column.id));
   }, [columnNames, visibleColumns]);
-
   const handleSort = (columnKey: string) => {
     const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
     setSortedButton({ column: columnKey, ascending });
@@ -102,87 +100,33 @@ export const DataTable = ({
       <Table>
         <TableHeader>
           <TableRow>
-            {headerColumns?.map(({ id, name, sort }) => (
-              <TableHead key={id}>
-                {sort ? (
-                  <Button variant="ghost" onClick={() => handleSort(id.toString())}>
-                    {name}
-                    <Image src={icons.Trier} alt="Trier" width={20} height={20} />
-                  </Button>
-                ) : (
-                  name
-                )}
-              </TableHead>
-            ))}
+            {headerColumns?.map(({ id, name, sort }) => {
+              const [key, value] = Object.entries(name)[0];
+              return (
+                <TableHead key={id} >
+                  {sort ? (
+                    <Button variant="ghost" onClick={() => handleSort(value)}>
+                      {key}
+                      <Image src={icons.Trier} alt="Trier" width={20} height={20} />
+                    </Button>
+                  ) : (
+                    <>{key}</>
+                  )}
+                </TableHead>
+              );
+            })}
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {tableData?.map((row) => (
-            <TableRow key={row.id} className="hover:bg-gray-50">
-              {headerColumns?.map((col: { id: string; name: string }) => {
-                let cellContent;
-                switch (col?.name) {
-                  /* Products page*/
-                  case "Référence":
-                    cellContent = <p>{row?.reference}</p>;
-                    break;
-                  case "Désignation":
-                    cellContent = <p>{row?.name}</p>;
-                    break;
-                  case "Quantité":
-                    cellContent =
-                      <p className={`${row?.quantity_globale === 0 && "text-red-600"}`}>{row.quantity_globale}</p>;
-                    break;
-                  case "PV TTC -P-":
-                    cellContent = <p>{row?.prix_vente} dzd</p>;
-                    break;
-                  case "PV TTC - R -":
-                    cellContent = <p>{row?.prix_vente} dzd</p>;
-                    break;
-                  /* Commands notes page*/
-                  case "N° bon":
-                    cellContent = <p>{row?.idBon}</p>;
-                    break;
-                  case "Date bon":
-                    cellContent = <p>{row?.dateBon}</p>;
-                    break;
-                  case "Entrepot bon":
-                    cellContent = <p>{row?.entrepot.name}</p>;
-                    break;
-                  case "Client":
-                    cellContent = <p>{row?.client.name}</p>; /* Commands notes and bills page*/
-                    break;
-                  case "Livraison":
-                    cellContent = <p>{row?.agenceLivraison ? row?.agenceLivraison : "Interne"}</p>;
-                    break;
-                  case "Commercial":
-                    cellContent = <p>{row?.user.username}</p>;
-                    break;
-                  case "Validation":
-                    cellContent = <p className={`text-center border rounded ${row?.confirmed ? "border-emerald-900 bg-emerald-400" : "border-red-900 bg-red-500"}`}>{row?.confirmed ? "Validé" : "En attente"}</p>;
-                    break;
-                  /* Bills page*/
-                  case "N° facture":
-                    cellContent = <p>{row?.codeFacture}</p>;
-                    break;
-                  case "Date facture":
-                    cellContent = <p>{row?.date_facture}</p>;
-                    break;
-                  case "Bon de livraison associé":
-                    cellContent = <p>{row?.BonS?.idBon}</p>;
-                    break;
-                  case "Etat de règlement":
-                    cellContent = <p>{row?.etat_reglement}</p>;
-                    break;
-                  default:
-                    cellContent = <p>{getCellContent(row, col?.id)}</p>;
-                    break;
-                }
+            <TableRow key={row.id} className="hover:bg-gray-50" >
+              {headerColumns?.map(({id, name}) => {
+               const [,value] = Object.entries(name)[0];
                 return (
-                  <TableCell key={`${row?.id}-${col?.id}`}>
-                    {cellContent}
+                  <TableCell key={`${row?.id}-${id}`} >
+                   {getCellContent(row, value)}
                   </TableCell>
                 );
               })}

@@ -318,35 +318,36 @@ export const userSalesData: SalesProps[] = [
   },
 ];
 
-export const rowTable: rowsType[] = [
+export const rowTable:rowsType[]= [
   {
     id: '1',
-    name: 'Référence',
-    sort: false
+    name: { "Référence": 'reference' },
+    sort: false,
   },
   {
     id: '2',
-    name: 'Désignation',
-    sort: false
+    name: { "Désignation": 'name' },
+    sort: false,
   },
   {
     id: '3',
-    name: 'Quantité',
+    name: { "Quantité": 'quantity_globale' },
     sort: true,
-    sortBy: 'quantity_globale'
+    sortBy: 'quantity_globale',
   },
   {
     id: '4',
-    name: 'PV TTC -P-',
+    name: { 'PV TTC -P-': 'prix_vente' },
     sort: true,
-    sortBy: 'prix_vente'
+    sortBy: 'prix_vente',
   },
   {
     id: '5',
-    name: 'PV TTC - R -',
-    sort: false
+    name: { 'PV TTC - R -': 'prix_vente_kit' },
+    sort: false,
   },
-]
+];
+
 
 export const NotesColumn : rowsType[]= [
   {

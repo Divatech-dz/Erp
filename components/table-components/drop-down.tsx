@@ -1,5 +1,5 @@
 "use client";
-import {useState } from 'react';
+import { useState } from 'react';
 import { Column } from '@/types';
 import {
   DropdownMenu,
@@ -10,8 +10,6 @@ import {
 import Image, { StaticImageData } from 'next/image';
 import { useStoreContext } from '@/lib/context/store';
 
-
-
 interface DropdownProps {
   label?: string;
   icon?: string | StaticImageData;
@@ -21,8 +19,8 @@ interface DropdownProps {
   classNameTrigger?: string;
   classNameContent?: string;
   showLabel?: boolean;
-  filterOptions?:Set<string>;
-  enableRetrieveStore?:boolean
+  filterOptions?: Set<string>;
+  enableRetrieveStore?: boolean;
 }
 
 export const Dropdown = ({
@@ -40,40 +38,43 @@ export const Dropdown = ({
   
   const [selectedName, setSelectedName] = useState('');
   const [isNameVisible, setIsNameVisible] = useState(false);
-  const {retrieveStore} = useStoreContext();
+  const { retrieveStore } = useStoreContext();
+
   const handleColumnToggle = (column: Column) => {
-    handleColumnVisibilityChange?.(filterOptions?column?.name:column?.id);
-    setSelectedName(column.name);
+    const columnName = typeof column.name === 'string' ? column.name : Object.keys(column.name)[0];
+    handleColumnVisibilityChange?.(filterOptions ? columnName : column.id);
+    setSelectedName(columnName);
     setIsNameVisible(showLabel);
   };
+
   const handleRetrieveStore = (columnId: number, name: string) => {
     if (enableRetrieveStore && typeof window !== "undefined") {
       retrieveStore(columnId, name);
-
     }
   };
-  
+
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger
-        className={classNameTrigger}
-      >
-        {isNameVisible ? selectedName : label} 
+      <DropdownMenuTrigger className={classNameTrigger}>
+        {isNameVisible ? selectedName : label}
         {icon && <Image src={icon} alt="Arrow-Down" height={12} width={12} />}
       </DropdownMenuTrigger>
       <DropdownMenuContent className={classNameContent}>
-        {columns?.map((column) => (
-          <DropdownMenuCheckboxItem
-            key={column.id}
-            checked={
-              (visibleColumns?.has(column.id) || filterOptions?.has(column.name)) ?? false
-            }
-            onCheckedChange={() => handleColumnToggle(column)}
-            onClick={()=>handleRetrieveStore(Number(column.id),column.name)}
-          >
-            {column.name}
-          </DropdownMenuCheckboxItem>
-        ))}
+        {columns?.map((column) => {
+          const columnName = typeof column.name === 'string' ? column.name : Object.keys(column.name)[0]; 
+          return (
+            <DropdownMenuCheckboxItem
+              key={column.id}
+              checked={
+                (visibleColumns?.has(column.id) || filterOptions?.has(columnName)) ?? false
+              }
+              onCheckedChange={() => handleColumnToggle(column)}
+              onClick={() => handleRetrieveStore(Number(column.id), columnName)}
+            >
+              {columnName}
+            </DropdownMenuCheckboxItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
