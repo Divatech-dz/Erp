@@ -20,7 +20,6 @@ function Page() {
 
     const resultsConge = congeData?.results;
     const totalPages = congeData?.total_pages;
-    console.log(resultsConge)
 
     return (
         <section className="page-design py-0">

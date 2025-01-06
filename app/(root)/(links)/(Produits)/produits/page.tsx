@@ -29,8 +29,6 @@ function Page() {
     const resultsProducts = productsData?.results;
     const totalPages = productsData?.total_pages;
 
-    console.log('resultsProducts', resultsProducts);
-
     const handleNavigationSelect = (navigationLabel: string) => {
         setSelectedNavigation(navigationLabel);
     };

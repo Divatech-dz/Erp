@@ -24,7 +24,6 @@ function Page() {
 
     const resultsPointage = pointageData?.results;
     const totalPages = pointageData?.total_pages;
-    console.log(resultsPointage)
 
     return (
         <section className="page-design py-0">
