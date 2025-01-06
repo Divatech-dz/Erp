@@ -10,9 +10,9 @@ import React from 'react'
 function AddingUser() {
 
     return (
-        <div className='page-deign '>
+        <div className='page-design'>
             <section className="flex justify-between size-full pt-2">
-                <AuthForm type={AuthType.SignUp} style='min-h-screen max-w-[420px]'/>
+                {/* <AuthForm type={AuthType.SignUp} style='min-h-screen max-w-[420px]'/> */}
                 <Link href="/navbar-Links/Admin/utilisateurs">
                     <Image src={icons.ClosedCircle} height={30} width={30} alt="close-icon"/>
                 </Link>

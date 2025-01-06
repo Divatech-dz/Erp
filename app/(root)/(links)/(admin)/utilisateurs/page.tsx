@@ -4,7 +4,7 @@ import React from 'react'
 
 function User() {
     return (
-        <div className='page-deign '>
+        <div className='page-design'>
             <section className="size-full pt-5">
                 <DataTable columnNames={userRowsTable} columnData={invoices}/>
             </section>

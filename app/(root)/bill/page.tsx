@@ -86,7 +86,7 @@ function Bill() {
     },
   ];
   return (
-    <div className='page-deign '>
+    <div className='page-design'>
       <section className="size-full pt-5">
         <BillForm defaultValues={bill} />
         <BillTabs defaultValue='Information Client' tabs={tabs} />
