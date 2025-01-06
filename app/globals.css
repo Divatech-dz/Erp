@@ -259,8 +259,8 @@
     @apply text-16 font-semibold text-black-2 max-xl:hidden;
   }
   /* Page design */
-  .page-deign {
-    @apply no-scrollbar flex flex-col pb-10;
+  .page-design {
+    @apply no-scrollbar flex flex-col pb-10 px-2;
   }
   /*Filter*/
   .filter {

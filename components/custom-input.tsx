@@ -13,7 +13,7 @@ import { Textarea } from './ui/textarea';
 
 
 
-interface CustomInput<TSchema extends z.ZodType<any, any>> {
+interface CustomInput<TSchema extends z.ZodType<any, any> = z.ZodType<any, any>>{
   control: Control<z.infer<TSchema>>; 
   name: FieldPath<z.infer<TSchema>>; 
   label: string;
@@ -23,7 +23,7 @@ interface CustomInput<TSchema extends z.ZodType<any, any>> {
   isTextArea?: boolean;
 }
 
-export const CustomInput = <TSchema extends z.ZodType<any, any>>({
+export const CustomInput = <TSchema extends z.ZodType<any, any> = z.ZodType<any, any>>({
   control,
   name,
   label,

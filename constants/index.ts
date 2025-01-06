@@ -39,6 +39,10 @@ export const sidebarLinks: SidebarLink[] = [
     route: [
       {
         name: 'Bons de transfert',
+        link: '/entrepots',
+      },
+      {
+        name: 'Bons de transfert',
         link: '/bonsTransfert',
       },
 
