@@ -150,7 +150,7 @@ export const DataTable = ({
                             {tableData?.map((row) => (
                                 <TableRow key={row.id} className="hover:bg-gray-50">
                                     {headerColumns?.map((col) => {
-                                        const renderCell = columnRenderers[col.name] || ((row: Record<string, unknown>) =>
+                                        const renderCell = columnRenderers[col?.name as string] || ((row: Record<string, unknown>) =>
                                             <p>{getCellContent(row, col.id)}</p>);
                                         return (
                                             <TableCell key={`${row?.id}-${col?.id}`}>

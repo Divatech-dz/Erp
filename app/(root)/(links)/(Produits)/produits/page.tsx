@@ -7,7 +7,7 @@ import {getProducts} from "@/service/productService";
 import {useQuery} from "@tanstack/react-query";
 import {useState} from "react";
 
-function Product() {
+function Page() {
     const {
         categories,
         category,
@@ -68,4 +68,4 @@ function Product() {
     )
 }
 
-export default Product
+export default Page

@@ -472,6 +472,160 @@ export const clientColumn: rowsType[] = [
   }
 ]
 
+export const employeeColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Nom complet'
+  },
+      {
+    id:'2',
+    name:'Fonction'
+  },
+      {
+    id:'3',
+    name:'Numéro de téléphone'
+  },
+      {
+    id:'4',
+    name:'Salaire'
+  },
+      {
+    id:'5',
+    name:'Prime Panier et Transport'
+  },
+      {
+    id:'6',
+    name:'Actif'
+  },
+    {
+    id:'7',
+    name:'Date Début'
+  }
+]
+
+export const reglementColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Nom complet'
+  },
+      {
+    id:'2',
+    name:'Date de début'
+  },
+      {
+    id:'3',
+    name:'Date de fin'
+  },
+      {
+    id:'4',
+    name:'Montant réglé'
+  },
+      {
+    id:'5',
+    name:'Note'
+  }
+]
+
+export const absenceColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Nom complet'
+  },
+      {
+    id:'2',
+    name:'Date d\'absence'
+  },
+      {
+    id:'3',
+    name:'Motif'
+  },
+      {
+    id:'4',
+    name:'Ajouté par'
+  },
+      {
+    id:'5',
+    name:'Justification'
+  }
+]
+
+export const congeColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Nom complet'
+  },
+      {
+    id:'2',
+    name:'Date de début'
+  },
+      {
+    id:'3',
+    name:'Etat'
+  },
+      {
+    id:'4',
+    name:'Nombre de jours'
+  },
+      {
+    id:'5',
+    name:'Nombre de jours pris'
+  },
+     {
+    id:'6',
+    name:'Nombre de jours restant'
+  }
+]
+
+export const congeListColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Nom complet'
+  },
+      {
+    id:'2',
+    name:'Date de début congé'
+  },
+      {
+    id:'3',
+    name:'Date de fin congé'
+  },
+      {
+    id:'4',
+    name:'Nombre de jours'
+  },
+      {
+    id:'5',
+    name:'Nombre de jours pris'
+  },
+     {
+    id:'6',
+    name:'Type de congé'
+  }
+]
+
+export const pointageColumn: rowsType[] = [
+  {
+    id:'1',
+    name:'Date de pointage'
+  },
+      {
+    id:'2',
+    name:'Nom complet'
+  },
+      {
+    id:'3',
+    name:'Heures d\'arrivée'
+  },
+      {
+    id:'4',
+    name:'Heures de départ'
+  },
+      {
+    id:'5',
+    name:'Minutes en retard'
+  }
+]
+
 export const StatusOptions: rowsType[]=[  {
   id: '1',
   name: 'Active',
