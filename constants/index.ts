@@ -170,7 +170,7 @@ export const sidebarLinksManager=[
     router:[
       {
         label:'Produits',
-        router:['families','produits','quantite a facteur','list de Produits']
+        router:['Families','Produits','Quantite a facteur','List de Produits']
       },
       {
         label:'Laison',
@@ -178,7 +178,7 @@ export const sidebarLinksManager=[
       },
       {
         label:'Etat de Stock',
-        router:['archive de verification','etat Stock','verifcation stock']
+        router:['Archive de verification','Etat Stock','verifcation stock']
       }
     ]
   }
@@ -318,36 +318,35 @@ export const userSalesData: SalesProps[] = [
   },
 ];
 
-export const rowTable:rowsType[]= [
+export const rowTable: rowsType[] = [
   {
     id: '1',
-    name: { "Référence": 'reference' },
-    sort: false,
+    name: 'Référence',
+    sort: false
   },
   {
     id: '2',
-    name: { "Désignation": 'name' },
-    sort: false,
+    name: 'Désignation',
+    sort: false
   },
   {
     id: '3',
-    name: { "Quantité": 'quantity_globale' },
+    name: 'Quantité',
     sort: true,
-    sortBy: 'quantity_globale',
+    sortBy: 'quantity_globale'
   },
   {
     id: '4',
-    name: { 'PV TTC -P-': 'prix_vente' },
+    name: 'PV TTC -P-',
     sort: true,
-    sortBy: 'prix_vente',
+    sortBy: 'prix_vente'
   },
   {
     id: '5',
-    name: { 'PV TTC - R -': 'prix_vente_kit' },
-    sort: false,
+    name: 'PV TTC -R-',
+    sort: false
   },
-];
-
+]
 
 export const NotesColumn : rowsType[]= [
   {
