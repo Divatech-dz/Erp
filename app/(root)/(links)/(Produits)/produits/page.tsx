@@ -1,4 +1,5 @@
 'use client'
+
 import { DataTable } from "@/components/data-table";
 import { useFiltersContext } from "@/lib/context/Filters";
 import { HeaderNavigation } from "@/components/header-navigation";
@@ -8,16 +9,18 @@ import { useQuery } from "@tanstack/react-query";
 
 import { transformNestedData } from "@/lib/utils";
 
-function Product() {
-  const {
-    categories,
-    category,
-    setCategory,
-    page,
-    setPage,
-    search,
-    setSearch
-  } = useFiltersContext();
+
+function Page() {
+    const {
+        categories,
+        category,
+        setCategory,
+        page,
+        setPage,
+        search,
+        setSearch
+    } = useFiltersContext();
+
 
   const role = 'manager';
 
@@ -26,8 +29,10 @@ function Product() {
     queryFn: getProducts,
   });
 
-  const resultsProducts = productsData?.results;
-  const totalPages = productsData?.total_pages;
+
+    const resultsProducts = productsData?.results;
+    const totalPages = productsData?.total_pages;
+
 
  
   const filter = sidebarLinksManager.filter(link => link.name === 'Produits')
@@ -63,6 +68,7 @@ function Product() {
       />
     </section>
   )
+
 }
 
-export default Product
+export default Page

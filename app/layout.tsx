@@ -11,7 +11,7 @@ const IMBPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'DIVATECH',
+  title: 'ERP-DIVATECH',
   description: 'Ultimate Gaming Experience',
   icons: {
     icon: '/icons/logo.svg',

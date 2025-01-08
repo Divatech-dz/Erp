@@ -1,16 +1,17 @@
 'use client'
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import {Button} from "./ui/button";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
 } from "@/components/ui/table";
+
 import { PaginationTable, ReusableSheet, TopContent } from "./table-components";
 import { icons } from "@/constants/icons";
 import { TableProps } from "@/types";
@@ -53,37 +54,39 @@ export const DataTable = ({
   });
   const [invoiceDetails, setInvoiceDetails] = useState<Record<string, any>>({});
 
-  useEffect(() => {
-    setTableData(columnData ?? []);
-  }, [columnData]);
 
-  const headerColumns = useMemo(() => {
-    return columnNames?.filter((column) => visibleColumns.has(column.id));
-  }, [columnNames, visibleColumns]);
+    useEffect(() => {
+        setTableData(columnData ?? []);
+    }, [columnData]);
 
-  const handleSort = (columnKey: string) => {
-    const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
-    setSortedButton({ column: columnKey, ascending });
+    const headerColumns = useMemo(() => {
+        return columnNames?.filter((column) => visibleColumns.has(column.id));
+    }, [columnNames, visibleColumns]);
 
-    setTableData((prevData) =>
-      [...prevData]?.sort((a, b) => {
-        const firstValue = a[columnKey];
-        const secondValue = b[columnKey];
+    const handleSort = (columnKey: string) => {
+        const ascending = sortedButton.column === columnKey ? !sortedButton.ascending : true;
+        setSortedButton({column: columnKey, ascending});
 
-        let comparisonResult: number;
-        if (firstValue < secondValue) comparisonResult = -1;
-        else if (firstValue > secondValue) comparisonResult = 1;
-        else comparisonResult = 0;
+        setTableData((prevData) =>
+            [...prevData]?.sort((a, b) => {
+                const firstValue = a[columnKey];
+                const secondValue = b[columnKey];
 
-        return ascending ? comparisonResult : -comparisonResult;
-      })
-    );
-  };
+                let comparisonResult: number;
+                if (firstValue < secondValue) comparisonResult = -1;
+                else if (firstValue > secondValue) comparisonResult = 1;
+                else comparisonResult = 0;
 
-  const openModalWithContent = (type: string) => {
-    setContentType(type);
-    setOpenModal(true);
-  };
+                return ascending ? comparisonResult : -comparisonResult;
+            })
+        );
+    };
+
+    const openModalWithContent = (type: string) => {
+        setContentType(type);
+        setOpenModal(true);
+    };
+
 
   if(isLoading){
     return( <div className="h-screen flex flex-col justify-center items-center gap-10">
@@ -200,4 +203,5 @@ export const DataTable = ({
   );
   
 ;
+
 };

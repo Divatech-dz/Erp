@@ -5,7 +5,9 @@ import { icons } from './icons';
 
 type ColumnRenderer = (row: Record<string, any>, name: string) => JSX.Element;
 
+
 const columnRenderers: Record<string, ColumnRenderer> = {
+
   "PV TTC -P-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
   "PV TTC -R-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
   "Etat de validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded-full text-white font-semibold ', {
@@ -55,6 +57,7 @@ const isTruck = row[name];
 >
   {row[name] ? 'Validé' : 'En attente'}
 </p>),
+
 };
 
 export default columnRenderers;
