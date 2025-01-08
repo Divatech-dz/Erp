@@ -30,6 +30,8 @@ import ClosedCircle  from '@/public/icons/closed-circle.svg'
 import Excel  from '@/public/icons/excel.svg'
 import remove from '@/public/icons/remove.svg'
 import close from '@/public/icons/close.svg'
+import walkingMan from '@/public/icons/walking-man.svg'
+import truck from '@/public/icons/truck.svg'
 export const icons = {
   Admin,
   close,
@@ -61,7 +63,9 @@ export const icons = {
   Plus,
   ClosedCircle,
   Excel,
-  remove
+  remove,
+  walkingMan,
+  truck 
 };
 export const images={
   DivaTech

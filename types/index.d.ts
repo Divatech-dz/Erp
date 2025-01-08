@@ -76,10 +76,10 @@ export type AccordionType = SidebarLink & {
 }
 
 export type rowsType = {
-    id: string;
-    name:string;
-    sort?: boolean;
-    sortBy?: string;
+  id: string;
+  name:string;  
+  sort?: boolean;
+  sortBy?: string;
 };
 
 export type Column = rowsType & {

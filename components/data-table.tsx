@@ -15,11 +15,10 @@ import { PaginationTable, ReusableSheet, TopContent } from "./table-components";
 import { icons } from "@/constants/icons";
 import { TableProps } from "@/types";
 import { ColorRing } from "react-loader-spinner";
+import { cn } from "@/lib/utils";
 import columnRenderers from "@/constants/columnRenderers";
-
-const getCellContent = (row: Record<string, any>, colId: string) =>
-  row[colId] !== "" ? row[colId] : "N/A";
-
+const getCellContent = (row: string) =>
+  row !== "" ? row : "N/A";
 export const DataTable = ({
   columnNames,
   columnData,
@@ -42,6 +41,7 @@ export const DataTable = ({
     new Set<string>(columnNames?.map((col) => col.id))
   );
   const [tableData, setTableData] = useState<Record<string, any>[]>(columnData ?? []);
+
   const [openModal, setOpenModal] = React.useState(false);
   const [contentType, setContentType] = React.useState<string>("table");
   const [sortedButton, setSortedButton] = useState<{
@@ -85,6 +85,22 @@ export const DataTable = ({
     setOpenModal(true);
   };
 
+  if(isLoading){
+    return( <div className="h-screen flex flex-col justify-center items-center gap-10">
+      <h1 className="text-3xl text-center text-gray-400">Veuillez patienter</h1>
+      <ColorRing
+        visible
+        height={140}
+        width={140}
+        ariaLabel="color-ring-loading"
+        wrapperStyle={{}}
+        wrapperClass="color-ring-wrapper"
+        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+      />
+    </div>)
+  } 
+   
+  
   return (
     <>
       <TopContent
@@ -103,69 +119,57 @@ export const DataTable = ({
         setUserId={setUserId}
         salesUsers={salesUsers}
       />
-      {isLoading && (
-        <div className="h-screen flex flex-col justify-center items-center gqp-10">
-          <h1 className="text-3xl text-center text-gray-400"> Veuillez patienter </h1>
-          <ColorRing
-            visible={true}
-            height="140"
-            width="140"
-            ariaLabel="color-ring-loading"
-            wrapperStyle={{}}
-            wrapperClass="color-ring-wrapper"
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-          />
-        </div>
-      )}
-
-      {tableData?.length === 0 && !isLoading ? (
+  
+      { tableData?.length === 0 ? (
         <div className="h-screen flex flex-col justify-center items-center">
           <p className="text-5xl text-center text-gray-500">Aucune donnée trouvée</p>
           <p className="text-xl text-center text-gray-400 mt-4">Veuillez vérifier votre recherche</p>
         </div>
       ) : (
-        <div className={`${isLoading && "hidden"}`}>
+        <div className={`${isLoading ? "hidden" : ""}`}>
           <Table>
             <TableHeader>
               <TableRow>
-                {headerColumns?.map(({ id, name, sort }) => (
-                  <TableHead key={id}>
-                    {sort ? (
-                      <Button variant="ghost" onClick={() => handleSort(id.toString())}>
-                        {name as React.ReactNode}
-                        <Image src={icons.Trier} alt="Trier" width={20} height={20} />
-                      </Button>
-                    ) : (
-                      name as React.ReactNode
-                    )}
-                  </TableHead>
-                ))}
+                {headerColumns?.map(({ id, name, sort }) => {
+                  return (
+                    <TableHead key={id}>
+                      {sort ? (
+                        <Button variant="ghost" onClick={() => handleSort(name)}>
+                          {name}
+                          <Image src={icons.Trier} alt="Trier" width={20} height={20} />
+                        </Button>
+                      ) : (
+                        name
+                      )}
+                    </TableHead>
+                  );
+                })}
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
-
+  
             <TableBody>
-              {tableData?.map((row) => (
-                <TableRow key={row.id} className="hover:bg-gray-50">
-                  {headerColumns?.map((col) => {
-                    const renderCell = columnRenderers[col.name] || ((row: Record<string, unknown>) =>
-                      <p>{getCellContent(row, col.id)}</p>);
-                    return (
-                      <TableCell key={`${row?.id}-${col?.id}`}>
-                        {renderCell(row)}
-                      </TableCell>
-                    );
-                  })}
+              {tableData?.map((row, rowIndex) => (
+                <TableRow className="hover:bg-gray-50" key={rowIndex}>
+                  {headerColumns?.map(({name}, index) =>{
+                    const renderCell=columnRenderers[name]
+                   
+                    return(
+                    <TableCell key={`${name}-${index}`}   className={cn({
+                      'text-red-500': name === 'Quantité' && row['Quantité'] <= 0, 
+                    })}>
+                      {getCellContent(renderCell ? renderCell(row, name) : row[name])}
+                    </TableCell>
+                  )})}
+                    
                   <TableCell className="text-center flex items-center gap-1">
                     <Image
                       src={icons.ArrowDown}
                       alt="Visible"
                       height={20}
                       width={20}
-                      onClick={() => {
-                        openModalWithContent("table");
-                        setInvoiceDetails(row);
-                      }} />
+                      onClick={() => openModalWithContent("table")}
+                    />
                     <Image src={icons.Edit} alt="Edit" height={20} width={20} />
                     <Image src={icons.Trash} alt="Trash" height={20} width={20} />
                   </TableCell>
@@ -173,22 +177,27 @@ export const DataTable = ({
               ))}
             </TableBody>
           </Table>
-
+  
           <PaginationTable
             totalPages={totalPages ?? 0}
             currentPage={currentPage ?? 1}
-            setCurrentPage={setCurrentPage ?? (() => {
-            })} />
-
+            setCurrentPage={setCurrentPage ?? (() => {})}
+          />
+  
           <ReusableSheet
             open={openModal}
             onClose={() => setOpenModal(false)}
-            title={contentType === "table" ? `Détail du bon ${invoiceDetails.idBon}` : ""}
+            title={
+              contentType === "table" ? `Détail du bon ${invoiceDetails?.idBon}` : ""
+            }
             contentType={contentType}
             contentProps={contentType === "table" ? { tableData } : {}}
-            invoiceDetails={invoiceDetails} /></div>
+            invoiceDetails={invoiceDetails}
+          />
+        </div>
       )}
     </>
-  )
-    ;
+  );
+  
+;
 };

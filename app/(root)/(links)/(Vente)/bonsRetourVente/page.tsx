@@ -22,7 +22,7 @@ function Page() {
         setUserId
     } = useFiltersContext();
 
-    const {isLoading, error, data: ReturnNotesData} = useQuery({
+    const {isLoading, data: ReturnNotesData} = useQuery({
         queryKey: [page, search, startDate, endDate, userId],
         queryFn: getReturnNotes
     });
