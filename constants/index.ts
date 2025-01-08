@@ -63,13 +63,14 @@ export const sidebarLinks: SidebarLink[] = [
     imgURL: icons.Sell,
     route: [
       {
+        name: 'Bons de commande vente',
+        link: '/bons-commande',
+      },
+      {
         name: 'Bons de devis',
         link: '/bonsDevis',
       },
-      {
-        name: 'Bons de commande vente',
-        link: '/bonsCommandeVente',
-      },
+      
       {
         name: 'Bons de commande kit',
         link: '/bonsCommandeKit',
@@ -86,7 +87,7 @@ export const sidebarLinks: SidebarLink[] = [
         name: 'Bons de commande modifiés',
         link: '/bonsCommandeModifies',
       },
-        {
+      {
         name: 'Factures',
         link: '/Facture',
       },
@@ -162,28 +163,59 @@ export const sidebarLinks: SidebarLink[] = [
         link: '/utilisateurs',
       },
 
-     
+
     ],
     label: 'Admin',
   },
 ];
 
-export const sidebarLinksManager=[
+export const sidebarLinksManager = [
   {
-    name:'Produits',
-    router:[
+    name: 'Produits',
+    router: [
       {
-        label:'Produits',
-        router:['Families','Produits','Quantite a facteur','List de Produits']
+        label: 'Produits',
+        router: ['Families', 'produits', 'Quantite a facteur', 'List de Produits']
       },
       {
-        label:'Laison',
-        router:['Produits /Entrops']
+        label: 'Laison',
+        router: ['Produits /Entrops']
       },
       {
-        label:'Etat de Stock',
-        router:['Archive de verification','Etat Stock','verifcation stock']
+        label: 'Etat de Stock',
+        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
       }
+    ]
+  },
+  {
+    name: 'Stock',
+    router: [
+      {
+        label: 'entrepots',
+        router: ['entrepots', 'repatrition']
+      },
+      {
+        label: 'Mouvements',
+        router: ["Bons entrée", "Bons Transfert", "Bons Transfert Entre Magasins", "Bons Sortie"]
+      },
+      {
+        label: 'États',
+        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+      },
+      {
+        label: 'Inventaires',
+        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+      }
+    ]
+  },
+  {
+    name: 'Vente',
+    router: [
+      {
+        label: 'bons-commande',
+        router: ['bons-commande', 'Facture']
+      },
+      
     ]
   }
 ]
@@ -191,7 +223,7 @@ export const sidebarLinksManager=[
 export enum AuthType {
   SignIn = 'sign-in',
   SignUp = 'sign-up',
-  Bill='bill'
+  Bill = 'bill'
 }
 
 export const infoCard = [
@@ -352,129 +384,132 @@ export const rowTable: rowsType[] = [
   },
 ]
 
-export const NotesColumn : rowsType[]= [
+export const NotesColumn: rowsType[] = [
   {
-    id:'1',
-    name:"N° bon"
+    id: '1',
+    name: "N° bon"
   },
-    {
-    id:'2',
-    name:"Date bon"
+  {
+    id: '2',
+    name: "Date bon"
   },
-    {
-    id:'3',
-    name:"Entrepot bon"
+  {
+    id: '3',
+    name: "Entrepot bon"
   },
-    {
-    id:'4',
-    name:"Client"
+  {
+    id: '4',
+    name: "Client"
   },
-    {
-    id:'5',
-    name:"Livraison"
+
+  {
+    id: '5',
+    name: "Livraison"
   },
-    {
-    id:'6',
-    name:"Commercial"
+  {
+    id: '6',
+    name: "Commercial"
   },
-    {
-    id:'7',
-    name:"Validation"
+  {
+    id: '7',
+    name: "Validation"
   }
 ]
 
 export const factureColumn: rowsType[] = [
   {
-    id:'1',
-    name:'N° facture'
+    id: '1',
+    name: 'N° facture'
   },
-      {
-    id:'2',
-    name:'Date facture'
+  {
+    id: '2',
+    name: 'Date facture'
   },
-      {
-    id:'3',
-    name:'Client'
+  {
+    id: '3',
+    name: 'Client'
   },
-      {
-    id:'4',
-    name:'Bon de livraison associé'
+  {
+    id: '4',
+    name: 'Bon de livraison associé'
   },
-      {
-    id:'5',
-    name:'Etat de règlement'
+  {
+    id: '5',
+    name: 'Etat de règlement'
   },
 ]
 
 export const returnColumn: rowsType[] = [
   {
-    id:'1',
-    name:'N° bon'
+    id: '1',
+    name: 'N° bon'
   },
-      {
-    id:'2',
-    name:'Date bon'
+  {
+    id: '2',
+    name: 'Date bon'
   },
-      {
-    id:'3',
-    name:'Entrepot'
+  {
+    id: '3',
+    name: 'Entrepot'
   },
-      {
-    id:'4',
-    name:'Client'
+  {
+    id: '4',
+    name: 'Client'
   },
-      {
-    id:'5',
-    name:'Bon de vente associé'
+  {
+    id: '5',
+    name: 'Bon de vente associé'
   },
-      {
-    id:'6',
-    name:'Etat d\'acceptation'
+  {
+    id: '6',
+    name: 'Etat d\'acceptation'
   },
-    {
-    id:'7',
-    name:'Etat bon'
+  {
+    id: '7',
+    name: 'Etat bon'
   },
-    {
-    id:'8',
-    name:'Etat de règlement bon'
+  {
+    id: '8',
+    name: 'Etat de règlement bon'
   },
-    {
-    id:'9',
-    name:'Utilisateur'
+  {
+    id: '9',
+    name: 'Utilisateur'
   },
 ]
 
 export const clientColumn: rowsType[] = [
   {
-    id:'1',
-    name:'Client'
+    id: '1',
+    name: 'Client'
   },
-      {
-    id:'2',
-    name:'Type de client'
+  {
+    id: '2',
+    name: 'Type de client'
   },
-      {
-    id:'3',
-    name:'Chiffre d\'affaire'
+  {
+    id: '3',
+    name: 'Chiffre d\'affaire'
   },
-      {
-    id:'4',
-    name:'Solde'
+  {
+    id: '4',
+    name: 'Solde'
   },
-      {
-    id:'5',
-    name:'Etat de validation'
+  {
+    id: '5',
+    name: 'Etat de validation'
   },
-      {
-    id:'6',
-    name:'Documents associés'
+  {
+    id: '6',
+    name: 'Documents associés'
   },
-    {
-    id:'7',
-    name:'Utilisateur'
+  {
+    id: '7',
+    name: 'Utilisateur'
   }
 ]
+
+
 
 export const employeeColumn: rowsType[] = [
   {
@@ -631,6 +666,7 @@ export const pointageColumn: rowsType[] = [
 ]
 
 export const StatusOptions: rowsType[]=[  {
+
   id: '1',
   name: 'Active',
 },
@@ -660,18 +696,85 @@ export const userRowsTable: rowsType[] = [
     sort: false
   }
 ]
+export const entropsRowsTable: rowsType[] = [
+  {
+    id: '1',
+    name: 'Libellé',
+    sort: false
+  },
+  {
+    id: '2',
+    name: 'Adresse',
+    sort: false
+  }
+]
+
+export const entropsRows = [
+  {
+    id: '1',
+    name: { name: "Libellé" },
+    sort: false
+  },
+  {
+    id: '2',
+    name: { ville: "Adresse" },
+    sort: false
+  }
+]
+
+export const keyMapStock = {
+  name: "Libellé",
+  ville: "Adresse",
+};
+
+export const keyMapProduct = {
+  reference: "Référence",
+  name: "Désignation",
+  quantity_globale: 'Quantité',
+  prix_livraison: 'PV TTC -P-',
+  prix_achat: 'PV TTC -R-',
+};
+
+export const keyMapClient = {
+  name: "Client",
+  "categorie_client.type_desc": 'Type de client',
+  name_user: "Utilisateur",
+  NifDoc: "NIF",
+  RCDoc: "RC",
+  NisDoc: "NIS",
+  valide:"Etat de validation"
+
+};
+export const keyMapNotes = {
+  idBon: "N° bon",
+  dateBon: "Date bon",
+  "entrepot.name": "Entrepot bon",
+  "client.name": "Client",
+  Livraison:'agenceLivraison',
+  "client.name_user": "Commercial",
+
+valide:'Validation'
+
+};
+export const keyMapFacterur={
+codeFacture:'N° facture',
+date_facture:'Date facture',
+'client.name':'Client',
+'BonS.idBon':'Bon de livraison associé',
+etat_reglement:"Etat de règlement"
+}
 
 export const statusColors: Record<"Active" | "Pending" | "Paused", string> = {
   Active: "bg-green-500",
   Pending: "bg-yellow-500",
   Paused: "bg-red-500",
 };
-export const bill={
-  orderNumber:0,
-  orderDate:new Date(),
-  AssociatedPurchaseOrder:'',
-  warehouse:'',
-  Note:'',
+export const bill = {
+  orderNumber: 0,
+  orderDate: new Date(),
+  AssociatedPurchaseOrder: '',
+  warehouse: '',
+  Note: '',
 }
 
 export const actions: Column[] = [{
@@ -689,7 +792,7 @@ export const actions: Column[] = [{
   opensModal: true
 }]
 
-export const status:Column[]=[{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]
+export const status: Column[] = [{ id: '1', name: 'banque' }, { id: '2', name: 'CPP' }]
 
 export const defaultValuesSignIn: Record<string, any> = {
   username: "",

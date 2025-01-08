@@ -1,5 +1,6 @@
 /* eslint-disable no-prototype-builtins */
-import {AuthType} from '@/constants';
+import axiosInstance from "@/lib/axios";
+import Cookies from 'js-cookie';
 import {TabsNameInterface} from '@/types';
 import {type ClassValue, clsx} from 'clsx';
 import qs from 'query-string';
@@ -70,9 +71,9 @@ export const formatDateTime = (dateString: Date) => {
 };
 
 export function formatAmount(amount: number): string {
-    const formatter = new Intl.NumberFormat('en-US', {
+    const formatter = new Intl.NumberFormat("DZD", {
         style: 'currency',
-        currency: 'USD',
+        currency: 'DZD',
         minimumFractionDigits: 2,
     });
 
@@ -219,3 +220,67 @@ export const parseExcelFile = (file: File, onSuccess: (jsonData: any[]) => void,
 
     reader.readAsArrayBuffer(file);
 };
+
+export const fetchWithAuth = async (url: string, method: 'GET' | 'POST' = 'GET', data?: any) => {
+  const token = Cookies.get('token');
+  if (!token) {
+    console.error('No token found');
+    throw new Error('No token found');
+  }
+
+  try {
+    const response = await axiosInstance({
+      url,
+      method,
+      headers: { Authorization: `Bearer ${token}` },
+      data,
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error(`Error fetching ${url}:`, error);
+    throw error;
+  }
+};
+
+
+
+ export function transformNestedData(
+  data: any[],
+  keyMap: Record<string, string>,
+  documentKeys?: string[], 
+  aggregatedKeyName?: string 
+): any[] {
+  return data?.map((item) => {
+    const transformed: Record<string, any> = {};
+    const aggregatedArray: { key: string; value: string }[] = [];
+
+    for (const [oldKey, newKey] of Object.entries(keyMap)) {
+      const keys = oldKey.split(".");
+      let value = item;
+
+      for (const key of keys) {
+        value = value ? value[key] : undefined;
+      }
+
+      
+      if (documentKeys?.includes(oldKey)) {
+        aggregatedArray.push({
+          key: newKey,
+          value: value ? `//${value}` : "",
+        });
+      } else if (Array.isArray(value)) {
+        transformed[newKey] = value.join(", "); 
+      } else if (typeof value === "object" && value !== null) {
+        transformed[newKey] = JSON.stringify(value); 
+      } else {
+        transformed[newKey] = value;
+      }
+    }
+
+
+    transformed[aggregatedKeyName!] = aggregatedArray;
+    return transformed;
+  });
+}
+
+

@@ -1,4 +1,5 @@
 import axiosInstance from "@/lib/axios";
+import { fetchWithAuth } from "@/lib/utils";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Cookies from 'js-cookie';
 
@@ -6,30 +7,6 @@ import Cookies from 'js-cookie';
 export interface StorePayload {
   store_id: number;
 }
-
-// Utility Function for Fetching with Auth
-const fetchWithAuth = async (url: string, method: 'GET' | 'POST' = 'GET', data?: any) => {
-  const token = Cookies.get('token');
-  if (!token) {
-    console.error('No token found');
-    throw new Error('No token found');
-  }
-
-  try {
-    const response = await axiosInstance({
-      url,
-      method,
-      headers: { Authorization: `Bearer ${token}` },
-      data,
-    });
-    return response.data;
-  } catch (error: any) {
-    console.error(`Error fetching ${url}:`, error);
-    throw error;
-  }
-};
-
-
 // API Functions
 export const getAllStore = () => fetchWithAuth('/clientInfo/store/');
 
@@ -52,6 +29,8 @@ export const getStoreById = async(data: StorePayload = { store_id: 1 }) =>{
   }
 
 }
+
+
  export const getProduit=async()=>{
   const token = Cookies.get('token');
   if (!token) {

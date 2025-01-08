@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -16,23 +16,28 @@ import Link from 'next/link';
 export const HeaderNavigation = ({
   label,
   router,
-  selected,
-  onSelect,
 }: {
   label: string;
   router: string[];
-  selected: string | null;
-  onSelect: (key: string) => void;
 }) => {
-  const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
   const pathName = usePathname();
+  const [selectedRoute, setSelectedRoute] = useState<string | null>(
+    () => localStorage.getItem('selectedRoute')
+  );
+
+  useEffect(() => {
+    if (selectedRoute) {
+      localStorage.setItem('selectedRoute', selectedRoute);
+    }
+  }, [selectedRoute]);
 
   const handleRouteSelect = (route: string) => {
-      setSelectedRoute(route);
-       onSelect(label); 
+    setSelectedRoute(route);
+    localStorage.setItem('selectedRoute', route);
   };
-  const selectedLabel=pathName.slice(1)===label.toLowerCase()||selected === label
-  
+
+  const getDropdownLabel = () =>
+    pathName.slice(1) === selectedRoute ? selectedRoute : label;
 
   return (
     <div className="flex">
@@ -40,15 +45,17 @@ export const HeaderNavigation = ({
         <DropdownMenuTrigger
           className={cn(
             'flex items-center justify-between gap-2 capitalize rounded-xl px-4 py-2 w-fit font-medium outline-none shadow-md transition-all bg-blue-50 text-blue-700',
-            { 'bg-erp-green-gradient text-white':  selectedLabel }
+            {
+              'bg-erp-green-gradient text-white': pathName.slice(1) === selectedRoute,
+            }
           )}
         >
-          {selectedRoute ?? label}
+          {getDropdownLabel()}
           <Image src={icons.ArrowDown} alt="Arrow-Down" height={12} width={12} />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           {router.map((route) => {
-             const isActiveRoute = pathName === `/${route}` || pathName.startsWith(`/${route}`);
+            const isActiveRoute = pathName === `/${route}` || pathName.startsWith(`/${route}`);
             return (
               <DropdownMenuCheckboxItem
                 key={route}
@@ -56,7 +63,7 @@ export const HeaderNavigation = ({
                 checked={isActiveRoute}
               >
                 <Link
-                  href={'#'}
+                  href={`/${route}`}
                   className={cn(
                     'font-semibold capitalize',
                     isActiveRoute ? 'text-blue-700' : 'text-black'
