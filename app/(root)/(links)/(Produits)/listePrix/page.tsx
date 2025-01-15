@@ -3,11 +3,12 @@
 import { DataTable } from "@/components/data-table";
 import { useFiltersContext } from "@/lib/context/Filters";
 import { HeaderNavigation } from "@/components/header-navigation";
-import { sidebarLinksManager, rowTable, keyMapProduct } from "@/constants";
+import { sidebarLinksManager,prixProduitColumn, keyMapPrix } from "@/constants";
 import { getProducts } from "@/service/productService";
 import { useQuery } from "@tanstack/react-query";
 
 import { transformNestedData } from "@/lib/utils";
+import { log } from "node:console";
 
 
 function Page() {
@@ -32,10 +33,15 @@ function Page() {
     const resultsProducts = productsData?.results;
     const totalPages = productsData?.total_pages;
 
+    
 
  
-  const filter = sidebarLinksManager.filter(link => link.name === 'listePrix')
-  const transformedData= transformNestedData(resultsProducts, keyMapProduct)
+  const filter = sidebarLinksManager.filter(link => link.name === 'Produits')
+  const transformedData= transformNestedData(resultsProducts, keyMapPrix)
+
+  console.log('====================================');
+    console.log(transformedData);
+    console.log('====================================');
   return (
     <section className="page-design">
       <h1 className="text-4xl font-bold p-2">Liste des prix</h1>
@@ -55,7 +61,8 @@ function Page() {
       )}
 
       <DataTable
-        columnNames={rowTable}
+        
+        columnNames={prixProduitColumn}
         setSearch={setSearch}
         setCategory={setCategory}
         columnData={transformedData}
@@ -64,6 +71,10 @@ function Page() {
         totalPages={totalPages}
         categories={categories}
         isLoading={isLoading}
+
+
+       
+       
       />
     </section>
   )

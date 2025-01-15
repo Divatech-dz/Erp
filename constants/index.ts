@@ -409,6 +409,34 @@ export const familiesColumn:rowsType[]=[
   }  
 ]
 
+export const prixProduitColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Désignation'
+  },
+
+  {
+    id:'2',
+    name: 'Quantité'
+  },
+  {
+    id:'3',
+    name:'Prix conseillé TTC',
+    // sort: true,
+    // sortBy: 'prix_vente'
+  },
+
+  {
+    id:'4',
+    name:"Prix Revendeur TTC",
+    sort: true,
+    sortBy: 'prix_vente'
+    
+  }
+
+
+]
+
 
 export const NotesColumn: rowsType[] = [
   {
@@ -747,6 +775,13 @@ export const entropsRows = [
     sort: false
   }
 ]
+
+export const keyMapPrix = {
+  name: "Désignation", 
+  quantity_globale: "Quantité",
+  prix_vente:"Prix Revendeur TTC"
+};
+
 
 export const keyMapCategory = {
   Libellé: "Libéllé",

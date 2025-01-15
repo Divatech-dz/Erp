@@ -36,6 +36,7 @@ function Page() {
   const transformedData= transformNestedData(resultsCategories, keyMapCategory)
   console.log(transformedData)
 
+  
   return (
     <section className="page-design">
       <h1 className="text-4xl font-bold p-2">Liste de familles </h1>
@@ -56,8 +57,7 @@ function Page() {
 
       <DataTable
         columnNames={familiesColumn}
-        setSearch={setSearch}
-      
+        setSearch={setSearch} 
         columnData={transformedData}
         currentPage={page}
         setCurrentPage={setPage}
