@@ -26,7 +26,7 @@ function Page() {
     const totalPages = pointageData?.total_pages;
 
     return (
-        <section className="page-design py-0">
+        <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Liste des pointages</h1>
             <DataTable
                 columnNames={pointageColumn} columnData={resultsPointage} setSearch={setSearch} startDate={startDate}

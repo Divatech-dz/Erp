@@ -161,13 +161,35 @@ export const sidebarLinks: SidebarLink[] = [
     imgURL: icons.Admin,
     route: [
       {
-        name: 'Gestion des utilisateurs',
-        link: '/utilisateurs',
+        name: 'Liste des salarié',
+        link: '/PageSalarie',
       },
-
-
+      {
+        name: 'Historique des réglements',
+        link: '/RegelmentComptes',
+      },
+        {
+        name: 'Liste de absences',
+        link: '/Absence'
+      },
+        {
+        name: 'Liste des congés',
+        link: '/ListeConge'
+      },
+      {
+        name: 'Etat des congés',
+        link: '/etatConge',
+      },
+        {
+        name: 'Liste des pointages',
+        link: '/Pointage'
+      },
+        {
+        name: 'Liste des avances sur salaire',
+        link: '/avanceSalaire'
+      },
     ],
-    label: 'Admin',
+    label: 'Administration',
   },
 ];
 
@@ -719,6 +741,25 @@ export const pointageColumn: rowsType[] = [
   }
 ]
 
+export const avanceSalaireColumn: rowsType[] = [
+        {
+            id: '1',
+            name: 'Nom complet'
+        },
+        {
+            id: '2',
+            name: 'Date de virement'
+        },
+        {
+            id: '3',
+            name: 'Montant'
+        },
+        {
+            id: '4',
+            name: 'Motif'
+        }
+    ]
+
 export const StatusOptions: rowsType[]=[  {
 
   id: '1',
@@ -830,6 +871,49 @@ date_facture:'Date facture',
 'client.name':'Client',
 'BonS.idBon':'Bon de livraison associé',
 etat_reglement:"Etat de règlement"
+}
+
+export const keyMapListConge = {
+    "salarie.nom": 'Nom complet',
+    dateDebut: 'Date de début congé',
+    dateFin: 'Date de fin congé',
+    NbrJour: 'Nombre de jours',
+    nbrJourPris: 'Nombre de jours pris',
+    type_conge: 'Type de congé'
+}
+
+export const keyMapEtatConge = {
+    "salarie.nom": 'Nom complet',
+    dateDebut: 'Date de début',
+    "salarie.actif": 'Etat',
+    NbrJour: 'Nombre de jours',
+    nbrJourPris: 'Nombre de jours pris',
+    nbrJourRestant: 'Nombre de jours restant'
+}
+
+export const keyMapAbsence = {
+    "salarie.nom": 'Nom complet',
+    date: 'Date d\'absence',
+    motif: 'Motif',
+    "user.username": 'Ajouté par',
+    justifie: 'Justification'
+}
+
+export const keyMapReglement = {
+    "salarie.nom": 'Nom complet',
+    dateDebut: 'Date de début',
+    dateFin: 'Date de fin',
+    montant: 'Montant réglé',
+    note: 'Note'
+}
+
+
+
+export const keyMapAvanceSalaire = {
+    "salarie.nom": 'Nom complet',
+    date: 'Date de virement',
+    montant: 'Montant',
+    motif: 'Motif'
 }
 
 export const statusColors: Record<"Active" | "Pending" | "Paused", string> = {

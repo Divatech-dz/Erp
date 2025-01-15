@@ -1,72 +1,67 @@
 'use client';
 
 import { sidebarLinks } from '@/constants';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useState } from 'react';
+import {Footer} from './footer';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
-import { Accordion } from '../ui/accordion';
-import { AccordionSideBar, Footer } from '.';
-import { cn } from '@/lib/utils';
-import { icons } from '@/constants/icons';
-import { usePathname } from 'next/navigation';
+export default function SideBar() {
+  const [activeItem, setActiveItem] = useState<string | null>(null);
 
-export const SideBar = () => {
-  const pathname = usePathname();
-  const role = 'manager';
-  
+  const handleAccordionClick = (label: string) => {
+    setActiveItem(prev => (prev === label ? null : label));
+  };
 
   return (
     <section className="sidebar">
-      <nav className="flex flex-col gap-4 overflow-y-scroll no-scrollbar">
-        <Link href="/" className="cursor-pointer items-center flex gap-2">
-          <Image src={icons.logo} alt="logo" height={25} width={25} />
+      <nav className="flex flex-col gap-4">
+        <Link href={'/'} className="cursor-pointer items-center gap-2 flex">
+          <Image src={'/icons/logo.svg'} alt={'logo'} height={25} width={25} />
           <h1 className="sidebar-logo">DIVATECH</h1>
         </Link>
 
-        <Accordion type="single" collapsible className="mt-4 flex flex-col gap-2 w-full">
-          {sidebarLinks.map(({ imgURL, label, route, id }) => {
-            const isActive = route.some((route) =>
-              pathname === route.link || pathname.startsWith(`${route.link}/`)
-            );
-          
-            if (role === 'manager') {
-              return (
-                <Link
-                  href={route[0].link}
-                  key={label}
-                 
-                  className={cn('sidebar-link', { 'bg-erp-gradient': isActive })}
+        {sidebarLinks.map(({ imgURL, label, route }) => {
+          const isActive = activeItem === label;
+          return (
+            <Accordion type="single" collapsible key={label}>
+              <AccordionItem value="item-1">
+                <AccordionTrigger
+                  className={cn('sidebar-link text-black-1 md:px-3 md:py-2', {
+                    'bg-erp-gradient text-white md:p-3': isActive,
+                  })}
+                  onClick={() => handleAccordionClick(label)}
                 >
-                  <div className="relative size-6">
+                  <div className="size-6 relative">
                     <Image
                       src={imgURL}
-                      alt={label}
                       fill
+                      alt={label}
                       className={cn({ 'brightness-[3] invert-0': isActive })}
                     />
                   </div>
-                  <p className={cn('sidebar-label', { '!text-white': isActive })}>
-                    {label}
-                  </p>
-                </Link>
-              );
-            }
-
-            return (
-              <AccordionSideBar
-                key={id}
-                id={id}
-                imgURL={imgURL}
-                isActive={isActive}
-                route={route}
-                label={label}
-              />
-            );
-          })}
-        </Accordion>
+                  <p>{label}</p>
+                </AccordionTrigger>
+                <AccordionContent>
+                  {route.map(r => (
+                    <Link key={r.name} href={r.link}>
+                      {r.name}
+                    </Link>
+                  ))}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          );
+        })}
       </nav>
-
       <Footer />
     </section>
   );
-};
+}

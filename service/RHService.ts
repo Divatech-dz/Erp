@@ -135,3 +135,24 @@ export const getPointage = async ({ queryKey }: { queryKey: [number, string, str
         return [];
     }
 }
+
+export const getAvanceSalaire = async ({ queryKey }: { queryKey: [number, string] }) => {
+    const page = queryKey[0];
+    const search = queryKey[1];
+
+    try {
+        const { data } = await axiosInstance.get("/gestionRH/AvanceSalaire/", {
+            params: {
+                page: page,
+                search: search,
+            },
+            headers: {
+                'Authorization': `Bearer ${Cookies.get('token')}`
+            }
+        });
+        return data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}

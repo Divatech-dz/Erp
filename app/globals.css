@@ -260,7 +260,7 @@
   }
   /* Page design */
   .page-design {
-    @apply no-scrollbar flex flex-col pb-10 px-2;
+    @apply no-scrollbar flex flex-col px-2 space-y-6;
   }
   /*Filter*/
   .filter {
