@@ -6,6 +6,40 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { ComponentRegistry, ComponentsConfig} from '@/types';
 import { icons } from '@/constants/icons';
 
+const renderDropdownAndSelect = (config: ComponentsConfig) => (
+  <>
+    <Dropdown
+      label="Columns"
+      icon={icons.ArrowDown}
+      columns={config.columnNames}
+      handleColumnVisibilityChange={config.handleColumnVisibilityChange}
+      visibleColumns={config.visibleColumns}
+      classNameTrigger="flex h-10 w-full items-center  justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
+    />
+    <Select
+      onValueChange={(value: any) => {
+        config.setCategory?.(Number(value));
+        config.setCurrentPage?.(1);
+      }}
+    >
+      <SelectTrigger className="w-[180px] h-10">
+        <SelectValue placeholder="Filtrer par catégorie" />
+      </SelectTrigger>
+      <SelectContent className="bg-white">
+        <SelectGroup>
+          <SelectLabel>Catégories</SelectLabel>
+          <SelectItem value=" ">TOUTES</SelectItem>
+          {config.categories?.map((cat) => (
+            <SelectItem key={cat.id} value={cat.id}>
+              {cat.category.toUpperCase()}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  </>
+);
+
 
 const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
   utilisateurs: () => (
@@ -17,39 +51,8 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
       Ajouter utilisateurs
     </Button>
   ),
-  produits: () => (
-    <>
-      <Dropdown
-        label="Columns"
-        icon={icons.ArrowDown}
-        columns={config.columnNames}
-        handleColumnVisibilityChange={config.handleColumnVisibilityChange}
-        visibleColumns={config.visibleColumns}
-        classNameTrigger="flex h-10 w-full items-center  justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
-      />
-      <Select
-        onValueChange={(value: any) => {
-          config.setCategory?.(Number(value));
-          config.setCurrentPage?.(1);
-        }}
-      >
-        <SelectTrigger className="w-[180px] h-10">
-          <SelectValue placeholder="Filtrer par catégorie" />
-        </SelectTrigger>
-        <SelectContent className="bg-white">
-          <SelectGroup>
-            <SelectLabel>Catégories</SelectLabel>
-            <SelectItem value=" ">TOUTES</SelectItem>
-            {config.categories?.map((cat) => (
-              <SelectItem key={cat.id} value={cat.id}>
-                {cat.category.toUpperCase()}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-    </>
-  ),
+  produits: ()=> renderDropdownAndSelect(config),
+
 });
 
 export default componentsRegistry;

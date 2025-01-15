@@ -85,7 +85,6 @@ export type rowsType = {
 export type Column = rowsType & {
     id: string;
     opensModal?: boolean;
-
 };
 
 export interface ComponentsConfig {

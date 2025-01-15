@@ -22,7 +22,7 @@ function Page() {
     const totalPages = absenceData?.total_pages;
 
     return (
-        <section className="page-design py-0">
+        <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Liste des absences</h1>
             <DataTable
                 columnNames={absenceColumn} columnData={resultsAbsence} setSearch={setSearch} currentPage={page}

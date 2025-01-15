@@ -22,7 +22,7 @@ function Page() {
     const totalPages = reglementData?.total_pages;
 
     return (
-        <section className="page-design py-0">
+        <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Liste des règlements salariés</h1>
             <DataTable
                 columnNames={reglementColumn} columnData={resultsReglement} setSearch={setSearch} currentPage={page}

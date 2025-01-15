@@ -26,7 +26,7 @@ function Page() {
     const totalPages = employeeData?.total_pages;
 
     return (
-        <section className="page-design py-0">
+        <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Liste des salariés</h1>
             <DataTable
                 columnNames={employeeColumn} columnData={resultsEmployee} setSearch={setSearch} currentPage={page}
