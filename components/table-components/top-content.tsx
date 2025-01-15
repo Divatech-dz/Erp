@@ -50,17 +50,24 @@ export const TopContent: React.FC<TopContentProps> = ({
       setCurrentPage?.(1)
     }
   };
+
+  const pressKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+        handleSearch(value);
+    }
+}
+
   const handleClear = () => {
-    if (value !== '') {
-      if (setSearch) {
+if (setSearch) {
         setSearch('');
         setValue('')
-      }
+
       if (setCurrentPage) {
         setCurrentPage(1)
       }
     }
   };
+
   const config:ComponentsConfig = {
     router,
     columnNames,
@@ -80,7 +87,7 @@ export const TopContent: React.FC<TopContentProps> = ({
 
   return (
     <div className="w-full flex items-center gap-4 my-2">
-      <div className="relative flex items-center w-60">
+      <div className="relative flex items-center w-60" onKeyDown={pressKey}>
         <button
           className="absolute left-2"
           onClick={() => handleSearch(value)}
