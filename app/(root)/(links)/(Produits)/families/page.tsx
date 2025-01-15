@@ -3,18 +3,14 @@
 import { DataTable } from "@/components/data-table";
 import { useFiltersContext } from "@/lib/context/Filters";
 import { HeaderNavigation } from "@/components/header-navigation";
-import { sidebarLinksManager, rowTable, keyMapProduct } from "@/constants";
-import { getProducts } from "@/service/productService";
-import { useQuery } from "@tanstack/react-query";
-
+import { sidebarLinksManager, keyMapCategory, familiesColumn } from "@/constants";
 import { transformNestedData } from "@/lib/utils";
+import { getCategory } from "@/service/categoryService";
+import { useQuery } from "@tanstack/react-query";
 
 
 function Page() {
     const {
-        categories,
-        category,
-        setCategory,
         page,
         setPage,
         search,
@@ -24,21 +20,25 @@ function Page() {
 
   const role = 'manager';
 
-  const { isLoading, data: productsData } = useQuery({
-    queryKey: [page, search, category],
-    queryFn: getProducts,
+  const { isLoading, data: categoryData } = useQuery({
+    queryKey: [page, search],
+    queryFn: getCategory,
   });
 
-    const resultsProducts = productsData?.results;
-    const totalPages = productsData?.total_pages;
 
+  
+    const resultsCategories = categoryData?.results;
+    const totalPages = categoryData?.total_pages;
 
- 
+    
+
   const filter = sidebarLinksManager.filter(link => link.name === 'Produits')
-  const transformedData= transformNestedData(resultsProducts, keyMapProduct)
+  const transformedData= transformNestedData(resultsCategories, keyMapCategory)
+  console.log(transformedData)
+
   return (
     <section className="page-design">
-      <h1 className="text-4xl font-bold p-2">Liste des produits</h1>
+      <h1 className="text-4xl font-bold p-2">Liste de familles </h1>
       {role === 'manager' && (
         filter.map(({ name, router }) => (
           <header className="w-full py-2 mb-4 flex items-center justify-center gap-4" key={name}>
@@ -55,14 +55,14 @@ function Page() {
       )}
 
       <DataTable
-        columnNames={rowTable}
+        columnNames={familiesColumn}
         setSearch={setSearch}
-        setCategory={setCategory}
+      
         columnData={transformedData}
         currentPage={page}
         setCurrentPage={setPage}
         totalPages={totalPages}
-        categories={categories}
+    
         isLoading={isLoading}
       />
     </section>

@@ -1,11 +1,17 @@
 /* eslint-disable no-prototype-builtins */
 import axiosInstance from "@/lib/axios";
-import Cookies from 'js-cookie';
 import {TabsNameInterface} from '@/types';
+
+import Cookies from 'js-cookie';
+
 import {type ClassValue, clsx} from 'clsx';
+
 import qs from 'query-string';
+
 import {twMerge} from 'tailwind-merge';
+
 import {z} from 'zod';
+
 import * as XLSX from 'xlsx';
 
 export function cn(...inputs: ClassValue[]) {
@@ -284,3 +290,60 @@ export const fetchWithAuth = async (url: string, method: 'GET' | 'POST' = 'GET',
 }
 
 
+
+
+export function transformNestedDataCategory(
+    data: any[], // Tableau de données source
+    keyMap: Record<string, string>, // Mappage des clés à transformer
+    documentKeys?: string[], // Clés spéciales pour l'agrégation
+    aggregatedKeyName: string = "aggregatedData", // Nom de la clé pour les données agrégées
+    countProducts?: (item: any) => number // Fonction pour calculer le nombre de produits
+  ): any[] {
+    return data?.map((item) => {
+      const transformed: Record<string, any> = {};
+      const aggregatedArray: { key: string; value: string }[] = [];
+  
+      for (const [oldKey, newKey] of Object.entries(keyMap)) {
+        // Naviguer dans les objets imbriqués pour obtenir la valeur
+        const keys = oldKey.split(".");
+        let value = item;
+  
+        for (const key of keys) {
+          value = value ? value[key] : undefined;
+        }
+  
+        // Gérer les clés spéciales pour agrégation
+        if (documentKeys?.includes(oldKey)) {
+          aggregatedArray.push({
+            key: newKey,
+            value: value ? `//${value}` : "",
+          });
+        } 
+        // Gérer les tableaux en les convertissant en chaînes
+        else if (Array.isArray(value)) {
+          transformed[newKey] = value.join(", ");
+        } 
+        // Gérer les objets en les convertissant en JSON
+        else if (typeof value === "object" && value !== null) {
+          transformed[newKey] = JSON.stringify(value);
+        } 
+        // Gérer les valeurs simples
+        else {
+          transformed[newKey] = value ?? null; // Valeur par défaut : `null`
+        }
+      }
+  
+      // Ajouter l'attribut `produits` basé sur la fonction countProducts
+      if (countProducts) {
+        transformed.produits = countProducts(item);
+      }
+  
+      // Ajouter les données agrégées si applicable
+      if (aggregatedArray.length > 0) {
+        transformed[aggregatedKeyName] = aggregatedArray;
+      }
+  
+      return transformed;
+    });
+  }
+  

@@ -34,11 +34,11 @@ function Page() {
 
 
  
-  const filter = sidebarLinksManager.filter(link => link.name === 'Produits')
+  const filter = sidebarLinksManager.filter(link => link.name === 'listePrix')
   const transformedData= transformNestedData(resultsProducts, keyMapProduct)
   return (
     <section className="page-design">
-      <h1 className="text-4xl font-bold p-2">Liste des produits</h1>
+      <h1 className="text-4xl font-bold p-2">Liste des prix</h1>
       {role === 'manager' && (
         filter.map(({ name, router }) => (
           <header className="w-full py-2 mb-4 flex items-center justify-center gap-4" key={name}>

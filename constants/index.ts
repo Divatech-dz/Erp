@@ -1,5 +1,7 @@
 import { CardProps, Column, rowsType, SalesProps, SidebarLink } from '@/types';
+
 import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
+
 import { icons } from './icons';
 
 export const sidebarLinks: SidebarLink[] = [
@@ -175,7 +177,7 @@ export const sidebarLinksManager = [
     router: [
       {
         label: 'Produits',
-        router: ['Families', 'produits', 'Quantite a facteur', 'List de Produits']
+        router: ['families', 'produits', 'Quantite a facteur', 'listePrix']
       },
       {
         label: 'Laison',
@@ -383,6 +385,30 @@ export const rowTable: rowsType[] = [
     sort: false
   },
 ]
+
+
+export const familiesColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Libéllé'
+  },
+
+  {
+    id: '2',
+    name: 'Composant associé'
+  },
+
+  {
+    id:'3',
+    name: 'Nombre de produits'
+  },
+
+  {
+    id:'4',
+    name:'Type'
+  }  
+]
+
 
 export const NotesColumn: rowsType[] = [
   {
@@ -722,6 +748,14 @@ export const entropsRows = [
   }
 ]
 
+export const keyMapCategory = {
+  Libellé: "Libéllé",
+  pc_component: "Composant associé",
+  typefamilly:"Type",
+  numbre_produit:"Nombre de produits",
+  store:"store"
+};
+
 export const keyMapStock = {
   name: "Libellé",
   ville: "Adresse",
@@ -752,7 +786,6 @@ export const keyMapNotes = {
   "client.name": "Client",
   Livraison:'agenceLivraison',
   "client.name_user": "Commercial",
-
 valide:'Validation'
 
 };
