@@ -29,8 +29,6 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
   const togglePasswordVisibility = () => setShow((prev) => !prev);
 
   const onSubmit = async(data:LoginPayload|any) => {
-  
-
     try {
     await loginMutation.mutateAsync({ username:data.username,password:data.password });
     setIsLoading(true);

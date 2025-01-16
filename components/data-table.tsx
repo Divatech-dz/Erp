@@ -42,7 +42,6 @@ export const DataTable = ({
     new Set<string>(columnNames?.map((col) => col.id))
   );
   const [tableData, setTableData] = useState<Record<string, any>[]>(columnData ?? []);
-
   const [openModal, setOpenModal] = React.useState(false);
   const [contentType, setContentType] = React.useState<string>("table");
   const [sortedButton, setSortedButton] = useState<{
@@ -105,7 +104,7 @@ export const DataTable = ({
    
   
   return (
-    <>
+    <section>
       <TopContent
         columnNames={columnNames}
         setVisibleColumns={setVisibleColumns}
@@ -199,7 +198,7 @@ export const DataTable = ({
           />
         </div>
       )}
-    </>
+    </section>
   );
   
 ;

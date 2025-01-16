@@ -164,7 +164,7 @@ export const sidebarLinks: SidebarLink[] = [
       },
       {
         name: 'Historique des réglements',
-        link: '/RegelmentComptes',
+        link: '/ReglementComptes',
       },
         {
         name: 'Liste de absences',
@@ -536,7 +536,9 @@ export const clientColumn: rowsType[] = [
 export const employeeColumn: rowsType[] = [
   {
     id:'1',
-    name:'Nom complet'
+    name:'Nom complet',
+    sort: true,
+    sortBy: 'nom'
   },
       {
     id:'2',
@@ -556,11 +558,15 @@ export const employeeColumn: rowsType[] = [
   },
       {
     id:'6',
-    name:'Actif'
+    name:'Actif',
+        sort: true,
+    sortBy: 'actif'
   },
     {
     id:'7',
-    name:'Date Début'
+    name:'Date Début',
+       sort: true,
+    sortBy: 'dateDebut'
   }
 ]
 
@@ -805,6 +811,16 @@ date_facture:'Date facture',
 etat_reglement:"Etat de règlement"
 }
 
+export const keyMapEmployees = {
+    "nom": "Nom complet",
+    "fonction": "Fonction",
+    "phone": "Numéro de téléphone",
+    "salaire": "Salaire",
+    "prime_espece": "Prime Panier et Transport",
+    "actif": "Actif",
+    "dateDebut": "Date Début"
+}
+
 export const keyMapListConge = {
     "salarie.nom": 'Nom complet',
     dateDebut: 'Date de début congé',
@@ -820,7 +836,6 @@ export const keyMapEtatConge = {
     "salarie.actif": 'Etat',
     NbrJour: 'Nombre de jours',
     nbrJourPris: 'Nombre de jours pris',
-    nbrJourRestant: 'Nombre de jours restant'
 }
 
 export const keyMapAbsence = {
@@ -833,19 +848,24 @@ export const keyMapAbsence = {
 
 export const keyMapReglement = {
     "salarie.nom": 'Nom complet',
-    dateDebut: 'Date de début',
-    dateFin: 'Date de fin',
+    "salarie.dateDebut": 'Date de début',
+    dateSortie: 'Date de fin',
     montant: 'Montant réglé',
     note: 'Note'
 }
-
-
 
 export const keyMapAvanceSalaire = {
     "salarie.nom": 'Nom complet',
     date: 'Date de virement',
     montant: 'Montant',
     motif: 'Motif'
+}
+
+export const keyMapPointage = {
+  date: 'Date de pointage',
+  "salarie.nom": 'Nom complet',
+  temps_arrive: 'Heures d\'arrivée',
+  temps_depart: 'Heures de départ',
 }
 
 export const statusColors: Record<"Active" | "Pending" | "Paused", string> = {

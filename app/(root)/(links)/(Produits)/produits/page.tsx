@@ -5,9 +5,7 @@ import { useFiltersContext } from "@/lib/context/Filters";
 import {  rowTable, keyMapProduct } from "@/constants";
 import { getProducts } from "@/service/productService";
 import { useQuery } from "@tanstack/react-query";
-
 import { transformNestedData } from "@/lib/utils";
-
 
 function Page() {
     const {
@@ -24,7 +22,6 @@ function Page() {
     queryKey: [page, search, category],
     queryFn: getProducts,
   });
-
 
     const resultsProducts = productsData?.results;
     const totalPages = productsData?.total_pages;

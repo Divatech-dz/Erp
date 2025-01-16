@@ -74,7 +74,7 @@ export const getAbsence = async ({ queryKey }: { queryKey: [number, string] }) =
     const search = queryKey[1];
 
     try {
-        const { data } = await axiosInstance.get("/gestionRH/Absence/", {
+        const { data } = await axiosInstance.get("/gestionRH/Absence", {
             params: {
                 page: page,
                 search: search,

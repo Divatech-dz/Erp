@@ -19,13 +19,12 @@ export const login = async (data: LoginPayload) => {
 };
 
 export const getUser = async () => {
-  const token = Cookies.get('token');
-  if (!token) {
+  if (!Cookies.get('token')) {
     window.location.href = '/sign-in';
     throw new Error('No token found');
   }
   const response = await axiosInstance.get('/user/UserActuel', {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { 'Authorization': `Bearer ${Cookies.get('token')}` },
   });
   return response.data;
 };
