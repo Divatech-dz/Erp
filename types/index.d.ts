@@ -96,7 +96,7 @@ export interface ComponentsConfig {
   setCategory?: Dispatch<SetStateAction<number>>;
   setCurrentPage?: Dispatch<SetStateAction<number>>;
 }
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits';
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits'| 'families' | 'listePrix';
 export type ComponentRegistry = {
   [key in ComponentsRegistryKey]: () => JSX.Element| null;
 };

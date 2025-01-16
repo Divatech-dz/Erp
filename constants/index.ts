@@ -13,6 +13,12 @@ export const sidebarLinks: SidebarLink[] = [
         name: 'Produits',
         link: '/produits',
       },
+
+      {
+        name: 'Families',
+        link: '/families',
+      }, 
+
       {
         name: 'Liste des prix',
         link: '/listePrix',
@@ -820,7 +826,8 @@ export const entropsRows = [
 export const keyMapPrix = {
   name: "Désignation", 
   quantity_globale: "Quantité",
-  prix_vente:"Prix Revendeur TTC"
+  PrixConseillé:"Prix Conseillé TTC",
+  PrixRevendeur:"PrixRevendeur TTC"
 };
 
 

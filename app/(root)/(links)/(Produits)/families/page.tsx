@@ -13,12 +13,13 @@ function Page() {
     const {
         page,
         setPage,
+        categories,
+        setCategory,
         search,
         setSearch
     } = useFiltersContext();
 
 
-  const role = 'manager';
 
   const { isLoading, data: categoryData } = useQuery({
     queryKey: [page, search],
@@ -31,8 +32,6 @@ function Page() {
     const totalPages = categoryData?.total_pages;
 
     
-
-  const filter = sidebarLinksManager.filter(link => link.name === 'Produits')
   const transformedData= transformNestedData(resultsCategories, keyMapCategory)
   console.log(transformedData)
 
@@ -40,20 +39,6 @@ function Page() {
   return (
     <section className="page-design">
       <h1 className="text-4xl font-bold p-2">Liste de familles </h1>
-      {role === 'manager' && (
-        filter.map(({ name, router }) => (
-          <header className="w-full py-2 mb-4 flex items-center justify-center gap-4" key={name}>
-            {router.map(({ label, router: subRoutes }) => (
-              <HeaderNavigation
-                key={label}
-                label={label}
-                router={subRoutes}
-                
-              />
-            ))}
-          </header>
-        ))
-      )}
 
       <DataTable
         columnNames={familiesColumn}
@@ -62,7 +47,8 @@ function Page() {
         currentPage={page}
         setCurrentPage={setPage}
         totalPages={totalPages}
-    
+        setCategory={setCategory}
+        categories={categories}
         isLoading={isLoading}
       />
     </section>
