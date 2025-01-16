@@ -32,10 +32,13 @@ const columnRenderers: Record<string, ColumnRenderer> = {
   "Etat de validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded-full text-white font-semibold ', {
     'bg-green-500': row[name], 
     'bg-yellow-500': !row[name], 
+
   })}
 >
   {row[name] ? 'Validé' : 'En attente'}
 </p>),
+  "Prix Conseillé TTC":(row,name)=> <p>{(row[name]).toFixed(2)} </p>,
+  "Prix Revendeur TTC":(row,name)=> <p>{(row[name]).toFixed(2)} </p>,
  "Documents associés": (row,name) => {
   return (
     <div className="space-x-2">

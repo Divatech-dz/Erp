@@ -54,6 +54,7 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
   produits: ()=> renderDropdownAndSelect(config),
   families: ()=> renderDropdownAndSelect(config),
   listePrix:()=> renderDropdownAndSelect(config),
+  entrepotsProduits:() => renderDropdownAndSelect(config),
 
 });
 

@@ -23,6 +23,11 @@ export const sidebarLinks: SidebarLink[] = [
         name: 'Liste des prix',
         link: '/listePrix',
       },
+
+      {
+        name: 'Produits / Entrepots',
+        link: '/entrepotsProduits',
+      },
     ],
     label: 'Produits',
   },
@@ -449,16 +454,16 @@ export const prixProduitColumn:rowsType[]=[
   },
   {
     id:'3',
-    name:'Prix conseillé TTC',
-    // sort: true,
-    // sortBy: 'prix_vente'
+    name:'Prix Conseillé TTC',
+    sort: true,
+    sortBy: 'PrixConseillé'
   },
 
   {
     id:'4',
     name:"Prix Revendeur TTC",
     sort: true,
-    sortBy: 'prix_vente'
+    sortBy: 'PrixRevendeur'
     
   }
 
@@ -827,7 +832,7 @@ export const keyMapPrix = {
   name: "Désignation", 
   quantity_globale: "Quantité",
   PrixConseillé:"Prix Conseillé TTC",
-  PrixRevendeur:"PrixRevendeur TTC"
+  PrixRevendeur:"Prix Revendeur TTC"
 };
 
 
