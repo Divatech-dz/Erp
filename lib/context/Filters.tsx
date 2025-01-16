@@ -48,7 +48,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
   const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
-  const categories = categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
+  const categories = categoryData?.results.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
 
   return (
     <FiltersContext.Provider
