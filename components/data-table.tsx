@@ -18,6 +18,7 @@ import { TableProps } from "@/types";
 import { ColorRing } from "react-loader-spinner";
 import { cn } from "@/lib/utils";
 import columnRenderers from "@/constants/columnRenderers";
+import {usePathname} from "next/navigation";
 const getCellContent = (row: string) =>
   row !== "" ? row : "N/A";
 export const DataTable = ({
@@ -42,7 +43,6 @@ export const DataTable = ({
     new Set<string>(columnNames?.map((col) => col.id))
   );
   const [tableData, setTableData] = useState<Record<string, any>[]>(columnData ?? []);
-
   const [openModal, setOpenModal] = React.useState(false);
   const [contentType, setContentType] = React.useState<string>("table");
   const [sortedButton, setSortedButton] = useState<{
@@ -105,7 +105,7 @@ export const DataTable = ({
    
   
   return (
-    <>
+    <section>
       <TopContent
         columnNames={columnNames}
         setVisibleColumns={setVisibleColumns}
@@ -171,7 +171,11 @@ export const DataTable = ({
                       alt="Visible"
                       height={20}
                       width={20}
-                      onClick={() => openModalWithContent("table")}
+                      onClick={() =>{
+
+                            setInvoiceDetails(row)
+                            openModalWithContent("table")
+                      }}
                     />
                     <Image src={icons.Edit} alt="Edit" height={20} width={20} />
                     <Image src={icons.Trash} alt="Trash" height={20} width={20} />
@@ -191,7 +195,7 @@ export const DataTable = ({
             open={openModal}
             onClose={() => setOpenModal(false)}
             title={
-              contentType === "table" ? `Détail du bon ${invoiceDetails?.idBon}` : ""
+              contentType === "table" ? `Détail du bon ${invoiceDetails['N° bon']}` : ""
             }
             contentType={contentType}
             contentProps={contentType === "table" ? { tableData } : {}}
@@ -199,7 +203,7 @@ export const DataTable = ({
           />
         </div>
       )}
-    </>
+    </section>
   );
   
 ;

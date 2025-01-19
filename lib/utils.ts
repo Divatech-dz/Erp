@@ -223,7 +223,6 @@ export const parseExcelFile = (file: File, onSuccess: (jsonData: any[]) => void,
             }
         }
     };
-
     reader.readAsArrayBuffer(file);
 };
 
@@ -261,32 +260,30 @@ export const fetchWithAuth = async (url: string, method: 'GET' | 'POST' = 'GET',
     const aggregatedArray: { key: string; value: string }[] = [];
 
     for (const [oldKey, newKey] of Object.entries(keyMap)) {
-      const keys = oldKey.split(".");
-      let value = item;
+        const keys = oldKey.split(".");
+        let value = item;
 
-      for (const key of keys) {
-        value = value ? value[key] : undefined;
-      }
+        for (const key of keys) {
+            value = value ? value[key] : undefined;
+        }
 
-      
-      if (documentKeys?.includes(oldKey)) {
-        aggregatedArray.push({
-          key: newKey,
-          value: value ? `//${value}` : "",
-        });
-      } else if (Array.isArray(value)) {
-        transformed[newKey] = value.join(", "); 
-      } else if (typeof value === "object" && value !== null) {
-        transformed[newKey] = JSON.stringify(value); 
-      } else {
-        transformed[newKey] = value;
-      }
+        if (documentKeys?.includes(oldKey)) {
+            aggregatedArray.push({
+                key: newKey,
+                value: value ? `${value}` : "",
+            });
+        } else if (Array.isArray(value)) {
+            transformed[newKey] = value.map(v => typeof v === "object" && v);
+        } else if (typeof value === "object" && value !== null) {
+            transformed[newKey] = JSON.stringify(value);
+        } else {
+            transformed[newKey] = value;
+        }
     }
-
 
     transformed[aggregatedKeyName!] = aggregatedArray;
     return transformed;
-  });
+});
 }
 
 

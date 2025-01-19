@@ -5,9 +5,7 @@ import { useFiltersContext } from "@/lib/context/Filters";
 import {  rowTable, keyMapProduct } from "@/constants";
 import { getProducts } from "@/service/productService";
 import { useQuery } from "@tanstack/react-query";
-
 import { transformNestedData } from "@/lib/utils";
-
 
 function Page() {
     const {

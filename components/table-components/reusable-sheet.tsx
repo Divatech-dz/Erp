@@ -21,12 +21,13 @@ interface ReusableSheetProps {
 }
 
 export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, title, contentType, invoiceDetails}) => {
-
+    console.log(invoiceDetails)
     const renderContent = () => {
         switch (contentType) {
             case "table":
                 return (
-                    <><Table>
+                    <>
+                        <Table>
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Référence</TableHead>

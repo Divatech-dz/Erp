@@ -5,24 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7bb63af4-d672-49f1-8c8c-9de776bc78da.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7bb63af4-d672-49f1-8c8c-9de776bc78da.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/produits/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/produits/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Absence/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Absence/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/ListeConge/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/ListeConge/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/PageSalarie/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/PageSalarie/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Pointage/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Pointage/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/ReglementComptes/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/ReglementComptes/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/etatConge/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/etatConge/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/componentsRegistry.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/componentsRegistry.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/side-bar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/side-bar/side-bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/side-bar/side-bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/table-components/top-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/top-content.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/columnRenderers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/constants/columnRenderers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/RHService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/RHService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/clientService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/clientService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="rania" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,6 +60,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
@@ -79,7 +77,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Erp\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\Erp\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -102,7 +100,10 @@
       <recent name="D:\Erp\app\(root)\(links)\(admin)" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="localhost:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -113,11 +114,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:3000" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
       </set>
     </attachedChunks>
   </component>
@@ -157,7 +163,13 @@
       <workItem from="1736161463584" duration="14806000" />
       <workItem from="1736850722270" duration="1203000" />
       <workItem from="1736930948822" duration="25000" />
-      <workItem from="1736947981897" duration="4718000" />
+      <workItem from="1736947981897" duration="9784000" />
+      <workItem from="1737015710612" duration="5150000" />
+      <workItem from="1737021027853" duration="5518000" />
+      <workItem from="1737032868291" duration="7726000" />
+      <workItem from="1737041243372" duration="2055000" />
+      <workItem from="1737275263047" duration="3990000" />
+      <workItem from="1737279373457" duration="4128000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed conflicts">
       <option name="closed" value="true" />
