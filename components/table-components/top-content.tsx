@@ -78,7 +78,10 @@ export const TopContent: React.FC<TopContentProps> = ({
             setStartDate,
             setEndDate,
             startDate,
-             endDate
+            endDate,
+            setUserId,
+            salesUsers,
+            setClientType
         };
 
         const renderButtons = () => {

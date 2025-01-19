@@ -26,7 +26,7 @@ function Page() {
     const resultsPointage = pointageData?.results;
     const totalPages = pointageData?.total_pages;
     const transformedData= transformNestedData(resultsPointage,keyMapPointage )
-    console.log(resultsPointage)
+
     return (
         <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Liste des pointages</h1>

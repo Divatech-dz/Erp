@@ -99,10 +99,13 @@ export interface ComponentsConfig {
     setStartDate?: Dispatch<setStateAction<string>>,
     setEndDate?: Dispatch<setStateAction<string>>,
     startDate?: string,
-    endDate?: string
+    endDate?: string,
+     setUserId?: Dispatch<SetStateAction<number>>;
+    salesUsers?: any[],
+    setClientType?: Dispatch<SetStateAction<string>>;
 }
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage';
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande';
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };

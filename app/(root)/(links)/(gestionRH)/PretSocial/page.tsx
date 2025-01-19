@@ -1,9 +1,10 @@
 'use client'
+
 import {DataTable} from "@/components/data-table";
 import {useFiltersContext} from "@/lib/context/Filters";
-import {congeColumn, keyMapEtatConge} from "@/constants";
+import {PretSocialColumn, keyMapPretSocial} from "@/constants";
 import {useQuery} from "@tanstack/react-query";
-import {getConge} from "@/service/RHService";
+import {getPretSocial} from "@/service/RHService";
 import {transformNestedData} from "@/lib/utils";
 
 function Page() {
@@ -14,20 +15,20 @@ function Page() {
         setSearch
     } = useFiltersContext();
 
-    const {isLoading, data: congeData} = useQuery({
+    const {isLoading, data: pretData} = useQuery({
         queryKey: [page, search],
-        queryFn: getConge
+        queryFn: getPretSocial
     });
 
-    const resultsConge = congeData?.results;
-    const totalPages = congeData?.total_pages;
-    const transformedData= transformNestedData(resultsConge, keyMapEtatConge)
+    const resultsPret = pretData?.results;
+    const totalPages = pretData?.total_pages;
+    const transformedData= transformNestedData(resultsPret, keyMapPretSocial)
 
     return (
         <section className="page-design">
-            <h1 className="text-4xl font-bold p-2">Situations des congés</h1>
+            <h1 className="text-4xl font-bold p-2">Prêt social</h1>
             <DataTable
-                columnNames={congeColumn} columnData={transformedData} setSearch={setSearch} currentPage={page}
+                columnNames={PretSocialColumn} columnData={transformedData} setSearch={setSearch} currentPage={page}
                 setCurrentPage={setPage} totalPages={totalPages} isLoading={isLoading}
             />
         </section>
