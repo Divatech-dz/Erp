@@ -471,6 +471,35 @@ export const prixProduitColumn:rowsType[]=[
 ]
 
 
+export const entrepotColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Désignation'
+  },
+  {
+    id: '2',
+    name: 'store'
+  }
+
+]
+
+
+export const entrepotProductColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Désignation'
+  },
+  {
+    id: '2',
+    name: 'Quantité'
+  },
+  {
+    id:'3',
+    name:"Prix Revient"
+  }
+
+]
+
 export const NotesColumn: rowsType[] = [
   {
     id: '1',
@@ -827,6 +856,23 @@ export const entropsRows = [
     sort: false
   }
 ]
+
+
+export const keyMapEntrepot = {
+  id:"id",
+  name: "Désignation", 
+  location: "Location",
+ 
+};
+
+export const keyMapEntrepotProduct = {
+  name: "Désignation", 
+ // quantity: "Quantité",
+  prix_achat:"Prix Revient",
+  entrepot:"entrepot",
+  quantity_globale:"Quantité"
+ 
+};
 
 export const keyMapPrix = {
   name: "Désignation", 

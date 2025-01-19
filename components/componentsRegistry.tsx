@@ -31,7 +31,7 @@ const renderDropdownAndSelect = (config: ComponentsConfig) => (
           <SelectItem value=" ">TOUTES</SelectItem>
           {config.categories?.map((cat) => (
             <SelectItem key={cat.id} value={cat.id}>
-              {cat.category.toUpperCase()}
+              {cat.category?.toUpperCase()}
             </SelectItem>
           ))}
         </SelectGroup>
