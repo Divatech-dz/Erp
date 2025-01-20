@@ -676,24 +676,6 @@ export const prospectClientColumn: rowsType[] = [
     }
 ]
 
-export const FournisseurColumn: rowsType[] = [
-    {
-        id: '1',
-        name: '#'
-    },
-    {
-        id: '2',
-        name: 'Fournisseur'
-    },
-    {
-        id: '3',
-        name: 'Adresse'
-    },
-    {
-        id: '4',
-        name: 'Type de fournisseur'
-    },
-]
 
 export const BanksColumn: rowsType[] = [
     {
