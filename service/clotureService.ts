@@ -2,19 +2,23 @@ import axiosInstance from "@/lib/axios";
 
 import Cookies from "js-cookie";
 
-export const getStock= async ({ queryKey }: { queryKey: [number, string,number,number] }) => {
+export const getCloture = async ({ queryKey }: { queryKey: [number, string,number,number,string,string] }) => {
     const page = queryKey[0];
     const search = queryKey[1];
-    const entrepot = queryKey[2];
-    const category = queryKey[3];
-     
+    const caisse = queryKey[2];
+    const user = queryKey[3];
+    const startDate = queryKey[4];
+    const endDate = queryKey[5];
     try {
-        const { data } = await axiosInstance.get("/inventory/Stock/", {
+        const { data } = await axiosInstance.get("/comptoire/Cloture/", {
             params: {
                 page: page,
                 search: search,
-                entrepot:entrepot,
-                category: category === 0 ? "" : category,
+                caisse:caisse,
+                user:user,
+                startDate: startDate,
+                endDate: endDate,
+              
             },
             headers: {
                 'Content-Type': 'application/json',

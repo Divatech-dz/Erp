@@ -31,6 +31,7 @@ declare interface TableProps {
     productData?: T | any[] | undefined,
     totalPages?: number,
     setCategory?: (value: (((prevState: number) => number) | number)) => void,
+    setCaisse?: (value: (((prevState: number) => number) | number)) => void,
     setSearch?: (value: (((prevState: string) => string) | string)) => void,
     categories?: { id: string; category: string; }[],
     startDate?: string,
@@ -106,7 +107,7 @@ export interface ComponentsConfig {
     setClientType?: Dispatch<SetStateAction<string>>;
 }
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits';
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits'|'cloture'|'etatStock';
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };
