@@ -11,6 +11,8 @@ interface FiltersContextType {
   commercials: any;
   categories: any;
   page: number;
+  entrepot:number,
+  setEntrepot: (value: number | ((prevState: number) => number)) => void,
   setPage: (value: number | ((prevState: number) => number)) => void,
   search: string;
   setSearch: (value: string | ((prevState: string) => string)) => void,
@@ -30,6 +32,7 @@ const FiltersContext = createContext<FiltersContextType | undefined>(undefined);
 
 export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [page, setPage] = useState(1);
+  const [entrepot, setEntrepot] = useState(11);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState(0);
   const [startDate, setStartDate] = useState('');
@@ -74,7 +77,9 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         clientType,
         setClientType,
         userId,
-        setUserId
+        setUserId,
+        entrepot,
+        setEntrepot
       }}
     >
       {children}

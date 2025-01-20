@@ -31,7 +31,6 @@ const formatAmount=(amount: number): string => {
 
 const columnRenderers: Record<string, ColumnRenderer> = {
 
-<<<<<<< HEAD
   "PV TTC -P-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
   "PV TTC -R-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
   "Etat de validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded-full text-white font-semibold ', {
@@ -84,34 +83,6 @@ const isTruck = row[name];
 >
   {row[name] ? 'Validé' : 'En attente'}
 </p>),
-=======
-    "PV TTC -P-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
-    "PV TTC -R-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
-    "Etat de validation": (row, name) => (<p className={cn('inline-block px-2 py-1 rounded text-white ', {
-        'bg-green-500': row[name],
-        'bg-red-500': !row[name],
-    })}
-    >
-        {row[name] ? 'Validé' : 'En attente'}
-    </p>),
-    "Documents associés": (row, name) => {
-        return (
-            <div className="space-x-2">
-                {row[name]?.map((value: { value: string | undefined; key: string; }) => <a href={value?.value}
-                                                                                           className='inline-block px-2 py-1 rounded-full text-white font-semibold bg-black-1 hover:underline'
-                                                                                           key={value?.key}>{value.key}</a>)}
-            </div>
-        )
-    },
-
-    "Validation": (row, name) => (<p className={cn('inline-block px-2 py-1 rounded text-white ', {
-        'bg-green-500': row[name],
-        'bg-red-500': !row[name],
-    })}
-    >
-        {row[name] ? 'Validé' : 'En attente'}
-    </p>),
->>>>>>> e87421b8cd015ea1eb0a9a136b221c1a1d1493ee
     "Date de virement": (row, name) => <p>{formatDate(row[name])}</p>,
     "Montant": (row, name) => <p>{Number(row[name]) + ' dzd'}</p>,
     "Actif": (row, name) => (<p className={cn('inline-block px-2 py-1 rounded text-white ', {

@@ -1,4 +1,5 @@
 import {LucideIcon} from "lucide-react";
+
 import {Dispatch} from "react";
 
 
@@ -104,12 +105,8 @@ export interface ComponentsConfig {
     salesUsers?: any[],
     setClientType?: Dispatch<SetStateAction<string>>;
 }
-<<<<<<< HEAD
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits'| 'families' | 'listePrix' | 'entrepotsProduits';
-=======
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande';
->>>>>>> e87421b8cd015ea1eb0a9a136b221c1a1d1493ee
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits';
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };

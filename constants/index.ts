@@ -512,9 +512,15 @@ export const entrepotProductColumn:rowsType[]=[
   {
     id:'3',
     name:"Prix Revient"
+  },
+  {
+    id:'4',
+    name:"Montant"
   }
 
 ]
+
+
 
 export const NotesColumn: rowsType[] = [
     {
@@ -1006,10 +1012,9 @@ export const keyMapEntrepot = {
 
 export const keyMapEntrepotProduct = {
   name: "Désignation", 
- // quantity: "Quantité",
   prix_achat:"Prix Revient",
-  entrepot:"entrepot",
-  quantity_globale:"Quantité"
+  "stock[0].quantity":"Quantité",
+
  
 };
 
