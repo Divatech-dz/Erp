@@ -35,7 +35,7 @@ function BonsCommandeVente() {
     const notesResults = notesData?.results;
     const totalPages = notesData?.total_pages;
     const transformedData = transformNestedData(notesResults, keyMapNotes);
-    console.log(notesResults);
+
     return (
         <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Bons de Commande</h1>

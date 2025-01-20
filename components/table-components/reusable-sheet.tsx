@@ -21,7 +21,11 @@ interface ReusableSheetProps {
 }
 
 export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, title, contentType, invoiceDetails}) => {
-    console.log(invoiceDetails)
+
+    const formatAmount=(amount: number): string => {
+    return amount.toLocaleString('fr-FR', { style: 'currency', currency: 'DZD' });
+}
+
     const renderContent = () => {
         switch (contentType) {
             case "table":
@@ -43,9 +47,9 @@ export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, titl
                                     <TableRow key={produit?.produit?.id}>
                                         <TableCell>{produit?.stock?.reference}</TableCell>
                                         <TableCell>{produit?.stock?.name}</TableCell>
-                                        <TableCell>{produit?.unitprice} dzd</TableCell>
+                                        <TableCell>{formatAmount(produit?.unitprice)} </TableCell>
                                         <TableCell>{produit?.quantity}</TableCell>
-                                        <TableCell>{produit?.totalprice} dzd</TableCell>
+                                        <TableCell>{formatAmount(produit?.totalprice)}</TableCell>
                                     </TableRow>
                                 );
                             })}

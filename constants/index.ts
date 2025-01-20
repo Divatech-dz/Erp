@@ -33,6 +33,10 @@ export const sidebarLinks: SidebarLink[] = [
             {
                 name: 'Liste des fournisseurs',
                 link: '/fournisseurs',
+            },
+            {
+                name: 'Liste des banques',
+                link: '/banques',
             }
         ],
         label: 'Clients',
@@ -574,6 +578,44 @@ export const prospectClientColumn: rowsType[] = [
     }
 ]
 
+export const FournisseurColumn: rowsType[] = [
+    {
+        id: '1',
+        name: '#'
+    },
+    {
+        id: '2',
+        name: 'Fournisseur'
+    },
+    {
+        id: '3',
+        name: 'Adresse'
+    },
+    {
+        id: '4',
+        name: 'Type de fournisseur'
+    },
+]
+
+export const BanksColumn: rowsType[] = [
+    {
+        id: '1',
+        name: 'Nom de la banque'
+    },
+    {
+        id: '2',
+        name: 'Code'
+    },
+    {
+        id: '3',
+        name: 'BIC'
+    },
+    {
+        id: '4',
+        name: 'Statut'
+    },
+]
+
 export const employeeColumn: rowsType[] = [
     {
         id: '1',
@@ -826,25 +868,6 @@ export const HoursColumn: rowsType[] = [
     }
 ]
 
-export const FournisseurColumn: rowsType[] = [
-    {
-        id: '1',
-        name: '#'
-    },
-    {
-        id: '2',
-        name: 'Fournisseur'
-    },
-    {
-        id: '3',
-        name: 'Adresse'
-    },
-    {
-        id: '4',
-        name: 'Type de fournisseur'
-    },
-]
-
 export const StatusOptions: rowsType[] = [{
 
     id: '1',
@@ -933,6 +956,13 @@ export const keyMapProspectClient = {
 "client.name_user": "Utilisateur",
  "client.categorie_client.dateCreation": "Date de prospection",
 "SourceClient": "Source client"
+};
+
+export const keyMapBanks = {
+    nom: 'Nom de la banque',
+    code: 'Code',
+    bic: 'BIC',
+    actif: 'Statut',
 }
 
 export const keyMapNotes = {
@@ -957,7 +987,21 @@ export const keyMapFacterur = {
     'client.name': 'Client',
     'BonS.idBon': 'Bon de livraison associé',
     etat_reglement: "Etat de règlement"
-}
+};
+
+export const keyMapReturn = {
+    idBon: "N° bon",
+    dateBon: "Date bon",
+    client: "Client",
+    idbon_livraison: "Bon de vente associé",
+    "user.username": "Utilisateur",
+    produits: 'produits',
+    totalPrice:'totalPrice',
+    total_price_retour:'total_price_retour',
+    reception_valide:'Etat d\'acceptation',
+	valide:'Etat bon',
+	etat_reglement:'Etat de règlement bon'
+};
 
 export const keyMapEmployees = {
     "nom": "Nom complet",
@@ -967,7 +1011,7 @@ export const keyMapEmployees = {
     "prime_espece": "Prime Panier et Transport",
     "actif": "Actif",
     "dateDebut": "Date Début"
-}
+};
 
 export const keyMapListConge = {
     "salarie.nom": 'Nom complet',
@@ -976,7 +1020,7 @@ export const keyMapListConge = {
     NbrJour: 'Nombre de jours',
     nbrJourPris: 'Nombre de jours pris',
     type_conge: 'Type de congé'
-}
+};
 
 export const keyMapEtatConge = {
     "salarie.nom": 'Nom complet',
@@ -984,7 +1028,7 @@ export const keyMapEtatConge = {
     "salarie.actif": 'Etat',
     NbrJour: 'Nombre de jours',
     nbrJourPris: 'Nombre de jours pris',
-}
+};
 
 export const keyMapAbsence = {
     "salarie.nom": 'Nom complet',
@@ -992,7 +1036,7 @@ export const keyMapAbsence = {
     motif: 'Motif',
     "user.username": 'Ajouté par',
     justifie: 'Justification'
-}
+};
 
 export const keyMapReglement = {
     "salarie.nom": 'Nom complet',
@@ -1000,28 +1044,28 @@ export const keyMapReglement = {
     dateSortie: 'Date de fin',
     montant: 'Montant réglé',
     note: 'Note'
-}
+};
 
 export const keyMapAvanceSalaire = {
     "salarie.nom": 'Nom complet',
     date: 'Date de virement',
     montant: 'Montant',
     motif: 'Motif'
-}
+};
 
 export const keyMapPointage = {
     date: 'Date de pointage',
     "salarie.nom": 'Nom complet',
     temps_arrive: 'Heures d\'arrivée',
     temps_depart: 'Heures de départ',
-}
+};
 
 export const keyMapPrimeMotivation = {
     "salarie.nom": 'Nom complet',
     date: 'Date',
     montant: 'Montant',
     motif: 'Motif'
-}
+};
 
 export const keyMapPretSocial = {
     "salarie.nom": 'Nom complet',
@@ -1031,7 +1075,7 @@ export const keyMapPretSocial = {
     montanttotal: 'Montant Total',
     montantperMonth: 'Montant Mensuel',
     motif: 'Motif'
-}
+};
 
 export const keyMapHours = {
     "salarie.nom": 'Nom complet',
@@ -1040,20 +1084,14 @@ export const keyMapHours = {
     motif: 'Motif',
     "user.username": 'Ajouté par',
     valide: 'Etat de validation'
-}
-
-export const keyMapFournisseur = {
-    id: '#',
-    acronym: 'Fournisseur',
-    adresse: 'Adresse',
-    typefournisseur: 'Type de fournisseur',
-}
+};
 
 export const statusColors: Record<"Active" | "Pending" | "Paused", string> = {
     Active: "bg-green-500",
     Pending: "bg-yellow-500",
     Paused: "bg-red-500",
 };
+
 export const bill = {
     orderNumber: 0,
     orderDate: new Date(),
