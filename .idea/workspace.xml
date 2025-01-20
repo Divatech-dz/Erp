@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
+      <change afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/entrepotProductService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/entrepotService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/prixProduitService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/stockService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/Facture/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/Facture/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bonsRetourVente/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bonsRetourVente/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/dashboard-components/floating-icon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard-components/floating-icon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/componentsRegistry.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/componentsRegistry.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/tabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/tabs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/columnRenderers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/constants/columnRenderers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/context/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/context/Filters.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/clientService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/clientService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/categoryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/categoryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,35 +56,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;API-branch&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Erp/app/(root)/(links)&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Erp\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Erp\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.localhost:3000.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
+    "git-widget-placeholder": "Merging API-branch",
+    "last_opened_file_path": "D:/Erp/app/(root)/(links)",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "D:\\Erp\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "D:\\Erp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Erp\app\(root)\(links)" />

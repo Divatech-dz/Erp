@@ -24,20 +24,20 @@ const selectCategory = (config: ComponentsConfig) => (
             config.setCurrentPage?.(1);
         }}
     >
-        <SelectTrigger className="w-[180px] h-10">
-            <SelectValue placeholder="Filtrer par catégorie"/>
-        </SelectTrigger>
-        <SelectContent className="bg-white">
-            <SelectGroup>
-                <SelectLabel>Catégories</SelectLabel>
-                <SelectItem value=" ">TOUTES</SelectItem>
-                {config.categories?.map((cat) => (
-                    <SelectItem key={cat.id} value={cat.id}>
-                        {cat.category.toUpperCase()}
-                    </SelectItem>
-                ))}
-            </SelectGroup>
-        </SelectContent>
+      <SelectTrigger className="w-[180px] h-10">
+        <SelectValue placeholder="Filtrer par catégorie" />
+      </SelectTrigger>
+      <SelectContent className="bg-white">
+        <SelectGroup>
+          <SelectLabel>Catégories</SelectLabel>
+          <SelectItem value=" ">TOUTES</SelectItem>
+          {config.categories?.map((cat) => (
+            <SelectItem key={cat.id} value={cat.id}>
+              {cat.category?.toUpperCase()}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
     </Select>
 );
 
@@ -109,19 +109,51 @@ const renderDateRange = (config: ComponentsConfig) => (
 );
 
 
-const componentsRegistry = (config: ComponentsConfig): ComponentRegistry => ({
-    /* Admin */
-    utilisateurs: () => (
-        <Button
-            className="flex items-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white bg-gray-800 border border-gray-600 shadow-md hover:bg-gray-700"
-            onClick={() => {
-                config.router?.replace('/add-user')
-            }}
-        >
-            <Image src={icons.Plus} alt="Add User" width={20} height={20}/>
-            Ajouter utilisateurs
-        </Button>
-    ),
+const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
+  utilisateurs: () => (
+    <Button
+      className="flex items-center gap-2 rounded-xl px-5 py-3 text-base font-semibold text-white bg-gray-800 border border-gray-600 shadow-md hover:bg-gray-700"
+      onClick={()=>{config.router?.replace('/add-user')}}
+    >
+      <Image src={icons.Plus} alt="Add User" width={20} height={20} />
+      Ajouter utilisateurs
+    </Button>
+  ),
+  produits: ()=>
+  {
+    return (
+      <>
+        {renderDropdown(config)}
+        {selectCategory(config)}
+      </>
+    )
+  },
+  families: ()=>
+    {
+      return (
+        <>
+          {renderDropdown(config)}
+          {selectCategory(config)}
+        </>
+      )
+    },
+  listePrix:()=> 
+    {
+      return (
+        <>
+          {renderDropdown(config)}
+          {selectCategory(config)}
+        </>
+      )
+    },
+  entrepotsProduits:() => {
+    return (
+      <>
+        {renderDropdown(config)}
+        {selectCategory(config)}
+      </>
+    )
+  },
 
     /* Clients */
 
@@ -144,16 +176,7 @@ const componentsRegistry = (config: ComponentsConfig): ComponentRegistry => ({
         )
     },
 
-    /* Produits */
-
-    produits: () => {
-        return (
-            <>
-                {selectCategory(config)}
-                {renderDropdown(config)}
-            </>
-        )
-    },
+ 
 
     /* Ventes */
 

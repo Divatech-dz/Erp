@@ -1,0 +1,523 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"cbbf06be-f5dd-49e7-8312-c92aa332907a\" name=\"Changes\" comment=\"Fixed conflicts\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Pointage/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Pointage/page.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/etatConge/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/etatConge/page.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/components/componentsRegistry.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/components/componentsRegistry.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/components/data-table.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/components/data-table.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/components/table-components/reusable-sheet.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/components/table-components/reusable-sheet.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/components/table-components/top-content.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/components/table-components/top-content.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/constants/columnRenderers.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/constants/columnRenderers.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/constants/index.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/constants/index.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/lib/utils.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/utils.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/service/RHService.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/service/RHService.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/service/clientService.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/service/clientService.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/types/index.d.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/types/index.d.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"TypeScript JSX File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"rania\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/app/(root)/page.tsx\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"ProjectErrors\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2qZ6OMEwxUkzbUWEGVNZrOPReJt\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;API-branch&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Erp/app/(root)/(links)&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,\r\n    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;npm.dev.executor&quot;: &quot;Run&quot;,\r\n    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\\\Erp\\\\node_modules\\\\prettier&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,\r\n    &quot;ts.external.directory.path&quot;: &quot;D:\\\\Erp\\\\node_modules\\\\typescript\\\\lib&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;sqlite&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Erp\\app\\(root)\\(links)\" />\r\n      <recent name=\"D:\\Erp\\app\\admin\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Erp\\app\\(root)\\(links)\\(Vente)\" />\r\n      <recent name=\"D:\\Erp\\app\\(root)\\(links)\\(Stock)\" />\r\n      <recent name=\"D:\\Erp\\app\\(root)\\(links)\\(Produits)\" />\r\n      <recent name=\"D:\\Erp\\app\\(root)\\(links)\\(Clients)\" />\r\n      <recent name=\"D:\\Erp\\app\\(root)\\(links)\\(admin)\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"npm.dev\">\r\n    <configuration name=\"localhost:3000\" type=\"JavascriptDebugType\" temporary=\"true\" nameIsGenerated=\"true\" uri=\"http://localhost:3000\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" nameIsGenerated=\"true\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"dev\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JavaScript Debug.localhost:3000\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"cbbf06be-f5dd-49e7-8312-c92aa332907a\" name=\"Changes\" comment=\"\" />\r\n      <created>1734857718994</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1734857718994</updated>\r\n      <workItem from=\"1734857720347\" duration=\"158000\" />\r\n      <workItem from=\"1734857908555\" duration=\"857000\" />\r\n      <workItem from=\"1734869971171\" duration=\"198000\" />\r\n      <workItem from=\"1734870181851\" duration=\"12024000\" />\r\n      <workItem from=\"1734898449757\" duration=\"20000\" />\r\n      <workItem from=\"1734941381441\" duration=\"8248000\" />\r\n      <workItem from=\"1734950154702\" duration=\"403000\" />\r\n      <workItem from=\"1734950763071\" duration=\"28153000\" />\r\n      <workItem from=\"1735041572799\" duration=\"39181000\" />\r\n      <workItem from=\"1735218783623\" duration=\"52000\" />\r\n      <workItem from=\"1735218852639\" duration=\"2165000\" />\r\n      <workItem from=\"1735460737948\" duration=\"55000\" />\r\n      <workItem from=\"1735463192764\" duration=\"13587000\" />\r\n      <workItem from=\"1735479258387\" duration=\"9805000\" />\r\n      <workItem from=\"1735545956463\" duration=\"29127000\" />\r\n      <workItem from=\"1735634592510\" duration=\"11412000\" />\r\n      <workItem from=\"1735656221075\" duration=\"4000000\" />\r\n      <workItem from=\"1735978865026\" duration=\"1085000\" />\r\n      <workItem from=\"1735992490194\" duration=\"135000\" />\r\n      <workItem from=\"1736022752724\" duration=\"7902000\" />\r\n      <workItem from=\"1736065167328\" duration=\"12458000\" />\r\n      <workItem from=\"1736106692522\" duration=\"4000\" />\r\n      <workItem from=\"1736151089157\" duration=\"20000\" />\r\n      <workItem from=\"1736151866746\" duration=\"36000\" />\r\n      <workItem from=\"1736152015345\" duration=\"5389000\" />\r\n      <workItem from=\"1736161463584\" duration=\"14806000\" />\r\n      <workItem from=\"1736850722270\" duration=\"1203000\" />\r\n      <workItem from=\"1736930948822\" duration=\"25000\" />\r\n      <workItem from=\"1736947981897\" duration=\"9784000\" />\r\n      <workItem from=\"1737015710612\" duration=\"5150000\" />\r\n      <workItem from=\"1737021027853\" duration=\"5518000\" />\r\n      <workItem from=\"1737032868291\" duration=\"7726000\" />\r\n      <workItem from=\"1737041243372\" duration=\"2055000\" />\r\n      <workItem from=\"1737275263047\" duration=\"3990000\" />\r\n      <workItem from=\"1737279373457\" duration=\"4128000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Fixed conflicts\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1735562160524</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1735562160524</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Fixed conflicts\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Fixed conflicts\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/.idea/workspace.xml	(date 1737377041489)
+@@ -5,22 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/listeClients/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/families/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/families/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/listePrix/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/listePrix/page.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/bons-commande/page.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Pointage/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/Pointage/page.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/etatConge/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(gestionRH)/etatConge/page.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/components/componentsRegistry.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/componentsRegistry.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/components/table-components/top-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/top-content.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/constants/columnRenderers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/constants/columnRenderers.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/service/RHService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/RHService.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/service/clientService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/clientService.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/lib/context/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/context/Filters.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/service/entrepotService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/entrepotService.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -58,35 +50,35 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;API-branch&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/Erp/app/(root)/(links)&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Erp\\node_modules\\prettier&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+-    &quot;ts.external.directory.path&quot;: &quot;D:\\Erp\\node_modules\\typescript\\lib&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "JavaScript Debug.localhost:3000.executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
++    "git-widget-placeholder": "rania",
++    "last_opened_file_path": "D:/Erp/app/(root)/(links)",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.standard": "true",
++    "node.js.detected.package.stylelint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.standard": "",
++    "node.js.selected.package.stylelint": "",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "npm.dev.executor": "Run",
++    "prettierjs.PrettierConfiguration.Package": "D:\\Erp\\node_modules\\prettier",
++    "settings.editor.selected.configurable": "preferences.keymap",
++    "ts.external.directory.path": "D:\\Erp\\node_modules\\typescript\\lib",
++    "vue.rearranger.settings.migration": "true"
+   },
+-  &quot;keyToStringList&quot;: {
+-    &quot;DatabaseDriversLRU&quot;: [
+-      &quot;sqlite&quot;
++  "keyToStringList": {
++    "DatabaseDriversLRU": [
++      "sqlite"
+     ]
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Erp\app\(root)\(links)" />
+Index: app/(root)/(links)/(Produits)/listePrix/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client'\r\n\r\nimport { DataTable } from \"@/components/data-table\";\r\nimport { useFiltersContext } from \"@/lib/context/Filters\";\r\nimport { HeaderNavigation } from \"@/components/header-navigation\";\r\nimport { sidebarLinksManager,prixProduitColumn, keyMapPrix } from \"@/constants\";\r\nimport { getProducts } from \"@/service/productService\";\r\nimport { useQuery } from \"@tanstack/react-query\";\r\n\r\nimport { transformNestedData } from \"@/lib/utils\";\r\nimport { log } from \"node:console\";\r\n\r\n\r\nfunction Page() {\r\n    const {\r\n        categories,\r\n        category,\r\n        setCategory,\r\n        page,\r\n        setPage,\r\n        search,\r\n        setSearch\r\n    } = useFiltersContext();\r\n\r\n\r\n\r\n\r\n  const { isLoading, data: productsData } = useQuery({\r\n    queryKey: [page, search, category],\r\n    queryFn: getProducts,\r\n  });\r\n\r\n    const resultsProducts = productsData?.results;\r\n    const totalPages = productsData?.total_pages;\r\n\r\n   const transformedData= transformNestedData(resultsProducts, keyMapPrix)\r\n\r\n  console.log('====================================');\r\n    console.log(transformedData);\r\n    console.log('====================================');\r\n  return (\r\n    <section className=\"page-design\">\r\n      <h1 className=\"text-4xl font-bold p-2\">Liste des prix</h1>\r\n\r\n      <DataTable\r\n        \r\n        columnNames={prixProduitColumn}\r\n        setSearch={setSearch}\r\n        setCategory={setCategory}\r\n        columnData={transformedData}\r\n        currentPage={page}\r\n        setCurrentPage={setPage}\r\n        totalPages={totalPages}\r\n        categories={categories}\r\n        isLoading={isLoading}\r\n\r\n\r\n       \r\n      />\r\n    </section>\r\n  )\r\n\r\n}\r\n\r\nexport default Page
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/(root)/(links)/(Produits)/listePrix/page.tsx b/app/(root)/(links)/(Produits)/listePrix/page.tsx
+--- a/app/(root)/(links)/(Produits)/listePrix/page.tsx	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/app/(root)/(links)/(Produits)/listePrix/page.tsx	(date 1737376656101)
+@@ -2,14 +2,10 @@
+ 
+ import { DataTable } from "@/components/data-table";
+ import { useFiltersContext } from "@/lib/context/Filters";
+-import { HeaderNavigation } from "@/components/header-navigation";
+-import { sidebarLinksManager,prixProduitColumn, keyMapPrix } from "@/constants";
++import { prixProduitColumn, keyMapPrix } from "@/constants";
+ import { getProducts } from "@/service/productService";
+ import { useQuery } from "@tanstack/react-query";
+-
+ import { transformNestedData } from "@/lib/utils";
+-import { log } from "node:console";
+-
+ 
+ function Page() {
+     const {
+@@ -22,9 +18,6 @@
+         setSearch
+     } = useFiltersContext();
+ 
+-
+-
+-
+   const { isLoading, data: productsData } = useQuery({
+     queryKey: [page, search, category],
+     queryFn: getProducts,
+@@ -32,18 +25,12 @@
+ 
+     const resultsProducts = productsData?.results;
+     const totalPages = productsData?.total_pages;
+-
+-   const transformedData= transformNestedData(resultsProducts, keyMapPrix)
++    const transformedData= transformNestedData(resultsProducts, keyMapPrix)
+ 
+-  console.log('====================================');
+-    console.log(transformedData);
+-    console.log('====================================');
+   return (
+     <section className="page-design">
+       <h1 className="text-4xl font-bold p-2">Liste des prix</h1>
+-
+       <DataTable
+-        
+         columnNames={prixProduitColumn}
+         setSearch={setSearch}
+         setCategory={setCategory}
+@@ -53,13 +40,9 @@
+         totalPages={totalPages}
+         categories={categories}
+         isLoading={isLoading}
+-
+-
+-       
+       />
+     </section>
+   )
+-
+ }
+ 
+ export default Page
+\ No newline at end of file
+Index: app/(root)/(links)/(Vente)/bons-commande/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client'\r\n\r\nimport React, {useMemo} from 'react';\r\nimport {useQuery} from \"@tanstack/react-query\";\r\nimport {useFiltersContext} from \"@/lib/context/Filters\";\r\nimport {getDeliveryNotes} from \"@/service/ordersNoteService\";\r\nimport {DataTable} from \"@/components/data-table\";\r\nimport {keyMapNotes, NotesColumn} from \"@/constants\"\r\nimport {transformNestedData} from '@/lib/utils';\r\nimport {HeaderNavigation} from '@/components/header-navigation';\r\n\r\n\r\nfunction BonsCommandeVente() {\r\n\r\n    const role = 'manager'\r\n    const {\r\n        salesUsers,\r\n        page,\r\n        setPage,\r\n        search,\r\n        setSearch,\r\n        startDate,\r\n        setStartDate,\r\n        endDate,\r\n        setEndDate,\r\n        userId,\r\n        setUserId\r\n    } = useFiltersContext();\r\n\r\n    const {isLoading, data: notesData} = useQuery({\r\n        queryKey: [page, search, startDate, endDate, userId],\r\n        queryFn: getDeliveryNotes,\r\n    });\r\n\r\n    const notesResults = notesData?.results;\r\n    const totalPages = notesData?.total_pages;\r\n    const transformedData = transformNestedData(notesResults, keyMapNotes);\r\n    console.log(notesResults);\r\n    return (\r\n        <section className=\"page-design\">\r\n            <h1 className=\"text-4xl font-bold p-2\">Bons de Commande</h1>\r\n            <DataTable columnNames={NotesColumn} columnData={transformedData} setSearch={setSearch} currentPage={page}\r\n                       setCurrentPage={setPage} totalPages={totalPages} startDate={startDate}\r\n                       setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} setUserId={setUserId}\r\n                       salesUsers={salesUsers} isLoading={isLoading}/>\r\n        </section>\r\n    );\r\n}\r\n\r\nexport default BonsCommandeVente;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/(root)/(links)/(Vente)/bons-commande/page.tsx b/app/(root)/(links)/(Vente)/bons-commande/page.tsx
+--- a/app/(root)/(links)/(Vente)/bons-commande/page.tsx	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/app/(root)/(links)/(Vente)/bons-commande/page.tsx	(date 1737376656078)
+@@ -35,7 +35,7 @@
+     const notesResults = notesData?.results;
+     const totalPages = notesData?.total_pages;
+     const transformedData = transformNestedData(notesResults, keyMapNotes);
+-    console.log(notesResults);
++
+     return (
+         <section className="page-design">
+             <h1 className="text-4xl font-bold p-2">Bons de Commande</h1>
+Index: lib/context/Filters.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client'\r\n\r\nimport React, { createContext, useState } from 'react';\r\nimport { useQuery } from \"@tanstack/react-query\";\r\nimport { getUsersList } from \"@/service/userListService\";\r\nimport { getCategory } from \"@/service/categoryService\";\r\nimport { log } from 'console';\r\n\r\ninterface FiltersContextType {\r\n  salesUsers: any;\r\n  commercials: any;\r\n  categories: any;\r\n  page: number;\r\n  entrepot:number,\r\n  setEntrepot: (value: number | ((prevState: number) => number)) => void,\r\n  setPage: (value: number | ((prevState: number) => number)) => void,\r\n  search: string;\r\n  setSearch: (value: string | ((prevState: string) => string)) => void,\r\n  category: number;\r\n  setCategory: (value: number | ((prevState: number) => number)) => void,\r\n  startDate: string;\r\n  setStartDate: (value: string) => void;\r\n  endDate: string;\r\n  setEndDate: (value: string) => void;\r\n  clientType: string;\r\n  setClientType: (value: string | ((prevState: string) => string)) => void,\r\n  userId: number;\r\n  setUserId: (value: number | ((prevState: number) => number)) => void,\r\n}\r\n\r\nconst FiltersContext = createContext<FiltersContextType | undefined>(undefined);\r\n\r\nexport const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {\r\n  const [page, setPage] = useState(1);\r\n  const [entrepot, setEntrepot] = useState(11);\r\n  const [search, setSearch] = useState('');\r\n  const [category, setCategory] = useState(0);\r\n  const [startDate, setStartDate] = useState('');\r\n  const [endDate, setEndDate] = useState('');\r\n  const [clientType, setClientType] = useState('');\r\n  const [userId, setUserId] = useState(0);\r\n\r\n  const { data: userListData } = useQuery({\r\n    queryKey: ['userList'],\r\n    queryFn: getUsersList\r\n  })\r\n\r\n  const { data: categoryData } = useQuery({\r\n    queryKey: [page, search],\r\n    queryFn: getCategory\r\n  });\r\n\r\n  console.log(\r\n    categoryData\r\n  );\r\n  \r\n  const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');\r\n  const commercials = userListData?.filter((user: any) => user?.role === 'commercial');\r\n  const categories = categoryData?.results?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));\r\n\r\n  return (\r\n    <FiltersContext.Provider\r\n      value={{\r\n        salesUsers,\r\n        commercials,\r\n        categories,\r\n        page,\r\n        setPage,\r\n        search,\r\n        setSearch,\r\n        category,\r\n        setCategory,\r\n        startDate,\r\n        setStartDate,\r\n        endDate,\r\n        setEndDate,\r\n        clientType,\r\n        setClientType,\r\n        userId,\r\n        setUserId,\r\n        entrepot,\r\n        setEntrepot\r\n      }}\r\n    >\r\n      {children}\r\n    </FiltersContext.Provider>\r\n  );\r\n};\r\n\r\nexport const useFiltersContext = () => {\r\n  const context = React.useContext(FiltersContext);\r\n  if (!context) {\r\n    throw new Error('useFilters must be used within a FiltersProvider');\r\n  }\r\n  return context;\r\n};
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/context/Filters.tsx b/lib/context/Filters.tsx
+--- a/lib/context/Filters.tsx	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/lib/context/Filters.tsx	(date 1737376656096)
+@@ -50,10 +50,6 @@
+     queryFn: getCategory
+   });
+ 
+-  console.log(
+-    categoryData
+-  );
+-  
+   const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
+   const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
+   const categories = categoryData?.results?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
+Index: app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>interface Entrepot {\r\n  id: number;\r\n  Désignation: string;\r\n}\r\n\r\ninterface Product {\r\n  id: number;\r\n  name: string;\r\n  reference: string;\r\n  prix_achat: number;\r\n  entrepot: number;\r\n}\r\n\r\ninterface EntrepotData {\r\n  results: Entrepot[];\r\n}\r\n\r\ninterface ProductData {\r\n  results: Product[];\r\n  total_pages: number;\r\n}\r\n\r\n\r\n\r\n'use client';\r\n\r\nimport { DataTable } from \"@/components/data-table\";\r\nimport { Tabs, TabsList, TabsTrigger, TabsContent } from \"@/components/ui/tabs\";\r\nimport { entrepotProductColumn, keyMapEntrepotProduct } from \"@/constants\";\r\nimport { useFiltersContext } from \"@/lib/context/Filters\";\r\nimport { transformNestedData } from \"@/lib/utils\";\r\nimport { getEntrepot } from \"@/service/entrepotService\";\r\nimport { getProducts } from \"@/service/productService\";\r\nimport { getStock } from \"@/service/stockService\";\r\nimport { useQuery } from \"@tanstack/react-query\";\r\nimport { log } from \"node:console\";\r\nimport React, { useState, useMemo, useEffect } from \"react\";\r\n\r\nconst Page = () => {\r\n  const {\r\n    page,\r\n    setPage,\r\n    categories,\r\n    category,\r\n    setCategory,\r\n    search,\r\n    setSearch,\r\n    entrepot,\r\n    setEntrepot\r\n  } = useFiltersContext();\r\n\r\n\r\n  const { data: entrepotData } = useQuery({\r\n    queryKey: [page, search],\r\n    queryFn: getEntrepot,\r\n  });\r\n\r\n  const transformedEntrepots = useMemo(\r\n    () => transformNestedData(entrepotData?.results || [], { id: \"id\", name: \"Désignation\" }),\r\n    [entrepotData]\r\n  );\r\n\r\n\r\n  const { data: stockData } = useQuery({\r\n    queryKey: [page, search,entrepot],\r\n    queryFn: getStock,\r\n  });\r\n\r\n  const transformedStock = useMemo(\r\n    () => transformNestedData(stockData?.results || [], { id: \"id\", name: \"Désignation\",quantity:\"Quantité\",prix_achat:\"Prix Revient\",montant_total:\"Montant\" }),\r\n    [stockData]\r\n  );\r\n  \r\n\r\n  console.log('transformedStock');\r\n  console.log(transformedStock);\r\n \r\n\r\n  const { data:productsData, isLoading } = useQuery({\r\n    queryKey: [ page, search, category],\r\n    queryFn: getProducts,\r\n  });\r\n\r\n  const transformedProducts = useMemo(\r\n    () => transformNestedData(productsData?.results || [], { id: \"id\",name:\"Désignation\",prix_achat:\"Prix Revient\",quantity:\"Quantité\",stock:\"stock\"}),\r\n    [productsData]\r\n  );\r\n\r\n\r\n      \r\n//  const transformedProducts= transformNestedData(productsData, keyMapEntrepotProduct)\r\n  \r\n // console.log(\"transformedProducts\",transformedProducts);\r\n  const totalPages = productsData?.total_pages || 0;\r\n\r\n\r\n  const [entrepotActif, setEntrepotActif] = useState<number >(0);\r\n\r\n\r\n  // const produitsFiltres = useMemo(() => {\r\n  //   if (entrepotActif ==11 ) return transformedProducts || [];\r\n  //   return transformedProducts?.filter((product) => product.id === 1778) || [];\r\n  // }, [entrepotActif]);\r\n\r\n\r\n  // const produitsFiltres = transformedProducts?.filter((p) => \r\n  //   p?.stock?.some((s: any) => s.entrepot === entrepotActif)\r\n  // );\r\n  \r\n  // console.log('Produits filtrés :', produitsFiltres);\r\n      \r\n\r\n\r\n\r\n\r\n    //   const produitsFiltres = transformedProducts\r\n    //   ?.filter((p) => p?.stock?.some((s: any) => s.entrepot === entrepotActif))\r\n    //   ?.map((p) => {\r\n    \r\n    //     const filteredStock = p?.stock?.filter((s: any) => s.entrepot === entrepotActif);\r\n\r\n      \r\n    //     return {\r\n    //       ...p,\r\n    //       stock: filteredStock.map((s:any) => ({\r\n    //         ...s,\r\n    //         quantity: s.quantity, \r\n    //       })),\r\n    //     };\r\n    //   });\r\n\r\n    // console.log(\"Produits filtrés avec les quantités :\", produitsFiltres);\r\n\r\n\r\n  \r\n\r\n  useEffect(()=>{\r\n    console.log('entrepotActif');\r\n    console.log(entrepotActif);\r\n    // console.log('produitsFiltres');\r\n    // console.log(produitsFiltres);\r\n  },[entrepotActif])\r\n\r\n\r\n  return (\r\n    <section className=\"page-design\">\r\n      <h1 className=\"text-4xl font-bold p-2\">Répartition des produits sur les entrepôts</h1>\r\n      <Tabs >\r\n        \r\n        <TabsList>\r\n          {transformedEntrepots?.map((entrepot) => (\r\n            <TabsTrigger\r\n              key={entrepot.id}\r\n              value={entrepot.id.toString()}\r\n              onClick={() => setEntrepot(entrepot.id)} \r\n              className={`cursor-pointer px-4 py-2 ${\r\n                entrepot === entrepot.id ? \"font-bold\" : \"\"\r\n              }`}\r\n            >\r\n              {entrepot.Désignation}\r\n            </TabsTrigger>\r\n\r\n\r\n\r\n\r\n          ))}\r\n        </TabsList>\r\n\r\n   \r\n          \r\n              <DataTable\r\n                columnNames={entrepotProductColumn}\r\n                columnData={transformedStock}\r\n                setSearch={setSearch}\r\n                setCategory={setCategory}\r\n                currentPage={page}\r\n                setCurrentPage={setPage}\r\n                totalPages={totalPages}\r\n                categories={categories}\r\n                isLoading={isLoading}\r\n              />\r\n           \r\n      </Tabs>\r\n    </section>\r\n  );\r\n}  \r\n\r\nexport default Page;\r\n
+===================================================================
+diff --git a/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx b/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx
+--- a/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx	(date 1737377133750)
+@@ -1,174 +1,112 @@
++'use client';
++
++import {DataTable} from "@/components/data-table";
++import {Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs";
++import {entrepotProductColumn} from "@/constants";
++import {useFiltersContext} from "@/lib/context/Filters";
++import {transformNestedData} from "@/lib/utils";
++import {getEntrepot} from "@/service/entrepotService";
++import {getProducts} from "@/service/productService";
++import {getStock} from "@/service/stockService";
++import {useQuery} from "@tanstack/react-query";
++import React, {useState, useMemo, useEffect} from "react";
++
+ interface Entrepot {
+-  id: number;
+-  Désignation: string;
++    id: number;
++    Désignation: string;
+ }
+ 
+ interface Product {
+-  id: number;
+-  name: string;
+-  reference: string;
+-  prix_achat: number;
+-  entrepot: number;
++    id: number;
++    name: string;
++    reference: string;
++    prix_achat: number;
++    entrepot: number;
+ }
+ 
+ interface EntrepotData {
+-  results: Entrepot[];
++    results: Entrepot[];
+ }
+ 
+ interface ProductData {
+-  results: Product[];
+-  total_pages: number;
++    results: Product[];
++    total_pages: number;
+ }
+ 
+-
+-
+-'use client';
+-
+-import { DataTable } from "@/components/data-table";
+-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+-import { entrepotProductColumn, keyMapEntrepotProduct } from "@/constants";
+-import { useFiltersContext } from "@/lib/context/Filters";
+-import { transformNestedData } from "@/lib/utils";
+-import { getEntrepot } from "@/service/entrepotService";
+-import { getProducts } from "@/service/productService";
+-import { getStock } from "@/service/stockService";
+-import { useQuery } from "@tanstack/react-query";
+-import { log } from "node:console";
+-import React, { useState, useMemo, useEffect } from "react";
+-
+ const Page = () => {
+-  const {
+-    page,
+-    setPage,
+-    categories,
+-    category,
+-    setCategory,
+-    search,
+-    setSearch,
+-    entrepot,
+-    setEntrepot
+-  } = useFiltersContext();
++    const {
++        page,
++        setPage,
++        categories,
++        category,
++        setCategory,
++        search,
++        setSearch,
++        entrepot,
++        setEntrepot
++    } = useFiltersContext();
+ 
+-
+-  const { data: entrepotData } = useQuery({
+-    queryKey: [page, search],
+-    queryFn: getEntrepot,
+-  });
++    const {data: entrepotData} = useQuery({
++        queryKey: ["entrepot"],
++        queryFn: getEntrepot,
++    });
+ 
+-  const transformedEntrepots = useMemo(
+-    () => transformNestedData(entrepotData?.results || [], { id: "id", name: "Désignation" }),
+-    [entrepotData]
+-  );
++    const transformedEntrepots = useMemo(
++        () => transformNestedData(entrepotData?.results || [], {id: "id", name: "Désignation"}),
++        [entrepotData]
++    );
+ 
+-
+-  const { data: stockData } = useQuery({
+-    queryKey: [page, search,entrepot],
+-    queryFn: getStock,
+-  });
++    const {data: stockData} = useQuery({
++        queryKey: [page, search, entrepot],
++        queryFn: getStock,
++    });
+ 
+-  const transformedStock = useMemo(
+-    () => transformNestedData(stockData?.results || [], { id: "id", name: "Désignation",quantity:"Quantité",prix_achat:"Prix Revient",montant_total:"Montant" }),
+-    [stockData]
+-  );
+-  
++    const transformedStock = useMemo(
++        () => transformNestedData(stockData?.results || [], {
++            id: "id",
++            name: "Désignation",
++            quantity: "Quantité",
++            prix_achat: "Prix Revient",
++            montant_total: "Montant"
++        }),
++        [stockData]
++    );
+ 
+-  console.log('transformedStock');
+-  console.log(transformedStock);
+- 
+-
+-  const { data:productsData, isLoading } = useQuery({
+-    queryKey: [ page, search, category],
+-    queryFn: getProducts,
+-  });
++    const {data: productsData, isLoading} = useQuery({
++        queryKey: [page, search, category],
++        queryFn: getProducts,
++    });
+ 
+-  const transformedProducts = useMemo(
+-    () => transformNestedData(productsData?.results || [], { id: "id",name:"Désignation",prix_achat:"Prix Revient",quantity:"Quantité",stock:"stock"}),
+-    [productsData]
+-  );
+-
+-
+-      
+-//  const transformedProducts= transformNestedData(productsData, keyMapEntrepotProduct)
+-  
+- // console.log("transformedProducts",transformedProducts);
+-  const totalPages = productsData?.total_pages || 0;
+-
+-
+-  const [entrepotActif, setEntrepotActif] = useState<number >(0);
++    const totalPages = productsData?.total_pages || 0;
++    const [entrepotActif, setEntrepotActif] = useState<number>(0);
+ 
+-
+-  // const produitsFiltres = useMemo(() => {
+-  //   if (entrepotActif ==11 ) return transformedProducts || [];
+-  //   return transformedProducts?.filter((product) => product.id === 1778) || [];
+-  // }, [entrepotActif]);
+-
+-
+-  // const produitsFiltres = transformedProducts?.filter((p) => 
+-  //   p?.stock?.some((s: any) => s.entrepot === entrepotActif)
+-  // );
+-  
+-  // console.log('Produits filtrés :', produitsFiltres);
+-      
+-
+-
+-
+-
+-    //   const produitsFiltres = transformedProducts
+-    //   ?.filter((p) => p?.stock?.some((s: any) => s.entrepot === entrepotActif))
+-    //   ?.map((p) => {
+-    
+-    //     const filteredStock = p?.stock?.filter((s: any) => s.entrepot === entrepotActif);
+-
+-      
+-    //     return {
+-    //       ...p,
+-    //       stock: filteredStock.map((s:any) => ({
+-    //         ...s,
+-    //         quantity: s.quantity, 
+-    //       })),
+-    //     };
+-    //   });
+-
+-    // console.log("Produits filtrés avec les quantités :", produitsFiltres);
+-
+-
+-  
+-
+-  useEffect(()=>{
+-    console.log('entrepotActif');
+-    console.log(entrepotActif);
+-    // console.log('produitsFiltres');
+-    // console.log(produitsFiltres);
+-  },[entrepotActif])
++    useEffect(() => {
++        console.log('entrepotActif');
++        console.log(entrepotActif);
++        // console.log('produitsFiltres');
++        // console.log(produitsFiltres);
++    }, [entrepotActif])
+ 
+-
+-  return (
+-    <section className="page-design">
+-      <h1 className="text-4xl font-bold p-2">Répartition des produits sur les entrepôts</h1>
+-      <Tabs >
+-        
+-        <TabsList>
+-          {transformedEntrepots?.map((entrepot) => (
+-            <TabsTrigger
+-              key={entrepot.id}
+-              value={entrepot.id.toString()}
+-              onClick={() => setEntrepot(entrepot.id)} 
+-              className={`cursor-pointer px-4 py-2 ${
+-                entrepot === entrepot.id ? "font-bold" : ""
+-              }`}
+-            >
+-              {entrepot.Désignation}
+-            </TabsTrigger>
+-
+-
+-
+-
+-          ))}
+-        </TabsList>
+-
+-   
+-          
+-              <DataTable
++    return (
++        <section className="page-design">
++            <h1 className="text-4xl font-bold p-2">Répartition des produits sur les entrepôts</h1>
++            <Tabs value={entrepotActif.toString()} onValueChange={(value)=> setEntrepotActif(Number(value))}>
++                <TabsList>
++                    {transformedEntrepots?.map((entrepot) => (
++                        <TabsTrigger
++                            key={entrepot.id}
++                            value={entrepot.id.toString()}
++                            onClick={() => setEntrepot(entrepot.id)}
++                            className={`cursor-pointer px-4 py-2 ${
++                                entrepot === entrepot.id ? "font-bold" : ""
++                            }`}
++                        >
++                            {entrepot.Désignation}
++                        </TabsTrigger>
++                    ))}
++                </TabsList>
++            </Tabs>
++            <DataTable
+                 columnNames={entrepotProductColumn}
+                 columnData={transformedStock}
+                 setSearch={setSearch}
+@@ -178,11 +116,9 @@
+                 totalPages={totalPages}
+                 categories={categories}
+                 isLoading={isLoading}
+-              />
+-           
+-      </Tabs>
+-    </section>
+-  );
+-}  
++            />
++        </section>
++    );
++}
+ 
+ export default Page;
+Index: service/entrepotService.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import axiosInstance from \"@/lib/axios\";\r\n\r\nimport Cookies from \"js-cookie\";\r\n\r\nexport const getEntrepot = async ({ queryKey }: { queryKey: [number, string] }) => {\r\n    const page = queryKey[0];\r\n    const search = queryKey[1];\r\n    try {\r\n        const { data } = await axiosInstance.get(\"/inventory/Entrepot/\", {\r\n            params: {\r\n                page: page,\r\n                search: search,\r\n            },\r\n            headers: {\r\n                'Content-Type': 'application/json',\r\n                'Authorization': `Bearer ${Cookies.get('token')}`\r\n            }\r\n        });\r\n        return data;\r\n    } catch (error) {\r\n        console.error(error);\r\n        return [];\r\n    }\r\n};
+===================================================================
+diff --git a/service/entrepotService.ts b/service/entrepotService.ts
+--- a/service/entrepotService.ts	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/service/entrepotService.ts	(date 1737377123720)
+@@ -2,15 +2,9 @@
+ 
+ import Cookies from "js-cookie";
+ 
+-export const getEntrepot = async ({ queryKey }: { queryKey: [number, string] }) => {
+-    const page = queryKey[0];
+-    const search = queryKey[1];
++export const getEntrepot = async () => {
+     try {
+         const { data } = await axiosInstance.get("/inventory/Entrepot/", {
+-            params: {
+-                page: page,
+-                search: search,
+-            },
+             headers: {
+                 'Content-Type': 'application/json',
+                 'Authorization': `Bearer ${Cookies.get('token')}`

@@ -11,10 +11,21 @@ export const sidebarLinks: SidebarLink[] = [
                 name: 'Produits',
                 link: '/produits',
             },
+
+      {
+        name: 'Families',
+        link: '/families',
+      },
+
             {
                 name: 'Liste des prix',
                 link: '/listePrix',
             },
+
+      {
+        name: 'Produits / Entrepots',
+        link: '/entrepotsProduits',
+      },
         ],
         label: 'Produits',
     },
@@ -212,54 +223,54 @@ export const sidebarLinks: SidebarLink[] = [
 ];
 
 export const sidebarLinksManager = [
-    {
-        name: 'Produits',
-        router: [
-            {
-                label: 'Produits',
-                router: ['Families', 'produits', 'Quantite a facteur', 'List de Produits']
-            },
-            {
-                label: 'Laison',
-                router: ['Produits /Entrops']
-            },
-            {
-                label: 'Etat de Stock',
-                router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
-            }
-        ]
-    },
-    {
-        name: 'Stock',
-        router: [
-            {
-                label: 'entrepots',
-                router: ['entrepots', 'repatrition']
-            },
-            {
-                label: 'Mouvements',
-                router: ["Bons entrée", "Bons Transfert", "Bons Transfert Entre Magasins", "Bons Sortie"]
-            },
-            {
-                label: 'États',
-                router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
-            },
-            {
-                label: 'Inventaires',
-                router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
-            }
-        ]
-    },
-    {
-        name: 'Vente',
-        router: [
-            {
-                label: 'bons-commande',
-                router: ['bons-commande', 'Facture']
-            },
+  {
+    name: 'Produits',
+    router: [
+      {
+        label: 'Produits',
+        router: ['families', 'produits', 'Quantite a facteur', 'listePrix']
+      },
+      {
+        label: 'Laison',
+        router: ['Produits /Entrops']
+      },
+      {
+        label: 'Etat de Stock',
+        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+      }
+    ]
+  },
+  {
+    name: 'Stock',
+    router: [
+      {
+        label: 'entrepots',
+        router: ['entrepots', 'repatrition']
+      },
+      {
+        label: 'Mouvements',
+        router: ["Bons entrée", "Bons Transfert", "Bons Transfert Entre Magasins", "Bons Sortie"]
+      },
+      {
+        label: 'États',
+        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+      },
+      {
+        label: 'Inventaires',
+        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+      }
+    ]
+  },
+  {
+    name: 'Vente',
+    router: [
+      {
+        label: 'bons-commande',
+        router: ['bons-commande', 'Facture']
+      },
 
-        ]
-    }
+    ]
+  }
 ]
 
 export enum AuthType {
@@ -425,6 +436,93 @@ export const rowTable: rowsType[] = [
         sort: false
     },
 ]
+
+
+export const familiesColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Libéllé'
+  },
+
+  {
+    id: '2',
+    name: 'Composant associé'
+  },
+
+  {
+    id:'3',
+    name: 'Nombre de produits'
+  },
+
+  {
+    id:'4',
+    name:'Type'
+  }
+]
+
+export const prixProduitColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Désignation'
+  },
+
+  {
+    id:'2',
+    name: 'Quantité'
+  },
+  {
+    id:'3',
+    name:'Prix Conseillé TTC',
+    sort: true,
+    sortBy: 'PrixConseillé'
+  },
+
+  {
+    id:'4',
+    name:"Prix Revendeur TTC",
+    sort: true,
+    sortBy: 'PrixRevendeur'
+
+  }
+
+
+]
+
+
+export const entrepotColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Désignation'
+  },
+  {
+    id: '2',
+    name: 'store'
+  }
+
+]
+
+
+export const entrepotProductColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Désignation'
+  },
+  {
+    id: '2',
+    name: 'Quantité'
+  },
+  {
+    id:'3',
+    name:"Prix Revient"
+  },
+  {
+    id:'4',
+    name:"Montant"
+  }
+
+]
+
+
 
 export const NotesColumn: rowsType[] = [
     {
@@ -868,6 +966,25 @@ export const HoursColumn: rowsType[] = [
     }
 ]
 
+export const FournisseurColumn: rowsType[] = [
+    {
+        id: '1',
+        name: '#'
+    },
+    {
+        id: '2',
+        name: 'Fournisseur'
+    },
+    {
+        id: '3',
+        name: 'Adresse'
+    },
+    {
+        id: '4',
+        name: 'Type de fournisseur'
+    },
+]
+
 export const StatusOptions: rowsType[] = [{
 
     id: '1',
@@ -924,6 +1041,38 @@ export const entropsRows = [
         sort: false
     }
 ]
+
+
+export const keyMapEntrepot = {
+  id:"id",
+  name: "Désignation",
+  location: "Location",
+
+};
+
+export const keyMapEntrepotProduct = {
+  name: "Désignation",
+  prix_achat:"Prix Revient",
+  "stock[0].quantity":"Quantité",
+
+
+};
+
+export const keyMapPrix = {
+  name: "Désignation",
+  quantity_globale: "Quantité",
+  PrixConseillé:"Prix Conseillé TTC",
+  PrixRevendeur:"Prix Revendeur TTC"
+};
+
+
+export const keyMapCategory = {
+  Libellé: "Libéllé",
+  pc_component: "Composant associé",
+  typefamilly:"Type",
+  numbre_produit:"Nombre de produits",
+  store:"store"
+};
 
 export const keyMapStock = {
     name: "Libellé",
