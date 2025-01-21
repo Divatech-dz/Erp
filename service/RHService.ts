@@ -74,7 +74,7 @@ export const getAbsence = async ({ queryKey }: { queryKey: [number, string] }) =
     const search = queryKey[1];
 
     try {
-        const { data } = await axiosInstance.get("/gestionRH/Absence/", {
+        const { data } = await axiosInstance.get("/gestionRH/Absence", {
             params: {
                 page: page,
                 search: search,
@@ -124,6 +124,90 @@ export const getPointage = async ({ queryKey }: { queryKey: [number, string, str
                 search: search,
                 start_date: startDate,
                 end_date: endDate,
+            },
+            headers: {
+                'Authorization': `Bearer ${Cookies.get('token')}`
+            }
+        });
+        return data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
+
+export const getAvanceSalaire = async ({ queryKey }: { queryKey: [number, string] }) => {
+    const page = queryKey[0];
+    const search = queryKey[1];
+
+    try {
+        const { data } = await axiosInstance.get("/gestionRH/AvanceSalaire/", {
+            params: {
+                page: page,
+                search: search,
+            },
+            headers: {
+                'Authorization': `Bearer ${Cookies.get('token')}`
+            }
+        });
+        return data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
+
+export const getPrime = async ({ queryKey }: { queryKey: [number, string] }) => {
+    const page = queryKey[0];
+    const search = queryKey[1];
+
+    try {
+        const { data } = await axiosInstance.get("/gestionRH/PrimeMotivation/", {
+            params: {
+                page: page,
+                search: search,
+            },
+            headers: {
+                'Authorization': `Bearer ${Cookies.get('token')}`
+            }
+        });
+        return data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
+
+export const getPretSocial = async ({ queryKey }: { queryKey: [number, string] }) => {
+    const page = queryKey[0];
+    const search = queryKey[1];
+
+    try {
+        const { data } = await axiosInstance.get("/gestionRH/PrixSocial/", {
+            params: {
+                page: page,
+                search: search,
+            },
+            headers: {
+                'Authorization': `Bearer ${Cookies.get('token')}`
+            }
+        });
+        return data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
+
+export const getHeureSupplementaire = async ({ queryKey }: { queryKey: [number, string] }) => {
+    const page = queryKey[0];
+    const search = queryKey[1];
+
+    try {
+        const { data } = await axiosInstance.get("/gestionRH/HeureSup/", {
+            params: {
+                page: page,
+                search: search,
             },
             headers: {
                 'Authorization': `Bearer ${Cookies.get('token')}`

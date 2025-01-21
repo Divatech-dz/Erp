@@ -9,32 +9,35 @@ import loader from '@/public/icons/loader.svg';
 import openedEye from '@/public/icons/openedEye.svg';
 import closedEye from '@/public/icons/closed-eye.svg';
 import Products from '@/public/icons/products.svg';
-import Stock from '@/public/icons/stock.svg'
-import Sell from '@/public/icons/sell.svg'
-import Goal from '@/public/icons/goal.svg'
-import Statistic from '@/public/icons/statistic.svg'
-import Check from '@/public/icons/check.svg'
 import DivaTech from '@/public/icons/erp-01.jpg';
-import Trier from '@/public/icons/trier.svg'
-import  Visible  from '@/public/icons/visible.svg'
-import  Trash  from '@/public/icons/trash.svg'
-import Edit from '@/public/icons/edit.svg'
 import Search  from '@/public/icons/search.svg';
-import ArrowDown from '@/public/icons/arrow-down.svg'
-import ArrowUp from '@/public/icons/arrow-up.svg'
-import  ThreeDots from '@/public/icons/three-dots.png'
-import Filter from '@/public/icons/filter.svg'
-import Admin  from '@/public/icons/admin.svg'
-import Plus   from '@/public/icons/plus.svg'
-import ClosedCircle  from '@/public/icons/closed-circle.svg'
-import Excel  from '@/public/icons/excel.svg'
-import remove from '@/public/icons/remove.svg'
-import close from '@/public/icons/close.svg'
-import walkingMan from '@/public/icons/walking-man.svg'
-import truck from '@/public/icons/truck.svg'
+import Edit from '@/public/icons/edit.svg';
+import Stock from '@/public/icons/stock.svg';
+import Filter from '@/public/icons/filter.svg';
+import Admin from '@/public/icons/admin.svg';
+import Sell from '@/public/icons/sell.svg';
+import Trash from '@/public/icons/trash.svg';
+import Goal from '@/public/icons/goal.svg';
+import Statistic from '@/public/icons/statistic.svg';
+import Check from '@/public/icons/check.svg';
+import Trier from '@/public/icons/trier.svg';
+import Visible from '@/public/icons/visible.svg';
+import ArrowDown from '@/public/icons/arrow-down.svg';
+import ArrowUp from '@/public/icons/arrow-up.svg';
+import ThreeDots from '@/public/icons/three-dots.png';
+import Plus from '@/public/icons/plus.svg';
+import ClosedCircle from '@/public/icons/closed-circle.svg';
+import Excel from '@/public/icons/excel.svg';
+import remove from '@/public/icons/remove.svg';
+import walkingMan from '@/public/icons/walking-man.svg';
+import truck from '@/public/icons/truck.svg';
+import comptoire from '@/public/icons/comptoir5.svg';
+
+
+
 export const icons = {
   Admin,
-  close,
+//  close,
   administration,
   Filter,
   archives,
@@ -65,7 +68,8 @@ export const icons = {
   Excel,
   remove,
   walkingMan,
-  truck 
+  truck,
+  comptoire 
 };
 export const images={
   DivaTech

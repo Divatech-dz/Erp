@@ -1,9 +1,10 @@
 'use client'
 import {DataTable} from "@/components/data-table";
 import {useFiltersContext} from "@/lib/context/Filters";
-import {congeListColumn} from "@/constants";
+import {congeListColumn, keyMapListConge} from "@/constants";
 import {useQuery} from "@tanstack/react-query";
 import {getConge} from "@/service/RHService";
+import {transformNestedData} from "@/lib/utils";
 
 function Page() {
     const {
@@ -20,12 +21,13 @@ function Page() {
 
     const resultsConge = congeData?.results;
     const totalPages = congeData?.total_pages;
+    const transformedData = transformNestedData(resultsConge, keyMapListConge)
 
     return (
-        <section className="page-design py-0">
+        <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Liste des congés pris</h1>
             <DataTable
-                columnNames={congeListColumn} columnData={resultsConge} setSearch={setSearch} currentPage={page}
+                columnNames={congeListColumn} columnData={transformedData} setSearch={setSearch} currentPage={page}
                 setCurrentPage={setPage} totalPages={totalPages} isLoading={isLoading}
             />
         </section>

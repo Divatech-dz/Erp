@@ -1,9 +1,10 @@
 
 import FloatingIcon from '@/components/dashboard-components/floating-icon';
 import { RightSideBar } from '@/components/right-side-bar';
-import { MobileNav, SideBar } from '@/components/side-bar';
+import { MobileNav,  } from '@/components/side-bar';
 import { icons } from '@/constants/icons';
 import Image from 'next/image';
+import SideBar from "@/components/side-bar/side-bar";
 
 export default async function RootLayout({
   children,

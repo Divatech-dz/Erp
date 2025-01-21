@@ -25,13 +25,11 @@ function Page() {
         queryKey: [page, search, clientType, userId],
         queryFn: getClients
     });
-
+  
     const clientsResults = ClientsData?.results;
     const totalPages = ClientsData?.total_pages;
     const documentKeys = ["NifDoc", "RCDoc", "NisDoc"];
     const transformedData= transformNestedData(clientsResults, keyMapClient,documentKeys,'Documents associés')
-  
-  
 
     return (
       <section className="page-design">

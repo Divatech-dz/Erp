@@ -1,5 +1,7 @@
 import {LucideIcon} from "lucide-react";
 
+import {Dispatch} from "react";
+
 
 // interface
 declare interface FooterProps {
@@ -29,6 +31,7 @@ declare interface TableProps {
     productData?: T | any[] | undefined,
     totalPages?: number,
     setCategory?: (value: (((prevState: number) => number) | number)) => void,
+    setCaisse?: (value: (((prevState: number) => number) | number)) => void,
     setSearch?: (value: (((prevState: string) => string) | string)) => void,
     categories?: { id: string; category: string; }[],
     startDate?: string,
@@ -76,45 +79,52 @@ export type AccordionType = SidebarLink & {
 }
 
 export type rowsType = {
-  id: string;
-  name:string;  
-  sort?: boolean;
-  sortBy?: string;
+    id: string;
+    name: string;
+    sort?: boolean;
+    sortBy?: string;
 };
 
 export type Column = rowsType & {
     id: string;
     opensModal?: boolean;
-
 };
 
 export interface ComponentsConfig {
-  router?: AppRouterInstance;
-  columnNames?: rowsType[];
-  handleColumnVisibilityChange: (columnKey: string) => void;
-  visibleColumns: Set<string>;
-  categories?: Array<{ id: string; category: string }>;
-  setCategory?: Dispatch<SetStateAction<number>>;
-  setCurrentPage?: Dispatch<SetStateAction<number>>;
+    router?: AppRouterInstance;
+    columnNames?: rowsType[];
+    handleColumnVisibilityChange: (columnKey: string) => void;
+    visibleColumns: Set<string>;
+    categories?: Array<{ id: string; category: string }>;
+    setCategory?: Dispatch<SetStateAction<number>>;
+    setCurrentPage?: Dispatch<SetStateAction<number>>;
+    setStartDate?: Dispatch<setStateAction<string>>,
+    setEndDate?: Dispatch<setStateAction<string>>,
+    startDate?: string,
+    endDate?: string,
+     setUserId?: Dispatch<SetStateAction<number>>;
+    salesUsers?: any[],
+    setClientType?: Dispatch<SetStateAction<string>>;
 }
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits';
+
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente';
 export type ComponentRegistry = {
-  [key in ComponentsRegistryKey]: () => JSX.Element| null;
+    [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };
 
 export interface TopContentProps {
-  setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>,
-  visibleColumns: Set<string>,
-  columnNames?: rowsType[],
-  setCategory?: React.Dispatch<React.SetStateAction<number>>,
-  categories?: Array<{ id: string; category: string }>,
-  setCurrentPage?: React.Dispatch<React.SetStateAction<number>>,
-  setSearch?: ((value: (((prevState: string) => string) | string)) => void) ,
-  startDate?: string,
-  setStartDate?: React.Dispatch<React.SetStateAction<string>>,
-  endDate?: string,
-  setEndDate?: React.Dispatch<React.SetStateAction<string>>,
-  setClientType?: React.Dispatch<React.SetStateAction<string>>,
-  setUserId?: React.Dispatch<React.SetStateAction<number>>,
-  salesUsers?: any[]
+    setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>,
+    visibleColumns: Set<string>,
+    columnNames?: rowsType[],
+    setCategory?: React.Dispatch<React.SetStateAction<number>>,
+    categories?: Array<{ id: string; category: string }>,
+    setCurrentPage?: React.Dispatch<React.SetStateAction<number>>,
+    setSearch?: ((value: (((prevState: string) => string) | string)) => void),
+    startDate?: string,
+    setStartDate?: React.Dispatch<React.SetStateAction<string>>,
+    endDate?: string,
+    setEndDate?: React.Dispatch<React.SetStateAction<string>>,
+    setClientType?: React.Dispatch<React.SetStateAction<string>>,
+    setUserId?: React.Dispatch<React.SetStateAction<number>>,
+    salesUsers?: any[]
 }
