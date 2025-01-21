@@ -5,7 +5,7 @@ import {icons} from './icons';
 
 type ColumnRenderer = (row: Record<string, any>, name: string) => JSX.Element;
 
-const formatDate=(dateString: string): string => {
+const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -13,7 +13,7 @@ const formatDate=(dateString: string): string => {
     return `${year}-${month}-${day}`;
 }
 
-const calculateMinutesLate=(arrivalTime: string): number => {
+const calculateMinutesLate = (arrivalTime: string): number => {
     const [hours, minutes] = arrivalTime.split(':').map(Number);
     const arrivalDate = new Date();
     arrivalDate.setHours(hours, minutes, 0, 0);
@@ -25,8 +25,8 @@ const calculateMinutesLate=(arrivalTime: string): number => {
     return Math.max(0, Math.floor(diff / 60000)); // Convert milliseconds to minutes
 }
 
-const formatAmount=(amount: number): string => {
-    return amount.toLocaleString('fr-FR', { style: 'currency', currency: 'DZD' });
+const formatAmount = (amount: number): string => {
+    return amount.toLocaleString('fr-FR', {style: 'currency', currency: 'DZD'});
 }
 
 const columnRenderers: Record<string, ColumnRenderer> = {
@@ -76,10 +76,10 @@ const isTruck = row[name];
      )}
    </div>
  )},
- "Validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded-full text-white font-semibold ', {
-    'bg-green-500': row[name], 
-    'bg-yellow-500': !row[name], 
-  })}
+ "Validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded text-white ', {
+        'bg-green-500': row[name],
+        'bg-red-500': !row[name],
+    })}
 >
   {row[name] ? 'Validé' : 'En attente'}
 </p>),
@@ -107,11 +107,39 @@ const isTruck = row[name];
     </p>),
     "Nombre de jours restant": (row, name) => <p>{Number(row["Nombre de jours"] - row["Nombre de jours pris"])}</p>,
     "Date de pointage": (row, name) => <p>{formatDate(row[name])}</p>,
-    "Minutes en retard": (row, name)=> <p>{calculateMinutesLate(row["Heures d'arrivée"])}</p>,
-    "Date d'absence": (row, name)=> <p>{formatDate(row[name])}</p>,
-    "Date": (row, name)=> <p>{formatDate(row[name])}</p>,
-    'Date de prise': (row, name)=> <p>{formatDate(row[name])}</p>,
-    'Chiffre d\'affaire': (row, name)=> <p>{formatAmount(row[name])}</p>
+    "Minutes en retard": (row, name) => <p>{calculateMinutesLate(row["Heures d'arrivée"])}</p>,
+    "Date d'absence": (row, name) => <p>{formatDate(row[name])}</p>,
+    "Date": (row, name) => <p>{formatDate(row[name])}</p>,
+    'Date de prise': (row, name) => <p>{formatDate(row[name])}</p>,
+    'Chiffre d\'affaire': (row, name) => <p>{formatAmount(row[name])}</p>,
+    "Statut": (row, name) => (<p className={cn('inline-block px-2 py-1 rounded text-white ', {
+        'bg-green-500': row[name],
+        'bg-red-500': !row[name],
+    })}
+    >
+        {row[name] ? 'Actif' : 'Inactif'}
+    </p>),
+    "Etat d'acceptation": (row, name) => (<p className={cn('inline-block px-2 py-1 rounded text-white ', {
+        'bg-green-500': row[name],
+        'bg-red-500': !row[name],
+    })}
+    >
+        {row[name] ? 'Accepté' : 'En-attente'}
+    </p>),
+    "Etat de règlement bon": (row, name) => (<p className={cn('inline-block px-2 py-1 rounded  ', {
+
+    })}
+    >
+        {row[name]}
+    </p>),
+    "Etat bon": (row, name) => (<p className={cn('inline-block px-2 py-1 rounded text-white ', {
+        'bg-green-500': row[name],
+        'bg-red-500': !row[name],
+    })}
+    >
+        {row[name] ? 'Validé' : 'En attente'}
+    </p>),
+
 };
 
 export default columnRenderers;

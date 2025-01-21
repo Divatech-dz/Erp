@@ -1,0 +1,41 @@
+Index: app/(root)/(links)/(Produits)/families/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client'\r\n\r\nimport { DataTable } from \"@/components/data-table\";\r\nimport { useFiltersContext } from \"@/lib/context/Filters\";\r\nimport { HeaderNavigation } from \"@/components/header-navigation\";\r\nimport { sidebarLinksManager, keyMapCategory, familiesColumn } from \"@/constants\";\r\nimport { transformNestedData } from \"@/lib/utils\";\r\nimport { getCategory } from \"@/service/categoryService\";\r\nimport { useQuery } from \"@tanstack/react-query\";\r\n\r\n\r\nfunction Page() {\r\n    const {\r\n        page,\r\n        setPage,\r\n        categories,\r\n        setCategory,\r\n        search,\r\n        setSearch\r\n    } = useFiltersContext();\r\n\r\n\r\n\r\n  const { isLoading, data: categoryData } = useQuery({\r\n    queryKey: [page, search],\r\n    queryFn: getCategory,\r\n  });\r\n\r\n\r\n  \r\n    const resultsCategories = categoryData?.results;\r\n    const totalPages = categoryData?.total_pages;\r\n\r\n    \r\n  const transformedData= transformNestedData(resultsCategories, keyMapCategory)\r\n  console.log(transformedData)\r\n\r\n  \r\n  return (\r\n    <section className=\"page-design\">\r\n      <h1 className=\"text-4xl font-bold p-2\">Liste de familles </h1>\r\n\r\n      <DataTable\r\n        columnNames={familiesColumn}\r\n        setSearch={setSearch} \r\n        columnData={transformedData}\r\n        currentPage={page}\r\n        setCurrentPage={setPage}\r\n        totalPages={totalPages}\r\n        setCategory={setCategory}\r\n        categories={categories}\r\n        isLoading={isLoading}\r\n      />\r\n    </section>\r\n  )\r\n\r\n}\r\n\r\nexport default Page
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/(root)/(links)/(Produits)/families/page.tsx b/app/(root)/(links)/(Produits)/families/page.tsx
+--- a/app/(root)/(links)/(Produits)/families/page.tsx	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/app/(root)/(links)/(Produits)/families/page.tsx	(date 1737376656084)
+@@ -31,11 +31,8 @@
+     const resultsCategories = categoryData?.results;
+     const totalPages = categoryData?.total_pages;
+ 
+-    
+   const transformedData= transformNestedData(resultsCategories, keyMapCategory)
+-  console.log(transformedData)
+ 
+-  
+   return (
+     <section className="page-design">
+       <h1 className="text-4xl font-bold p-2">Liste de familles </h1>
+Index: components/table-components/reusable-sheet.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {Sheet, SheetContent, SheetHeader, SheetTitle} from \"../ui/sheet\";\r\nimport {FilterContent} from \"./sheet-content\";\r\nimport {\r\n    Table,\r\n    TableBody,\r\n    TableCaption,\r\n    TableCell,\r\n    TableFooter,\r\n    TableHead,\r\n    TableHeader,\r\n    TableRow,\r\n} from \"@/components/ui/table\";\r\n\r\ninterface ReusableSheetProps {\r\n    open: boolean,\r\n    onClose: () => void,\r\n    title?: string,\r\n    contentType: string,\r\n    contentProps?: Record<string, any>,\r\n    invoiceDetails?: Record<string, any>\r\n}\r\n\r\nexport const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, title, contentType, invoiceDetails}) => {\r\n    console.log(invoiceDetails)\r\n    const renderContent = () => {\r\n        switch (contentType) {\r\n            case \"table\":\r\n                return (\r\n                    <>\r\n                        <Table>\r\n                        <TableHeader>\r\n                            <TableRow>\r\n                                <TableHead>Référence</TableHead>\r\n                                <TableHead>Name</TableHead>\r\n                                <TableHead>Prix unitaire</TableHead>\r\n                                <TableHead>Quantité</TableHead>\r\n                                <TableHead>Prix total</TableHead>\r\n                            </TableRow>\r\n                        </TableHeader>\r\n                        <TableBody>\r\n                            {invoiceDetails && invoiceDetails?.produits?.map((produit: any) => {\r\n                                return (\r\n                                    <TableRow key={produit?.produit?.id}>\r\n                                        <TableCell>{produit?.stock?.reference}</TableCell>\r\n                                        <TableCell>{produit?.stock?.name}</TableCell>\r\n                                        <TableCell>{produit?.unitprice} dzd</TableCell>\r\n                                        <TableCell>{produit?.quantity}</TableCell>\r\n                                        <TableCell>{produit?.totalprice} dzd</TableCell>\r\n                                    </TableRow>\r\n                                );\r\n                            })}\r\n                        </TableBody>\r\n                    </Table>\r\n                        <TableFooter>\r\n                            <TableRow>\r\n                                <TableCell className=\"w-60\">\r\n                                    <p>Total HT:</p>\r\n                                    <p>{invoiceDetails?.total_price} dzd</p>\r\n                                </TableCell>\r\n                                <TableCell className=\"w-60\">\r\n                                    <p>Remise:</p>\r\n                                    <p>{invoiceDetails?.Remise} dzd</p>\r\n                                    </TableCell>\r\n                                <TableCell className=\"w-60\">\r\n                                    <p>Sous-total HT: </p>\r\n                                    <p>{invoiceDetails?.total_price-invoiceDetails?.Remise} dzd</p>\r\n                                </TableCell>\r\n                            </TableRow>\r\n                            <TableRow>\r\n                                <TableCell className=\"w-60\">\r\n                                    <p>Frais de livraison:</p>\r\n                                    <p>{invoiceDetails?.fraisLivraison} dzd</p>\r\n                                </TableCell>\r\n                                <TableCell className=\"w-60\">\r\n                                    <p>Montant avoir:</p>\r\n                                    <p>{invoiceDetails?.total_avoir} dzd</p>\r\n                                </TableCell>\r\n                                <TableCell className=\"w-60\">\r\n                                    <p>Total TTC:</p>\r\n                                    <p>{invoiceDetails?.total_soldprice} dzd</p>\r\n                                </TableCell>\r\n                            </TableRow>\r\n                        </TableFooter></>\r\n                )\r\n            case \"filter\":\r\n                return <FilterContent/>;\r\n            default:\r\n                return <div>No content available</div>;\r\n        }\r\n    };\r\n\r\n    return (\r\n        <Sheet open={open} onOpenChange={onClose}>\r\n            <SheetContent className=\"bg-gray-25 min-w-[1000px] space-y-10\">\r\n                <SheetHeader>\r\n                    <SheetTitle>{title}</SheetTitle>\r\n                </SheetHeader>\r\n                <div className=\"w-full min-h-[80%] justify-center p-4\">\r\n                    {renderContent()}\r\n                </div>\r\n            </SheetContent>\r\n        </Sheet>\r\n    );\r\n};\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/components/table-components/reusable-sheet.tsx b/components/table-components/reusable-sheet.tsx
+--- a/components/table-components/reusable-sheet.tsx	(revision 37115f71c054c14480ade8ff7048d1b576cba7e0)
++++ b/components/table-components/reusable-sheet.tsx	(date 1737376656091)
+@@ -21,7 +21,7 @@
+ }
+ 
+ export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, title, contentType, invoiceDetails}) => {
+-    console.log(invoiceDetails)
++
+     const renderContent = () => {
+         switch (contentType) {
+             case "table":

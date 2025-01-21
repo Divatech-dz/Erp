@@ -4,7 +4,6 @@ import React, { createContext, useState } from 'react';
 import { useQuery } from "@tanstack/react-query";
 import { getUsersList } from "@/service/userListService";
 import { getCategory } from "@/service/categoryService";
-import { log } from 'console';
 import { getCaisse } from '@/service/caisseService';
 
 interface FiltersContextType {
@@ -55,19 +54,16 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     queryFn: getCategory
   });
 
-  
-  const { data: caisseData } = useQuery({
+    const { data: caisseData } = useQuery({
     queryKey: [page, search],
     queryFn: getCaisse
-  });
+  })
 
-  console.log(
-    categoryData
-  );
-  
   const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
   const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
-  const categories =  categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
+
+  const categories = categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
+
   const caisses = caisseData?.results?.map((caisse: any) => ({ id: caisse.id, caisse: caisse.Libellé }));
 
   return (
@@ -95,7 +91,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         caisses,
         setCaisseId,
         caisseId,
-       
+
       }}
     >
       {children}

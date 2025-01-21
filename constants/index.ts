@@ -1,8 +1,6 @@
-import { CardProps, Column, rowsType, SalesProps, SidebarLink } from '@/types';
-
-import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
-
-import { icons } from './icons';
+import {CardProps, Column, rowsType, SalesProps, SidebarLink} from '@/types';
+import {Users, SquareArrowLeft, BadgePercent, Truck} from 'lucide-react';
+import {icons} from './icons';
 
 export const sidebarLinks: SidebarLink[] = [
     {
@@ -54,6 +52,10 @@ export const sidebarLinks: SidebarLink[] = [
             {
                 name: 'Liste des fournisseurs',
                 link: '/fournisseurs',
+            },
+            {
+                name: 'Liste des banques',
+                link: '/banques',
             }
         ],
         label: 'Clients',
@@ -152,7 +154,7 @@ export const sidebarLinks: SidebarLink[] = [
               name: 'Cloture',
               link: '/cloture',
           },
-        
+
       ],
       label: 'Comptoire',
   },
@@ -245,54 +247,54 @@ export const sidebarLinks: SidebarLink[] = [
 ];
 
 export const sidebarLinksManager = [
-  {
-    name: 'Produits',
-    router: [
-      {
-        label: 'Produits',
-        router: ['families', 'produits', 'Quantite a facteur', 'listePrix']
-      },
-      {
-        label: 'Laison',
-        router: ['Produits /Entrops']
-      },
-      {
-        label: 'Etat de Stock',
-        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
-      }
-    ]
-  },
-  {
-    name: 'Stock',
-    router: [
-      {
-        label: 'entrepots',
-        router: ['entrepots', 'repatrition']
-      },
-      {
-        label: 'Mouvements',
-        router: ["Bons entrée", "Bons Transfert", "Bons Transfert Entre Magasins", "Bons Sortie"]
-      },
-      {
-        label: 'États',
-        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
-      },
-      {
-        label: 'Inventaires',
-        router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
-      }
-    ]
-  },
-  {
-    name: 'Vente',
-    router: [
-      {
-        label: 'bons-commande',
-        router: ['bons-commande', 'Facture']
-      },
-      
-    ]
-  }
+    {
+        name: 'Produits',
+        router: [
+            {
+                label: 'Produits',
+                router: ['families', 'produits', 'Quantite a facteur', 'listePrix']
+            },
+            {
+                label: 'Laison',
+                router: ['Produits /Entrops']
+            },
+            {
+                label: 'Etat de Stock',
+                router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+            }
+        ]
+    },
+    {
+        name: 'Stock',
+        router: [
+            {
+                label: 'entrepots',
+                router: ['entrepots', 'repatrition']
+            },
+            {
+                label: 'Mouvements',
+                router: ["Bons entrée", "Bons Transfert", "Bons Transfert Entre Magasins", "Bons Sortie"]
+            },
+            {
+                label: 'États',
+                router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+            },
+            {
+                label: 'Inventaires',
+                router: ['Archive de verification', 'Etat Stock', 'verifcation stock']
+            }
+        ]
+    },
+    {
+        name: 'Vente',
+        router: [
+            {
+                label: 'bons-commande',
+                router: ['bons-commande', 'Facture']
+            },
+
+        ]
+    }
 ]
 
 export enum AuthType {
@@ -460,26 +462,23 @@ export const rowTable: rowsType[] = [
 ]
 
 
-export const familiesColumn:rowsType[]=[
-  {
-    id: '1',
-    name: 'Libéllé'
-  },
-
-  {
-    id: '2',
-    name: 'Composant associé'
-  },
-
-  {
-    id:'3',
-    name: 'Nombre de produits'
-  },
-
-  {
-    id:'4',
-    name:'Type'
-  }  
+export const familiesColumn: rowsType[] = [
+    {
+        id: '1',
+        name: 'Libéllé'
+    },
+    {
+        id: '2',
+        name: 'Composant associé'
+    },
+    {
+        id: '3',
+        name: 'Nombre de produits'
+    },
+    {
+        id: '4',
+        name: 'Type'
+    }
 ]
 
 export const clotureColumn:rowsType[]=[
@@ -487,39 +486,31 @@ export const clotureColumn:rowsType[]=[
     id: '1',
     name: 'Date d\'introduction'
   },
-
   {
     id: '2',
     name: 'Utilisateur'
   },
-
   {
     id:'3',
     name: 'Montant introduit'
   },
-
   {
     id:'4',
     name:'Montant Totale des bons de vente'
   },
-  
   {
     id:'5',
     name:'Total Verssements'
   },
-  
-   
   {
     id:'6',
     name:'Remise Totale des bons de vente'
   },
-  
-   
   {
     id:'7',
     name:'Montant Totale Retorur'
   },
-  
+
   {
     id:'8',
     name:'Montant encaissé'
@@ -531,47 +522,39 @@ export const clotureColumn:rowsType[]=[
   }
 ]
 
-export const prixProduitColumn:rowsType[]=[
-  {
-    id: '1',
-    name: 'Désignation'
-  },
+export const prixProduitColumn: rowsType[] = [
+    {
+        id: '1',
+        name: 'Désignation'
+    },
 
-  {
-    id:'2',
-    name: 'Quantité'
-  },
-  {
-    id:'3',
-    name:'Prix Conseillé TTC',
-    sort: true,
-    sortBy: 'PrixConseillé'
-  },
+    {
+        id: '2',
+        name: 'Quantité'
+    },
+    {
+        id: '3',
+        name: 'Prix Conseillé TTC',
+        sort: true,
+        sortBy: 'PrixConseillé'
+    },
+    {
+        id: '4',
+        name: "Prix Revendeur TTC",
+        sort: true,
+        sortBy: 'PrixRevendeur'
 
-  {
-    id:'4',
-    name:"Prix Revendeur TTC",
-    sort: true,
-    sortBy: 'PrixRevendeur'
-    
-  }
+    }]
 
-
-]
-
-
-export const entrepotColumn:rowsType[]=[
-  {
-    id: '1',
-    name: 'Désignation'
-  },
-  {
-    id: '2',
-    name: 'store'
-  }
-
-]
-
+export const entrepotColumn: rowsType[] = [
+    {
+        id: '1',
+        name: 'Désignation'
+    },
+    {
+        id: '2',
+        name: 'store'
+    }]
 
 export const entrepotProductColumn:rowsType[]=[
   {
@@ -593,48 +576,37 @@ export const entrepotProductColumn:rowsType[]=[
   {
     id:'5',
     name:"Montant"
-  }
-
-]
-
+  }]
 
 export const etatStockColumn:rowsType[]=[
   {
     id: '1',
     name: 'MODEL TYPE'
   },
-
   {
     id: '2',
     name: 'MODEL NAME'
   },
-
   {
     id:'3',
     name: 'PART NUMBER'
   },
-
   {
     id:'4',
     name:'INITIAL STOCK'
   },
-  
   {
     id:'5',
     name:'NEW ARRIVAL'
   },
-  
   {
     id:'6',
     name:'SELLOUT'
   },
-  
   {
     id:'7',
     name:'FINAL QUANTITY'
-  }
-
-]
+  }]
 
 
 
@@ -667,8 +639,7 @@ export const NotesColumn: rowsType[] = [
     {
         id: '7',
         name: "Validation"
-    }
-]
+    }]
 
 export const factureColumn: rowsType[] = [
     {
@@ -690,8 +661,7 @@ export const factureColumn: rowsType[] = [
     {
         id: '5',
         name: 'Etat de règlement'
-    },
-]
+    }]
 
 export const returnColumn: rowsType[] = [
     {
@@ -729,8 +699,7 @@ export const returnColumn: rowsType[] = [
     {
         id: '9',
         name: 'Utilisateur'
-    },
-]
+    }]
 
 export const clientColumn: rowsType[] = [
     {
@@ -760,8 +729,7 @@ export const clientColumn: rowsType[] = [
     {
         id: '7',
         name: 'Utilisateur'
-    }
-]
+    }]
 
 export const prospectClientColumn: rowsType[] = [
     {
@@ -785,10 +753,27 @@ export const prospectClientColumn: rowsType[] = [
         name: 'Date de prospection'
     },
     {
-        id:'6',
+        id: '6',
         name: 'Source client'
-    }
-]
+    }]
+
+export const BanksColumn: rowsType[] = [
+    {
+        id: '1',
+        name: 'Nom de la banque'
+    },
+    {
+        id: '2',
+        name: 'Code'
+    },
+    {
+        id: '3',
+        name: 'BIC'
+    },
+    {
+        id: '4',
+        name: 'Statut'
+    }]
 
 export const employeeColumn: rowsType[] = [
     {
@@ -824,8 +809,7 @@ export const employeeColumn: rowsType[] = [
         name: 'Date Début',
         sort: true,
         sortBy: 'dateDebut'
-    }
-]
+    }]
 
 export const reglementColumn: rowsType[] = [
     {
@@ -847,8 +831,7 @@ export const reglementColumn: rowsType[] = [
     {
         id: '5',
         name: 'Note'
-    }
-]
+    }]
 
 export const absenceColumn: rowsType[] = [
     {
@@ -870,8 +853,7 @@ export const absenceColumn: rowsType[] = [
     {
         id: '5',
         name: 'Justification'
-    }
-]
+    }]
 
 export const congeColumn: rowsType[] = [
     {
@@ -897,8 +879,7 @@ export const congeColumn: rowsType[] = [
     {
         id: '6',
         name: 'Nombre de jours restant'
-    }
-]
+    }]
 
 export const congeListColumn: rowsType[] = [
     {
@@ -924,8 +905,7 @@ export const congeListColumn: rowsType[] = [
     {
         id: '6',
         name: 'Type de congé'
-    }
-]
+    }]
 
 export const pointageColumn: rowsType[] = [
     {
@@ -947,8 +927,7 @@ export const pointageColumn: rowsType[] = [
     {
         id: '5',
         name: 'Minutes en retard'
-    }
-]
+    }]
 
 export const avanceSalaireColumn: rowsType[] = [
     {
@@ -966,8 +945,7 @@ export const avanceSalaireColumn: rowsType[] = [
     {
         id: '4',
         name: 'Motif'
-    }
-]
+    }]
 
 export const primeMotivationColumn: rowsType[] = [
     {
@@ -985,8 +963,7 @@ export const primeMotivationColumn: rowsType[] = [
     {
         id: '4',
         name: 'Motif'
-    }
-]
+    }]
 
 export const PretSocialColumn: rowsType[] = [
     {
@@ -1012,8 +989,7 @@ export const PretSocialColumn: rowsType[] = [
     {
         id: '6',
         name: 'Montant Mensuel'
-    }
-]
+    }]
 
 export const HoursColumn: rowsType[] = [
     {
@@ -1039,8 +1015,7 @@ export const HoursColumn: rowsType[] = [
     {
         id: '6',
         name: 'Etat de validation'
-    }
-]
+    }]
 
 export const FournisseurColumn: rowsType[] = [
     {
@@ -1058,14 +1033,13 @@ export const FournisseurColumn: rowsType[] = [
     {
         id: '4',
         name: 'Type de fournisseur'
-    },
-]
+    }]
 
-export const StatusOptions: rowsType[] = [{
-
+export const StatusOptions: rowsType[] = [
+    {
     id: '1',
     name: 'Active',
-},
+    },
     {
         id: '2',
         name: 'Pending',
@@ -1073,7 +1047,7 @@ export const StatusOptions: rowsType[] = [{
     {
         id: '3',
         name: 'Paused',
-    },]
+    }]
 
 export const userRowsTable: rowsType[] = [
     {
@@ -1090,8 +1064,7 @@ export const userRowsTable: rowsType[] = [
         id: '3',
         name: 'Rôle',
         sort: false
-    }
-]
+    }]
 export const entropsRowsTable: rowsType[] = [
     {
         id: '1',
@@ -1102,8 +1075,7 @@ export const entropsRowsTable: rowsType[] = [
         id: '2',
         name: 'Adresse',
         sort: false
-    }
-]
+    }]
 
 export const entropsRows = [
     {
@@ -1115,39 +1087,34 @@ export const entropsRows = [
         id: '2',
         name: {ville: "Adresse"},
         sort: false
-    }
-]
-
+    }]
 
 export const keyMapEntrepot = {
-  id:"id",
-  name: "Désignation", 
-  location: "Location",
- 
+    id: "id",
+    name: "Désignation",
+    location: "Location",
 };
 
 export const keyMapEntrepotProduct = {
-  name: "Désignation", 
-  prix_achat:"Prix Revient",
-  "stock[0].quantity":"Quantité",
-
- 
+    name: "Désignation",
+    prix_achat: "Prix Revient",
+    "stock[0].quantity": "Quantité",
 };
 
 export const keyMapPrix = {
-  name: "Désignation", 
-  quantity_globale: "Quantité",
-  PrixConseillé:"Prix Conseillé TTC",
-  PrixRevendeur:"Prix Revendeur TTC"
+    name: "Désignation",
+    quantity_globale: "Quantité",
+    PrixConseillé: "Prix Conseillé TTC",
+    PrixRevendeur: "Prix Revendeur TTC"
 };
 
 
 export const keyMapCategory = {
-  Libellé: "Libéllé",
-  pc_component: "Composant associé",
-  typefamilly:"Type",
-  numbre_produit:"Nombre de produits",
-  store:"store"
+    Libellé: "Libéllé",
+    pc_component: "Composant associé",
+    typefamilly: "Type",
+    numbre_produit: "Nombre de produits",
+    store: "store"
 };
 
 export const keyMapCloture = {
@@ -1184,16 +1151,23 @@ export const keyMapClient = {
     RCDoc: "RC",
     NisDoc: "NIS",
     valide: "Etat de validation",
-    total_amount : 'Chiffre d\'affaire'
+    total_amount: 'Chiffre d\'affaire'
 };
 
 export const keyMapProspectClient = {
-"client.name": "Client",
-"client.categorie_client.type_desc": "Type de client",
-"etatProspection": "Etat de prospection",
-"client.name_user": "Utilisateur",
- "client.categorie_client.dateCreation": "Date de prospection",
-"SourceClient": "Source client"
+    "client.name": "Client",
+    "client.categorie_client.type_desc": "Type de client",
+    "etatProspection": "Etat de prospection",
+    "client.name_user": "Utilisateur",
+    "client.categorie_client.dateCreation": "Date de prospection",
+    "SourceClient": "Source client"
+};
+
+export const keyMapBanks = {
+    nom: 'Nom de la banque',
+    code: 'Code',
+    bic: 'BIC',
+    actif: 'Statut',
 }
 
 export const keyMapNotes = {
@@ -1205,14 +1179,40 @@ export const keyMapNotes = {
     "client.name_user": "Commercial",
     valide: 'Validation',
     produits: 'produits',
-    total_price:'total_price',
-    Remise:'Remise',
-    fraisLivraison:'fraisLivraison',
-    total_avoir:'total_avoir',
-    total_soldprice:'total_soldprice',
+    total_price: 'total_price',
+    Remise: 'Remise',
+    fraisLivraison: 'fraisLivraison',
+    total_avoir: 'total_avoir',
+    total_soldprice: 'total_soldprice',
 };
 
+export const keyMapFacterur = {
+    codeFacture: 'N° facture',
+    date_facture: 'Date facture',
+    'client.name': 'Client',
+    'BonS.idBon': 'Bon de livraison associé',
+    etat_reglement: "Etat de règlement",
+    'BonS.produits': 'produits',
+    'BonS.total_price': 'total_price',
+    'BonS.Remise': 'Remise',
+    'BonS.fraisLivraison': 'fraisLivraison',
+    'BonS.total_avoir': 'total_avoir',
+    'BonS.total_soldprice': 'total_soldprice',
+};
 
+export const keyMapReturn = {
+    idBon: "N° bon",
+    dateBon: "Date bon",
+    client: "Client",
+    idbon_livraison: "Bon de vente associé",
+    "user.username": "Utilisateur",
+    produits: 'produits',
+    totalPrice: 'totalPrice',
+    total_price_retour: 'total_price_retour',
+    reception_valide: 'Etat d\'acceptation',
+    valide: 'Etat bon',
+    etat_reglement: 'Etat de règlement bon'
+};
 
 export const keyMapEmployees = {
     "nom": "Nom complet",
@@ -1221,23 +1221,8 @@ export const keyMapEmployees = {
     "salaire": "Salaire",
     "prime_espece": "Prime Panier et Transport",
     "actif": "Actif",
-    "dateDebut": "Date Début",
-  idBon: "N° bon",
-  dateBon: "Date bon",
-  "entrepot.name": "Entrepot bon",
-  "client.name": "Client",
-  Livraison:'agenceLivraison',
-  "client.name_user": "Commercial",
-valide:'Validation'
-
+    "dateDebut": "Date Début"
 };
-export const keyMapFacterur={
-codeFacture:'N° facture',
-date_facture:'Date facture',
-'client.name':'Client',
-'BonS.idBon':'Bon de livraison associé',
-etat_reglement:"Etat de règlement"
-}
 
 export const keyMapListConge = {
     "salarie.nom": 'Nom complet',
@@ -1246,7 +1231,7 @@ export const keyMapListConge = {
     NbrJour: 'Nombre de jours',
     nbrJourPris: 'Nombre de jours pris',
     type_conge: 'Type de congé'
-}
+};
 
 export const keyMapEtatConge = {
     "salarie.nom": 'Nom complet',
@@ -1254,7 +1239,7 @@ export const keyMapEtatConge = {
     "salarie.actif": 'Etat',
     NbrJour: 'Nombre de jours',
     nbrJourPris: 'Nombre de jours pris',
-}
+};
 
 export const keyMapAbsence = {
     "salarie.nom": 'Nom complet',
@@ -1262,7 +1247,7 @@ export const keyMapAbsence = {
     motif: 'Motif',
     "user.username": 'Ajouté par',
     justifie: 'Justification'
-}
+};
 
 export const keyMapReglement = {
     "salarie.nom": 'Nom complet',
@@ -1270,28 +1255,28 @@ export const keyMapReglement = {
     dateSortie: 'Date de fin',
     montant: 'Montant réglé',
     note: 'Note'
-}
+};
 
 export const keyMapAvanceSalaire = {
     "salarie.nom": 'Nom complet',
     date: 'Date de virement',
     montant: 'Montant',
     motif: 'Motif'
-}
+};
 
 export const keyMapPointage = {
     date: 'Date de pointage',
     "salarie.nom": 'Nom complet',
     temps_arrive: 'Heures d\'arrivée',
     temps_depart: 'Heures de départ',
-}
+};
 
 export const keyMapPrimeMotivation = {
     "salarie.nom": 'Nom complet',
     date: 'Date',
     montant: 'Montant',
     motif: 'Motif'
-}
+};
 
 export const keyMapPretSocial = {
     "salarie.nom": 'Nom complet',
@@ -1301,7 +1286,7 @@ export const keyMapPretSocial = {
     montanttotal: 'Montant Total',
     montantperMonth: 'Montant Mensuel',
     motif: 'Motif'
-}
+};
 
 export const keyMapHours = {
     "salarie.nom": 'Nom complet',
@@ -1310,20 +1295,14 @@ export const keyMapHours = {
     motif: 'Motif',
     "user.username": 'Ajouté par',
     valide: 'Etat de validation'
-}
-
-export const keyMapFournisseur = {
-    id: '#',
-    acronym: 'Fournisseur',
-    adresse: 'Adresse',
-    typefournisseur: 'Type de fournisseur',
-}
+};
 
 export const statusColors: Record<"Active" | "Pending" | "Paused", string> = {
     Active: "bg-green-500",
     Pending: "bg-yellow-500",
     Paused: "bg-red-500",
 };
+
 export const bill = {
     orderNumber: 0,
     orderDate: new Date(),
