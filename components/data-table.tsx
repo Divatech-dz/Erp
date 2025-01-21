@@ -175,7 +175,8 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande") {
+                                                if (pathname === "/bons-commande" || pathname === "/Facture") {
+                                                    console.log(row)
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")
                                                 }
@@ -201,7 +202,7 @@ export const DataTable = ({
                         open={openModal}
                         onClose={() => setOpenModal(false)}
                         title={
-                            contentType === "table" ? `Détail du bon ${invoiceDetails['N° bon']}` : ""
+                            contentType === "table" ? `Détail du bon ${invoiceDetails['N° bon'] || invoiceDetails['N° facture']}` : ""
                         }
                         contentType={contentType}
                         contentProps={contentType === "table" ? {tableData} : {}}

@@ -1,18 +1,14 @@
 'use client'
 
-import React, {useMemo} from 'react';
+import React from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {useFiltersContext} from "@/lib/context/Filters";
 import {getDeliveryNotes} from "@/service/ordersNoteService";
 import {DataTable} from "@/components/data-table";
 import {keyMapNotes, NotesColumn} from "@/constants"
 import {transformNestedData} from '@/lib/utils';
-import {HeaderNavigation} from '@/components/header-navigation';
-
 
 function BonsCommandeVente() {
-
-    const role = 'manager'
     const {
         salesUsers,
         page,

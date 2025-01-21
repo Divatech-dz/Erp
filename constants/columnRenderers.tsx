@@ -76,10 +76,10 @@ const isTruck = row[name];
      )}
    </div>
  )},
- "Validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded-full text-white font-semibold ', {
-    'bg-green-500': row[name], 
-    'bg-yellow-500': !row[name], 
-  })}
+ "Validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded text-white ', {
+        'bg-green-500': row[name],
+        'bg-red-500': !row[name],
+    })}
 >
   {row[name] ? 'Validé' : 'En attente'}
 </p>),
