@@ -150,7 +150,7 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
     etatStock: () => {
       return (
           <>
-              {selectSalesUser(config)}
+              {selectCategory(config)}
               {renderDropdown(config)}
               {renderDateRange(config)}
           </>

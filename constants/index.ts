@@ -27,12 +27,12 @@ export const sidebarLinks: SidebarLink[] = [
         link: '/entrepotsProduits',
       },
       {
-        name: 'Archive de vérification',
-        link: '/archiveVerification',
-      },
-      {
         name: 'Etat de stock',
         link: '/etatStock',
+      },
+      {
+        name: 'Vérification de stock',
+        link: '/verificationStock',
       },
         ],
         label: 'Produits',
@@ -606,14 +606,6 @@ export const etatStockColumn:rowsType[]=[
   {
     id:'7',
     name:'FINAL QUANTITY'
-  },
-  {
-    id:'8',
-    name:'START DATE'
-  },
-  {
-    id:'9',
-    name:'END DATE'
   }]
 
 
