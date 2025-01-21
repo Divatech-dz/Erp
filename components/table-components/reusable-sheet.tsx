@@ -43,9 +43,9 @@ export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, titl
                                     <TableRow key={produit?.produit?.id}>
                                         <TableCell>{produit?.stock?.reference}</TableCell>
                                         <TableCell>{produit?.stock?.name}</TableCell>
-                                        <TableCell>{produit?.unitprice} dzd</TableCell>
-                                        <TableCell>{produit?.quantity}</TableCell>
-                                        <TableCell>{produit?.totalprice} dzd</TableCell>
+                                        <TableCell>{produit?.unitprice || produit?.stock?.prix_achat} dzd</TableCell>
+                                        <TableCell>{produit?.quantity }</TableCell>
+                                        <TableCell>{produit?.totalprice || produit?.stock?.prix_achat*produit?.quantity} dzd</TableCell>
                                     </TableRow>
                                 );
                             })}

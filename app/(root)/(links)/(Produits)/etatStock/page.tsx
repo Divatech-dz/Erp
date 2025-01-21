@@ -2,7 +2,7 @@
 
 import { DataTable } from "@/components/data-table";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { entrepotProductColumn, etatStockColumn, keyMapEntrepotProduct } from "@/constants";
+import { entrepotProductColumn, etatStockColumn } from "@/constants";
 import { useFiltersContext } from "@/lib/context/Filters";
 import { transformNestedData } from "@/lib/utils";
 import { getEntrepot } from "@/service/entrepotService";
@@ -71,6 +71,7 @@ const Page = () => {
             setStartDate={setStartDate}
             endDate={endDate} 
             setEndDate={setEndDate}
+            
           />
     </section>
   );

@@ -6,12 +6,16 @@ import { getUsersList } from "@/service/userListService";
 import { getCategory } from "@/service/categoryService";
 import { log } from 'console';
 import { getCaisse } from '@/service/caisseService';
+import { getMarque } from '@/service/marqueService';
+import { getEntrepot } from '@/service/entrepotService';
 
 interface FiltersContextType {
   salesUsers: any;
   commercials: any;
   categories: any;
   caisses: any;
+  marques:any;
+  entrepots:any;
   page: number;
   entrepot:number,
   setEntrepot: (value: number | ((prevState: number) => number)) => void,
@@ -30,6 +34,8 @@ interface FiltersContextType {
   setUserId: (value: number | ((prevState: number) => number)) => void,
   caisseId:number,
   setCaisseId: (value: number | ((prevState: number) => number)) => void,
+  marque: number;
+  setMarque: (value: number | ((prevState: number) => number)) => void,
 }
 
 const FiltersContext = createContext<FiltersContextType | undefined>(undefined);
@@ -39,6 +45,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [entrepot, setEntrepot] = useState(11);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState(0);
+  const [marque, setMarque] = useState(0);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [clientType, setClientType] = useState('');
@@ -61,14 +68,36 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     queryFn: getCaisse
   });
 
+  const { data: marqueData } = useQuery({
+    queryKey: ['marque'],
+    queryFn: getMarque
+  });
+
+  const { data: entrepotData } = useQuery({
+    queryKey: ['entrepot'],
+    queryFn: getEntrepot
+  });
+
+
   console.log(
     categoryData
   );
   
+  console.log(
+    marqueData
+  );
+
+  console.log(
+    entrepotData
+  );
+
+
   const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
   const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
   const categories =  categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
   const caisses = caisseData?.results?.map((caisse: any) => ({ id: caisse.id, caisse: caisse.Libellé }));
+  const marques = marqueData?.results?.map((marque: any) => ({ id: marque.id, marque: marque.acronym }));
+  const entrepots = entrepotData?.results?.map((entrepot: any) => ({ id: entrepot.id, entrepot: entrepot.name }));
 
   return (
     <FiltersContext.Provider
@@ -76,6 +105,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         salesUsers,
         commercials,
         categories,
+        marques,
+        entrepots,
         page,
         setPage,
         search,
@@ -95,6 +126,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         caisses,
         setCaisseId,
         caisseId,
+        marque,
+        setMarque,
        
       }}
     >
