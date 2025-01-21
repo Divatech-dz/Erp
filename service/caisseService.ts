@@ -11,8 +11,6 @@ export const getCaisse = async ({ queryKey }: { queryKey: [number, string] }) =>
             params: {
                 page: page,
                 search: search,
-           
-              
             },
             headers: {
                 'Content-Type': 'application/json',

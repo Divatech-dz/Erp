@@ -467,17 +467,14 @@ export const familiesColumn: rowsType[] = [
         id: '1',
         name: 'Libéllé'
     },
-
     {
         id: '2',
         name: 'Composant associé'
     },
-
     {
         id: '3',
         name: 'Nombre de produits'
     },
-
     {
         id: '4',
         name: 'Type'
@@ -489,34 +486,26 @@ export const clotureColumn:rowsType[]=[
     id: '1',
     name: 'Date d\'introduction'
   },
-
   {
     id: '2',
     name: 'Utilisateur'
   },
-
   {
     id:'3',
     name: 'Montant introduit'
   },
-
   {
     id:'4',
     name:'Montant Totale des bons de vente'
   },
-
   {
     id:'5',
     name:'Total Verssements'
   },
-
-
   {
     id:'6',
     name:'Remise Totale des bons de vente'
   },
-
-
   {
     id:'7',
     name:'Montant Totale Retorur'
@@ -533,11 +522,6 @@ export const clotureColumn:rowsType[]=[
   }
 ]
 
-export const prixProduitColumn:rowsType[]=[
-  {
-    id: '1',
-    name: 'Désignation'
-  },
 export const prixProduitColumn: rowsType[] = [
     {
         id: '1',
@@ -554,18 +538,13 @@ export const prixProduitColumn: rowsType[] = [
         sort: true,
         sortBy: 'PrixConseillé'
     },
-
     {
         id: '4',
         name: "Prix Revendeur TTC",
         sort: true,
         sortBy: 'PrixRevendeur'
 
-    }
-
-
-]
-
+    }]
 
 export const entrepotColumn: rowsType[] = [
     {
@@ -575,10 +554,7 @@ export const entrepotColumn: rowsType[] = [
     {
         id: '2',
         name: 'store'
-    }
-
-]
-
+    }]
 
 export const entrepotProductColumn:rowsType[]=[
   {
@@ -607,32 +583,26 @@ export const etatStockColumn:rowsType[]=[
     id: '1',
     name: 'MODEL TYPE'
   },
-
   {
     id: '2',
     name: 'MODEL NAME'
   },
-
   {
     id:'3',
     name: 'PART NUMBER'
   },
-
   {
     id:'4',
     name:'INITIAL STOCK'
   },
-
   {
     id:'5',
     name:'NEW ARRIVAL'
   },
-
   {
     id:'6',
     name:'SELLOUT'
   },
-
   {
     id:'7',
     name:'FINAL QUANTITY'
@@ -644,9 +614,7 @@ export const etatStockColumn:rowsType[]=[
   {
     id:'9',
     name:'END DATE'
-  },
-
-]
+  }]
 
 
 
@@ -679,8 +647,7 @@ export const NotesColumn: rowsType[] = [
     {
         id: '7',
         name: "Validation"
-    }
-]
+    }]
 
 export const factureColumn: rowsType[] = [
     {
@@ -702,8 +669,7 @@ export const factureColumn: rowsType[] = [
     {
         id: '5',
         name: 'Etat de règlement'
-    },
-]
+    }]
 
 export const returnColumn: rowsType[] = [
     {
@@ -741,8 +707,7 @@ export const returnColumn: rowsType[] = [
     {
         id: '9',
         name: 'Utilisateur'
-    },
-]
+    }]
 
 export const clientColumn: rowsType[] = [
     {
@@ -772,8 +737,7 @@ export const clientColumn: rowsType[] = [
     {
         id: '7',
         name: 'Utilisateur'
-    }
-]
+    }]
 
 export const prospectClientColumn: rowsType[] = [
     {
@@ -799,9 +763,7 @@ export const prospectClientColumn: rowsType[] = [
     {
         id: '6',
         name: 'Source client'
-    }
-]
-
+    }]
 
 export const BanksColumn: rowsType[] = [
     {
@@ -819,8 +781,7 @@ export const BanksColumn: rowsType[] = [
     {
         id: '4',
         name: 'Statut'
-    },
-]
+    }]
 
 export const employeeColumn: rowsType[] = [
     {
@@ -856,8 +817,7 @@ export const employeeColumn: rowsType[] = [
         name: 'Date Début',
         sort: true,
         sortBy: 'dateDebut'
-    }
-]
+    }]
 
 export const reglementColumn: rowsType[] = [
     {
@@ -879,8 +839,7 @@ export const reglementColumn: rowsType[] = [
     {
         id: '5',
         name: 'Note'
-    }
-]
+    }]
 
 export const absenceColumn: rowsType[] = [
     {
@@ -902,8 +861,7 @@ export const absenceColumn: rowsType[] = [
     {
         id: '5',
         name: 'Justification'
-    }
-]
+    }]
 
 export const congeColumn: rowsType[] = [
     {
@@ -929,8 +887,7 @@ export const congeColumn: rowsType[] = [
     {
         id: '6',
         name: 'Nombre de jours restant'
-    }
-]
+    }]
 
 export const congeListColumn: rowsType[] = [
     {
@@ -956,8 +913,7 @@ export const congeListColumn: rowsType[] = [
     {
         id: '6',
         name: 'Type de congé'
-    }
-]
+    }]
 
 export const pointageColumn: rowsType[] = [
     {
@@ -979,8 +935,7 @@ export const pointageColumn: rowsType[] = [
     {
         id: '5',
         name: 'Minutes en retard'
-    }
-]
+    }]
 
 export const avanceSalaireColumn: rowsType[] = [
     {
@@ -998,8 +953,7 @@ export const avanceSalaireColumn: rowsType[] = [
     {
         id: '4',
         name: 'Motif'
-    }
-]
+    }]
 
 export const primeMotivationColumn: rowsType[] = [
     {
@@ -1017,8 +971,7 @@ export const primeMotivationColumn: rowsType[] = [
     {
         id: '4',
         name: 'Motif'
-    }
-]
+    }]
 
 export const PretSocialColumn: rowsType[] = [
     {
@@ -1044,8 +997,7 @@ export const PretSocialColumn: rowsType[] = [
     {
         id: '6',
         name: 'Montant Mensuel'
-    }
-]
+    }]
 
 export const HoursColumn: rowsType[] = [
     {
@@ -1071,8 +1023,7 @@ export const HoursColumn: rowsType[] = [
     {
         id: '6',
         name: 'Etat de validation'
-    }
-]
+    }]
 
 export const FournisseurColumn: rowsType[] = [
     {
@@ -1090,14 +1041,13 @@ export const FournisseurColumn: rowsType[] = [
     {
         id: '4',
         name: 'Type de fournisseur'
-    },
-]
+    }]
 
-export const StatusOptions: rowsType[] = [{
-
+export const StatusOptions: rowsType[] = [
+    {
     id: '1',
     name: 'Active',
-},
+    },
     {
         id: '2',
         name: 'Pending',
@@ -1105,7 +1055,7 @@ export const StatusOptions: rowsType[] = [{
     {
         id: '3',
         name: 'Paused',
-    },]
+    }]
 
 export const userRowsTable: rowsType[] = [
     {
@@ -1122,8 +1072,7 @@ export const userRowsTable: rowsType[] = [
         id: '3',
         name: 'Rôle',
         sort: false
-    }
-]
+    }]
 export const entropsRowsTable: rowsType[] = [
     {
         id: '1',
@@ -1134,8 +1083,7 @@ export const entropsRowsTable: rowsType[] = [
         id: '2',
         name: 'Adresse',
         sort: false
-    }
-]
+    }]
 
 export const entropsRows = [
     {
@@ -1147,23 +1095,18 @@ export const entropsRows = [
         id: '2',
         name: {ville: "Adresse"},
         sort: false
-    }
-]
-
+    }]
 
 export const keyMapEntrepot = {
     id: "id",
     name: "Désignation",
     location: "Location",
-
 };
 
 export const keyMapEntrepotProduct = {
     name: "Désignation",
     prix_achat: "Prix Revient",
     "stock[0].quantity": "Quantité",
-
-
 };
 
 export const keyMapPrix = {

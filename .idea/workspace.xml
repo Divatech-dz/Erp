@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/Facture/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Vente)/Facture/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/componentsRegistry.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/componentsRegistry.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/columnRenderers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/constants/columnRenderers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/context/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/context/Filters.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/caisseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/caisseService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

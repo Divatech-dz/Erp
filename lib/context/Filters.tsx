@@ -54,6 +54,11 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     queryFn: getCategory
   });
 
+    const { data: caisseData } = useQuery({
+    queryKey: [page, search],
+    queryFn: getCaisse
+  })
+
   const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
   const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
   const categories = categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
