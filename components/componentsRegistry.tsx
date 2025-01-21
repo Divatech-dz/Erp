@@ -146,6 +146,17 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
         </>
       )
     },
+
+    etatStock: () => {
+      return (
+          <>
+              {selectSalesUser(config)}
+              {renderDropdown(config)}
+              {renderDateRange(config)}
+          </>
+      )
+  },
+
   entrepotsProduits:() => {
     return (
       <>
@@ -207,6 +218,17 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
         )
     },
 
+    /* Comptoir*/
+
+    cloture:()=> 
+      {
+        return (
+          <>
+            {renderDropdown(config)}
+            {selectCategory(config)}
+          </>
+        )
+      },
 /* Gestion RH */
 
     PageSalarie: () => renderDateRange(config),

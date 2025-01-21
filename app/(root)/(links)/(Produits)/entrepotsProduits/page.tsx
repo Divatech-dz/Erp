@@ -1,27 +1,3 @@
-interface Entrepot {
-  id: number;
-  Désignation: string;
-}
-
-interface Product {
-  id: number;
-  name: string;
-  reference: string;
-  prix_achat: number;
-  entrepot: number;
-}
-
-interface EntrepotData {
-  results: Entrepot[];
-}
-
-interface ProductData {
-  results: Product[];
-  total_pages: number;
-}
-
-
-
 'use client';
 
 import { DataTable } from "@/components/data-table";
@@ -46,12 +22,13 @@ const Page = () => {
     search,
     setSearch,
     entrepot,
-    setEntrepot
+    setEntrepot,
+    
   } = useFiltersContext();
 
 
   const { data: entrepotData } = useQuery({
-    queryKey: [page, search],
+    queryKey: ["entrepot"],
     queryFn: getEntrepot,
   });
 
@@ -61,85 +38,23 @@ const Page = () => {
   );
 
 
-  const { data: stockData } = useQuery({
-    queryKey: [page, search,entrepot],
+  const {isLoading, data: stockData } = useQuery({
+    queryKey: [page, search,entrepot,category],
     queryFn: getStock,
   });
 
   const transformedStock = useMemo(
-    () => transformNestedData(stockData?.results || [], { id: "id", name: "Désignation",quantity:"Quantité",prix_achat:"Prix Revient",montant_total:"Montant" }),
+    () => transformNestedData(stockData?.results || [], { id: "id", name: "Désignation",quantity:"Quantité",prix_achat:"Prix Revient",reference:"Référence",montant_total:"Montant" }),
     [stockData]
   );
   
+  
+  const totalPages = stockData?.total_pages || 0;
 
   console.log('transformedStock');
   console.log(transformedStock);
  
 
-  const { data:productsData, isLoading } = useQuery({
-    queryKey: [ page, search, category],
-    queryFn: getProducts,
-  });
-
-  const transformedProducts = useMemo(
-    () => transformNestedData(productsData?.results || [], { id: "id",name:"Désignation",prix_achat:"Prix Revient",quantity:"Quantité",stock:"stock"}),
-    [productsData]
-  );
-
-
-      
-//  const transformedProducts= transformNestedData(productsData, keyMapEntrepotProduct)
-  
- // console.log("transformedProducts",transformedProducts);
-  const totalPages = productsData?.total_pages || 0;
-
-
-  const [entrepotActif, setEntrepotActif] = useState<number >(0);
-
-
-  // const produitsFiltres = useMemo(() => {
-  //   if (entrepotActif ==11 ) return transformedProducts || [];
-  //   return transformedProducts?.filter((product) => product.id === 1778) || [];
-  // }, [entrepotActif]);
-
-
-  // const produitsFiltres = transformedProducts?.filter((p) => 
-  //   p?.stock?.some((s: any) => s.entrepot === entrepotActif)
-  // );
-  
-  // console.log('Produits filtrés :', produitsFiltres);
-      
-
-
-
-
-    //   const produitsFiltres = transformedProducts
-    //   ?.filter((p) => p?.stock?.some((s: any) => s.entrepot === entrepotActif))
-    //   ?.map((p) => {
-    
-    //     const filteredStock = p?.stock?.filter((s: any) => s.entrepot === entrepotActif);
-
-      
-    //     return {
-    //       ...p,
-    //       stock: filteredStock.map((s:any) => ({
-    //         ...s,
-    //         quantity: s.quantity, 
-    //       })),
-    //     };
-    //   });
-
-    // console.log("Produits filtrés avec les quantités :", produitsFiltres);
-
-
-  
-
-  useEffect(()=>{
-    console.log('entrepotActif');
-    console.log(entrepotActif);
-    // console.log('produitsFiltres');
-    // console.log(produitsFiltres);
-  },[entrepotActif])
 
 
   return (
@@ -178,6 +93,7 @@ const Page = () => {
                 totalPages={totalPages}
                 categories={categories}
                 isLoading={isLoading}
+               
               />
            
       </Tabs>

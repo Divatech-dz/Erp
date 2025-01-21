@@ -12,20 +12,28 @@ export const sidebarLinks: SidebarLink[] = [
                 link: '/produits',
             },
 
-            {
-                name: 'Families',
-                link: '/families',
-            },
+      {
+        name: 'Families',
+        link: '/families',
+      }, 
 
             {
                 name: 'Liste des prix',
                 link: '/listePrix',
             },
 
-            {
-                name: 'Produits / Entrepots',
-                link: '/entrepotsProduits',
-            },
+      {
+        name: 'Produits / Entrepots',
+        link: '/entrepotsProduits',
+      },
+      {
+        name: 'Archive de vérification',
+        link: '/archiveVerification',
+      },
+      {
+        name: 'Etat de stock',
+        link: '/etatStock',
+      },
         ],
         label: 'Produits',
     },
@@ -135,7 +143,23 @@ export const sidebarLinks: SidebarLink[] = [
     },
 
     {
-        id: '5',
+      id: '5',
+      imgURL: icons.comptoire,
+      route: [
+          {
+              name: 'Comptoire',
+              link: '/comptoire',
+          },
+          {
+              name: 'Cloture',
+              link: '/cloture',
+          },
+
+      ],
+      label: 'Comptoire',
+  },
+    {
+        id: '6',
         imgURL: icons.Goal,
         route: [
             {
@@ -158,7 +182,7 @@ export const sidebarLinks: SidebarLink[] = [
         label: 'Objectif',
     },
     {
-        id: '6',
+        id: '7',
         imgURL: icons.Statistic,
         route: [
             {
@@ -174,7 +198,7 @@ export const sidebarLinks: SidebarLink[] = [
         label: 'Statistique',
     },
     {
-        id: '7',
+        id: '8',
         imgURL: icons.Admin,
         route: [
             {
@@ -460,6 +484,60 @@ export const familiesColumn: rowsType[] = [
     }
 ]
 
+export const clotureColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Date d\'introduction'
+  },
+
+  {
+    id: '2',
+    name: 'Utilisateur'
+  },
+
+  {
+    id:'3',
+    name: 'Montant introduit'
+  },
+
+  {
+    id:'4',
+    name:'Montant Totale des bons de vente'
+  },
+
+  {
+    id:'5',
+    name:'Total Verssements'
+  },
+
+
+  {
+    id:'6',
+    name:'Remise Totale des bons de vente'
+  },
+
+
+  {
+    id:'7',
+    name:'Montant Totale Retorur'
+  },
+
+  {
+    id:'8',
+    name:'Montant encaissé'
+  },
+
+  {
+    id:'9',
+    name:'Etat de clôture'
+  }
+]
+
+export const prixProduitColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Désignation'
+  },
 export const prixProduitColumn: rowsType[] = [
     {
         id: '1',
@@ -502,25 +580,74 @@ export const entrepotColumn: rowsType[] = [
 ]
 
 
-export const entrepotProductColumn: rowsType[] = [
-    {
-        id: '1',
-        name: 'Désignation'
-    },
-    {
-        id: '2',
-        name: 'Quantité'
-    },
-    {
-        id: '3',
-        name: "Prix Revient"
-    },
-    {
-        id: '4',
-        name: "Montant"
-    }
+export const entrepotProductColumn:rowsType[]=[
+  {
+    id:'1',
+    name:'Référence'
+  },
+  {
+    id: '2',
+    name: 'Désignation'
+  },
+  {
+    id: '3',
+    name: 'Quantité'
+  },
+  {
+    id:'4',
+    name:"Prix Revient"
+  },
+  {
+    id:'5',
+    name:"Montant"
+  }]
+
+export const etatStockColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'MODEL TYPE'
+  },
+
+  {
+    id: '2',
+    name: 'MODEL NAME'
+  },
+
+  {
+    id:'3',
+    name: 'PART NUMBER'
+  },
+
+  {
+    id:'4',
+    name:'INITIAL STOCK'
+  },
+
+  {
+    id:'5',
+    name:'NEW ARRIVAL'
+  },
+
+  {
+    id:'6',
+    name:'SELLOUT'
+  },
+
+  {
+    id:'7',
+    name:'FINAL QUANTITY'
+  },
+  {
+    id:'8',
+    name:'START DATE'
+  },
+  {
+    id:'9',
+    name:'END DATE'
+  },
 
 ]
+
 
 
 export const NotesColumn: rowsType[] = [
@@ -1054,6 +1181,19 @@ export const keyMapCategory = {
     numbre_produit: "Nombre de produits",
     store: "store"
 };
+
+export const keyMapCloture = {
+  date_introduction: "Date d'introduction",
+  utilisateur: "Utilisateur",
+  montant_introduit:"Montant Introduit",
+  montant_totale :"Montant Totale des bons de vente",
+  total_verssements:"Total Verssements",
+  remise_totale :"Remise Totale des bons de vente",
+  montant_totale_retour:"Montant Totale Retorur",
+  montant_encaisse :"Montant encaissé",
+  etat_cloture :"Etat de clôture"
+};
+
 
 export const keyMapStock = {
     name: "Libellé",
