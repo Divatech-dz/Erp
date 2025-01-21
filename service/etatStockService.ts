@@ -15,8 +15,8 @@ export const getEtatStock = async ({ queryKey }: { queryKey: [number,string,stri
           params: {
             page: page,
             search: search,
-            startDate:startDate,
-            endDate: endDate,
+            start_date: startDate,
+            end_date: endDate,
             category: category === 0 ? "" : category,
                      
           

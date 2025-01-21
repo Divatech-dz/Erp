@@ -23,8 +23,6 @@ const Page = () => {
     setCategory,
     search,
     setSearch,
-    entrepot,
-    setEntrepot,
     startDate,
     setStartDate,
     endDate,
@@ -40,7 +38,7 @@ const Page = () => {
   });
 
   const transformedEtatStock = useMemo(
-    () => transformNestedData(etatStockData?.results || [], {  categorie: "MODEL TYPE",name:"MODEL NAME",reference:"PART NUMBER",start_date:"START DATE",end_date:"END DATE",initial_quantity:"INITIAL STOCK",entered_quantity:"NEW ARRIVAL",sold_quantity:"SELLOUT",final_quantity:"FINAL QUANTITY"}),
+    () => transformNestedData(etatStockData?.results || [], {  categorie: "MODEL TYPE",name:"MODEL NAME",reference:"PART NUMBER",initial_quantity:"INITIAL STOCK",entered_quantity:"NEW ARRIVAL",sold_quantity:"SELLOUT",final_quantity:"FINAL QUANTITY"}),
     [etatStockData]
   );
   
@@ -51,6 +49,9 @@ const Page = () => {
   console.log(transformedEtatStock);
  
 
+  console.log('====================================');
+  console.log(categories);
+  console.log('====================================');
 
 
   return (
