@@ -45,23 +45,23 @@ const selectCategory = (config: ComponentsConfig) => (
     </Select>
 );
 
-const selectMarque = (config: ComponentsConfig) => (
+const selectFournisseur = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
-          config.setMarque?.(Number(value));
+          config.setFournisseur?.(Number(value));
           config.setCurrentPage?.(1);
       }}
   >
     <SelectTrigger className="w-[180px] h-10">
-      <SelectValue placeholder="Filtrer par marque" />
+      <SelectValue placeholder="Filtrer par fournisseur" />
     </SelectTrigger>
     <SelectContent className="bg-white">
       <SelectGroup>
-        <SelectLabel>Marques</SelectLabel>
-        <SelectItem value=" ">TOUTES</SelectItem>
-        {config.marques?.map((mr) => (
-          <SelectItem key={mr.id} value={mr.id}>
-            {mr.marque?.toUpperCase()}
+        <SelectLabel>Fournisseurs</SelectLabel>
+        <SelectItem value="0">TOUTES</SelectItem>
+        {config.fournisseurs?.map((fr:any) => (
+          <SelectItem key={fr.id} value={fr.id}>
+            {fr.fournisseur?.toUpperCase()}
           </SelectItem>
         ))}
       </SelectGroup>
@@ -72,7 +72,9 @@ const selectMarque = (config: ComponentsConfig) => (
 const selectEntrepot = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
-          config.setEntrepots?.(Number(value));
+          config.setEntrepot?.(Number(value));
+          console.log(value);
+          
           config.setCurrentPage?.(1);
       }}
   >
@@ -82,8 +84,8 @@ const selectEntrepot = (config: ComponentsConfig) => (
     <SelectContent className="bg-white">
       <SelectGroup>
         <SelectLabel>Entrepots</SelectLabel>
-        <SelectItem value=" ">TOUS</SelectItem>
-        {config.entrepots?.map((et) => (
+        <SelectItem value="0">TOUS</SelectItem>
+        {config.entrepots?.map((et:any) => (
           <SelectItem key={et.id} value={et.id}>
             {et.entrepot?.toUpperCase()}
           </SelectItem>
@@ -255,7 +257,7 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
     return (
       <>
         {renderDropdown(config)}
-        {selectMarque(config)}
+        {selectFournisseur(config)}
         {selectEntrepot(config)}
         {selectDecaleJuste(config)}
       </>
@@ -290,7 +292,7 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
       return (
         <>
             {selectEntrepot(config)}
-            {selectMarque(config)}
+            {selectFournisseur(config)}
             {renderDropdown(config)}
             {renderDateRange(config)}
         </>

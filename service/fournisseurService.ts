@@ -2,7 +2,7 @@ import axiosInstance from "@/lib/axios";
 
 import Cookies from "js-cookie";
 
-export const getMarque = async () => {
+export const getFournisseur = async () => {
    
     
     try {
@@ -13,6 +13,10 @@ export const getMarque = async () => {
                 'Authorization': `Bearer ${Cookies.get('token')}`
             }
         });
+
+        console.log('fournisseur depuis service');
+        console.log(data);
+        
         return data;
     } catch (error) {
         console.error(error);

@@ -22,7 +22,11 @@ export const TopContent: React.FC<TopContentProps> = ({
                                                           setEndDate,
                                                           setClientType,
                                                           setUserId,
-                                                          salesUsers
+                                                          salesUsers,
+                                                          fournisseurs,
+                                                          setFournisseur,
+                                                          entrepots,
+                                                          setEntrepot
                                                       }) => {
 
         const [value, setValue] = useState('');
@@ -81,7 +85,12 @@ export const TopContent: React.FC<TopContentProps> = ({
             endDate,
             setUserId,
             salesUsers,
-            setClientType
+            setClientType,
+            fournisseurs,
+            setFournisseur,
+            entrepots,
+            setEntrepot
+            
         };
 
         const renderButtons = () => {

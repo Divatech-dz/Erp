@@ -21,49 +21,63 @@ const page = () => {
           setCaisseId,
           startDate,
           endDate,
+          setStartDate,
+          setEndDate,
           entrepot,
           entrepots,
           setEntrepot,
-          marque,
-          marques,
-          setMarque
+          fournisseur,
+          fournisseurs,
+          setFournisseur
       } = useFiltersContext();
 
 
-      const { isLoading, data: clotureData } = useQuery({
-        queryKey: [page, search,startDate,endDate,marque,entrepot],
+      const { isLoading, data: bonEntreeData } = useQuery({
+        queryKey: [page, search,startDate,endDate,fournisseur,entrepot],
         queryFn: getBonEntree,
       });
     
     
       
-        const resultsCloture = clotureData?.results;
-        const totalPages = clotureData?.total_pages;
+      const resultsBonEntree = bonEntreeData?.results;
+      const totalPages = bonEntreeData?.total_pages;
     
-        
-      const transformedData= transformNestedData(resultsCloture, keyMapBonEntreeProduct)
-      console.log(resultsCloture)
+      console.log(resultsBonEntree);
+      
+      const transformedData= transformNestedData(resultsBonEntree, keyMapBonEntreeProduct)
+      console.log("transformedData",transformedData)
+
+      const bonEntreeDataFilter=transformedData?.filter((data)=> data.Utilisateur !== "afifa_arg")
     
-  
+      // console.log("bonEntreeDataFilter",bonEntreeDataFilter)
+
+
+      
+
   return (
   
     <section className="page-design">
         <h1 className="text-4xl font-bold p-2">Bons d'entrées</h1>
   
         <DataTable
-          marques={marques}
-          setMarque={setMarque}
+
+          columnNames={bonEntreeColumn}
+          columnData={bonEntreeDataFilter}
+          fournisseurs={fournisseurs}
+          setFournisseur={setFournisseur}
           entrepots={entrepots}
           setEntrepot={setEntrepot}
-          columnNames={bonEntreeColumn}
           setSearch={setSearch} 
-          columnData={transformedData}
           currentPage={page}
           setCurrentPage={setPage}
           totalPages={totalPages}
           setCaisse={setCaisseId}
-         setUserId={setUserId}
+          setUserId={setUserId}
           isLoading={isLoading}
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate} 
+          setEndDate={setEndDate}
         />
       </section>
 

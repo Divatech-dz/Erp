@@ -39,6 +39,10 @@ export const DataTable = ({
                               salesUsers,
                               isLoading,
                               setClientType,
+                              fournisseurs,
+                              setFournisseur,
+                              entrepots,
+                              setEntrepot
                           }: TableProps) => {
     const pathname = usePathname();
     const [visibleColumns, setVisibleColumns] = useState(
@@ -123,6 +127,10 @@ export const DataTable = ({
                 setClientType={setClientType}
                 setUserId={setUserId}
                 salesUsers={salesUsers}
+                setFournisseur={setFournisseur}
+                fournisseurs={fournisseurs}
+                setEntrepot={setEntrepot}
+                entrepots={entrepots}
             />
 
             {tableData?.length === 0 ? (
@@ -175,7 +183,7 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande" || pathname === "/Facture") {
+                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname ==="/bonsEntree") {
                                                     console.log(row)
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")

@@ -31,13 +31,13 @@ declare interface TableProps {
     productData?: T | any[] | undefined,
     totalPages?: number,
     setCategory?: (value: (((prevState: number) => number) | number)) => void,
-    setMarque?: (value: (((prevState: number) => number) | number)) => void,
+    setFournisseur?: (value: (((prevState: number) => number) | number)) => void,
     setCaisse?: (value: (((prevState: number) => number) | number)) => void,
     setSearch?: (value: (((prevState: string) => string) | string)) => void,
     setEntrepot?: (value: (((prevState: number) => number) | number)) => void,
     categories?: { id: string; category: string; }[],
     entrepots?: { id: string; entrepot: string; }[],
-    marques?: { id: string; marque: string; }[],
+    fournisseurs?: { id: string; fournisseur: string; }[],
     startDate?: string,
     setStartDate?: sting,
     endDate?: sting,
@@ -102,10 +102,11 @@ export interface ComponentsConfig {
     handleColumnVisibilityChange: (columnKey: string) => void;
     visibleColumns: Set<string>;
     categories?: Array<{ id: string; category: string }>;
-    marques?: Array<{ id: string; marque: string }>;
+    fournisseurs?: Array<{ id: string; fournisseur: string }>;
     entrepots?: Array<{ id: string; entrepot: string }>;
     setCategory?: Dispatch<SetStateAction<number>>;
-    setMarque?: Dispatch<SetStateAction<number>>;
+    setFournisseur?: Dispatch<SetStateAction<number>>;
+    setEntrepot?: Dispatch<SetStateAction<number>>;
     setCurrentPage?: Dispatch<SetStateAction<number>>;
     setStartDate?: Dispatch<setStateAction<string>>,
     setEndDate?: Dispatch<setStateAction<string>>,
@@ -134,8 +135,8 @@ export interface TopContentProps {
     setCategory?: React.Dispatch<React.SetStateAction<number>>,
     categories?: Array<{ id: string; category: string }>,
     
-    setMarque?: React.Dispatch<React.SetStateAction<number>>,
-    marques?: Array<{ id: string; marque: string }>,
+    setFournisseur?: React.Dispatch<React.SetStateAction<number>>,
+    fournisseurs?: Array<{ id: string; fournisseur: string }>,
     
     setEntrepot?: React.Dispatch<React.SetStateAction<number>>,
     entrepots?: Array<{ id: string; entrepot: string }>,

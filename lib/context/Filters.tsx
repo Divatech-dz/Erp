@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getUsersList } from "@/service/userListService";
 import { getCategory } from "@/service/categoryService";
 import { getCaisse } from '@/service/caisseService';
-import { getMarque } from '@/service/marqueService';
+import { getFournisseur } from '@/service/fournisseurService';
 import { getEntrepot } from '@/service/entrepotService';
 
 interface FiltersContextType {
@@ -13,7 +13,7 @@ interface FiltersContextType {
   commercials: any;
   categories: any;
   caisses: any;
-  marques:any;
+  fournisseurs:any;
   entrepots:any;
   page: number;
   entrepot:number,
@@ -33,18 +33,18 @@ interface FiltersContextType {
   setUserId: (value: number | ((prevState: number) => number)) => void,
   caisseId:number,
   setCaisseId: (value: number | ((prevState: number) => number)) => void,
-  marque: number;
-  setMarque: (value: number | ((prevState: number) => number)) => void,
+  fournisseur: number;
+  setFournisseur: (value: number | ((prevState: number) => number)) => void,
 }
 
 const FiltersContext = createContext<FiltersContextType | undefined>(undefined);
 
 export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [page, setPage] = useState(1);
-  const [entrepot, setEntrepot] = useState(11);
+  const [entrepot, setEntrepot] = useState(0);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState(0);
-  const [marque, setMarque] = useState(0);
+  const [fournisseur, setFournisseur] = useState(0);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [clientType, setClientType] = useState('');
@@ -66,9 +66,9 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
     queryFn: getCaisse
   });
 
-  const { data: marqueData } = useQuery({
-    queryKey: ['marque'],
-    queryFn: getMarque
+  const { data: fournisseurData } = useQuery({
+    queryKey: ['fournisseur'],
+    queryFn: getFournisseur
   });
 
   const { data: entrepotData } = useQuery({
@@ -77,17 +77,11 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   });
 
 
-  console.log(
-    categoryData
-  );
-  
-  console.log(
-    marqueData
-  );
+  // console.log(
+  //   categoryData
+  // );
 
-  console.log(
-    entrepotData
-  );
+ 
 
 
   const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
@@ -96,8 +90,19 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const categories = categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
 
   const caisses = caisseData?.results?.map((caisse: any) => ({ id: caisse.id, caisse: caisse.Libellé }));
-  const marques = marqueData?.results?.map((marque: any) => ({ id: marque.id, marque: marque.acronym }));
+  const fournisseurs = fournisseurData?.map((fournisseur: any) => ({ id: fournisseur.id, fournisseur: fournisseur.acronym }));
   const entrepots = entrepotData?.results?.map((entrepot: any) => ({ id: entrepot.id, entrepot: entrepot.name }));
+
+  console.log(
+    "entrepots",
+    entrepots
+  );
+
+    
+  console.log(
+    "fournisseurs", fournisseurs
+   );
+ 
 
   return (
     <FiltersContext.Provider
@@ -105,7 +110,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         salesUsers,
         commercials,
         categories,
-        marques,
+        fournisseurs,
         entrepots,
         page,
         setPage,
@@ -126,8 +131,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         caisses,
         setCaisseId,
         caisseId,
-        marque,
-        setMarque,
+        fournisseur,
+        setFournisseur,
        
       }}
     >

@@ -1167,7 +1167,7 @@ export const bonEntreeColumn:rowsType[]=[
 
   {
     id: '5',
-    name: 'Créer Par'
+    name: 'Utilisateur'
   },
 
 ]
@@ -1191,9 +1191,9 @@ export const keyMapBonEntreeProduct = {
 
   idBon:"IdBon",
   dateBon : "Date Bon",
-  "entrepot.name" : "Entrepot",
+  entrepot_name : "Entrepot",
   "fournisseur.acronym" : "Fournisseur",
-  "user.username" : "Créer Par",
+  username : "Utilisateur",
   produits: "produits",
   unitprice:"Prix unitaire"
 
