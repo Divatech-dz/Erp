@@ -121,7 +121,7 @@ export interface ComponentsConfig {
     decaleJuste?: string,
 }
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits'|'cloture'|'etatStock'|'verificationStock'|'bonsEntree';
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente'|'verificationStock'|'bonsEntree';
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };

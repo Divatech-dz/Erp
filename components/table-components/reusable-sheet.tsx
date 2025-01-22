@@ -21,12 +21,16 @@ interface ReusableSheetProps {
 }
 
 export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, title, contentType, invoiceDetails}) => {
-    console.log(invoiceDetails)
+
+    const formatAmount = (amount: number): string => {
+        return amount.toLocaleString('fr-FR', {style: 'currency', currency: 'DZD'});
+    }
+
     const renderContent = () => {
         switch (contentType) {
             case "table":
                 return (
-                    <>
+                    <section>
                         <Table>
                         <TableHeader>
                             <TableRow>
@@ -43,44 +47,44 @@ export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, titl
                                     <TableRow key={produit?.produit?.id}>
                                         <TableCell>{produit?.stock?.reference}</TableCell>
                                         <TableCell>{produit?.stock?.name}</TableCell>
-                                        <TableCell>{produit?.unitprice || produit?.stock?.prix_achat} dzd</TableCell>
+                                        <TableCell>{formatAmount(produit?.unitprice) || formatAmount(produit?.stock?.prix_achat)} dzd</TableCell>
                                         <TableCell>{produit?.quantity }</TableCell>
-                                        <TableCell>{produit?.totalprice || produit?.stock?.prix_achat*produit?.quantity} dzd</TableCell>
+                                        <TableCell>{formatAmount(produit?.totalprice) || formatAmount(produit?.stock?.prix_achat*produit?.quantity)} dzd</TableCell>
                                     </TableRow>
                                 );
                             })}
                         </TableBody>
-                    </Table>
-                        <TableFooter>
-                            <TableRow>
-                                <TableCell className="w-60">
-                                    <p>Total HT:</p>
-                                    <p>{invoiceDetails?.total_price} dzd</p>
-                                </TableCell>
-                                <TableCell className="w-60">
-                                    <p>Remise:</p>
-                                    <p>{invoiceDetails?.Remise} dzd</p>
-                                    </TableCell>
-                                <TableCell className="w-60">
-                                    <p>Sous-total HT: </p>
-                                    <p>{invoiceDetails?.total_price-invoiceDetails?.Remise} dzd</p>
-                                </TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell className="w-60">
-                                    <p>Frais de livraison:</p>
-                                    <p>{invoiceDetails?.fraisLivraison} dzd</p>
-                                </TableCell>
-                                <TableCell className="w-60">
-                                    <p>Montant avoir:</p>
-                                    <p>{invoiceDetails?.total_avoir} dzd</p>
-                                </TableCell>
-                                <TableCell className="w-60">
-                                    <p>Total TTC:</p>
-                                    <p>{invoiceDetails?.total_soldprice} dzd</p>
-                                </TableCell>
-                            </TableRow>
-                        </TableFooter></>
+                    </Table><TableFooter>
+                        <TableRow>
+                            <TableCell className="w-60">
+                                <p>Total HT:</p>
+                                <p>{invoiceDetails?.total_price} dzd</p>
+                            </TableCell>
+                            <TableCell className="w-60">
+                                <p>Remise:</p>
+                                <p>{invoiceDetails?.Remise} dzd</p>
+                            </TableCell>
+                            <TableCell className="w-60">
+                                <p>Sous-total HT: </p>
+                                <p>{invoiceDetails?.total_price - invoiceDetails?.Remise} dzd</p>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell className="w-60">
+                                <p>Frais de livraison:</p>
+                                <p>{invoiceDetails?.fraisLivraison} dzd</p>
+                            </TableCell>
+                            <TableCell className="w-60">
+                                <p>Montant avoir:</p>
+                                <p>{invoiceDetails?.total_avoir} dzd</p>
+                            </TableCell>
+                            <TableCell className="w-60">
+                                <p>Total TTC:</p>
+                                <p>{invoiceDetails?.total_soldprice} dzd</p>
+                            </TableCell>
+                        </TableRow>
+                    </TableFooter>
+                    </section>
                 )
             case "filter":
                 return <FilterContent/>;
@@ -90,8 +94,8 @@ export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, titl
     };
 
     return (
-        <Sheet open={open} onOpenChange={onClose}>
-            <SheetContent className="bg-gray-25 min-w-[1000px] space-y-10">
+        <Sheet open={open} onOpenChange={onClose} >
+            <SheetContent className="bg-gray-25 min-w-[1000px] space-y-10 overflow-y-scroll scrollbar-hide">
                 <SheetHeader>
                     <SheetTitle>{title}</SheetTitle>
                 </SheetHeader>

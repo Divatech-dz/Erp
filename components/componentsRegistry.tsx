@@ -309,6 +309,23 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
             </>
         )
     },
+    Facture: () => {
+        return (
+            <>
+                {renderDropdown(config)}
+                {renderDateRange(config)}
+            </>
+        )
+    },
+    bonsRetourVente: () => {
+        return (
+            <>
+                {selectSalesUser(config)}
+                {renderDropdown(config)}
+                {renderDateRange(config)}
+            </>
+        )
+    },
 
     /* Comptoir*/
 
