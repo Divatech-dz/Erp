@@ -17,6 +17,10 @@ interface FiltersContextType {
   entrepots:any;
   page: number;
   entrepot:number,
+  entrepotDepart:number,
+  entrepotArrive:number,
+  setEntrepotDepart: (value: number | ((prevState: number) => number)) => void,
+  setEntrepotArrive: (value: number | ((prevState: number) => number)) => void,
   setEntrepot: (value: number | ((prevState: number) => number)) => void,
   setPage: (value: number | ((prevState: number) => number)) => void,
   search: string;
@@ -41,6 +45,8 @@ const FiltersContext = createContext<FiltersContextType | undefined>(undefined);
 
 export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [page, setPage] = useState(1);
+  const [entrepotDepart, setEntrepotDepart] = useState(0);
+  const [entrepotArrive, setEntrepotArrive] = useState(0);
   const [entrepot, setEntrepot] = useState(0);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState(0);
@@ -133,6 +139,11 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
         caisseId,
         fournisseur,
         setFournisseur,
+        setEntrepotDepart,
+        setEntrepotArrive,
+        entrepotDepart,
+        entrepotArrive,
+  
        
       }}
     >

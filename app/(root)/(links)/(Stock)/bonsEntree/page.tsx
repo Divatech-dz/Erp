@@ -10,6 +10,7 @@ import React from 'react';
 
 const page = () => {
 
+  
      const {
           page,
           setPage,
@@ -42,14 +43,12 @@ const page = () => {
       const resultsBonEntree = bonEntreeData?.results;
       const totalPages = bonEntreeData?.total_pages;
     
-      console.log(resultsBonEntree);
       
       const transformedData= transformNestedData(resultsBonEntree, keyMapBonEntreeProduct)
       console.log("transformedData",transformedData)
 
       const bonEntreeDataFilter=transformedData?.filter((data)=> data.Utilisateur !== "afifa_arg")
-    
-      // console.log("bonEntreeDataFilter",bonEntreeDataFilter)
+   
 
 
       

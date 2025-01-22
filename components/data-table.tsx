@@ -42,7 +42,9 @@ export const DataTable = ({
                               fournisseurs,
                               setFournisseur,
                               entrepots,
-                              setEntrepot
+                              setEntrepot,
+                              setEntrepotDepart,
+                              setEntrepotArrive
                           }: TableProps) => {
     const pathname = usePathname();
     const [visibleColumns, setVisibleColumns] = useState(
@@ -131,6 +133,8 @@ export const DataTable = ({
                 fournisseurs={fournisseurs}
                 setEntrepot={setEntrepot}
                 entrepots={entrepots}
+                setEntrepotDepart={setEntrepotDepart}
+                setEntrepotArrive={setEntrepotArrive}
             />
 
             {tableData?.length === 0 ? (
@@ -183,7 +187,7 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname ==="/bonsEntree") {
+                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname ==="/bonsEntree" || pathname ==="/bonsTransfert") {
                                                     console.log(row)
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")

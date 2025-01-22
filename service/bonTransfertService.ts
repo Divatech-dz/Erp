@@ -2,20 +2,16 @@ import axiosInstance from "@/lib/axios";
 
 import Cookies from "js-cookie";
 
-export const getVerificationStock = async () => {
-    
+export const getBonTransfert = async () => {
+  
     try {
-        const { data } = await axiosInstance.get("/produits/StockState/", {
-            
+        const { data } = await axiosInstance.get("/inventory/BonTransfert/", {
+          
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${Cookies.get('token')}`
             }
         });
-    
-        console.log('verification service');
-        console.log(data);
-        
         return data;
     } catch (error) {
         console.error(error);

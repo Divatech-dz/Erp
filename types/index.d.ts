@@ -35,6 +35,8 @@ declare interface TableProps {
     setCaisse?: (value: (((prevState: number) => number) | number)) => void,
     setSearch?: (value: (((prevState: string) => string) | string)) => void,
     setEntrepot?: (value: (((prevState: number) => number) | number)) => void,
+    setEntrepotDepart?: (value: (((prevState: number) => number) | number)) => void,
+    setEntrepotArrive?: (value: (((prevState: number) => number) | number)) => void,
     categories?: { id: string; category: string; }[],
     entrepots?: { id: string; entrepot: string; }[],
     fournisseurs?: { id: string; fournisseur: string; }[],
@@ -116,13 +118,15 @@ export interface ComponentsConfig {
     salesUsers?: any[],
     setClientType?: Dispatch<SetStateAction<string>>;
     setEntrepots?: Dispatch<SetStateAction<number>>;
+    setEntrepotDepart?: Dispatch<SetStateAction<number>>;
+    setEntrepotArrive?: Dispatch<SetStateAction<number>>;
 
     
     setDecaleJuste?: Dispatch<setStateAction<string>>,
     decaleJuste?: string,
 }
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente'|'verificationStock'|'bonsEntree';
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente'|'verificationStock'|'bonsEntree'| 'bonsTransfert';
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };
@@ -150,6 +154,10 @@ export interface TopContentProps {
     setClientType?: React.Dispatch<React.SetStateAction<string>>,
     setUserId?: React.Dispatch<React.SetStateAction<number>>,
     salesUsers?: any[],
+
+    setEntrepotDepart?: React.Dispatch<React.SetStateAction<number>>,
+
+    setEntrepotArrive?: React.Dispatch<React.SetStateAction<number>>,
 
     decaleJuste?: string,
     setDecaleJuste?: React.Dispatch<React.SetStateAction<string>>,

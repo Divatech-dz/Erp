@@ -26,7 +26,9 @@ export const TopContent: React.FC<TopContentProps> = ({
                                                           fournisseurs,
                                                           setFournisseur,
                                                           entrepots,
-                                                          setEntrepot
+                                                          setEntrepot,
+                                                          setEntrepotDepart,
+                                                          setEntrepotArrive
                                                       }) => {
 
         const [value, setValue] = useState('');
@@ -89,7 +91,10 @@ export const TopContent: React.FC<TopContentProps> = ({
             fournisseurs,
             setFournisseur,
             entrepots,
-            setEntrepot
+            setEntrepot,
+            setEntrepotDepart,
+            setEntrepotArrive,
+           
             
         };
 

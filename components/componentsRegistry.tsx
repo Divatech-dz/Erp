@@ -96,6 +96,62 @@ const selectEntrepot = (config: ComponentsConfig) => (
 );
 
 
+const selectEntrepotDepart = (config: ComponentsConfig) => (
+  <Select
+      onValueChange={(value: any) => {
+          config.setEntrepotDepart?.(Number(value));
+          console.log(value);
+          
+          config.setCurrentPage?.(1);
+      }}
+  >
+    <SelectTrigger className="w-[180px] h-10">
+      <SelectValue placeholder="Entrepot Départ" />
+    </SelectTrigger>
+    <SelectContent className="bg-white">
+      <SelectGroup>
+        <SelectLabel>Entrepot Départ</SelectLabel>
+        <SelectItem value="0">TOUS</SelectItem>
+        {config.entrepots?.map((et:any) => (
+          <SelectItem key={et.id} value={et.id}>
+            {et.entrepot?.toUpperCase()}
+          </SelectItem>
+        ))}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+);
+
+
+const selectEntrepotArrive = (config: ComponentsConfig) => (
+  <Select
+      onValueChange={(value: any) => {
+          config.setEntrepotArrive?.(Number(value));
+          console.log(value);
+          
+          config.setCurrentPage?.(1);
+      }}
+  >
+    <SelectTrigger className="w-[180px] h-10">
+      <SelectValue placeholder="Entrepot Arrivé" />
+    </SelectTrigger>
+    <SelectContent className="bg-white">
+      <SelectGroup>
+        <SelectLabel>Entrepot Arrivé</SelectLabel>
+        <SelectItem value="0">TOUS</SelectItem>
+        {config.entrepots?.map((et:any) => (
+          <SelectItem key={et.id} value={et.id}>
+            {et.entrepot?.toUpperCase()}
+          </SelectItem>
+        ))}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+);
+
+
+
+
 const selectDecaleJuste = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
@@ -297,6 +353,18 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
             {renderDateRange(config)}
         </>
     )
+    },
+
+    bonsTransfert: () => { 
+      return(
+        <>
+            {selectEntrepotDepart(config)}
+            {selectEntrepotArrive(config)}
+            {renderDropdown(config)}
+            {renderDateRange(config)}
+        
+        </>
+      )
     },
  
 
