@@ -1,6 +1,8 @@
-import {CardProps, Column, rowsType, SalesProps, SidebarLink} from '@/types';
-import {Users, SquareArrowLeft, BadgePercent, Truck} from 'lucide-react';
-import {icons} from './icons';
+import { CardProps, Column, rowsType, SalesProps, SidebarLink } from '@/types';
+
+import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
+
+import { icons } from './icons';
 
 export const sidebarLinks: SidebarLink[] = [
     {
@@ -65,17 +67,13 @@ export const sidebarLinks: SidebarLink[] = [
         imgURL: icons.Stock,
         route: [
             {
-                name: 'Bons de transfert',
+                name: 'Liste des entrepots',
                 link: '/entrepots',
-            },
-            {
-                name: 'Bons de transfert',
-                link: '/bonsTransfert',
             },
 
             {
-                name: 'Bons de sortie',
-                link: '/bonsSortie',
+                name: "Bons d'entrée",
+                link: '/bonsEntree',
             },
 
             {
@@ -606,8 +604,63 @@ export const etatStockColumn:rowsType[]=[
   {
     id:'7',
     name:'FINAL QUANTITY'
-  }]
+  }
 
+]
+
+
+export const verificationStockColumn:rowsType[]=[
+
+  {
+    id: '1',
+    name: 'Référence'
+  },
+  {
+    id: '2',
+    name: 'Désignation'
+  },
+  {
+    id: '3',
+    name: 'Entrepot'
+  },
+  {
+    id: '4',
+    name: 'Qté entrée'
+  },
+  {
+    id: '5',
+    name: 'Qté Pc'
+  },
+  
+  {
+    id: '6',
+    name: 'Qté reçu'
+  },
+  {
+    id: '7',
+    name: 'Qté transféré'
+  },
+  {
+    id: '8',
+    name: 'Qté en BP'
+  },
+  {
+    id: '9',
+    name: 'Qté vendu	'
+  },
+  {
+    id: '10',
+    name: 'Qté retour	'
+  },
+  {
+    id: '11',
+    name: 'Qté actuelle'
+  },
+  {
+    id: '12',
+    name: 'Quantité réelle'
+  }
+]
 
 
 export const NotesColumn: rowsType[] = [
@@ -1089,18 +1142,69 @@ export const entropsRows = [
         sort: false
     }]
 
+
+export const bonEntreeColumn:rowsType[]=[
+
+  {
+    id: '1',
+    name: 'IdBon'
+  },
+
+  {
+    id: '2',
+    name: 'Date Bon'
+  },
+
+  {
+    id: '3',
+    name: 'Entrepot'
+  },
+
+  {
+    id: '4',
+    name: 'Fournisseur'
+  },
+
+  {
+    id: '5',
+    name: 'Créer Par'
+  },
+
+]
+
 export const keyMapEntrepot = {
     id: "id",
     name: "Désignation",
     location: "Location",
 };
 
-export const keyMapEntrepotProduct = {
-    name: "Désignation",
-    prix_achat: "Prix Revient",
-    "stock[0].quantity": "Quantité",
-};
+// export const keyMapEntrepotProduct = {
+//   name: "Désignation", 
+//   prix_achat:"Prix Revient",
+//   "stock[0].quantity":"Quantité",
 
+ 
+// };
+
+
+export const keyMapBonEntreeProduct = {
+
+  idBon:"IdBon",
+  dateBon : "Date Bon",
+  "entrepot.name" : "Entrepot",
+  "fournisseur.acronym" : "Fournisseur",
+  "user.username" : "Créer Par",
+  produits: "produits",
+  unitprice:"Prix unitaire"
+
+}
+
+export const keyMapVerificationStock = {
+      reference: "Référence",
+      name:"Désignation",
+      quantity:"Quantité"
+
+}
 export const keyMapPrix = {
     name: "Désignation",
     quantity_globale: "Quantité",
@@ -1122,7 +1226,7 @@ export const keyMapCloture = {
   utilisateur: "Utilisateur",
   montant_introduit:"Montant Introduit",
   montant_totale :"Montant Totale des bons de vente",
-  total_verssements:"Total Verssements",
+  total_versements:"Total Versements",
   remise_totale :"Remise Totale des bons de vente",
   montant_totale_retour:"Montant Totale Retorur",
   montant_encaisse :"Montant encaissé",
