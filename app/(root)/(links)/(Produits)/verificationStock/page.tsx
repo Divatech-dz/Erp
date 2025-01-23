@@ -56,8 +56,8 @@ const page = () => {
                 // setSearch={setSearch}
                 // setCategory={setCategory}
                
-                // currentPage={page}
-                // setCurrentPage={setPage}
+                 currentPage={page}
+                 setCurrentPage={setPage}
                 // totalPages={totalPages}
                 // categories={categories}
                 // isLoading={isLoading}

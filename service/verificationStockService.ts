@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 export const getVerificationStock = async () => {
     
     try {
-        const { data } = await axiosInstance.get("/produits/StockState/", {
+        const { data } = await axiosInstance.get("/produits/StockState", {
             
             headers: {
                 'Content-Type': 'application/json',

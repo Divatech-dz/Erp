@@ -52,7 +52,7 @@ function Page() {
         setCurrentPage={setPage}
         totalPages={totalPages}
         setCaisse={setCaisseId}
-       setUserId={setUserId}
+        setUserId={setUserId}
         isLoading={isLoading}
       />
     </section>

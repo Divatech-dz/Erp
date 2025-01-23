@@ -646,11 +646,11 @@ export const verificationStockColumn:rowsType[]=[
   },
   {
     id: '9',
-    name: 'Qté vendu	'
+    name: 'Qté vendu'
   },
   {
     id: '10',
-    name: 'Qté retour	'
+    name: 'Qté retour'
   },
   {
     id: '11',
