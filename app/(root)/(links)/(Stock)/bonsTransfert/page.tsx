@@ -24,7 +24,8 @@ function Page() {
     endDate,
     setStartDate,
     setEndDate,
-    entrepot,
+    entrepotDepart,
+    entrepotArrive,
     entrepots,
     setEntrepotDepart,
     setEntrepotArrive
@@ -33,7 +34,7 @@ function Page() {
 
 
 const { isLoading, data: bonTransfertData } = useQuery({
-  queryKey: [page, search,startDate,endDate,entrepot],
+  queryKey: [page, search,startDate,endDate],
   queryFn: getBonTransfert,
 });
 
@@ -48,6 +49,9 @@ console.log("transformedData",transformedData)
 
 
 
+console.log("entrepot depart",entrepotDepart);
+
+console.log("entrepot arrive",entrepotArrive);
 
 
     return (
@@ -62,6 +66,7 @@ console.log("transformedData",transformedData)
          isLoading={isLoading}
          setEntrepotDepart={setEntrepotArrive}
          setEntrepotArrive={setEntrepotDepart}
+        
          entrepots={entrepots}
          />
 

@@ -75,11 +75,6 @@ export const sidebarLinks: SidebarLink[] = [
                 link: '/entrepots',
             },
             {
-                name: 'Bons de transfert',
-                link: '/bonsTransfert',
-            },
-
-            {
                 name: "Bons d'entrée",
                 link: '/bonsEntree',
             },
@@ -1256,9 +1251,9 @@ export const keyMapVerificationStock = {
 export const keyMapBonTransfertProduct = {
   idBon:"IDBon",
   dateBon : "Date Bon",
-  entrepot_depart_name : "Entrepot départ",
-  entrepot_arrive_name : "Entrepot arrivé",
-  "utilisateur.username" : "Utilisateur",
+  entrepot_depart: "Entrepot départ",
+  entrepot_arrive : "Entrepot arrivé",
+  user : "Utilisateur",
   produits: "produits",
 };
 

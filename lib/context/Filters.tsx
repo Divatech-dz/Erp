@@ -86,10 +86,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({childr
         queryFn: getEntrepot
     });
 
-    console.log("caisse filters",caisseData);
-
-    console.log("users filters",userListData);
-    
+  
     
 
     const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
