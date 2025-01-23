@@ -7,7 +7,7 @@ export const getBonEntree = async ({ queryKey }: { queryKey: [number, string,str
     const search = queryKey[1];
     const startDate = queryKey[2];
     const endDate = queryKey[3];
-    const marque = queryKey[4];
+    const fournisseur = queryKey[4];
     const entrepot = queryKey[5];
     try {
         const { data } = await axiosInstance.get("/inventory/BonEntry/", {
@@ -16,8 +16,8 @@ export const getBonEntree = async ({ queryKey }: { queryKey: [number, string,str
                 search: search,
                 start_date: startDate,
                 end_date: endDate,
+                fournisseur: fournisseur === 0 ? "" : fournisseur,
                 entrepot: entrepot === 0 ? "" : entrepot,
-                marque: marque === 0 ? "" : marque,
            
               
             },
@@ -26,6 +26,7 @@ export const getBonEntree = async ({ queryKey }: { queryKey: [number, string,str
                 'Authorization': `Bearer ${Cookies.get('token')}`
             }
         });
+    
         return data;
     } catch (error) {
         console.error(error);

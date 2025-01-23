@@ -31,13 +31,15 @@ declare interface TableProps {
     productData?: T | any[] | undefined,
     totalPages?: number,
     setCategory?: (value: (((prevState: number) => number) | number)) => void,
-    setMarque?: (value: (((prevState: number) => number) | number)) => void,
+    setFournisseur?: (value: (((prevState: number) => number) | number)) => void,
     setCaisse?: (value: (((prevState: number) => number) | number)) => void,
     setSearch?: (value: (((prevState: string) => string) | string)) => void,
     setEntrepot?: (value: (((prevState: number) => number) | number)) => void,
+    setEntrepotDepart?: (value: (((prevState: number) => number) | number)) => void,
+    setEntrepotArrive?: (value: (((prevState: number) => number) | number)) => void,
     categories?: { id: string; category: string; }[],
     entrepots?: { id: string; entrepot: string; }[],
-    marques?: { id: string; marque: string; }[],
+    fournisseurs?: { id: string; fournisseur: string; }[],
     startDate?: string,
     setStartDate?: sting,
     endDate?: sting,
@@ -102,10 +104,11 @@ export interface ComponentsConfig {
     handleColumnVisibilityChange: (columnKey: string) => void;
     visibleColumns: Set<string>;
     categories?: Array<{ id: string; category: string }>;
-    marques?: Array<{ id: string; marque: string }>;
+    fournisseurs?: Array<{ id: string; fournisseur: string }>;
     entrepots?: Array<{ id: string; entrepot: string }>;
     setCategory?: Dispatch<SetStateAction<number>>;
-    setMarque?: Dispatch<SetStateAction<number>>;
+    setFournisseur?: Dispatch<SetStateAction<number>>;
+    setEntrepot?: Dispatch<SetStateAction<number>>;
     setCurrentPage?: Dispatch<SetStateAction<number>>;
     setStartDate?: Dispatch<setStateAction<string>>,
     setEndDate?: Dispatch<setStateAction<string>>,
@@ -115,13 +118,15 @@ export interface ComponentsConfig {
     salesUsers?: any[],
     setClientType?: Dispatch<SetStateAction<string>>;
     setEntrepots?: Dispatch<SetStateAction<number>>;
+    setEntrepotDepart?: Dispatch<SetStateAction<number>>;
+    setEntrepotArrive?: Dispatch<SetStateAction<number>>;
 
     
     setDecaleJuste?: Dispatch<setStateAction<string>>,
     decaleJuste?: string,
 }
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente'|'verificationStock'|'bonsEntree';
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente'|'verificationStock'|'bonsEntree'| 'bonsTransfert';
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };
@@ -134,8 +139,8 @@ export interface TopContentProps {
     setCategory?: React.Dispatch<React.SetStateAction<number>>,
     categories?: Array<{ id: string; category: string }>,
     
-    setMarque?: React.Dispatch<React.SetStateAction<number>>,
-    marques?: Array<{ id: string; marque: string }>,
+    setFournisseur?: React.Dispatch<React.SetStateAction<number>>,
+    fournisseurs?: Array<{ id: string; fournisseur: string }>,
     
     setEntrepot?: React.Dispatch<React.SetStateAction<number>>,
     entrepots?: Array<{ id: string; entrepot: string }>,
@@ -149,6 +154,10 @@ export interface TopContentProps {
     setClientType?: React.Dispatch<React.SetStateAction<string>>,
     setUserId?: React.Dispatch<React.SetStateAction<number>>,
     salesUsers?: any[],
+
+    setEntrepotDepart?: React.Dispatch<React.SetStateAction<number>>,
+
+    setEntrepotArrive?: React.Dispatch<React.SetStateAction<number>>,
 
     decaleJuste?: string,
     setDecaleJuste?: React.Dispatch<React.SetStateAction<string>>,
