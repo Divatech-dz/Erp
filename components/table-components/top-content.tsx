@@ -24,7 +24,10 @@ export const TopContent: React.FC<TopContentProps> = ({
                                                           setUserId,
                                                           salesUsers,
                                                           fournisseurs,
-                                                          setFournisseur,
+                                                       
+                                                          fournisseurId,
+                                                       
+                                                          setFournisseurId,
                                                           entrepots,
                                                           setEntrepot,
                                                           setEntrepotDepart,
@@ -92,8 +95,9 @@ export const TopContent: React.FC<TopContentProps> = ({
             setUserId,
             salesUsers,
             setClientType,
-            fournisseurs,
-            setFournisseur,
+            fournisseurs,           
+            setFournisseurId,
+            fournisseurId,
             entrepots,
             setEntrepot,
             setEntrepotDepart,

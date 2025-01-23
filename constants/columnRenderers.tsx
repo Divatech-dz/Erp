@@ -1,36 +1,10 @@
-import {cn} from '@/lib/utils';
+import {cn, formatAmount, calculateMinutesLate, formatDate} from '@/lib/utils';
 import Image from 'next/image';
 import React, {JSX} from 'react';
 import {icons} from './icons';
-
 type ColumnRenderer = (row: Record<string, any>, name: string) => JSX.Element;
 
-const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-}
-
-const calculateMinutesLate = (arrivalTime: string): number => {
-    const [hours, minutes] = arrivalTime.split(':').map(Number);
-    const arrivalDate = new Date();
-    arrivalDate.setHours(hours, minutes, 0, 0);
-
-    const nineAM = new Date();
-    nineAM.setHours(9, 0, 0, 0);
-
-    const diff = arrivalDate.getTime() - nineAM.getTime();
-    return Math.max(0, Math.floor(diff / 60000)); // Convert milliseconds to minutes
-}
-
-const formatAmount = (amount: number): string => {
-    return amount.toLocaleString('fr-FR', {style: 'currency', currency: 'DZD'});
-}
-
 const columnRenderers: Record<string, ColumnRenderer> = {
-
   "PV TTC -P-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
   "PV TTC -R-": (row, name) => <p>{formatAmount(Number(row[name]))}</p>,
   "Etat de validation":(row, name) => ( <p className={cn('inline-block px-2 py-1 rounded-full text-white font-semibold ', {

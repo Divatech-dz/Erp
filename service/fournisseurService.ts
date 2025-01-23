@@ -14,9 +14,6 @@ export const getFournisseur = async () => {
             }
         });
 
-        console.log('fournisseur depuis service');
-        console.log(data);
-        
         return data;
     } catch (error) {
         console.error(error);

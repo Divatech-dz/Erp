@@ -8,9 +8,9 @@ import {KeyMapDevis, devisColumn} from "@/constants"
 import {transformNestedData} from '@/lib/utils';
 import {getDevis} from "@/service/DevisService";
 
-function BonsCommandeVente() {
+function Page() {
     const {
-        commercials,
+        salesUsers,
         page,
         setPage,
         search,
@@ -31,17 +31,16 @@ function BonsCommandeVente() {
     const devisResults = devisData?.results;
     const totalPages = devisData?.total_pages;
     const transformedData = transformNestedData(devisResults, KeyMapDevis);
-    console.log('devisResults',devisResults)
-    console.log('transformedData',transformedData)
+
     return (
         <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Bons de devis</h1>
             <DataTable columnNames={devisColumn} columnData={transformedData} setSearch={setSearch} currentPage={page}
                        setCurrentPage={setPage} totalPages={totalPages} startDate={startDate}
                        setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} setUserId={setUserId}
-                       salesUsers={commercials} isLoading={isLoading}/>
+                       salesUsers={salesUsers} isLoading={isLoading}/>
         </section>
     );
 }
 
-export default BonsCommandeVente;
+export default Page;

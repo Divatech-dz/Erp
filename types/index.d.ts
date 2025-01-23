@@ -1,6 +1,6 @@
 import {LucideIcon} from "lucide-react";
 
-import {Dispatch} from "react";
+import React, {Dispatch} from "react";
 
 
 // interface
@@ -52,7 +52,10 @@ declare interface TableProps {
     setClientType?: (value: (string | ((prevState: string) => string))) => void,
     isLoading?: false | true | boolean,
     decaleJuste?: string,
-    setDecaleJuste?:string
+    setDecaleJuste?: string,
+    fournisseurId?: number,
+    setFournisseurId?: (value: (((prevState: number) => number) | number)) => void,
+    fournisseur?: any
 }
 
 //types
@@ -113,7 +116,10 @@ export interface ComponentsConfig {
     caisses?: Array<{ id: string; caisse: string; }>;
     setCaisse?: Dispatch<SetStateAction<number>>;
     setCategory?: Dispatch<SetStateAction<number>>;
-    setFournisseur?: Dispatch<SetStateAction<number>>;
+    fournisseur?: number;
+    fournisseurId?: number;
+    setFournisseur?: Dispatch<SetStateAction<number>>
+    setFournisseurId?: Dispatch<SetStateAction<number>>
     setEntrepot?: Dispatch<SetStateAction<number>>;
     setCurrentPage?: Dispatch<SetStateAction<number>>;
     setStartDate?: Dispatch<setStateAction<string>>,
@@ -144,12 +150,12 @@ export interface TopContentProps {
     setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>,
     visibleColumns: Set<string>,
     columnNames?: rowsType[],
-    
     setCategory?: React.Dispatch<React.SetStateAction<number>>,
     categories?: Array<{ id: string; category: string }>,
     setCaisse?: React.Dispatch<React.SetStateAction<number>>,
     caisses?: Array<{ id: string; caisse: string }>,
-    setFournisseur?: React.Dispatch<React.SetStateAction<number>>,
+   fournisseurId?:number,
+    setFournisseurId?: React.Dispatch<React.SetStateAction<number>>,
     fournisseurs?: Array<{ id: string; fournisseur: string }>,
     setEntrepot?: React.Dispatch<React.SetStateAction<number>>,
     entrepots?: Array<{ id: string; entrepot: string }>,

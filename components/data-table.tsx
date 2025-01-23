@@ -11,7 +11,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-
+import pathName from "../constants/pathname.json"
 import {PaginationTable, ReusableSheet, TopContent} from "./table-components";
 import {icons} from "@/constants/icons";
 import {TableProps} from "@/types";
@@ -39,8 +39,7 @@ export const DataTable = ({
                               salesUsers,
                               isLoading,
                               setClientType,
-                              fournisseurs,
-                              setFournisseur,
+                              setFournisseurId,
                               entrepots,
                               setEntrepot,
                               setEntrepotDepart,
@@ -48,7 +47,11 @@ export const DataTable = ({
                               setCaisse,
                               caisses,
                               setUtilisateur,
-                              utilisateurs
+                              utilisateurs,
+                              fournisseurs,
+                              fournisseur,
+                              fournisseurId,
+                              setFournisseur
 
                           }: TableProps) => {
     const pathname = usePathname();
@@ -87,7 +90,6 @@ export const DataTable = ({
                 if (firstValue < secondValue) comparisonResult = -1;
                 else if (firstValue > secondValue) comparisonResult = 1;
                 else comparisonResult = 0;
-
                 return ascending ? comparisonResult : -comparisonResult;
             })
         );
@@ -130,8 +132,9 @@ export const DataTable = ({
                 setClientType={setClientType}
                 setUserId={setUserId}
                 salesUsers={salesUsers}
-                setFournisseur={setFournisseur}
                 fournisseurs={fournisseurs}
+                fournisseurId={fournisseurId}
+                setFournisseurId={setFournisseurId}
                 setEntrepot={setEntrepot}
                 entrepots={entrepots}
                 setEntrepotDepart={setEntrepotDepart}
@@ -192,7 +195,7 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname ==="/bonsEntree" || pathname ==="/bonsTransfert") {
+                                                if (pathName.some((path) => path.name === pathname)) {
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")
                                                 }

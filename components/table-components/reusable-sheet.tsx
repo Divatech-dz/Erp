@@ -1,3 +1,4 @@
+import React from "react";
 import {Sheet, SheetContent, SheetHeader, SheetTitle} from "../ui/sheet";
 import {FilterContent} from "./sheet-content";
 import {
@@ -10,6 +11,8 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import {usePathname} from "next/navigation";
+import {formatAmount} from "@/lib/utils";
 
 interface ReusableSheetProps {
     open: boolean,
@@ -22,9 +25,7 @@ interface ReusableSheetProps {
 
 export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, title, contentType, invoiceDetails}) => {
 
-    const formatAmount = (amount: number): string => {
-        return amount?.toLocaleString('fr-FR', {style: 'currency', currency: 'DZD'});
-    }
+    const pathname = usePathname()
 
     const renderContent = () => {
         switch (contentType) {
@@ -45,45 +46,48 @@ export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, titl
                             {invoiceDetails && invoiceDetails?.produits?.map((produit: any) => {
                                 return (
                                     <TableRow key={produit?.produit?.id || produit?.id}>
-                                        <TableCell>{produit?.stock?.reference || produit?.reference}</TableCell>
-                                        <TableCell>{produit?.stock?.name || produit?.name}</TableCell>
-                                        <TableCell>{formatAmount(produit?.unitprice) || formatAmount(produit?.price)} dzd</TableCell>
+                                        <TableCell>{produit?.stock?.reference || produit?.reference || produit?.produit?.reference}</TableCell>
+                                        <TableCell>{produit?.stock?.name || produit?.name || produit?.produit?.name}</TableCell>
+                                        <TableCell>{formatAmount(Number(produit?.unitprice ?? produit?.price ?? produit?.UnitPrice ?? 0))}</TableCell>
                                         <TableCell>{produit?.quantity }</TableCell>
-                                        <TableCell>{formatAmount(produit?.totalprice) || formatAmount(produit?.price*produit?.quantity)} dzd</TableCell>
+                                       <TableCell>{formatAmount(Number(produit?.totalprice ?? (produit?.price ?? produit?.UnitPrice * produit?.quantity) ?? 0))}</TableCell>
                                     </TableRow>
                                 );
+
                             })}
                         </TableBody>
-                    </Table><TableFooter>
-                        <TableRow>
-                            <TableCell className="w-60">
-                                <p>Total HT:</p>
-                                <p>{invoiceDetails?.total_price} dzd</p>
-                            </TableCell>
-                            <TableCell className="w-60">
-                                <p>Remise:</p>
-                                <p>{invoiceDetails?.Remise} dzd</p>
-                            </TableCell>
-                            <TableCell className="w-60">
-                                <p>Sous-total HT: </p>
-                                <p>{invoiceDetails?.total_price - invoiceDetails?.Remise} dzd</p>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell className="w-60">
-                                <p>Frais de livraison:</p>
-                                <p>{invoiceDetails?.fraisLivraison} dzd</p>
-                            </TableCell>
-                            <TableCell className="w-60">
-                                <p>Montant avoir:</p>
-                                <p>{invoiceDetails?.total_avoir} dzd</p>
-                            </TableCell>
-                            <TableCell className="w-60">
-                                <p>Total TTC:</p>
-                                <p>{invoiceDetails?.total_soldprice} dzd</p>
-                            </TableCell>
-                        </TableRow>
-                    </TableFooter>
+                    </Table>
+                        {
+                            <TableFooter>
+                            <TableRow>
+                                <TableCell className="w-60">
+                                    <p>Total HT:</p>
+                                    <p>{formatAmount(invoiceDetails?.total_price)}</p>
+                                </TableCell>
+                                <TableCell className="w-60">
+                                    <p>Remise:</p>
+                                    <p>{formatAmount(Number(invoiceDetails?.Remise))}</p>
+                                </TableCell>
+                                <TableCell className="w-60">
+                                    <p>Sous-total HT: </p>
+                                    <p>{formatAmount(invoiceDetails?.total_price - invoiceDetails?.Remise)}</p>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="w-60">
+                                    <p>Frais de livraison:</p>
+                                    <p>{formatAmount(Number(invoiceDetails?.fraisLivraison))}</p>
+                                </TableCell>
+                                <TableCell className="w-60">
+                                    <p>Montant avoir:</p>
+                                    <p>{formatAmount(invoiceDetails?.total_avoir)} </p>
+                                </TableCell>
+                                <TableCell className="w-60">
+                                    <p>Total TTC:</p>
+                                    <p>{formatAmount(invoiceDetails?.total_soldprice)}</p>
+                                </TableCell>
+                            </TableRow>
+                        </TableFooter>}
                     </section>
                 )
             case "filter":

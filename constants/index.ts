@@ -91,7 +91,7 @@ export const sidebarLinks: SidebarLink[] = [
         imgURL: icons.Sell,
         route: [
             {
-                name: 'Bons de commande vente',
+                name: 'Bons de livraison',
                 link: '/bons-commande',
             },
             {
@@ -100,19 +100,19 @@ export const sidebarLinks: SidebarLink[] = [
             },
 
             {
-                name: 'Bons de commande kit',
+                name: 'Bons de livraison kit',
                 link: '/bonsCommandeKit',
             },
             {
-                name: 'Bons de commande carton',
+                name: 'Bons de livraison carton',
                 link: '/bonsCommandeCarton',
             },
             {
-                name: 'Bons de commande PC',
+                name: 'Bons de livraison PC',
                 link: '/bonCommandePC',
             },
             {
-                name: 'Bons de commande modifiés',
+                name: 'Bons de livraison modifiés',
                 link: '/bonsCommandeModifies',
             },
             {
@@ -1182,13 +1182,9 @@ export const bonEntreeColumn:rowsType[]=[
   {
     id: '5',
     name: 'Utilisateur'
-  },
-
-]
-
+  }]
 
 export const bonTransfertColumn:rowsType[]=[
-
   {
     id: '1',
     name: 'IdBon'
@@ -1212,9 +1208,7 @@ export const bonTransfertColumn:rowsType[]=[
   {
     id: '5',
     name: 'Utilisateur'
-  },
-
-]
+  }]
 
 export const keyMapEntrepot = {
     id: "id",
@@ -1230,7 +1224,7 @@ export const keyMapBonEntreeProduct = {
   username : "Utilisateur",
   produits: "produits",
   unitprice:"Prix unitaire"
-}
+};
 
 export const keyMapVerificationStock = {
       reference: "Référence",

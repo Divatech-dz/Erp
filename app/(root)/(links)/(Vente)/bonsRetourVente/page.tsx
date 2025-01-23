@@ -30,7 +30,7 @@ function Page() {
 
     const returnResults = ReturnNotesData?.results;
     const totalPages = ReturnNotesData?.total_pages;
-   const transformedData = transformNestedData(returnResults, keyMapReturn);
+    const transformedData = transformNestedData(returnResults, keyMapReturn);
 
     return (
         <section>

@@ -100,7 +100,7 @@ const selectUsers = (config: ComponentsConfig) => (
 const selectFournisseur = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
-          config.setFournisseur?.(Number(value));
+          config.setFournisseurId?.(Number(value));
           config.setCurrentPage?.(1);
       }}
   >
@@ -125,8 +125,6 @@ const selectEntrepot = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
           config.setEntrepot?.(Number(value));
-          console.log(value);
-          
           config.setCurrentPage?.(1);
       }}
   >
@@ -152,8 +150,6 @@ const selectEntrepotDepart = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
           config.setEntrepotDepart?.(Number(value));
-          console.log(value);
-          
           config.setCurrentPage?.(1);
       }}
   >
@@ -179,8 +175,6 @@ const selectEntrepotArrive = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
           config.setEntrepotArrive?.(Number(value));
-          console.log(value);
-          
           config.setCurrentPage?.(1);
       }}
   >
