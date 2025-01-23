@@ -11,7 +11,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-
+import pathName from "../constants/pathname.json"
 import {PaginationTable, ReusableSheet, TopContent} from "./table-components";
 import {icons} from "@/constants/icons";
 import {TableProps} from "@/types";
@@ -184,7 +184,7 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname === "/bonsEntree" || pathname === "/bonsTransfert") {
+                                                if (pathName.some((path) => path.name === pathname)) {
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")
                                                 }
