@@ -30,6 +30,7 @@ declare interface TableProps {
     setCurrentPage?: (value: (((prevState: number) => number) | number)) => void,
     productData?: T | any[] | undefined,
     totalPages?: number,
+    setUtilisateur?: (value: (((prevState: number) => number) | number)) => void,
     setCategory?: (value: (((prevState: number) => number) | number)) => void,
     setFournisseur?: (value: (((prevState: number) => number) | number)) => void,
     setCaisse?: (value: (((prevState: number) => number) | number)) => void,
@@ -38,6 +39,8 @@ declare interface TableProps {
     setEntrepotDepart?: (value: (((prevState: number) => number) | number)) => void,
     setEntrepotArrive?: (value: (((prevState: number) => number) | number)) => void,
     categories?: { id: string; category: string; }[],
+    utilisateurs?: { id: string; utilisateur: string; }[],
+    caisses?: { id: string; caisse: string; }[],
     entrepots?: { id: string; entrepot: string; }[],
     fournisseurs?: { id: string; fournisseur: string; }[],
     startDate?: string,
@@ -106,6 +109,9 @@ export interface ComponentsConfig {
     categories?: Array<{ id: string; category: string }>;
     fournisseurs?: Array<{ id: string; fournisseur: string }>;
     entrepots?: Array<{ id: string; entrepot: string }>;
+    entrepots?: Array<{ id: string; entrepot: string }>;
+    caisses?: Array<{ id: string; caisse: string; }>;
+    setCaisse?: Dispatch<SetStateAction<number>>;
     setCategory?: Dispatch<SetStateAction<number>>;
     setFournisseur?: Dispatch<SetStateAction<number>>;
     setEntrepot?: Dispatch<SetStateAction<number>>;
@@ -121,12 +127,15 @@ export interface ComponentsConfig {
     setEntrepotDepart?: Dispatch<SetStateAction<number>>;
     setEntrepotArrive?: Dispatch<SetStateAction<number>>;
 
+    utilisateurs?: Array<{ id: string; utilisateur: string; }>;
+    setUtilisateur?: Dispatch<SetStateAction<number>>;
+
     
     setDecaleJuste?: Dispatch<setStateAction<string>>,
     decaleJuste?: string,
 }
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente' | 'bonsDevis' | 'verificationStock' | 'bonsEntree' | 'bonsTransfert';
+export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente' | 'bonsDevis' | 'verificationStock' | 'bonsEntree' | 'bonsTransfert' ;
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };
@@ -138,6 +147,8 @@ export interface TopContentProps {
     
     setCategory?: React.Dispatch<React.SetStateAction<number>>,
     categories?: Array<{ id: string; category: string }>,
+    setCaisse?: React.Dispatch<React.SetStateAction<number>>,
+    caisses?: Array<{ id: string; caisse: string }>,
     setFournisseur?: React.Dispatch<React.SetStateAction<number>>,
     fournisseurs?: Array<{ id: string; fournisseur: string }>,
     setEntrepot?: React.Dispatch<React.SetStateAction<number>>,
@@ -155,4 +166,7 @@ export interface TopContentProps {
     setEntrepotArrive?: React.Dispatch<React.SetStateAction<number>>,
     decaleJuste?: string,
     setDecaleJuste?: React.Dispatch<React.SetStateAction<string>>,
+
+    setUtilisateur?: React.Dispatch<React.SetStateAction<number>>,
+    utilisateurs?: Array<{ id: string; utilisateur: string }>,
 }

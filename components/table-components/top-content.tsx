@@ -28,7 +28,11 @@ export const TopContent: React.FC<TopContentProps> = ({
                                                           entrepots,
                                                           setEntrepot,
                                                           setEntrepotDepart,
-                                                          setEntrepotArrive
+                                                          setEntrepotArrive,
+                                                          setCaisse,
+                                                          caisses,
+                                                          utilisateurs,
+                                                          setUtilisateur
                                                       }) => {
 
         const [value, setValue] = useState('');
@@ -94,6 +98,10 @@ export const TopContent: React.FC<TopContentProps> = ({
             setEntrepot,
             setEntrepotDepart,
             setEntrepotArrive,
+            setCaisse,
+            caisses,
+            utilisateurs,
+            setUtilisateur
            
             
         };

@@ -1,5 +1,7 @@
 import {CardProps, Column, rowsType, SalesProps, SidebarLink} from '@/types';
+
 import {Users, SquareArrowLeft, BadgePercent, Truck} from 'lucide-react';
+
 import {icons} from './icons';
 
 export const sidebarLinks: SidebarLink[] = [
@@ -488,7 +490,7 @@ export const familiesColumn: rowsType[] = [
 export const clotureColumn:rowsType[]=[
   {
     id: '1',
-    name: 'Date d\'introduction'
+    name: "Date d'introduction"
   },
   {
     id: '2',
@@ -496,7 +498,7 @@ export const clotureColumn:rowsType[]=[
   },
   {
     id:'3',
-    name: 'Montant introduit'
+    name: 'Montant Introduit'
   },
   {
     id:'4',
@@ -504,7 +506,7 @@ export const clotureColumn:rowsType[]=[
   },
   {
     id:'5',
-    name:'Total Verssements'
+    name:'Total Versements'
   },
   {
     id:'6',
@@ -1277,14 +1279,14 @@ export const keyMapCategory = {
 };
 
 export const keyMapCloture = {
-  date_introduction: "Date d'introduction",
-  utilisateur: "Utilisateur",
-  montant_introduit:"Montant Introduit",
-  montant_totale :"Montant Totale des bons de vente",
-  total_versements:"Total Versements",
-  remise_totale :"Remise Totale des bons de vente",
-  montant_totale_retour:"Montant Totale Retorur",
-  montant_encaisse :"Montant encaissé",
+  date: "Date d'introduction",
+  username: "Utilisateur",
+  montant:"Montant Introduit",
+  totalprice_sum :"Montant Totale des bons de vente",  
+  total_verssemens:"Total Versements",
+  totalremise :"Remise Totale des bons de vente",
+  totalRembourse:"Montant Totale Retorur",
+  totalprix_encaisse:"Montant encaissé",
   etat_cloture :"Etat de clôture"
 };
 

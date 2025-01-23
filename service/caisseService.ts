@@ -7,7 +7,7 @@ export const getCaisse = async ({ queryKey }: { queryKey: [number, string] }) =>
     const search = queryKey[1];
     
     try {
-        const { data } = await axiosInstance.get("/comptoire/Cloture/", {
+        const { data } = await axiosInstance.get("/clientInfo/compteentreprise/", {
             params: {
                 page: page,
                 search: search,
@@ -17,6 +17,10 @@ export const getCaisse = async ({ queryKey }: { queryKey: [number, string] }) =>
                 'Authorization': `Bearer ${Cookies.get('token')}`
             }
         });
+        
+        console.log('caisse service');
+        console.log(data);
+       
         return data;
     } catch (error) {
         console.error(error);

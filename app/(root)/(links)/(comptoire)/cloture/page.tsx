@@ -12,37 +12,48 @@ function Page() {
     const {
         page,
         setPage,
-        search,
-        setSearch,
-        userId,
-        setUserId,
-        caisseId,
-        setCaisseId,
+        caisse,
+        caisses,
+        setCaisse,
+        setStartDate,
+        setEndDate,
         startDate,
-        endDate
+        endDate,
+        utilisateur,
+        utilisateurs,
+        setUtilisateur,
     } = useFiltersContext();
 
   const { isLoading, data: clotureData } = useQuery({
-    queryKey: [page, search,caisseId, userId,startDate, endDate],
+    queryKey: [page, caisse, utilisateur,startDate, endDate],
     queryFn: getCloture,
   });
 
     const resultsCloture = clotureData?.results;
     const totalPages = clotureData?.total_pages;
     const transformedData= transformNestedData(resultsCloture, keyMapCloture)
+
+    console.log("utilisateurs page",utilisateurs);
+    
   
   return (
     <section className="page-design">
       <h1 className="text-4xl font-bold p-2">Liste des clôture caisse </h1>
       <DataTable
         columnNames={clotureColumn}
-        setSearch={setSearch} 
+      
         columnData={transformedData}
         currentPage={page}
         setCurrentPage={setPage}
         totalPages={totalPages}
-        setCaisse={setCaisseId}
-        setUserId={setUserId}
+        caisses={caisses}
+        setCaisse={setCaisse}
+        utilisateurs={utilisateurs}
+        setUtilisateur={setUtilisateur}
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
         isLoading={isLoading}
       />
     </section>

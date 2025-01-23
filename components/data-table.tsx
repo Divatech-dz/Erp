@@ -44,7 +44,12 @@ export const DataTable = ({
                               entrepots,
                               setEntrepot,
                               setEntrepotDepart,
-                              setEntrepotArrive
+                              setEntrepotArrive,
+                              setCaisse,
+                              caisses,
+                              setUtilisateur,
+                              utilisateurs
+
                           }: TableProps) => {
     const pathname = usePathname();
     const [visibleColumns, setVisibleColumns] = useState(
@@ -131,6 +136,10 @@ export const DataTable = ({
                 entrepots={entrepots}
                 setEntrepotDepart={setEntrepotDepart}
                 setEntrepotArrive={setEntrepotArrive}
+                setCaisse={setCaisse}
+                caisses={caisses}
+                setUtilisateur={setUtilisateur}
+                utilisateurs={utilisateurs}
             />
 
             {tableData?.length === 0 ? (

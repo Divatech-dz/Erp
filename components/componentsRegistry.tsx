@@ -45,6 +45,58 @@ const selectCategory = (config: ComponentsConfig) => (
     </Select>
 );
 
+
+const selectCaisse = (config: ComponentsConfig) => (
+  <Select
+      onValueChange={(value: any) => {
+          config.setCaisse?.(Number(value));
+          config.setCurrentPage?.(1);
+      }}
+  >
+    <SelectTrigger className="w-[180px] h-10">
+      <SelectValue placeholder="Filtrer par caisse" />
+    </SelectTrigger>
+    <SelectContent className="bg-white">
+      <SelectGroup>
+        <SelectLabel>Caisse</SelectLabel>
+        <SelectItem value=" ">TOUTES</SelectItem>
+        {config.caisses?.map((caisse) => (
+          <SelectItem key={caisse.id} value={caisse.id}>
+            {caisse.caisse?.toUpperCase()}
+          </SelectItem>
+        ))}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+);
+
+
+const selectUsers = (config: ComponentsConfig) => (
+  <Select
+      onValueChange={(value: any) => {
+          config.setUtilisateur?.(Number(value));
+          config.setCurrentPage?.(1);
+      }}
+  >
+    <SelectTrigger className="w-[180px] h-10">
+      <SelectValue placeholder="Filtrer par utilisateurs" />
+    </SelectTrigger>
+    <SelectContent className="bg-white">
+      <SelectGroup>
+        <SelectLabel>Utilisateurs</SelectLabel>
+        <SelectItem value=" ">TOUS</SelectItem>
+        {config.utilisateurs?.map((utilisateur) => (
+          <SelectItem key={utilisateur.id} value={utilisateur.id}>
+            {utilisateur.utilisateur?.toUpperCase()}
+          </SelectItem>
+        ))}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+);
+
+
+
 const selectFournisseur = (config: ComponentsConfig) => (
   <Select
       onValueChange={(value: any) => {
@@ -412,7 +464,9 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
         return (
           <>
             {renderDropdown(config)}
-            {selectCategory(config)}
+            {selectCaisse(config)}
+            {selectUsers(config)}
+            {renderDateRange(config)}
           </>
         )
       },
