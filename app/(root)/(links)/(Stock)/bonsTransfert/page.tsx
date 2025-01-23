@@ -9,10 +9,6 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 function Page() {
-
-
-
-  
   const {
     page,
     setPage,
@@ -28,27 +24,16 @@ function Page() {
     entrepots,
     setEntrepotDepart,
     setEntrepotArrive
-    
 } = useFiltersContext();
-
 
 const { isLoading, data: bonTransfertData } = useQuery({
   queryKey: [page, search,startDate,endDate,entrepot],
   queryFn: getBonTransfert,
 });
 
-
-
 const resultsBonTransfert = bonTransfertData?.results;
 const totalPages = bonTransfertData?.total_pages;
-
-
 const transformedData= transformNestedData(resultsBonTransfert, keyMapBonTransfertProduct)
-console.log("transformedData",transformedData)
-
-
-
-
 
     return (
       <section className="page-design">
@@ -64,7 +49,6 @@ console.log("transformedData",transformedData)
          setEntrepotArrive={setEntrepotDepart}
          entrepots={entrepots}
          />
-
        </section> 
     );
 }

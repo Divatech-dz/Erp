@@ -13,7 +13,7 @@ interface FiltersContextType {
     commercials: any;
     categories: any;
     caisses: any;
-    fournisseurs: any;
+    fournisseur: any;
     entrepots: any;
     page: number;
     entrepot: number,
@@ -86,7 +86,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({childr
     const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
     const categories = categoryData?.map((cat: any) => ({id: cat.id, category: cat.Libellé}));
     const caisses = caisseData?.results?.map((caisse: any) => ({id: caisse.id, caisse: caisse.Libellé}));
-    const fournisseur = fournisseurData?.results?.map((marque: any) => ({id: marque.id, marque: marque.acronym}));
+    const fournisseur = fournisseurData?.map((marque: any) => ({id: marque.id, fournisseur: marque.acronym}));
     const entrepots = entrepotData?.results?.map((entrepot: any) => ({id: entrepot.id, entrepot: entrepot.name}));
 
     return (
