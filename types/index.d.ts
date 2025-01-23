@@ -1,6 +1,6 @@
 import {LucideIcon} from "lucide-react";
 
-import {Dispatch} from "react";
+import React, {Dispatch} from "react";
 
 
 // interface
@@ -49,7 +49,10 @@ declare interface TableProps {
     setClientType?: (value: (string | ((prevState: string) => string))) => void,
     isLoading?: false | true | boolean,
     decaleJuste?: string,
-    setDecaleJuste?:string
+    setDecaleJuste?: string,
+    fournisseurId?: number,
+    setFournisseurId?: (value: (((prevState: number) => number) | number)) => void,
+    fournisseur?: any
 }
 
 //types
@@ -104,10 +107,11 @@ export interface ComponentsConfig {
     handleColumnVisibilityChange: (columnKey: string) => void;
     visibleColumns: Set<string>;
     categories?: Array<{ id: string; category: string }>;
-    fournisseurs?: Array<{ id: string; fournisseur: string }>;
+    fournisseur?: Array<{ id: string; fournisseur: string }>;
     entrepots?: Array<{ id: string; entrepot: string }>;
     setCategory?: Dispatch<SetStateAction<number>>;
-    setFournisseur?: Dispatch<SetStateAction<number>>;
+    fournisseurId?: number;
+    setFournisseurId?: Dispatch<SetStateAction<number>>
     setEntrepot?: Dispatch<SetStateAction<number>>;
     setCurrentPage?: Dispatch<SetStateAction<number>>;
     setStartDate?: Dispatch<setStateAction<string>>,
@@ -120,13 +124,30 @@ export interface ComponentsConfig {
     setEntrepots?: Dispatch<SetStateAction<number>>;
     setEntrepotDepart?: Dispatch<SetStateAction<number>>;
     setEntrepotArrive?: Dispatch<SetStateAction<number>>;
-
-    
     setDecaleJuste?: Dispatch<setStateAction<string>>,
     decaleJuste?: string,
 }
 
-export type ComponentsRegistryKey = 'utilisateurs' | 'produits' | 'PageSalarie' | 'avanceSalaire' | 'Pointage' | 'listeClients' | 'ClientProspect' | 'bons-commande' | 'families' | 'listePrix'|'entrepotsProduits' |'cloture'|'etatStock' | 'Facture' | 'bonsRetourVente' | 'bonsDevis' | 'verificationStock' | 'bonsEntree' | 'bonsTransfert';
+export type ComponentsRegistryKey =
+    'utilisateurs'
+    | 'produits'
+    | 'PageSalarie'
+    | 'avanceSalaire'
+    | 'Pointage'
+    | 'listeClients'
+    | 'ClientProspect'
+    | 'bons-commande'
+    | 'families'
+    | 'listePrix'
+    | 'entrepotsProduits'
+    | 'cloture'
+    | 'etatStock'
+    | 'Facture'
+    | 'bonsRetourVente'
+    | 'bonsDevis'
+    | 'verificationStock'
+    | 'bonsEntree'
+    | 'bonsTransfert';
 export type ComponentRegistry = {
     [key in ComponentsRegistryKey]: () => JSX.Element | null;
 };
@@ -135,7 +156,6 @@ export interface TopContentProps {
     setVisibleColumns: React.Dispatch<React.SetStateAction<Set<string>>>,
     visibleColumns: Set<string>,
     columnNames?: rowsType[],
-    
     setCategory?: React.Dispatch<React.SetStateAction<number>>,
     categories?: Array<{ id: string; category: string }>,
     setFournisseur?: React.Dispatch<React.SetStateAction<number>>,
@@ -155,4 +175,7 @@ export interface TopContentProps {
     setEntrepotArrive?: React.Dispatch<React.SetStateAction<number>>,
     decaleJuste?: string,
     setDecaleJuste?: React.Dispatch<React.SetStateAction<string>>,
+    fournisseurId?: number | undefined,
+    setFournisseurId?: React.Dispatch<React.SetStateAction<number>>,
+    fournisseur?: any
 }

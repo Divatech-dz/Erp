@@ -39,12 +39,13 @@ export const DataTable = ({
                               salesUsers,
                               isLoading,
                               setClientType,
-                              fournisseurs,
-                              setFournisseur,
+                              setFournisseurId,
                               entrepots,
                               setEntrepot,
                               setEntrepotDepart,
-                              setEntrepotArrive
+                              setEntrepotArrive,
+                              fournisseurId,
+                              fournisseur
                           }: TableProps) => {
     const pathname = usePathname();
     const [visibleColumns, setVisibleColumns] = useState(
@@ -82,7 +83,6 @@ export const DataTable = ({
                 if (firstValue < secondValue) comparisonResult = -1;
                 else if (firstValue > secondValue) comparisonResult = 1;
                 else comparisonResult = 0;
-
                 return ascending ? comparisonResult : -comparisonResult;
             })
         );
@@ -125,8 +125,9 @@ export const DataTable = ({
                 setClientType={setClientType}
                 setUserId={setUserId}
                 salesUsers={salesUsers}
-                setFournisseur={setFournisseur}
-                fournisseurs={fournisseurs}
+                fournisseurId={fournisseurId}
+                setFournisseurId={setFournisseurId}
+                fournisseur={fournisseur}
                 setEntrepot={setEntrepot}
                 entrepots={entrepots}
                 setEntrepotDepart={setEntrepotDepart}
@@ -183,7 +184,7 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname ==="/bonsEntree" || pathname ==="/bonsTransfert") {
+                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname === "/bonsEntree" || pathname === "/bonsTransfert") {
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")
                                                 }
