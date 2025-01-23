@@ -1,4 +1,5 @@
 'use client';
+
 import React, {useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -38,7 +39,6 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
       alert('Invalid credentials');
     }
   };
- 
 
   const renderCustomInput = (name: FieldPath<z.infer<typeof formSchema>>, label: string, placeholder?: string, isTextInput = true, type = 'text') => (
     <CustomInput<typeof formSchema>
@@ -141,7 +141,7 @@ export const AuthForm = ({ type, style,defaultValues }: Readonly<{ type: string;
                   onClick={togglePasswordVisibility}
                   className="absolute left-96 -top-2 -bottom-8"
                 >
-                  <Image src={show ? icons.openedEye : icons.closedEye} alt="unlock" width={24} height={24} />
+                  <Image src={show ? icons.show : icons.hide} alt="unlock" width={24} height={24} />
                 </button>
               </div>
             </>

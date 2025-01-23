@@ -1,8 +1,6 @@
-import { CardProps, Column, rowsType, SalesProps, SidebarLink } from '@/types';
-
-import { Users, SquareArrowLeft, BadgePercent, Truck } from 'lucide-react';
-
-import { icons } from './icons';
+import {CardProps, Column, rowsType, SalesProps, SidebarLink} from '@/types';
+import {Users, SquareArrowLeft, BadgePercent, Truck} from 'lucide-react';
+import {icons} from './icons';
 
 export const sidebarLinks: SidebarLink[] = [
     {
@@ -27,6 +25,10 @@ export const sidebarLinks: SidebarLink[] = [
       {
         name: 'Produits / Entrepots',
         link: '/entrepotsProduits',
+      },
+      {
+        name: 'Archive de vérification',
+        link: '/archiveVerification',
       },
       {
         name: 'Etat de stock',
@@ -69,6 +71,10 @@ export const sidebarLinks: SidebarLink[] = [
             {
                 name: 'Liste des entrepots',
                 link: '/entrepots',
+            },
+            {
+                name: 'Bons de transfert',
+                link: '/bonsTransfert',
             },
 
             {
@@ -604,13 +610,9 @@ export const etatStockColumn:rowsType[]=[
   {
     id:'7',
     name:'FINAL QUANTITY'
-  }
-
-]
-
+  }]
 
 export const verificationStockColumn:rowsType[]=[
-
   {
     id: '1',
     name: 'Référence'
@@ -631,7 +633,6 @@ export const verificationStockColumn:rowsType[]=[
     id: '5',
     name: 'Qté Pc'
   },
-  
   {
     id: '6',
     name: 'Qté reçu'
@@ -659,9 +660,7 @@ export const verificationStockColumn:rowsType[]=[
   {
     id: '12',
     name: 'Qté réelle'
-  }
-]
-
+  }]
 
 export const NotesColumn: rowsType[] = [
     {
@@ -692,6 +691,24 @@ export const NotesColumn: rowsType[] = [
     {
         id: '7',
         name: "Validation"
+    }]
+
+export const devisColumn: rowsType[] = [
+    {
+        id: '1',
+        name: 'N° bon'
+    },
+    {
+        id: '2',
+        name: 'Date bon'
+    },
+    {
+        id: '3',
+        name: 'Client'
+    },
+    {
+        id: '4',
+        name: 'utilisateur'
     }]
 
 export const factureColumn: rowsType[] = [
@@ -1208,17 +1225,7 @@ export const keyMapEntrepot = {
     location: "Location",
 };
 
-// export const keyMapEntrepotProduct = {
-//   name: "Désignation", 
-//   prix_achat:"Prix Revient",
-//   "stock[0].quantity":"Quantité",
-
- 
-// };
-
-
 export const keyMapBonEntreeProduct = {
-
   idBon:"IdBon",
   dateBon : "Date Bon",
   entrepot_name : "Entrepot",
@@ -1226,7 +1233,6 @@ export const keyMapBonEntreeProduct = {
   username : "Utilisateur",
   produits: "produits",
   unitprice:"Prix unitaire"
-
 }
 
 export const keyMapVerificationStock = {
@@ -1242,9 +1248,8 @@ export const keyMapVerificationStock = {
       quantity_returned:"Qté retour",
       quantity_inreal:"Qté actuelle",
       quantity_expected:"Qté réelle",
-     
-
-}
+      quantity:"Quantité"
+};
 
 export const keyMapBonTransfertProduct = {
   idBon:"IDBon",
@@ -1253,7 +1258,8 @@ export const keyMapBonTransfertProduct = {
   entrepot_arrive_name : "Entrepot arrivé",
   "utilisateur.username" : "Utilisateur",
   produits: "produits",
-}
+};
+
 export const keyMapPrix = {
     name: "Désignation",
     quantity_globale: "Quantité",
@@ -1337,6 +1343,14 @@ export const keyMapNotes = {
     fraisLivraison: 'fraisLivraison',
     total_avoir: 'total_avoir',
     total_soldprice: 'total_soldprice',
+};
+
+export const KeyMapDevis = {
+ idBon: 'N° bon',
+ dateBon: 'Date bon',
+ 'client.name': 'Client',
+ 'user.username': 'utilisateur',
+ 'produits': 'produits',
 };
 
 export const keyMapFacterur = {
