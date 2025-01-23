@@ -1,16 +1,14 @@
 'use client';
 
 import { DataTable } from "@/components/data-table";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { entrepotProductColumn, keyMapEntrepotProduct } from "@/constants";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { entrepotProductColumn, } from "@/constants";
 import { useFiltersContext } from "@/lib/context/Filters";
 import { transformNestedData } from "@/lib/utils";
 import { getEntrepot } from "@/service/entrepotService";
-import { getProducts } from "@/service/productService";
 import { getStock } from "@/service/stockService";
 import { useQuery } from "@tanstack/react-query";
-import { log } from "node:console";
-import React, { useState, useMemo, useEffect } from "react";
+import React, {  useMemo } from "react";
 
 const Page = () => {
   const {
@@ -23,9 +21,7 @@ const Page = () => {
     setSearch,
     entrepot,
     setEntrepot,
-    
   } = useFiltersContext();
-
 
   const { data: entrepotData } = useQuery({
     queryKey: ["entrepot"],
@@ -37,7 +33,6 @@ const Page = () => {
     [entrepotData]
   );
 
-
   const {isLoading, data: stockData } = useQuery({
     queryKey: [page, search,entrepot,category],
     queryFn: getStock,
@@ -47,15 +42,8 @@ const Page = () => {
     () => transformNestedData(stockData?.results || [], { id: "id", name: "Désignation",quantity:"Quantité",prix_achat:"Prix Revient",reference:"Référence",montant_total:"Montant" }),
     [stockData]
   );
-  
-  
+
   const totalPages = stockData?.total_pages || 0;
-
-  console.log('transformedStock');
-  console.log(transformedStock);
- 
-
-
 
   return (
     <section className="page-design">
@@ -74,15 +62,8 @@ const Page = () => {
             >
               {entrepot.Désignation}
             </TabsTrigger>
-
-
-
-
           ))}
         </TabsList>
-
-   
-          
               <DataTable
                 columnNames={entrepotProductColumn}
                 columnData={transformedStock}
@@ -93,9 +74,7 @@ const Page = () => {
                 totalPages={totalPages}
                 categories={categories}
                 isLoading={isLoading}
-               
               />
-           
       </Tabs>
     </section>
   );

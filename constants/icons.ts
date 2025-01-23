@@ -10,7 +10,7 @@ import openedEye from '@/public/icons/openedEye.svg';
 import closedEye from '@/public/icons/closed-eye.svg';
 import Products from '@/public/icons/products.svg';
 import DivaTech from '@/public/icons/erp-01.jpg';
-import Search  from '@/public/icons/search.svg';
+import Search from '@/public/icons/search.svg';
 import Edit from '@/public/icons/edit.svg';
 import Stock from '@/public/icons/stock.svg';
 import Filter from '@/public/icons/filter.svg';
@@ -31,46 +31,48 @@ import Excel from '@/public/icons/excel.svg';
 import remove from '@/public/icons/remove.svg';
 import walkingMan from '@/public/icons/walking-man.svg';
 import truck from '@/public/icons/truck.svg';
-import comptoire from '@/public/icons/comptoir5.svg';
-
-
+import comptoire from '@/public/icons/comptoire.svg';
+import show from '@/public/icons/show.svg';
+import hide from '@/public/icons/hide.svg';
 
 export const icons = {
-  Admin,
+    Admin,
 //  close,
-  administration,
-  Filter,
-  archives,
-  client,
-  company,
-  logo,
-  logout,
-  home,
-  loader,
-  openedEye,
-  closedEye,
-  Products,
-  Stock,
-  Sell,
-  Trash,
-  Goal, 
-  Statistic,
-  Check,
-  Trier,
-  Visible,
-  Search,
-  ArrowDown,
-  ArrowUp,
-  ThreeDots,
-  Edit,
-  Plus,
-  ClosedCircle,
-  Excel,
-  remove,
-  walkingMan,
-  truck,
-  comptoire 
+    show,
+    hide,
+    administration,
+    Filter,
+    archives,
+    client,
+    company,
+    logo,
+    logout,
+    home,
+    loader,
+    openedEye,
+    closedEye,
+    Products,
+    Stock,
+    Sell,
+    Trash,
+    Goal,
+    Statistic,
+    Check,
+    Trier,
+    Visible,
+    Search,
+    ArrowDown,
+    ArrowUp,
+    ThreeDots,
+    Edit,
+    Plus,
+    ClosedCircle,
+    Excel,
+    remove,
+    walkingMan,
+    truck,
+    comptoire
 };
-export const images={
-  DivaTech
+export const images = {
+    DivaTech
 }

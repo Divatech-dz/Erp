@@ -6,9 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/banques/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/banques/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/etatStock/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/etatStock/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/families/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/families/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/listePrix/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/listePrix/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(comptoire)/cloture/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(comptoire)/cloture/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/auth-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/componentsRegistry.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/componentsRegistry.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/icons.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/context/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/context/Filters.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/caisseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/service/caisseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/comptoir.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/comptoir10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/comptoir16.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/comptoir5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -46,46 +61,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.localhost:3000.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
-    "git-widget-placeholder": "API-branch",
-    "last_opened_file_path": "D:/Erp/app/(root)/(links)",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "D:\\Erp\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "D:\\Erp\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;API-branch&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Erp/app/(root)/(links)&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Erp\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Erp\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Erp\app\(root)\(links)" />
       <recent name="D:\Erp\app\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Erp\public\icons" />
       <recent name="D:\Erp\app\(root)\(links)\(Vente)" />
       <recent name="D:\Erp\app\(root)\(links)\(Stock)" />
       <recent name="D:\Erp\app\(root)\(links)\(Produits)" />
       <recent name="D:\Erp\app\(root)\(links)\(Clients)" />
-      <recent name="D:\Erp\app\(root)\(links)\(admin)" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -160,6 +175,7 @@
       <workItem from="1737279373457" duration="5143000" />
       <workItem from="1737287700731" duration="12475000" />
       <workItem from="1737372711090" duration="1899000" />
+      <workItem from="1737491555431" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed conflicts">
       <option name="closed" value="true" />

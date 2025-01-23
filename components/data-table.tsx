@@ -56,7 +56,6 @@ export const DataTable = ({
     });
     const [invoiceDetails, setInvoiceDetails] = useState<Record<string, any>>({});
 
-
     useEffect(() => {
         setTableData(columnData ?? []);
     }, [columnData]);
@@ -73,7 +72,6 @@ export const DataTable = ({
             [...prevData]?.sort((a, b) => {
                 const firstValue = a[columnKey];
                 const secondValue = b[columnKey];
-
                 let comparisonResult: number;
                 if (firstValue < secondValue) comparisonResult = -1;
                 else if (firstValue > secondValue) comparisonResult = 1;
@@ -89,7 +87,6 @@ export const DataTable = ({
         setOpenModal(true);
     };
 
-
     if (isLoading) {
         return (<div className="h-screen flex flex-col justify-center items-center gap-10">
             <h1 className="text-3xl text-center text-gray-400">Veuillez patienter</h1>
@@ -104,7 +101,6 @@ export const DataTable = ({
             />
         </div>)
     }
-
 
     return (
         <section>
@@ -175,8 +171,7 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande" || pathname === "/Facture") {
-                                                    console.log(row)
+                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname === "/bonsDevis") {
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")
                                                 }

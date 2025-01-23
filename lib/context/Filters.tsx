@@ -60,7 +60,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   })
 
   const salesUsers = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'Vendeuse');
-  const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
+  const commercials = userListData?.filter((user: any) => user?.role === 'commercial' || user?.role === 'commercial-vente' || user?.role === 'manager');
   const categories = categoryData?.map((cat: any) => ({ id: cat.id, category: cat.Libellé }));
   const caisses = caisseData?.results?.map((caisse: any) => ({ id: caisse.id, caisse: caisse.Libellé }));
 

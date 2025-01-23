@@ -616,8 +616,6 @@ export const etatStockColumn:rowsType[]=[
     name:'END DATE'
   }]
 
-
-
 export const NotesColumn: rowsType[] = [
     {
         id: '1',
@@ -649,6 +647,24 @@ export const NotesColumn: rowsType[] = [
         name: "Validation"
     }]
 
+export const devisColumn: rowsType[] = [
+    {
+        id: '1',
+        name: 'N° bon'
+    },
+    {
+        id: '2',
+        name: 'Date bon'
+    },
+    {
+        id: '3',
+        name: 'Client'
+    },
+    {
+        id: '4',
+        name: 'utilisateur'
+    }]
+
 export const factureColumn: rowsType[] = [
     {
         id: '1',
@@ -670,6 +686,7 @@ export const factureColumn: rowsType[] = [
         id: '5',
         name: 'Etat de règlement'
     }]
+
 
 export const returnColumn: rowsType[] = [
     {
@@ -1192,6 +1209,14 @@ export const keyMapNotes = {
     fraisLivraison: 'fraisLivraison',
     total_avoir: 'total_avoir',
     total_soldprice: 'total_soldprice',
+};
+
+export const KeyMapDevis = {
+ idBon: 'N° bon',
+ dateBon: 'Date bon',
+ 'client.name': 'Client',
+ 'user.username': 'utilisateur',
+ 'produits': 'produits',
 };
 
 export const keyMapFacterur = {
