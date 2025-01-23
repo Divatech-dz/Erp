@@ -14,7 +14,7 @@ function Page() {
     });
 
     const transformedData= transformNestedData(banksData, keyMapBanks)
-    console.log(banksData)
+
     return (
       <section className="page-design">
             <h1 className="text-4xl font-bold p-2">Liste des banques</h1>

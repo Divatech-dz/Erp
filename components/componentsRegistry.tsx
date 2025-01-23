@@ -396,6 +396,14 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
             </>
         )
     },
+    bonsDevis: () => {
+        return (
+            <>
+                {selectSalesUser(config)}
+                {renderDropdown(config)}
+            </>
+        )
+    },
 
     /* Comptoir*/
 
