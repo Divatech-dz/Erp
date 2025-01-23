@@ -1,10 +1,14 @@
-import Image from 'next/image';
-import {Button} from './ui/button';
-import {Dropdown} from './table-components';
-import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from './ui/select';
 import {ComponentRegistry, ComponentsConfig} from '@/types';
 import {icons} from '@/constants/icons';
+
+import Image from 'next/image';
+
 import React from 'react';
+
+import {Dropdown} from './table-components';
+
+import {Button} from './ui/button';
+import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from './ui/select';
 
 const renderDropdown = (config: ComponentsConfig) => (
     <Dropdown
@@ -40,6 +44,87 @@ const selectCategory = (config: ComponentsConfig) => (
       </SelectContent>
     </Select>
 );
+
+const selectMarque = (config: ComponentsConfig) => (
+  <Select
+      onValueChange={(value: any) => {
+          config.setMarque?.(Number(value));
+          config.setCurrentPage?.(1);
+      }}
+  >
+    <SelectTrigger className="w-[180px] h-10">
+      <SelectValue placeholder="Filtrer par marque" />
+    </SelectTrigger>
+    <SelectContent className="bg-white">
+      <SelectGroup>
+        <SelectLabel>Marques</SelectLabel>
+        <SelectItem value=" ">TOUTES</SelectItem>
+        {config.marques?.map((mr) => (
+          <SelectItem key={mr.id} value={mr.id}>
+            {mr.marque?.toUpperCase()}
+          </SelectItem>
+        ))}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+);
+
+const selectEntrepot = (config: ComponentsConfig) => (
+  <Select
+      onValueChange={(value: any) => {
+          config.setEntrepots?.(Number(value));
+          config.setCurrentPage?.(1);
+      }}
+  >
+    <SelectTrigger className="w-[180px] h-10">
+      <SelectValue placeholder="Filtrer par entrepot" />
+    </SelectTrigger>
+    <SelectContent className="bg-white">
+      <SelectGroup>
+        <SelectLabel>Entrepots</SelectLabel>
+        <SelectItem value=" ">TOUS</SelectItem>
+        {config.entrepots?.map((et) => (
+          <SelectItem key={et.id} value={et.id}>
+            {et.entrepot?.toUpperCase()}
+          </SelectItem>
+        ))}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+);
+
+
+const selectDecaleJuste = (config: ComponentsConfig) => (
+  <Select
+      onValueChange={(value: any) => {
+          
+          config.setDecaleJuste?.(value);
+      }}
+  >
+    <SelectTrigger className="w-[180px] h-10">
+      <SelectValue placeholder="Décalé/Juste"/>
+    </SelectTrigger>
+    <SelectContent className="bg-white">
+      <SelectGroup>
+        <SelectLabel>Décalé/Juste</SelectLabel>
+              
+          <SelectItem  value={"decaleJuste"}>
+             Décalé/Juste 
+          </SelectItem>
+       
+          <SelectItem  value={"decale"}>
+             Décalé
+          </SelectItem>
+
+          <SelectItem  value={"juste"}>
+             Juste
+          </SelectItem>
+
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+);
+
 
 const selectClientType = (config: ComponentsConfig) => (
     <Select
@@ -150,7 +235,7 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
     etatStock: () => {
       return (
           <>
-              {selectSalesUser(config)}
+              {selectCategory(config)}
               {renderDropdown(config)}
               {renderDateRange(config)}
           </>
@@ -162,6 +247,17 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
       <>
         {renderDropdown(config)}
         {selectCategory(config)}
+      </>
+    )
+  },
+
+  verificationStock:() => {
+    return (
+      <>
+        {renderDropdown(config)}
+        {selectMarque(config)}
+        {selectEntrepot(config)}
+        {selectDecaleJuste(config)}
       </>
     )
   },
@@ -187,6 +283,19 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
         )
     },
 
+
+    /* Stock*/
+
+    bonsEntree: () => {
+      return (
+        <>
+            {selectEntrepot(config)}
+            {selectMarque(config)}
+            {renderDropdown(config)}
+            {renderDateRange(config)}
+        </>
+    )
+    },
  
 
     /* Ventes */

@@ -23,6 +23,7 @@ const Page = () => {
     setEndDate,
   } = useFiltersContext();
 
+
   const {isLoading, data: etatStockData } = useQuery({
     queryKey: [page,search,startDate,endDate,category],
     queryFn: getEtatStock,
@@ -32,7 +33,7 @@ const Page = () => {
     () => transformNestedData(etatStockData?.results || [], {  categorie: "MODEL TYPE",name:"MODEL NAME",reference:"PART NUMBER",start_date:"START DATE",end_date:"END DATE",initial_quantity:"INITIAL STOCK",entered_quantity:"NEW ARRIVAL",sold_quantity:"SELLOUT",final_quantity:"FINAL QUANTITY"}),
     [etatStockData]
   );
-
+  
   const totalPages = etatStockData?.total_pages || 0;
 
   return (

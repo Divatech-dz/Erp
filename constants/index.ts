@@ -34,6 +34,10 @@ export const sidebarLinks: SidebarLink[] = [
         name: 'Etat de stock',
         link: '/etatStock',
       },
+      {
+        name: 'Vérification de stock',
+        link: '/verificationStock',
+      },
         ],
         label: 'Produits',
     },
@@ -65,7 +69,7 @@ export const sidebarLinks: SidebarLink[] = [
         imgURL: icons.Stock,
         route: [
             {
-                name: 'Bons de transfert',
+                name: 'Liste des entrepots',
                 link: '/entrepots',
             },
             {
@@ -74,8 +78,8 @@ export const sidebarLinks: SidebarLink[] = [
             },
 
             {
-                name: 'Bons de sortie',
-                link: '/bonsSortie',
+                name: "Bons d'entrée",
+                link: '/bonsEntree',
             },
 
             {
@@ -606,14 +610,57 @@ export const etatStockColumn:rowsType[]=[
   {
     id:'7',
     name:'FINAL QUANTITY'
+  }]
+
+export const verificationStockColumn:rowsType[]=[
+  {
+    id: '1',
+    name: 'Référence'
   },
   {
-    id:'8',
-    name:'START DATE'
+    id: '2',
+    name: 'Désignation'
   },
   {
-    id:'9',
-    name:'END DATE'
+    id: '3',
+    name: 'Entrepot'
+  },
+  {
+    id: '4',
+    name: 'Qté entrée'
+  },
+  {
+    id: '5',
+    name: 'Qté Pc'
+  },
+
+  {
+    id: '6',
+    name: 'Qté reçu'
+  },
+  {
+    id: '7',
+    name: 'Qté transféré'
+  },
+  {
+    id: '8',
+    name: 'Qté en BP'
+  },
+  {
+    id: '9',
+    name: 'Qté vendu	'
+  },
+  {
+    id: '10',
+    name: 'Qté retour	'
+  },
+  {
+    id: '11',
+    name: 'Qté actuelle'
+  },
+  {
+    id: '12',
+    name: 'Quantité réelle'
   }]
 
 export const NotesColumn: rowsType[] = [
@@ -686,7 +733,6 @@ export const factureColumn: rowsType[] = [
         id: '5',
         name: 'Etat de règlement'
     }]
-
 
 export const returnColumn: rowsType[] = [
     {
@@ -1114,16 +1160,56 @@ export const entropsRows = [
         sort: false
     }]
 
+
+export const bonEntreeColumn:rowsType[]=[
+
+  {
+    id: '1',
+    name: 'IdBon'
+  },
+
+  {
+    id: '2',
+    name: 'Date Bon'
+  },
+
+  {
+    id: '3',
+    name: 'Entrepot'
+  },
+
+  {
+    id: '4',
+    name: 'Fournisseur'
+  },
+
+  {
+    id: '5',
+    name: 'Créer Par'
+  },
+
+]
+
 export const keyMapEntrepot = {
     id: "id",
     name: "Désignation",
     location: "Location",
 };
 
-export const keyMapEntrepotProduct = {
+export const keyMapBonEntreeProduct = {
+  idBon:"IdBon",
+  dateBon : "Date Bon",
+  "entrepot.name" : "Entrepot",
+  "fournisseur.acronym" : "Fournisseur",
+  "user.username" : "Créer Par",
+  produits: "produits",
+  unitprice:"Prix unitaire"
+}
+
+export const keyMapVerificationStock = {
+    reference: "Référence",
     name: "Désignation",
-    prix_achat: "Prix Revient",
-    "stock[0].quantity": "Quantité",
+    quantity: "Quantité"
 };
 
 export const keyMapPrix = {
@@ -1147,7 +1233,7 @@ export const keyMapCloture = {
   utilisateur: "Utilisateur",
   montant_introduit:"Montant Introduit",
   montant_totale :"Montant Totale des bons de vente",
-  total_verssements:"Total Verssements",
+  total_versements:"Total Versements",
   remise_totale :"Remise Totale des bons de vente",
   montant_totale_retour:"Montant Totale Retorur",
   montant_encaisse :"Montant encaissé",
