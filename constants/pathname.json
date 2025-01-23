@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "/bons-commande"
+  },
+  {
+    "id": 2,
+    "name": "/Facture"
+  },
+  {
+    "id": 3,
+    "name": "/bonsEntree"
+  },
+  {
+    "id": 4,
+    "name": "/bonsTransfert"
+  },
+  {
+    "id": 5,
+    "name": "/bonsDevis"
+  },
+  {
+    "id": 6,
+    "name": "/bonsRetourVente"
+  }
+]

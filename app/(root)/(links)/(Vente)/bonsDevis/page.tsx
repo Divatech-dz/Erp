@@ -10,7 +10,7 @@ import {getDevis} from "@/service/DevisService";
 
 function Page() {
     const {
-        commercials,
+        salesUsers,
         page,
         setPage,
         search,
@@ -38,7 +38,7 @@ function Page() {
             <DataTable columnNames={devisColumn} columnData={transformedData} setSearch={setSearch} currentPage={page}
                        setCurrentPage={setPage} totalPages={totalPages} startDate={startDate}
                        setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} setUserId={setUserId}
-                       salesUsers={commercials} isLoading={isLoading}/>
+                       salesUsers={salesUsers} isLoading={isLoading}/>
         </section>
     );
 }
