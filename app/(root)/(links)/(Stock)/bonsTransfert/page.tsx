@@ -35,17 +35,8 @@ const { isLoading, data: bonTransfertData } = useQuery({
 const resultsBonTransfert = bonTransfertData?.results;
 const totalPages = bonTransfertData?.total_pages;
 const transformedData= transformNestedData(resultsBonTransfert, keyMapBonTransfertProduct)
-<<<<<<< HEAD
-console.log("transformedData",transformedData)
 
 
-
-console.log("entrepot depart",entrepotDepart);
-
-console.log("entrepot arrive",entrepotArrive);
-
-=======
->>>>>>> c89b2b2370c7c070f44a558397fc027eaddbed54
 
     return (
       <section className="page-design">

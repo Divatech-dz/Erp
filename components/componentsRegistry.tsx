@@ -102,6 +102,8 @@ const selectFournisseur = (config: ComponentsConfig) => (
       onValueChange={(value: any) => {
           config.setFournisseurId?.(Number(value));
           config.setCurrentPage?.(1);
+          console.log("value",value);
+          
       }}
   >
     <SelectTrigger className="w-[180px] h-10">
@@ -359,7 +361,7 @@ const componentsRegistry = (config:ComponentsConfig):ComponentRegistry => ({
     return (
       <>
         {renderDropdown(config)}
-        {selectFournisseur(config)}
+        {selectCategory(config)}
         {selectEntrepot(config)}
         {selectDecaleJuste(config)}
       </>

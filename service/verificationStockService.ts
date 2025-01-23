@@ -2,15 +2,22 @@ import axiosInstance from "@/lib/axios";
 
 import Cookies from "js-cookie";
 
-export const getVerificationStock = async () => {
-    
+export const getVerificationStock = async ({ queryKey }: { queryKey: [number,number,number] }) => {
+  const page = queryKey[0];
+  const category = queryKey[1];
+  const entrepot = queryKey[2];
+ // const decale = queryKey[3];
+  
     try {
-<<<<<<< HEAD
         const { data } = await axiosInstance.get("/produits/StockState", {
-            
-=======
-        const { data } = await axiosInstance.get("/produits/StockState/", {
->>>>>>> c89b2b2370c7c070f44a558397fc027eaddbed54
+          params: {
+            page: page,
+            category: category === 0 ? "" : category,
+            entrepot: entrepot === 0 ? "" : entrepot,
+         //   decale: decale,
+          
+         
+       },
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${Cookies.get('token')}`

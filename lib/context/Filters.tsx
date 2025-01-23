@@ -81,6 +81,9 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({childr
         queryFn: getFournisseur
     });
 
+    console.log("fournisseurs",fournisseurData);
+    
+
     const {data: entrepotData} = useQuery({
         queryKey: ['entrepot'],
         queryFn: getEntrepot
@@ -93,7 +96,7 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({childr
     const commercials = userListData?.filter((user: any) => user?.role === 'commercial');
     const categories = categoryData?.map((cat: any) => ({id: cat.id, category: cat.Libellé}));
     const caisses = caisseData?.results?.map((caisse: any) => ({id: caisse.id, caisse: caisse.label}));
-    const fournisseurs = fournisseurData?.results?.map((fournisseur: any) => ({id: fournisseur.id, marque: fournisseur.acronym}));
+    const fournisseurs = fournisseurData?.map((fournisseur: any) => ({id: fournisseur.id, fournisseur: fournisseur.acronym}));
     const entrepots = entrepotData?.results?.map((entrepot: any) => ({id: entrepot.id, entrepot: entrepot.name}));
     const utilisateurs = userListData?.map((utilisateur: any) => ({id: utilisateur.id, utilisateur: utilisateur.username}));
 

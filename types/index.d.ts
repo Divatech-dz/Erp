@@ -116,10 +116,8 @@ export interface ComponentsConfig {
     caisses?: Array<{ id: string; caisse: string; }>;
     setCaisse?: Dispatch<SetStateAction<number>>;
     setCategory?: Dispatch<SetStateAction<number>>;
-    fournisseur?: number;
     fournisseurId?: number;
-    setFournisseur?: Dispatch<SetStateAction<number>>
-    setFournisseurId?: Dispatch<SetStateAction<number>>
+    setFournisseurId?: Dispatch<SetStateAction<number>>;
     setEntrepot?: Dispatch<SetStateAction<number>>;
     setCurrentPage?: Dispatch<SetStateAction<number>>;
     setStartDate?: Dispatch<setStateAction<string>>,

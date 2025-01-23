@@ -28,10 +28,7 @@ export const sidebarLinks: SidebarLink[] = [
         name: 'Produits / Entrepots',
         link: '/entrepotsProduits',
       },
-      {
-        name: 'Archive de vérification',
-        link: '/archiveVerification',
-      },
+      
       {
         name: 'Etat de stock',
         link: '/etatStock',

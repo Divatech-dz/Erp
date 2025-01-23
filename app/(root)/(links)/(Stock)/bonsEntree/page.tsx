@@ -17,8 +17,7 @@ function Page() {
           setSearch,
           userId,
           setUserId,
-          caisseId,
-          setCaisseId,
+         
           startDate,
           endDate,
           setStartDate,
@@ -26,7 +25,7 @@ function Page() {
           entrepot,
           entrepots,
           setEntrepot,
-          fournisseur,
+          fournisseurs,
           fournisseurId,
           setFournisseurId
       } = useFiltersContext();
@@ -41,23 +40,25 @@ function Page() {
       const totalPages = bonEntreeData?.total_pages;
       const transformedData= transformNestedData(resultsBonEntree, keyMapBonEntreeProduct)
       const bonEntreeDataFilter=transformedData?.filter((data)=> data.Utilisateur !== "afifa_arg")
+
+      console.log("fournisseurs",fournisseurs);
+      
    
   return (
     <section className="page-design">
-        <h1 className="text-4xl font-bold p-2">Bons d&#39;entrées</h1>
+        <h1 className="text-4xl font-bold p-2">Bons d'entrées</h1>
         <DataTable
           columnNames={bonEntreeColumn}
           columnData={bonEntreeDataFilter}
-          fournisseurId={fournisseurId}
+      
           setFournisseurId={setFournisseurId}
-          fournisseur={fournisseur}
+          fournisseurs={fournisseurs}
           entrepots={entrepots}
           setEntrepot={setEntrepot}
           setSearch={setSearch} 
           currentPage={page}
           setCurrentPage={setPage}
           totalPages={totalPages}
-          setCaisse={setCaisseId}
           setUserId={setUserId}
           isLoading={isLoading}
           startDate={startDate}

@@ -14,15 +14,26 @@ function Page(){
     page,
     setPage,
     search,
-    setSearch
+    setSearch,
+    categories,
+    setCategory,
+    category,
+    entrepots,
+    entrepot,
+    setEntrepot,
+    
   } = useFiltersContext();
 
   const { isLoading, data: verificationStockData } = useQuery({
-    queryKey: ["verificationStock"],
+    queryKey: [page, category,entrepot],
     queryFn: getVerificationStock,
   });
 
-  const transformedData= transformNestedData(verificationStockData, keyMapVerificationStock)
+  const resultsVerificationStock = verificationStockData?.results;
+  const transformedData= transformNestedData(resultsVerificationStock, keyMapVerificationStock)
+
+  const totalPages = verificationStockData?.total_pages || 0;
+
 
   return (
      <section className="page-design">
@@ -31,24 +42,14 @@ function Page(){
                  columnNames={verificationStockColumn}
                  columnData={transformedData}
                  isLoading={isLoading}
-                // setSearch={setSearch}
-                // setCategory={setCategory}
-<<<<<<< HEAD
-               
                  currentPage={page}
                  setCurrentPage={setPage}
-=======
-                // currentPage={page}
-                // setCurrentPage={setPage}
->>>>>>> c89b2b2370c7c070f44a558397fc027eaddbed54
-                // totalPages={totalPages}
-                // categories={categories}
-                // isLoading={isLoading}
-                // startDate={startDate}
-                // setStartDate={setStartDate}
-                // endDate={endDate}
-                // setEndDate={setEndDate}
-
+                 totalPages={totalPages}
+                 categories={categories}
+                 setCategory={setCategory}
+                 setEntrepot={setEntrepot}
+                 entrepots={entrepots}
+             
               />
         </section>
   )
