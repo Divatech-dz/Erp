@@ -23,7 +23,7 @@ interface ReusableSheetProps {
 export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, title, contentType, invoiceDetails}) => {
 
     const formatAmount = (amount: number): string => {
-        return amount.toLocaleString('fr-FR', {style: 'currency', currency: 'DZD'});
+        return amount?.toLocaleString('fr-FR', {style: 'currency', currency: 'DZD'});
     }
 
     const renderContent = () => {
@@ -44,12 +44,12 @@ export const ReusableSheet: React.FC<ReusableSheetProps> = ({open, onClose, titl
                         <TableBody>
                             {invoiceDetails && invoiceDetails?.produits?.map((produit: any) => {
                                 return (
-                                    <TableRow key={produit?.produit?.id}>
-                                        <TableCell>{produit?.stock?.reference}</TableCell>
-                                        <TableCell>{produit?.stock?.name}</TableCell>
-                                        <TableCell>{formatAmount(produit?.unitprice) || formatAmount(produit?.stock?.prix_achat)} dzd</TableCell>
+                                    <TableRow key={produit?.produit?.id || produit?.id}>
+                                        <TableCell>{produit?.stock?.reference || produit?.reference}</TableCell>
+                                        <TableCell>{produit?.stock?.name || produit?.name}</TableCell>
+                                        <TableCell>{formatAmount(produit?.unitprice) || formatAmount(produit?.price)} dzd</TableCell>
                                         <TableCell>{produit?.quantity }</TableCell>
-                                        <TableCell>{formatAmount(produit?.totalprice) || formatAmount(produit?.stock?.prix_achat*produit?.quantity)} dzd</TableCell>
+                                        <TableCell>{formatAmount(produit?.totalprice) || formatAmount(produit?.price*produit?.quantity)} dzd</TableCell>
                                     </TableRow>
                                 );
                             })}

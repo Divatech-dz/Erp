@@ -2,12 +2,11 @@ import axiosInstance from "@/lib/axios";
 
 import Cookies from "js-cookie";
 
-export const getMarque = async () => {
-   
-    
+export const getBonTransfert = async () => {
+  
     try {
-        const { data } = await axiosInstance.get("/tiers/Fournisseur/", {
-           
+        const { data } = await axiosInstance.get("/inventory/BonTransfert/", {
+          
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${Cookies.get('token')}`

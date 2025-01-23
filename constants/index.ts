@@ -83,8 +83,8 @@ export const sidebarLinks: SidebarLink[] = [
             },
 
             {
-                name: 'Bons de retour',
-                link: '/bonsRetour',
+                name: 'Bons de transferts',
+                link: '/bonsTransfert',
             },
         ],
         label: 'Stock',
@@ -633,7 +633,6 @@ export const verificationStockColumn:rowsType[]=[
     id: '5',
     name: 'Qté Pc'
   },
-
   {
     id: '6',
     name: 'Qté reçu'
@@ -648,11 +647,11 @@ export const verificationStockColumn:rowsType[]=[
   },
   {
     id: '9',
-    name: 'Qté vendu	'
+    name: 'Qté vendu'
   },
   {
     id: '10',
-    name: 'Qté retour	'
+    name: 'Qté retour'
   },
   {
     id: '11',
@@ -660,7 +659,7 @@ export const verificationStockColumn:rowsType[]=[
   },
   {
     id: '12',
-    name: 'Quantité réelle'
+    name: 'Qté réelle'
   }]
 
 export const NotesColumn: rowsType[] = [
@@ -1185,7 +1184,37 @@ export const bonEntreeColumn:rowsType[]=[
 
   {
     id: '5',
-    name: 'Créer Par'
+    name: 'Utilisateur'
+  },
+
+]
+
+
+export const bonTransfertColumn:rowsType[]=[
+
+  {
+    id: '1',
+    name: 'IdBon'
+  },
+
+  {
+    id: '2',
+    name: 'Date Bon'
+  },
+
+  {
+    id: '3',
+    name: 'Entrepot Départ'
+  },
+
+  {
+    id: '4',
+    name: 'Entrepot Arrivé'
+  },
+
+  {
+    id: '5',
+    name: 'Utilisateur'
   },
 
 ]
@@ -1199,17 +1228,36 @@ export const keyMapEntrepot = {
 export const keyMapBonEntreeProduct = {
   idBon:"IdBon",
   dateBon : "Date Bon",
-  "entrepot.name" : "Entrepot",
+  entrepot_name : "Entrepot",
   "fournisseur.acronym" : "Fournisseur",
-  "user.username" : "Créer Par",
+  username : "Utilisateur",
   produits: "produits",
   unitprice:"Prix unitaire"
 }
 
 export const keyMapVerificationStock = {
-    reference: "Référence",
-    name: "Désignation",
-    quantity: "Quantité"
+      reference: "Référence",
+      name:"Désignation",
+      entrepot:"Entrepot",
+      quantity_entered:"Qté entrée",
+      quantity_pc:"Qté Pc",
+      quantity_received:"Qté reçu",
+      quantity_transfered:"Qté transféré",
+      quantity_util_production:"Qté en BP",
+      quantity_sold:"Qté vendu",
+      quantity_returned:"Qté retour",
+      quantity_inreal:"Qté actuelle",
+      quantity_expected:"Qté réelle",
+      quantity:"Quantité"
+};
+
+export const keyMapBonTransfertProduct = {
+  idBon:"IDBon",
+  dateBon : "Date Bon",
+  entrepot_depart_name : "Entrepot départ",
+  entrepot_arrive_name : "Entrepot arrivé",
+  "utilisateur.username" : "Utilisateur",
+  produits: "produits",
 };
 
 export const keyMapPrix = {

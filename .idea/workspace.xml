@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/banques/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Clients)/banques/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/entrepotsProduits/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/etatStock/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/etatStock/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/families/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/families/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/listePrix/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(Produits)/listePrix/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(links)/(comptoire)/cloture/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(links)/(comptoire)/cloture/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/auth-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/componentsRegistry.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/componentsRegistry.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/table-components/reusable-sheet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/icons.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/context/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/context/Filters.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/icons/comptoir.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/icons/comptoir10.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/icons/comptoir16.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/icons/comptoir5.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.d.ts" afterDir="false" />
-    </list>
+    <list default="true" id="cbbf06be-f5dd-49e7-8312-c92aa332907a" name="Changes" comment="Fixed conflicts" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,6 +156,7 @@
       <workItem from="1737287700731" duration="12475000" />
       <workItem from="1737372711090" duration="1899000" />
       <workItem from="1737491555431" duration="15000" />
+      <workItem from="1737620674108" duration="1711000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed conflicts">
       <option name="closed" value="true" />

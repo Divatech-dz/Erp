@@ -39,6 +39,12 @@ export const DataTable = ({
                               salesUsers,
                               isLoading,
                               setClientType,
+                              fournisseurs,
+                              setFournisseur,
+                              entrepots,
+                              setEntrepot,
+                              setEntrepotDepart,
+                              setEntrepotArrive
                           }: TableProps) => {
     const pathname = usePathname();
     const [visibleColumns, setVisibleColumns] = useState(
@@ -119,6 +125,12 @@ export const DataTable = ({
                 setClientType={setClientType}
                 setUserId={setUserId}
                 salesUsers={salesUsers}
+                setFournisseur={setFournisseur}
+                fournisseurs={fournisseurs}
+                setEntrepot={setEntrepot}
+                entrepots={entrepots}
+                setEntrepotDepart={setEntrepotDepart}
+                setEntrepotArrive={setEntrepotArrive}
             />
 
             {tableData?.length === 0 ? (
@@ -171,11 +183,10 @@ export const DataTable = ({
                                             height={20}
                                             width={20}
                                             onClick={() => {
-                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname === "/bonsDevis") {
+                                                if (pathname === "/bons-commande" || pathname === "/Facture" || pathname ==="/bonsEntree" || pathname ==="/bonsTransfert") {
                                                     setInvoiceDetails(row)
                                                     openModalWithContent("table")
                                                 }
-
                                             }}
                                         />
                                         <Image src={icons.Edit} alt="Edit" height={20} width={20}/>
@@ -185,14 +196,12 @@ export const DataTable = ({
                             ))}
                         </TableBody>
                     </Table>
-
                     <PaginationTable
                         totalPages={totalPages ?? 0}
                         currentPage={currentPage ?? 1}
                         setCurrentPage={setCurrentPage ?? (() => {
                         })}
                     />
-
                     <ReusableSheet
                         open={openModal}
                         onClose={() => setOpenModal(false)}
